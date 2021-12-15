@@ -1,0 +1,73 @@
+.show{display:block;}
+.hide{display:none;}
+
+div[class^="sync-id-"] div.views-field-field-image {display: block; height: 100%; width: 33%;}
+
+
+div[class^="sync-id-"] div.cemls-list-title{float: left; font-weight: bold; width: auto;}
+div[class^="sync-id-"] div.views-field-field-cemls {float:right;width:64%;}
+
+div[class^="sync-id-"] div.views-field-field-cemls div span.views-label{float: left; font-weight: bold; font-size: 14px;}
+div[class^="sync-id-"] div.views-field-field-cemls div div.field-content{float: right;  font-size: 14px;}
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-cemls-1{width:100%; float:right;}
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-status{float: right;}
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level1,
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level2,
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level3,
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level4,
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level5-1,
+div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-level6{
+    width: 100%;float:left;
+}
+
+.view-display-id-page_5 .views-exposed-form {width:54%;display: inline-block;}
+.addthis_inline_share_toolbox.widget{width:44%;display: inline-block;position: absolute;top: 14px;text-align: right; right: 4px;}
+.view-display-id-page_5 .views-exposed-form .views-exposed-widget label{width: 100px;text-align: right;padding-right:5px;}
+#views-exposed-form-graves-page-2 .addthis_inline_share_toolbox{position: inherit;width:auto;}
+
+#content-after{bottom: auto; float: left; left: 0; position: absolute;  width: auto;}
+
+.view-display-id-page_5 .views-exposed-form {width: 70%;padding-bottom:5px;}
+.view-display-id-page_5 .view-filters #edit-field-cemls-value-wrapper{width:184px !important;padding:0 !important;}
+.view-display-id-page_5 .view-filters input[type="text"]{max-width: 60px;}
+.view-display-id-page_5 .view-filters #edit-field-status-value-wrapper{width:240px !important;padding:0 !important;}
+.view-display-id-page_5 .views-exposed-form .views-exposed-widget label{width: 72px;text-align: right;padding-right:5px !important;font-size:16px !important;}
+.view-display-id-page_5 .view-filters #edit-field-status-value-wrapper label{width: 50px; padding: .5em 0 0 0;}
+.view-display-id-page_5 .views-exposed-form .form-type-bef-checkbox label{font-size: 14px !important;}
+.view-display-id-page_5 .views-exposed-form .views-exposed-widget input[type="checkbox"]{width:20px;padding-right:5px;}
+.view-display-id-page_5 .views-exposed-form .views-exposed-widgets .views-exposed-widget .views-widget{width: 100%;text-align:left;margin-left: 2%;}
+.view-display-id-page_5 .views-exposed-form  .views-exposed-widget .form-submit{padding: 5px 10px !important; font-size:14px;}
+.view-display-id-page_5 .views-exposed-form  .views-exposed-widget:last-child{width:80px !important;}
+
+@media only screen and (max-width:1024px) {
+    div[class^="sync-id-"] div.views-field-field-image {width: 40%;}
+    div[class^="sync-id-"] div.views-field-field-image img{max-width:80px;max-height:80px;}
+    div[class^="sync-id-"] div.views-field-field-cemls{width:55%;}
+    div[class^="sync-id-"] div.cemls-list-title{font-size: 12px;}
+    div[class^="sync-id-"] div.views-field-field-cemls div.views-field-field-status{font-size:10px;}
+}
+
+@media only screen and (max-width:940px) {
+    .view-display-id-page_5 .view-filters input[type="text"]{width: 150px;}
+    .addthis_inline_share_toolbox.widget{top: 68px;}
+}
+@media only screen and (max-width:926px) {
+    .addthis_inline_share_toolbox.widget{top: 54px;}
+}
+@media all and (min-width:720px) and (max-width:770px) {
+    .addthis_inline_share_toolbox.widget{width: auto; right: 0;}
+}
+@media only screen and (max-width:718px) {
+    .view-display-id-page_5 .views-exposed-form {padding-bottom:0px;}
+    .addthis_inline_share_toolbox.widget{width: 100%; right: 10px;  position: relative;top:0;display: block;}
+}
+@media only screen and (max-width:414px) {
+    #content-after {position: inherit;}
+}
+.node-form .form-entity-complete{display:none;}
+.view-manage-subscription-plans .view-content table.views-view-grid td{vertical-align: top; border: 1px solid #ededed;padding: 0;}
+.view-manage-subscription-plans .view-content table.views-view-grid td .views-field-title{font-size: 24px; border-bottom: 1px solid #ededed;text-align: center;}
+.view-manage-subscription-plans .view-content table.views-view-grid td .views-field-field-plan-price{background-color: #f8f8f8;padding:30px 40%;}
+.view-manage-subscription-plans .view-content table.views-view-grid td.col-last .views-field-field-plan-mode{background-color: #f8f8f8;padding:30px 40%;}
+.view-manage-subscription-plans .view-content table.views-view-grid td .views-field-field-plan-price .field-content:before{content: "$";}
+.view-manage-subscription-plans .view-content table.views-view-grid td.col-4 .views-field-field-plan-price{display:none;}

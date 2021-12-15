@@ -1,0 +1,12 @@
+.group-plot-info {
+	clear: both;
+}
+
+.group-plot-info .form-wrapper {
+	float: left;
+	width: 20%;
+}
+
+#edit-email-verify {
+	display: none;
+}

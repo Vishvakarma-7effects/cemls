@@ -1,0 +1,372 @@
+.logo-mini img {
+    max-height: 15px;
+
+}
+.logo-lg img {
+    max-height: 40px;
+
+}
+
+.exposed-group-container {
+    position: relative;
+    float: left;
+    width: 188px;
+    height: 32px;
+    max-height: 32px;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 20px;
+    *border: 1px solid #088;
+}
+
+.exposed-group-set {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    *border: 1px solid #f00;
+    z-index: 2000;
+}
+
+.exposed-group-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    border: 1px solid rgba(210, 214, 217, 1);
+    z-index: 2100;
+}
+
+.exposed-group-title {
+    float: left;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 10px;
+    color: #6d6d6d;
+    font-style: italic;
+    background-color: rgba(255,255,255,1);
+}
+
+.exposed-group-select {
+    float: right;
+    position: relative;
+    height: 30px;
+    width: 34px;
+    background-color: rgba(238,238,238,1);
+}
+
+.cselect-x, .cselect-y {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 2101;
+}
+
+.cselect-x1 {
+    height: 16px;
+    width: 3px;
+    margin-left: 12px;
+    margin-top: 8px;
+    background-color: rgba(109,109,109,1);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.cselect-y1 {
+    height: 16px;
+    width: 3px;
+    margin-left: 21px;
+    margin-top: 8px;
+    background-color: rgba(109,109,109,1);
+    -webkit-transform: rotate(45deg); /* Safari and Chrome */
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 2102;
+}
+
+.exposed-cform-textbox {
+    width: 188px;
+    padding: 0 10px 0 10px;
+    height: 32px;
+    border: 1px solid rgba(210, 214, 217, 1);
+}
+
+.exposed-cform-textbox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #6d6d6d;
+  font-style: italic;
+  opacity: 1;
+}
+
+.exposed-cform-textbox::-moz-placeholder { /* Firefox 19+ */
+  color: #6d6d6d;
+  font-style: italic;
+  opacity: 1;
+}
+
+.exposed-cform-textbox:-ms-input-placeholder { /* IE 10+ */
+  color: #6d6d6d;
+  font-style: italic;
+  opacity: 1;
+}
+
+.exposed-cform-textbox:-moz-placeholder { /* Firefox 18- */
+  color: #6d6d6d;
+  font-style: italic;
+  opacity: 1;
+}
+
+.exposed-group-content {
+    position: absolute;
+    top: -2000px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(210, 214, 217, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.exposed-group-content .views-exposed-widget {
+    width: 100%;
+    padding: 0;
+}
+
+.exposed-cform-widget {
+    width: 100%;
+}
+
+.exposed-cform-widget .form-type-bef-checkbox {
+    position: relative;
+    overflow: hidden;
+}
+
+.exposed-cform-widget .form-type-bef-checkbox, .exposed-cform-select {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 20px;
+    margin: 0 0 2px 0;
+}
+
+.exposed-cform-cmark {
+    position: absolute;
+    top: 12px;
+    left: 4px;
+    width: 11px;
+    height: 11px;
+    *background-color: rgba(128,128,128,1);
+    border: 1px solid rgba(128,128,128,1);
+    z-index: 2101;
+}
+
+.exposed-cform-cmarked {
+    background-color: rgba(128,128,128,1);
+}
+
+.cmark-x {
+    position: absolute;
+    top: 1px;
+    left: 0px;
+    width: 8px;
+    height: 4px;
+    background-color: rgba(255,255,255,0);
+    border-bottom: 1px solid rgba(255,255,255,1);
+    border-left: 1px solid rgba(255,255,255,1);
+    -webkit-transform: rotate(-45deg); /* Safari and Chrome */
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg); /* IE 9 */
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.exposed-cform-widget input[type=checkbox] {
+    position: absolute;
+    top: 0px;
+    left: -330px;
+    *margin: 0 0 10px 10px;
+    opacity: 0.7;
+}
+
+.exposed-cform-widget .form-type-textfield {
+    padding: 0 20px;
+}
+
+.exposed-cform-widget input[type=text] {
+    width: 144px;
+    padding: 0 10px 0 10px;
+    height: 32px;
+    border: 1px solid rgba(210, 214, 217, 1);
+}
+
+.exposed-group-content label {
+    color: #434a4d;
+}
+
+.exposed-group-content label.exposed-level-label {
+    padding: 0 20px;
+}
+
+.exposed-custom-panel .form-submit {
+    margin-top: 0px !important;
+}
+
+.exposed-custom-panel .views-exposed-widget {
+    padding: 0 0 0 0 !important;
+}
+
+.exposed-custom-panel .views-submit-button {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.exposed-custom-panel .views-reset-button {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.exposed-group-enter {
+    display: none;
+}
+
+.clr {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    display: block;
+
+}
+.skin-green .main-header .logo {
+    background-color: #67ae26;
+
+}
+
+.skin-green .main-header .navbar {
+    background-color: #7bcf2d;
+}
+
+/* Irene css */ 
+a { color: #007e09; }
+
+a:hover, a:active, a:focus { outline: none; text-decoration: none; color: #7bcf2d; }
+
+.callout.callout-info, .alert-info, .label-info, .modal-info .modal-body { background-color: #7bcf2d !important;}
+
+.callout.callout-info { border-color: #007e09 !important; }
+
+.btn-primary { background-color: #7bcf2d; border-color: #007e09; }
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover { background-color: #007e09; }
+
+.progress-bar-green, .progress-bar-success { background-color: #7bcf2d !important; }
+
+.skin-green .main-header .logo { background: #7bcf2d !important; }
+
+.skin-green .main-header .logo:hover { background-color: #007e09 !important;  }
+
+.skin-green .main-header li.user-header { background-color: #007e09; }
+
+.skin-green .main-header .navbar .sidebar-toggle:hover { background-color: #007e09; }
+
+.skin-green .main-header .navbar .nav > li > a:hover, .skin-green .main-header .navbar .nav > li > a:active,
+.skin-green .main-header .navbar .nav > li > a:focus, .skin-green .main-header .navbar .nav .open > a,
+.skin-green .main-header .navbar .nav .open > a:hover, .skin-green .main-header .navbar .nav .open > a:focus,
+.skin-green .main-header .navbar .nav > .active > a { background: #007e09; color: #ffffff; }
+
+
+.box { border-top: 3px solid #7bcf2d !important; }
+
+.box.box-info { border-top-color: #7bcf2d !important; }
+
+.nav-tabs-custom>.nav-tabs>li.active { border-top-color: #007e09 !important; }
+
+.group-plot-info .form-wrapper { width: 200px !important; }
+
+.skin-green .sidebar-menu>li:hover>a, .skin-green .sidebar-menu>li.active>a { border-left-color: #7bcf2d !important; }
+
+.exposed-group-set { z-index: 0; position: absolute; z-index: inherit; }
+
+.exposed-group-header { position: absolute; z-index: 0; }
+
+.exposed-group-content { position: relative; z-index: 9999999; }
+
+
+
+/* End Irene css */ 
+
+@media only screen and (max-width: 1540px) {
+    #exposed-group-filter-og_group_ref_target_id {
+        display: block;
+        clear: both;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    #exposed-group-filter-og_group_ref_target_id {
+        display: none;
+    }
+}
+
+/*
+
+
+.logged-in.admin-menu .main-sidebar {
+  padding-top: 55px;
+  z-index: 50;
+}
+
+.logged-in .main-header {
+  position: relative;
+  max-height: 100px;
+  z-index: 500;
+}
+
+.control-sidebar {
+  position: absolute;
+  padding-top: 50px !important;
+  z-index: 60 !important;
+}
+
+.control-sidebar.control-sidebar-open+.control-sidebar-bg,
+.control-sidebar+.control-sidebar-bg {
+  z-index: 50;
+}
+
+.logo-lg img {
+  width: 45px;
+}
+
+.logo-mini img {
+  width: 40px;
+}
+
+*/
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
