@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@include('layouts.header')
+@include('oldLayouts.header')
 
 <!-- Chromecast SDK -->
 <script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>

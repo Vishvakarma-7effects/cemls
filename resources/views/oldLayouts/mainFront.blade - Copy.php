@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Optional theme -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-        <link rel="stylesheet" href="{{ asset('public/assets/css/cmls/index.css') }}">
-        <link rel="stylesheet" href="{{ asset('public/assets/css/swiper.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/cmls/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/swiper.css') }}">
     </head>
     <body class="html front not-logged-in no-sidebars page-node page-node- page-node-28175 node-type-page">
         <div class="body">
@@ -21,7 +21,7 @@
                         <div class="header-row">
                             <div class="header-column">
                                 <div class="header-logo">
-                                    <a href="{{url('/')}}" title="Home" rel="home" id="logo"><img src="{{ asset('public/assets/img/logo.png') }}" alt="Home" data-sticky-top="33"></a>
+                                    <a href="{{url('/')}}" title="Home" rel="home" id="logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Home" data-sticky-top="33"></a>
                                 </div>
                             </div>
                             <div class="header-column header-column-valign-top">
@@ -36,13 +36,12 @@
                                     <?php
 
                                     use Illuminate\Support\Facades\DB;
-
-$menus = DB::table('menus')
-                                            ->select('id', 'menuName', 'customLink', 'newTab')
-                                            ->where('rank_order', '>', 0)
-                                            ->where('onHome', 'yes')
-                                            ->orderBy('rank_order', 'asc')
-                                            ->get();
+                                        $menus = DB::table('menus')
+                                        ->select('id', 'menuName', 'customLink', 'newTab')
+                                        ->where('rank_order', '>', 0)
+                                        ->where('onHome', 'yes')
+                                        ->orderBy('rank_order', 'asc')
+                                        ->get();
                                     ?>
 
                                     @foreach($menus as $key => $menu)
@@ -172,7 +171,7 @@ $menus = DB::table('menus')
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="{{ asset('public/assets/js/swiper.js') }}"></script>
+        <script src="{{ asset('assets/js/swiper.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         @yield('scripts')
     </body>

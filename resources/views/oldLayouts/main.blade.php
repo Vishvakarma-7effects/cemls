@@ -24,8 +24,8 @@
 
         <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
         <!--<link rel="stylesheet" href="{{ asset('public/assets/css/theme/orange.css') }}">-->
-        <link rel="stylesheet" href="{{ asset('public/assets/css/theme/green.css') }}">
-        <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/theme/green.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
         <section class="header-main sticky-top">
@@ -34,7 +34,7 @@
                     <div class="col-6 col-lg-3 order-0 order-lg-0 header-logo-wrapper">
                         <div class="brand-wrap">
                             <a href="{{ url('/') }}">
-                                <img class="logo img-fluid" src="{{ asset('public/assets/img/cemls_logo_2.png') }}" alt="360 X Stream">
+                                <img class="logo img-fluid" src="{{ asset('img/cemls_logo_2.png') }}" alt="360 X Stream">
                             </a>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </section>
-        <!--@include('layouts.header')-->
+        {{-- @include('oldLayouts.header') --}}
 
         <!--============Main content=============-->
         <div>
@@ -300,13 +300,13 @@
                                                });
                                            });
         </script>
-		
+
 		 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
-  
-   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>       
+
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
- 
+
 <script type="text/javascript">
 
 $(document).ready(function() {

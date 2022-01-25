@@ -1,8 +1,8 @@
-@extends('layouts.mainFront')
+@extends('oldLayouts.mainFront')
 @section('content')
 <!-- main content -->
 	<style>
-	
+
 
 .md-layer-4-0-0 {
     z-index: 997 !important;
@@ -12,7 +12,7 @@
     font-weight: 800;
     font-family: "Open Sans";
 }
-	
+
 
 .md-layer-4-0-1 {
     z-index: 998 !important;
@@ -85,9 +85,9 @@
 }
 	</style>
 	<div role="main" class="main">
-	
-	  	  
-	  
+
+
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('region') -->
@@ -97,7 +97,7 @@
 -->
 <!-- BEGIN OUTPUT from 'modules/system/region.tpl.php' -->
   <div class="region region-before-content">
-    
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('block') -->
@@ -110,15 +110,15 @@
 <!-- BEGIN OUTPUT from 'modules/block/block.tpl.php' -->
 <div id="block-md-slider-md-slider-58d99d6460efc" class="block block-md-slider">
 
-    
+
   <div class="content">
-    
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('md_slider_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/md_slider.tpl.php' -->
 <div id="md-slider-4-block" class="md-slide-items" data-thumb-width='100' data-thumb-height='75'>
-          
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_slide_render') -->
@@ -126,20 +126,21 @@
 
   <div class="md-slide-item slide-1" data-timeout='8000' data-transition="fade" data-thumb-type='image' data-thumb-alt='' data-thumb='https://staging.cemeterylistingservice.com/sites/default/files/styles/md_slider_4_thumb/public/slide-bg_0.jpg?itok=vYkcvYrd'>
     <div class="md-mainimg" style="">
-              <img src="{{ asset('public/assets/sites/default/files/slide-bg_0.jpg') }}"  alt="" />
-          </div>
-        <div class="md-objects">
-              
+		<img src="{{ asset('assets/sites/default/files/slide-bg_0.jpg') }}"  alt="" />
+	</div>
+<div class="md-objects">
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
   <div class="md-object md-layer-4-0-0" data-x='579' data-y='109' data-width='500' data-height='95' data-start='1100' data-stop='7500' data-easein='fadeInDown' data-easeout='fadeOutUp'>
-                        SHOWCASE              </div>
+                        SHOWCASE
+	</div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -149,7 +150,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -159,7 +160,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -169,13 +170,13 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
-<!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
+<!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php'/var/www/html/newfile/cemls/public/ass -->
   <div class="md-object md-layer-4-0-4 fdsfds" data-x='0' data-y='56' data-width='620' data-height='325' data-start='300' data-stop='7200' data-easein='fadeInRight' data-easeout='fadeOutLeft'>
-                        <img src="{{ asset('public/assets/sites/default/files/devices.png') }}"  alt="devices.png" />
+                        <img src="{{ asset('assets/css/cmls/sites/default/files/devices.png') }}"  alt="devices.png" />
               </div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
@@ -185,18 +186,18 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_slide_render.tpl.php' -->
 
-          
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_slide_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_slide_render.tpl.php' -->
 
-  <div class="md-slide-item slide-2" data-timeout='8200' data-transition="fade" data-thumb-type='image' data-thumb-alt='' data-thumb="{{ asset('public/assets/sites/default/files/styles/md_slider_4_thumb/public/slide-bg_13810.jpg?itok=PBYTSv7I') }}">
+  <div class="md-slide-item slide-2" data-timeout='8200' data-transition="fade" data-thumb-type='image' data-thumb-alt='' data-thumb="{{ asset('assets/sites/default/files/styles/md_slider_4_thumb/public/slide-bg_13810.jpg?itok=PBYTSv7I') }}">
     <div class="md-mainimg" style="">
-              <img src="{{ asset('public/assets/sites/default/files/slide-bg_1.jpg') }}"  alt="" />
+              <img src="{{ asset('assets/css/cmls/sites/default/files/slide-bg_1.jpg') }}"  alt="dghsjfhkj" />
           </div>
         <div class="md-objects">
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -206,39 +207,39 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
   <div class="md-object md-layer-4-1-1" data-x='82' data-y='181' data-width='434' data-height='74' data-start='1400' data-stop='7800' data-easein='fadeIn' data-easeout='fadeOutUp'>
-                        LEAD GENERATOR              </div>
+                        LEAD GENERATOR             </div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
   <div class="md-object md-layer-4-1-2" data-x='375' data-y='161' data-width='37' data-height='10' data-start='600' data-stop='7800' data-easein='fadeIn' data-easeout='fadeOutUp'>
-                        <img src="{{ asset('public/assets/sites/default/files/png-1_0.png') }}"  alt="png-1.png" />
+                        <img src="{{ asset('assets/css/cmls/sites/default/files/png-1_0.png') }}"  alt="png-1.png" />
               </div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
   <div class="md-object md-layer-4-1-3" data-x='175' data-y='160' data-width='37' data-height='10' data-start='600' data-stop='7800' data-easein='fadeIn' data-easeout='fadeOutUp'>
-                        <img src="{{ asset('public/assets/sites/default/files/png-1.png') }}"  alt="png-1.png" />
+                        <img src="{{ asset('assets/sites/default/files/png-1.png') }}"  alt="png-1.png" />
               </div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -248,7 +249,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -258,7 +259,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -268,18 +269,18 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
   <div class="md-object md-layer-4-1-7 fdsfds" data-x='672' data-y='13' data-width='480' data-height='365' data-start='3300' data-stop='8000' data-easein='fadeInDown' data-easeout='fadeOutUp'>
-                        <img src="{{ asset('public/assets/sites/default/files/connect-with-users.png') }}"  alt="connect-with-users.png" />
+                        <img src="{{ asset('assets/sites/default/files/connect-with-users.png') }}"  alt="connect-with-users.png" />
               </div>
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -289,7 +290,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_layers_render.tpl.php' -->
 
-              
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_layers_render') -->
@@ -304,7 +305,7 @@
 
 <!-- END OUTPUT from 'sites/all/modules/md_slider/templates/front/front_slide_render.tpl.php' -->
 
-          
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('front_slide_render') -->
@@ -335,7 +336,7 @@
 <!-- BEGIN OUTPUT from 'modules/block/block.tpl.php' -->
 <div id="block-block-18" class="block block-block">
 
-    
+
   <div class="content">
     <div class="home-intro">
 	<div class="container">
@@ -373,7 +374,7 @@
 <!-- BEGIN OUTPUT from 'modules/block/block.tpl.php' -->
 <div id="block-block-23" class="block block-block">
 
-    
+
   <div class="content">
     <div class="container">
 
@@ -416,25 +417,25 @@
 <!-- BEGIN OUTPUT from 'modules/block/block.tpl.php' -->
 <div id="block-views-home-concept-block" class="block block-views">
 
-    
+
   <div class="content">
-    
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('views_view') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/views/theme/views-view.tpl.php' -->
 <div class="view view-home-concept view-id-home_concept view-display-id-block view-dom-id-2f99bb45579423d41967747669f8b100">
-        
-  
-  
+
+
+
       <div class="view-content">
-      
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('views_view_unformatted') -->
 <!-- BEGIN OUTPUT from 'sites/all/modules/views/theme/views-view-unformatted.tpl.php' -->
   <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
-    
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('node') -->
@@ -453,55 +454,55 @@
 		<div class="row center">
 			<span class="sun"></span>
 			<span class="cloud"></span>
-			
+
 						<div class="col-md-2 col-md-offset-1">
 				<div class="process-image" data-appear-animation="bounceIn">
 				  <a href="#">
-					  <img src="sites/default/files/manage.png" alt="item">
+					  <img src="{{ asset('assets/img/manage.png') }}" alt="item">
 				  </a>
 					<strong>Manage Listings</strong>
 				</div>
 			</div>
-						
+
 						<div class="col-md-2">
 				<div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="200">
 					 <a href="#">
-					  <img src="sites/default/files/leads.png" alt="item">
+					  <img src="{{ asset('assets/img/leads.png') }}" alt="item">
 				  </a>
 					<strong>Generate Leads</strong>
 				</div>
 			</div>
-						
+
 						<div class="col-md-2">
 				<div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="400">
 					 <a href="#">
-					  <img src="sites/default/files/showcase.png" alt="item">
+					  <img src="{{ asset('assets/img/showcase.png') }}" alt="item">
 				  </a>
 					<strong>Showcase Property</strong>
 				</div>
 			</div>
-						
-						<div class="col-md-4 col-md-offset-1">
+
+			<div class="col-md-4 col-md-offset-1">
 				<div class="project-image">
 				  					<div id="fcSlideshow" class="fc-slideshow">
 						<ul class="fc-slides">
 						  						    <li>
 						      <a href="#">
-							      <img src="sites/default/files/home-page-screenshot-map.png" alt="" >
+							      <img src=" {{ asset('assets/sites/default/files/home-page-screenshot-map.png') }}" alt="" >
 						      </a>
-						    </li>  
+						    </li>
 													    <li>
 						      <a href="#">
-							      <img src="sites/default/files/home-page-screenshot-map-detail2.png" alt="" >
+							      <img src="{{ asset('assets/sites/default/files/home-page-screenshot-map-detail2.png') }}" alt="" >
 						      </a>
-						    </li>  
-									  
+						    </li>
+
 						</ul>
 					</div>
 															<strong class="our-work">CemLS Interface</strong>
 				</div>
 			</div>
-						
+
 		</div>
 
 	</div>
@@ -513,12 +514,12 @@
 <!-- END OUTPUT from 'sites/all/modules/views/theme/views-view-unformatted.tpl.php' -->
 
     </div>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 </div>
 <!-- END OUTPUT from 'sites/all/modules/views/theme/views-view.tpl.php' -->
 
@@ -534,15 +535,15 @@
 	  <div id="content" class="content full">
 	    <div class="container">
 	      <div class="row">
-		      
+
 			    <div class="col-md-12">
 		        			    </div>
-			    
-			    			
+
+
 					<div class="col-md-12">
-					  
-			     				      			      		
-					  
+
+
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('region') -->
@@ -552,7 +553,7 @@
 -->
 <!-- BEGIN OUTPUT from 'modules/system/region.tpl.php' -->
   <div class="region region-content">
-    
+
 
 <!-- THEME DEBUG -->
 <!-- CALL: theme('block') -->
@@ -565,7 +566,7 @@
 <!-- BEGIN OUTPUT from 'modules/block/block.tpl.php' -->
 <div id="block-block-19" class="block block-block">
 
-    
+
   <div class="content">
     <div class="row">
 	<div class="col-md-8">
@@ -717,14 +718,14 @@
 <!-- BEGIN OUTPUT from 'modules/node/node.tpl.php' -->
 <div id="node-28175" class="node node-page clearfix" about="/front-page" typeof="foaf:Document">
 
-  
+
       <span property="dc:title" content="Front Page" class="rdf-meta element-hidden"></span>
-  
+
   <div class="content">
       </div>
 
-  
-  
+
+
 </div>
 
 <!-- END OUTPUT from 'modules/node/node.tpl.php' -->
@@ -733,17 +734,17 @@
 
 <!-- END OUTPUT from 'modules/system/region.tpl.php' -->
 
-			      
+
 					</div>
-			  
-				  			    
+
+
 			  </div>
-	    </div>  
-	  </div>  
-	  
+	    </div>
+	  </div>
+
 	</div>
 
-    
+
 <!--end main content-->
 @endsection
 @section('scripts')

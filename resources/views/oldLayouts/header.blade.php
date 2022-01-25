@@ -7,7 +7,7 @@
 
                     use Illuminate\Support\Facades\DB;
 
-$menus = DB::table('menus')
+                            $menus = DB::table('menus')
                             ->select('id', 'menuName', 'customLink', 'newTab')
                             ->where('rank_order', '>', 0)
                             ->where('onHome', 'yes')

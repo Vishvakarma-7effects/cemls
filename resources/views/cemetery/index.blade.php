@@ -47,7 +47,7 @@
 //                                                foreach ($events as $key => $value) {
 //
                                                 ?>
-<!--                                                <tr>
+                                                <!--                                                <tr>
                                                     <td>0</td>
                                                     <td>0</td>
                                                     <td>0</td>
@@ -74,16 +74,21 @@
                                                     <td>50 min</td>
                                                     <td>$99</td>
                                                     <td style="display: flex;justify-content: space-around;">
-                                                        <a class="btn btn-sm btn-facebook" target="_blank" href="{{url('event/'.$event->urlSlug)}}">View</a>
-                                                        <a class="btn btn-sm btn-facebook" href="{{url('attendee/create/'.$event->id)}}">Invite</a>
+                                                        <a class="btn btn-sm btn-facebook" target="_blank"
+                                                            href="{{url('event/'.$event->urlSlug)}}">View</a>
+                                                        <a class="btn btn-sm btn-facebook"
+                                                            href="{{url('attendee/create/'.$event->id)}}">Invite</a>
                                                         @can('event_edit')
-                                                        <a class="btn btn-sm btn-success" href="{{url('events/'.$event->id.'/edit')}}">Edit</a>
+                                                        <a class="btn btn-sm btn-success"
+                                                            href="{{url('events/'.$event->id.'/edit')}}">Edit</a>
                                                         @endcan
                                                         @can('event_delete')
-                                                        <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+                                                        <form action="{{ route('events.destroy',$event->id) }}"
+                                                            method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-danger">Delete</button>
                                                         </form>
                                                         @endcan
                                                     </td>

@@ -43,7 +43,7 @@ Route::get('register', function () {
 Route::get('event/{urlSlug}', [HomeController::class, 'event']);
 Route::get('page/{urlSlug}', [HomeController::class, 'page']);
 Route::get('pricing', [HomeController::class, 'packages']);
-Route::match(['get', 'post'], 'organizer-registration/{step}', [HomeController::class, 'organizerReg']);
+Route::match(['get', 'post'], 'organizer-registration/{step}', [HomeController::class,'organizerReg']);
 Route::post('saveOrganizer', [HomeController::class, 'saveOrganizer']);
 Route::post('saveAttendee', [HomeController::class, 'saveAttendee']);
 Route::post('set-package', [HomeController::class, 'setPackage']);
@@ -59,7 +59,18 @@ Route::view('create-orgnizer', 'createOrgniser')->middleware('auth');
 Route::view('manage-orgnizer', 'showOrgniser')->middleware('auth');
 
 Route::resource('events', EventController::class)->middleware('auth');
+Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePeople']);
+Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember']);
+Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync']);
+
+Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit']);
 Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+// Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+// Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
+Route::get('plots/getEdit', [PlotController::class, 'getEdit']);
+Route::get('plots/customeNew', [PlotController::class, 'customeNew']);
+Route::resource('plots', PlotController::class)->middleware('auth');
+
 Route::resource('pages', PageController::class)->middleware('auth');
 Route::resource('menus', MenuController::class)->middleware('auth');
 Route::resource('venues', VenueController::class)->middleware('auth');
@@ -67,12 +78,23 @@ Route::resource('organizers', OrganizerController::class)->middleware('auth');
 Route::resource('packages', PackageController::class)->middleware('auth');
 Route::resource('categories', CategoryController::class)->middleware('auth');
 
-Route::get('role/assign/{roleId}', [RoleController::class, 'assignRole'])->middleware('auth');
-Route::post('role/savePermission/{roleId}', [RoleController::class, 'savePermission'])->middleware('auth');
-Route::resource('role', RoleController::class)->middleware('auth');
+    // Roles
+// Route::delete('role/destroy', 'RoleController@massDestroy')->name('role.massDestroy');
+// Route::resource('role', 'RoleController');
+
+// Route::get('role/assign/{roleId}', [RoleController::class, 'assignRole'])->middleware('auth');
+// Route::post('role/savePermission/{roleId}', [RoleController::class, 'savePermission'])->middleware('auth');
+
+Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('auth');
+
+Route::resource('roles', RoleController::class)->middleware('auth');
+
+// Route::resource('photos', PhotoController::class);
 
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
+
+Route::get('users/getSignIn', [UserController::class, 'getSignIn']);
 Route::resource('user', UserController::class)->middleware('auth');
 
 Route::resource('camera', CameraController::class)->middleware('auth');
@@ -95,4 +117,3 @@ Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpai
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');
 Route::resource('inbox', InboxController::class)->middleware('auth');
-Route::resource('plot', PlotController::class)->middleware('auth');

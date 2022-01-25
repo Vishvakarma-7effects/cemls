@@ -1,4 +1,4 @@
-@extends('layouts.mainFront')
+@extends('oldLayouts.mainFront')
 @section('content')
 <!-- main content -->
 <div role="main" class="main">

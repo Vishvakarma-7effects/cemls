@@ -30,19 +30,16 @@ class RoleController extends Controller {
         $this->middleware('permission:' . $permssion_slug . '_delete', ['only' => ['destroy']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index() {
-        //
-        $data['roles'] = Role::select('id', 'name')
+        $roles = Role::select('id', 'name')
                 ->when(!$this->isAdmin, function ($query) {
                     return $query->where('created_by', $this->userId);
                 })
                 ->get();
-        return view('showRole', $data);
+        // return view('showRole', $data);
+        return view('admin.roles.index', compact('roles'));
+
     }
 
     /**
@@ -69,7 +66,6 @@ class RoleController extends Controller {
         $data['permissions'] = $permissions;
         $data['role_id'] = $roleId;
         $data['role_model'] = new Role();
-//        dd($permissions);
 
         return view('assignRole', $data);
     }
@@ -100,12 +96,7 @@ class RoleController extends Controller {
         return redirect()->route('role.index')->with('success', 'Permission assigned succesfuuly');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request) {
         //
         $rules = [
@@ -115,19 +106,14 @@ class RoleController extends Controller {
 
         $role = Roles::create(['name' => strtolower($request->name)]);
 
-//        $role = new Role;
-//        $role->name = strtolower($request->name);
-//        $role->save();
+    //        $role = new Role;
+    //        $role->name = strtolower($request->name);
+    //        $role->save();
 
         return redirect()->route('role.index')->with('success', 'Role Add Succesfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Role $role) {
         //
     }
@@ -138,9 +124,18 @@ class RoleController extends Controller {
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role) {
+    public function edit(Request $request) {
         //
-        return view('editRole', compact('role'));
+        return view('admin.roles.edit', compact('roles'));
+
+        // return view('editRole', compact('role'));
+    }
+
+
+    public function getEdit(Request $request) {
+
+        return view('admin.roles.edit');
+
     }
 
     /**

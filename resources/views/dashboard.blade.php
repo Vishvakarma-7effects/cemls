@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('oldLayouts.main')
 
 @section('content')
 <section class="section-pagetop bg-gray">
@@ -15,7 +15,7 @@
 <section class="section-content padding-y bg-white">
     <div class="container">
         <div class="row">
-            @include('layouts.sidebar')
+            @include('oldLayouts.sidebar')
             <div class="col-lg-9 mt-4 mt-lg-0">
                 <div class="card box">
                     <div class="card-body">

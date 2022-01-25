@@ -28,15 +28,15 @@
                 </ul>
             </li>
             @endcan
-          
-           
-           
-           
-           
-           
 
-          
-           
+
+
+
+
+
+
+
+
 
             <li class="nav-item">
                 <a href="{{ url('user/profile') }}" class="nav-link">Account Details</a>
@@ -46,6 +46,17 @@
                 <a href="{{ url('pages') }}" class="nav-link">Page</a>
             </li>
             @endcan
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">Manage User</a>
+                <ul class="nav flex-column ml-3 collapse" id="role-collapse">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('user') }}">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('role') }}">Role & Permission</a>
+                    </li>
+                </ul>
+            </li>
             @can('role_user_main')
             <li class="nav-item">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">Manage User</a>
@@ -59,6 +70,8 @@
                 </ul>
             </li>
             @endcan
+
+
             @can('menu_main')
             <li class="nav-item">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#setting2-collapse" aria-expanded="false">Setting</a>

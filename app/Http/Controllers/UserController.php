@@ -26,10 +26,11 @@ class UserController extends Controller {
      */
     public function index() {
         //
-        $users = User::all('id', 'name', 'email');
+        $users = User::all();
         $data['users'] = $users;
         //echo $events;
-        return view('showUser', $data);
+        return view('admin.users.index', compact('users'));
+        // return view('showUser', $data);
     }
 
     /**
@@ -45,12 +46,7 @@ class UserController extends Controller {
         return view('createUser', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request) {
         //
         $rules = [
@@ -74,22 +70,10 @@ class UserController extends Controller {
         return redirect()->route('user.index')->with('success', 'User Add Succesfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $user) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user) {
         //
         $roles = DB::table('roles')->get();
@@ -145,7 +129,10 @@ class UserController extends Controller {
 
         //dd($data);
         //echo $events;
-        return view('accountDetails', $data);
+        // return view('accountDetails', $data);
+        return view('admin.users.myAccount', $data);
+
+        
     }
 
     public function updateProfile(Request $request) {
@@ -179,6 +166,11 @@ class UserController extends Controller {
         $user->update();
 
         return redirect('user/profile')->with('success', 'Profile Updated');
+    }
+
+    public function getSignIn(){
+        return view('admin.users.getSignIn');
+
     }
 
 }

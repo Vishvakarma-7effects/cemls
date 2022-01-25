@@ -32,12 +32,13 @@ class HomeController extends Controller {
     }
 
     public function index() {
+        // echo "hy";exit;
         $data = [];
-
         return view('index', $data);
     }
 
     public function about() {
+        echo "fd";exit;
         $data = [];
 
         return view('frontendAbout', $data);
@@ -70,12 +71,12 @@ class HomeController extends Controller {
     }
 
     public function event($urlSlug) {
-//$test = $this->event_model->getEventById('id');
+        //$test = $this->event_model->getEventById('id');
 
         $id = $this->getIdFromUrl($urlSlug);
 
         $data_fields = ['title', 'type'];
-//$event = Event::find($id, $data_fields);
+        //$event = Event::find($id, $data_fields);
         $event = Event::find($id);
 
         $venue = DB::table('venues')
@@ -94,11 +95,11 @@ class HomeController extends Controller {
             $data['overlay'] = 0;
         }
 
-//        $data = array(
-//            'user' => $user
-//        );
-//        $cookie_name = "user";
-//        setcookie($cookie_name, json_encode($data), time() + (18000), "/");
+        //        $data = array(
+        //            'user' => $user
+        //        );
+        //        $cookie_name = "user";
+        //        setcookie($cookie_name, json_encode($data), time() + (18000), "/");
 
 
         $data['event'] = $event;

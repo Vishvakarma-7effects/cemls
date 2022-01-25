@@ -1,4 +1,4 @@
-@extends('layouts.mainFront')
+@extends('oldLayouts.mainFront')
 @section('content')
 <!-- main content -->
 <div role="main" class="main">
@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-	
+
 	<div id="googlemaps" class="google-map"></div>
 
     <div class="region region-before-content">
