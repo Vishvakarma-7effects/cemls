@@ -28,10 +28,10 @@ font-family: sans-serif;
  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
    <li class="breadcrumb-item"><a href="#">Home</a></li>
-   <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+   <li class="breadcrumb-item active" aria-current="page">Edit    User</li>
   </ol>
  </nav>
- <h1 class="mheading">Edit User</h1>
+ <h1 class="mheading">Edit    User</h1>
  <section class="bxshadow">
 
   <div class="cntbox">
