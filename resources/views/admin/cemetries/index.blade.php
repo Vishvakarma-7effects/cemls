@@ -56,7 +56,7 @@
                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                             <ul class="moptionul">
                                                 <i class="fa fa-caret-up"></i>
-                                                <li><a href="#">Edit</a></li>
+                                                <li><a href="{{ url('cemeterys/getEdit')}}">Edit</a></li>
                                                 <li><a href="#">Delete</a></li>
                                             </ul>
                                         </div>

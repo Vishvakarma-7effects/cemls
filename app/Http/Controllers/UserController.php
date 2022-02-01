@@ -170,8 +170,8 @@ class UserController extends Controller {
         return redirect('user/profile')->with('success', 'Profile Updated');
     }
 
-    public function getSignIn(){
-        return view('admin.users.getSignIn');
+    public function getEdit(){
+        return view('admin.users.getEdit');
 
     }
     public function communication(){

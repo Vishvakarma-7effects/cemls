@@ -64,7 +64,7 @@ Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePe
 Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember']);
 Route::get('cemeterys/manageMember', [CemeteryController::class, 'manageMember']);
 Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync']);
-
+Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 Route::get('cemeterys/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
 Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
@@ -99,7 +99,7 @@ Route::get('communication', [UserController::class, 'communication'])->middlewar
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
 
-Route::get('users/getSignIn', [UserController::class, 'getSignIn']);
+Route::get('users/getEdit', [UserController::class, 'getEdit'])->middleware('auth');
 Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('camera', CameraController::class)->middleware('auth');
