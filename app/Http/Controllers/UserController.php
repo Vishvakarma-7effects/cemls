@@ -43,7 +43,9 @@ class UserController extends Controller {
         $roles = DB::table('roles')->get();
 
         $data['roles'] = $roles;
-        return view('createUser', $data);
+        // return view('createUser', $data);
+        return view('admin.users.new', $data);
+
     }
 
     
@@ -78,7 +80,7 @@ class UserController extends Controller {
         //
         $roles = DB::table('roles')->get();
 
-//        dd($user);
+        // dd($user);
         return view('editUser', compact('user', 'roles'));
     }
 
@@ -171,6 +173,10 @@ class UserController extends Controller {
     public function getSignIn(){
         return view('admin.users.getSignIn');
 
+    }
+    public function communication(){
+    return view('admin.communication');
+    
     }
 
 }

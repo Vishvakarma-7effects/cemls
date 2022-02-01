@@ -15,7 +15,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Role</label>
                         <div class="col-lg-7 col-sm-9 d-flex justify-content-between">
 
@@ -32,16 +32,16 @@
                                 <label class="form-check-label col-form-label" for="inlineCheckbox3">Role3</label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
-                  
+
 
                     <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0 ">Message</label>
                         <div class="col-lg-7 col-sm-9">
                             <textarea class="form-control" rows="4" cols="50"></textarea>
-                           
+
                         </div>
                     </div>
 

@@ -24,9 +24,10 @@ class DashboardController extends Controller {
 
     //
     public function index() {
+        // echo "hy";exit;
         //event list view goes here
-//        $usr = Auth::user();
-//        $usr->removeRole(3);
+        //        $usr = Auth::user();
+        //        $usr->removeRole(3);
 
         if (Auth::user()->hasRole(3)) {
             $data['total_venue'] = 'N/A';
@@ -56,6 +57,22 @@ class DashboardController extends Controller {
 
             return view('dashboard', $data);
         }
+       
+    }
+
+    public function widgets()
+    {
+    return view('admin.widgets');
+    }
+
+    public function contactUs()
+    {
+    return view('admin.contactUs');
+    }
+
+    public function aboutUs()
+    {
+    return view('admin.aboutUs');
     }
 
 }

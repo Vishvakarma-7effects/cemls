@@ -37,12 +37,12 @@
 
                                     @endforeach
 
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Role2</td>
                                         <td>
                                             <a type="button" class="btn btn-outline-dark role-edit">Edit</a>
                                         </td>
-                                    </tr>
+                                    </tr> -->
 
                                 </tbody>
                             </table>

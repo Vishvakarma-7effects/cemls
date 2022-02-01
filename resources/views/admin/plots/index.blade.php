@@ -9,7 +9,7 @@
             </ol>
         </nav>
         <div class="text-right mb-4 pb-1">
-            <button class="btn_mid btn_green">Add Plot</button>
+            <a class="btn_mid btn_green" href="{{ url('plots/create')}}">Add Plot</a>
         </div>
 
         <div class="row">

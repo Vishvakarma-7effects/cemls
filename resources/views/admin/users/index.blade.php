@@ -12,7 +12,7 @@
             <div class="col-md-5 col-6">
                 <h1 class="mheading">All Users</h1>
             </div>
-            <div class="col-md-7 col-6 text-right"><button class="btn_mid btn_green">Add Users</button></div>
+            <div class="col-md-7 col-6 text-right"><a  href="{{ url('users/create')}}" class="btn_mid btn_green">Add Users</a></div>
         </div>
 
 
@@ -23,14 +23,14 @@
                         <a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab"
                             aria-controls="Cemetery" aria-selected="true">Cemetery User</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" id="public-tab" data-toggle="tab" href="#public" role="tab"
                             aria-controls="Public" aria-selected="false">Public User</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
                             aria-controls="Vendor" aria-selected="false">Vendor</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <div class="col-lg-4">

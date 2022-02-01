@@ -58,10 +58,15 @@ Route::view('address', 'address')->middleware('auth');
 Route::view('create-orgnizer', 'createOrgniser')->middleware('auth');
 Route::view('manage-orgnizer', 'showOrgniser')->middleware('auth');
 
+
 Route::resource('events', EventController::class)->middleware('auth');
 Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePeople']);
 Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember']);
+Route::get('cemeterys/manageMember', [CemeteryController::class, 'manageMember']);
 Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync']);
+
+Route::get('cemeterys/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
+Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
 Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit']);
 Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
@@ -90,12 +95,12 @@ Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('aut
 Route::resource('roles', RoleController::class)->middleware('auth');
 
 // Route::resource('photos', PhotoController::class);
-
+Route::get('communication', [UserController::class, 'communication'])->middleware('auth');
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
 
 Route::get('users/getSignIn', [UserController::class, 'getSignIn']);
-Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('camera', CameraController::class)->middleware('auth');
 
@@ -103,6 +108,10 @@ Route::get('attendee/create/{id}', [AttendeeController::class, 'create'])->middl
 Route::resource('attendee', AttendeeController::class)->middleware('auth');
 
 Route::get('events/edits/{id}', [EventController::class, 'editByParam']);
+
+Route::get('aboutUs', [DashboardController::class, 'aboutUs'])->middleware('auth');
+Route::get('contactUs', [DashboardController::class, 'contactUs'])->middleware('auth');
+Route::get('widgets', [DashboardController::class, 'widgets'])->middleware('auth');
 Route::get('dashboard', [DashboardController::class, 'index']);
 
 Route::get('billing/paid-invoices', [BillingController::class, 'paid_invoices'])->middleware('auth');

@@ -8,7 +8,7 @@
                 <a href="{{ url('inbox') }}" class="nav-link">Mailbox</a>
             </li>
 			  <li class="nav-item">
-                <a href="{{ url('plot') }}" class="nav-link">Plots</a>
+                <a href="{{ url('plots') }}" class="nav-link">Plots</a>
             </li>
             @can('event_main')
             <li class="nav-item">

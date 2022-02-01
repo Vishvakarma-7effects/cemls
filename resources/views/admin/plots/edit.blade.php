@@ -83,7 +83,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12">
               <div class="form-group row">
                 <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
@@ -96,7 +96,7 @@
               </div>
             </div>
 
-          </div>
+          </div> -->
 
           <div class="row">
             <div class="col-md-7">
@@ -190,9 +190,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
+            <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Name</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <input type="text" class="form-control" value="Rozet Cemetery CCCD"id="" placeholder="">
+              <input type="text" class="form-control" value="Rozet Plot CCCD"id="" placeholder="">
             </div>
           </div>
           <div class="form-group row">

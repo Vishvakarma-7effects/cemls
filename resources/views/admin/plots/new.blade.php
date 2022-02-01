@@ -19,10 +19,10 @@ datalist {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Property</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Cemetery</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Plot</li>
             </ol>
         </nav>
-        <h1 class="mheading">Add Cemetery</h1>
+        <h1 class="mheading">Add Plot</h1>
        <section class="bxshadow">
                 <div class="cntbox">
                     <div class="row">
@@ -85,7 +85,7 @@ datalist {
                               </div>
                               
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                           <div class="col-md-12">
                               <div class="form-group row">
                                 <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
@@ -98,7 +98,7 @@ datalist {
                               </div>
                             </div>
                            
-                        </div> 
+                        </div>  -->
                         
                         <div class="row">
                           <div class="col-md-7">
@@ -187,7 +187,7 @@ datalist {
                         </div>
                         </div>      
                       <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Name</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
                           <input type="text" class="form-control" id="" placeholder="">
                         </div>
