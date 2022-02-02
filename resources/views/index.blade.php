@@ -34,7 +34,7 @@
 
       <section class="samebx">
         <div class="container-lg">
-            <h2 class="mheading clearfix">Properties near you <a href="#" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
+            <h2 class="mheading clearfix">Properties near you <a href="{{ url('cemeterys/cemeteryListView')}}" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
 
             <div class="owl-carousel owl-theme" id="prop_slide">
               <div class="item wow zoomIn">

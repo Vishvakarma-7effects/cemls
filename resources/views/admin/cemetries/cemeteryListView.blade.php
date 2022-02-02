@@ -37,7 +37,7 @@
 
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="#">
+              {{-- <a href="#" > --}}
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -50,11 +50,11 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              </a>
+              {{-- </a> --}}
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="#">
+              {{-- <a href="#"> --}}
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -67,11 +67,11 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              </a>
+              {{-- </a> --}}
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="#">
+              {{-- <a href="#"> --}}
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -84,7 +84,7 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              </a>
+              {{-- </a> --}}
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
@@ -133,6 +133,207 @@
             </div>
           </div>
         </div>
+        
       </section>
+
+
+      <div class="modal fade dtlpopup" id="mdtlModal"  role="dialog" aria-labelledby="searchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog mCustomScrollbar" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="clearfix pphead">
+              <ul class="ulshare">
+                <li><a href="#"><i class="far fa-heart"></i> Save</a></li>
+                <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
+              </ul>
+              <div class="adbx">
+                <img src="{{ asset('newPublic/images/adimg.jpg') }}">
+              </div>
+            </div>
+            <div id="slider1_container"
+              style="position: relative; top: 0px; left: 0px; width: 900px; height: 477px; background: #fff; overflow: hidden;">
+              <div u="slides"
+                style="cursor: move; position: absolute; left: 0px; top: 0px; width: 900px; height: 356px; overflow: hidden;">
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/01.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-01.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/02.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-02.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/03.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-03.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/04.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-04.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/05.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-05.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/06.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-06.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/07.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-07.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/08.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-08.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/09.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-09.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/10.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-10.jpg') }}" />
+                </div>
+      
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/11.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-11.jpg') }}" />
+                </div>
+                <div>
+                  <img u="image" src="{{ asset('newPublic/images/slide/12.jpg') }}" />
+                  <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-12.jpg') }}" />
+                </div>
+              </div>
+              <!-- Arrow Left -->
+              <span u="arrowleft" class="jssora05l" style="top: 158px; left: 8px;">
+              </span>
+              <!-- Arrow Right -->
+              <span u="arrowright" class="jssora05r" style="top: 158px; right: 8px"></span>
+              <!-- thumbnail navigator container -->
+              <div u="thumbnavigator" class="jssort01" style="left: 0px; bottom: 0px;">
+                <!-- Thumbnail Item Skin Begin -->
+                <div u="slides" style="cursor: default;">
+                  <div u="prototype" class="p">
+                    <div class=w>
+                      <div u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class=c></div>
+                  </div>
+                </div>
+                <!-- Thumbnail Item Skin End -->
+              </div>
+              <!--#endregion Thumbnail Navigator Skin End -->
+            </div>
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="ppinner">
+                  <div class="mdtlp clearfix">
+                    <div class="mdtlp_lft">
+                      <h2 class="mdtlphead">St. Josephs Cemetery</h2>
+                      <address>Sacramento CA</address>
+                    </div>
+                    <div class="mdtlp_rht">
+                      <div class="pricebx"><bdi>Price</bdi><sup>$</sup> 3,000 <span>Onwards</span></div>
+                    </div>
+                  </div>
+                  <p>Cemetery360® Software provides the industry a way to promote their business and offerings remotely,
+                    during in-home presentations, and year-round, where weather conditions restrict in-person visits.
+                    Cemetery360® Software captures ground view 360 imagery with our own capturing and recording equipment.</p>
+                  <p><a href="#">Read More</a></p>
+                  <div class="row">
+                    <div class="col-6 fw-414">
+                      <a href="#">
+                        <div class="boxfour">
+                          <h2 class="w-100">Order from CemLS and get free shipping</h2>
+                          <img src="{{ asset('newPublic/images/pbtslide-img1.jpg') }}" class="boxfour_img" alt="">
+                        </div>
+                      </a>
+                    </div>
+      
+                    <div class="col-6 fw-414">
+                      <a href="#">
+                        <div class="boxfour">
+                          <h2 class="w-100">Order from CemLS and get free shipping</h2>
+                          <img src="{{ asset('newPublic/images/pbtslide-img1.jpg') }}" class="boxfour_img" alt="">
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 pl-3 pl-lg-0">
+                <div class="cntbx">Contact Cemetery</div>
+                <div class="ppborder">
+                  <div class="agentbx clearfix">
+                    <div class="agentbx_img">
+                      <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
+                    </div>
+                    <div class="agentcnt">
+                      <h3>John Doe</h3>
+                      <h4>
+                        Sales Manager
+                        <span class="d-block">(916) 870-4003</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="agentbx clearfix">
+                    <div class="agentbx_img">
+                      <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
+                    </div>
+                    <div class="agentcnt">
+                      <h3>John Doe</h3>
+                      <h4>
+                        Sales Manager
+                        <span class="d-block">(916) 870-4003</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="agentbx clearfix">
+                    <div class="agentbx_img">
+                      <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
+                    </div>
+                    <div class="agentcnt">
+                      <h3>John Doe</h3>
+                      <h4>
+                        Sales Manager
+                        <span class="d-block">(916) 870-4003</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="agentbx clearfix">
+                    <div class="agentbx_img">
+                      <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
+                    </div>
+                    <div class="agentcnt">
+                      <h3>John Doe</h3>
+                      <h4>
+                        Sales Manager
+                        <span class="d-block">(916) 870-4003</span>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      
+
+@endsection
+
+@section('scripts')
+@parent
+<script>
+  // debugger
+  $('.boxinner').click(function(){
+    // debugger
+        $('#mdtlModal').modal('toggle');
+  })
+</script>
 
 @endsection
