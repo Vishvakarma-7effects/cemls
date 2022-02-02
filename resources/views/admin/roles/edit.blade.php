@@ -1,109 +1,59 @@
-    @extends('layouts.admin')
+@extends('layouts.admin')
 
-    @section('content')
-    {{-- {{dd($user)}} --}}
+@section('content')
     <section class="panelrht">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Role</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+            <li class="breadcrumb-item"><a href="#">Property</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Roles</li>
             </ol>
         </nav>
-        <h1 class="mheading">Edit</h1>
-       <section class="bxshadow">
+        <h1 class="mheading">Edit Roles</h1>
+        <section class="bxshadow">
             <div class="cntbox">
-                <div class="form-group row">
-                    <label for="inputtext" class="col-sm-2 col-form-label">  Role Name</label>
-                    <div class="col-sm-4 ">
-                      <input type="text" class="form-control" id="inputtext" placeholder="Cashier Name" required="">
-                    </div>
-                </div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+            @endif
 
-
-            <div class="cntbox">
-                <h2 class="sheading">Permission</h2>
-
+            <form role="form" method="post" action="{{ url('updateRole')}}" accept-charset="UTF-8">
+            <input type="hidden" class="form-control" name="id" value="{{$roles->id}}">
+            @csrf 
                 <div class="row">
-                    <div class="col-md-6 mb-4">
-
-                        <div class="nk-block-actions d-flex justify-content-between border-bottom">
-                            <label for="title1" class="role-sheading ">Title 1</label>
-                            <div class="custom-control custom-switch mr-n2 " >
-                                <input  type="checkbox" class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="first" >
-                                <label class="custom-control-label" for="first"></label>
-                            </div>
+                    <div class="col-lg-9 pr-lg-0">
+                        <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Name</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                            <input type="text" class="form-control" name="name" value="{{$roles->name}}">
+                        </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-10 col-md-11 mt-3">
-                                <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-                            </div>
-                            <div class="col-2 col-md-1 mt-3 text-center">
-                                <input type="checkbox" id="defaultCheck" name="example2">
-                            </div>
+                        <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Guard Name</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                        <input type="text" class="form-control" name="guard_name" value="{{$roles->guard_name}}">
                         </div>
-
-                        <div class="row">
-                            <div class="col-10 col-md-11 mt-3">
-                                <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-                            </div>
-                            <div class="col-2 col-md-1 mt-3 text-center">
-                                <input type="checkbox" id="defaultCheck" name="example2">
-                            </div>
                         </div>
 
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="nk-block-actions d-flex justify-content-between border-bottom ">
-                            <label for="title2" class="role-sheading" class="col-form-label">Title 2</label>
-
-                            <div class="custom-control custom-switch mr-n2 ">
-                                <input type="checkbox"  class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="second" >
-                                <label class="custom-control-label" for="second"></label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-10 col-md-11  mt-3">
-                                <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-                            </div>
-                            <div class="col-2 col-md-1  mt-3 text-center">
-                                <input type="checkbox" id="defaultCheck" name="example2">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-10 col-md-11  mt-3 text-center">
-                                <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-                            </div>
-                            <div class="col-2 col-md-1  mt-3 text-center">
-                                <input type="checkbox" id="defaultCheck" name="example2">
-                            </div>
-                        </div>
-                    </div>
-
+                    
                 </div>
-
-
-
-
-
-
             </div>
+            
 
             <div class="cntbox">
-                <button class="btn_mid btn_green">Update</button>
-            </div>
+                <button class="btn_mid btn_green" type="submit">Add</button>
+                <button class="btn_mid btn_none ml-3">Cancel</button>
+                </div>
+        </form> 
         </section>
-
-
- 34m 21s
-
-
 
     </section>
 
-
-    @endsection
+@endsection

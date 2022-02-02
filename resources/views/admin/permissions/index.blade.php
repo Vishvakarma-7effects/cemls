@@ -5,12 +5,12 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Roles</li>
+                <li class="breadcrumb-item active" aria-current="page">Permissions</li>
             </ol>
         </nav>
  
         <div class="">
-                <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add</button></a>
+                <a href="{{route('permissions.create')}}"><button class="btn_mid btn_green">Add</button></a>
         </div>
         <br>
  
@@ -22,10 +22,10 @@
 
  
         <div id="userTabContent" class="tab-content">
-            <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
+            <div class="tab-pane fade show active" id="switchone" permission="tabpanel" aria-labelledby="switchone-tab">
                 <div id="myTabContent" class="tab-content">
 
-                    <div class="tab-pane fade show active" id="cemetery" role="tabpanel" aria-labelledby="cemetery-tab">
+                    <div class="tab-pane fade show active" id="cemetery" permission="tabpanel" aria-labelledby="cemetery-tab">
                         <div class="table-responsive mb-5 bxshadow">
                             <table class="table  main_table mb-0">
                                 <thead>
@@ -38,29 +38,29 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach($roles as $roleKey=>$roleVal)
+                                    @foreach($permissions as $permissionKey=>$permissionVal)
                                         <tr>
-                                            <td>{{ $roleVal->name}}</td>
-                                            <td>{{ $roleVal->guard_name}}</td>
+                                            <td>{{ $permissionVal->name}}</td>
+                                            <td>{{ $permissionVal->guard_name}}</td>
                                             <td>
-                                                <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
+                                                <a  href="{{route('permissions.edit', $permissionVal->id)}}" class="btn btn-outline-dark permission-edit">Edit</a>
                                             </td>
                                             <!-- <td>
-                                            <form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
+                                            <form action="{{ route('permissions.destroy', $permissionVal->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
+                                                <button class="btn btn-outline-dark permission-edit" onclick="return myFunction();">Delete</button>
                                             </form>
-                                                <a  href="" class="btn btn-outline-dark role-edit">Delete</a>
+                                                <a  href="" class="btn btn-outline-dark permission-edit">Delete</a>
                                             </td> -->
                                         </tr>
 
                                     @endforeach
 
                                     <!-- <tr>
-                                        <td>Role2</td>
+                                        <td>permission2</td>
                                         <td>
-                                            <a type="button" class="btn btn-outline-dark role-edit">Edit</a>
+                                            <a type="button" class="btn btn-outline-dark permission-edit">Edit</a>
                                         </td>
                                     </tr> -->
 
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade pb-4" id="switchtwo" role="tabpanel" aria-labelledby="switchtwo-tab">
+            <div class="tab-pane fade pb-4" id="switchtwo" permission="tabpanel" aria-labelledby="switchtwo-tab">
                 <div class="mframe">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30703867.071679905!2d64.40183608457193!3d20.04915895569306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1641668183864!5m2!1sen!2sin"

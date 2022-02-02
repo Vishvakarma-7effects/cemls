@@ -90,9 +90,25 @@ Route::resource('categories', CategoryController::class)->middleware('auth');
 // Route::get('role/assign/{roleId}', [RoleController::class, 'assignRole'])->middleware('auth');
 // Route::post('role/savePermission/{roleId}', [RoleController::class, 'savePermission'])->middleware('auth');
 
-Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('auth');
+// Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('auth');
 
 Route::resource('roles', RoleController::class)->middleware('auth');
+Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth');
+
+// Route::get('/managerole', 'App\Http\Controllers\RoleController@index')->middleware('auth');
+// Route::get('/addrole', 'App\Http\Controllers\RolesController@add');
+// Route::post('/saverole', 'App\Http\Controllers\RolesController@save');
+// Route::get('editrole/{id}', 'App\Http\Controllers\RolesController@edit');
+// Route::get('deleterole/{id}', 'App\Http\Controllers\RolesController@delete');
+// Route::post('/updaterole', 'App\Http\Controllers\RolesController@update');
+// Route::get('viewrole/{id}', 'App\Http\Controllers\RolesController@view');
+
+// Route::resource('roles', BlogController::class);
+
+Route::resource('permissions', RoleController::class)->middleware('auth');
+Route::post('updatepermissions', [RoleController::class, 'update'])->middleware('auth');
+
+
 
 // Route::resource('photos', PhotoController::class);
 Route::get('communication', [UserController::class, 'communication'])->middleware('auth');

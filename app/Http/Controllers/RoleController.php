@@ -13,30 +13,38 @@ class RoleController extends Controller {
     public $isAdmin;
     public $userId;
 
-    public function __construct() {
+    public function __construct() 
+    {
+        // dd(Auth::user()->hasRole(1));
 
         $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
+        $this->middleware(function ($request, $next) 
+        {
+            
             $this->isAdmin = Auth::user()->hasRole(1);
             $this->userId = Auth::user()->id;
 
             return $next($request);
         });
+        
 
-        $permssion_slug = 'role_user';
-        $this->middleware('permission:' . $permssion_slug . '_main|' . $permssion_slug . '_add|' . $permssion_slug . '_edit|' . $permssion_slug . '_delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:' . $permssion_slug . '_add', ['only' => ['create', 'store']]);
-        $this->middleware('permission:' . $permssion_slug . '_edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:' . $permssion_slug . '_delete', ['only' => ['destroy']]);
+        // $permssion_slug = 'role_user';
+        // $this->middleware('permission:' . $permssion_slug . '_main|' . $permssion_slug . '_add|' . $permssion_slug . '_edit|' . $permssion_slug . '_delete', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:' . $permssion_slug . '_add', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:' . $permssion_slug . '_edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:' . $permssion_slug . '_delete', ['only' => ['destroy']]);
     }
 
 
-    public function index() {
-        $roles = Role::select('id', 'name')
+    public function index() 
+    {
+        
+        $roles = Role::select('id', 'name','guard_name')
                 ->when(!$this->isAdmin, function ($query) {
                     return $query->where('created_by', $this->userId);
                 })
                 ->get();
+        // dd($roles);
         // return view('showRole', $data);
         return view('admin.roles.index', compact('roles'));
 
@@ -47,9 +55,9 @@ class RoleController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-        //
-        return view('createRole');
+    public function create() 
+    {
+        return view('admin.roles.new');
     }
 
     public function assignRole($roleId) {
@@ -97,20 +105,20 @@ class RoleController extends Controller {
     }
 
 
-    public function store(Request $request) {
-        //
-        $rules = [
-            'name' => 'required'
-        ];
-        $request->validate($rules);
+    public function store(Request $request) 
+    {
 
-        $role = Roles::create(['name' => strtolower($request->name)]);
+        $request->validate([
+            'name' => 'required',
+            'guard_name' => 'required'
+        ]);
 
-    //        $role = new Role;
-    //        $role->name = strtolower($request->name);
-    //        $role->save();
+        $role = new Role;
+        $role->name = $request->name;
+        $role->guard_name = $request->guard_name;
+        $role->save();
 
-        return redirect()->route('role.index')->with('success', 'Role Add Succesfully');
+        return redirect()->route('roles.index')->with('success', 'Role Add Succesfully');
     }
 
 
@@ -124,19 +132,12 @@ class RoleController extends Controller {
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request) {
-        //
+    public function edit($id)
+    {
+        $roles = Role::findOrFail($id);
         return view('admin.roles.edit', compact('roles'));
-
-        // return view('editRole', compact('role'));
     }
 
-
-    public function getEdit(Request $request) {
-
-        return view('admin.roles.edit');
-
-    }
 
     /**
      * Update the specified resource in storage.
@@ -145,18 +146,21 @@ class RoleController extends Controller {
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role) {
-        //
-        $rules = [
+    public function update(Request $request) 
+    {
+
+        $request->validate([
             'name' => 'required',
-        ];
+            'guard_name' => 'required'
+        ]);
 
-        $request->validate($rules);
-
+        $role = Role::findOrFail($request->id);
         $role->name = $request->name;
-        $role->update();
+        $role->guard_name = $request->guard_name;
+        $role->save();
 
-        return redirect()->route('role.index')->with('success', 'Role Updated Succesfully');
+
+        return redirect()->route('roles.index')->with('success', 'Role Updated Succesfully');
     }
 
     /**
@@ -165,8 +169,13 @@ class RoleController extends Controller {
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role) {
-        //
+    public function destroy($id) 
+    {
+        $Role = Role::findOrFail($id);
+
+        $Role->delete();
+        
+        return redirect()->route('roles.index')->with('success', 'Role Deleted Succesfully');;
     }
 
 }

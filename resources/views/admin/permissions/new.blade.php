@@ -5,10 +5,10 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Property</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Roles</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Permissions</li>
             </ol>
         </nav>
-        <h1 class="mheading">Add Roles</h1>
+        <h1 class="mheading">Add Permissions</h1>
         <section class="bxshadow">
         @if ($errors->any())
     <div class="alert alert-danger">
@@ -19,7 +19,7 @@
         </ul>
     </div>
 @endif
-        <form method="post" action="{{ route('roles.store')}}" accept-charset="UTF-8">
+        <form method="post" action="{{ route('permissions.store')}}" accept-charset="UTF-8">
             @csrf
             <div class="cntbox">
             

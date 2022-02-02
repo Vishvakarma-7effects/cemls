@@ -78,7 +78,9 @@
                         <div class="form-group row">
                         <label for="" class="col-sm-4 col-form-label pr-0">Address Line 1</label>
                         <div class="col-sm-8 pl-3 pl-md-4">
-                            <input type="text" class="form-control" id="" placeholder="" value="{{ $user->address}}">
+                            <input type="text" class="form-control" id="" placeholder="" value="{{$user->address}}">
+                            <input type="text" class="form-control" name="name" value="{{$roles->name}}">
+
                         </div>
                         </div>
                     </div>
