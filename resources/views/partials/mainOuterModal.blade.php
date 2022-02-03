@@ -1,5 +1,5 @@
  <!-- Modal -->
-      <div class="modal fade smodal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+      <!-- <div class="modal fade smodal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -66,7 +66,7 @@
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                      <h2 class="pt-2">What type of property do you prefer?..</h2>
+                      <h2 class="pt-2">What type of property do you prefer?....</h2>
                       <ul class="typeul">
                         <li>
                           <div class="myradio d-inline-block">
@@ -152,4 +152,4 @@
             </div>
           </div>
         </div>
-      </div>|
+      </div>| -->

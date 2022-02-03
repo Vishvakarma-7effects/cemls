@@ -14,11 +14,11 @@
           </div>
 
           <div class="carousel-caption">
-            <h3>Explore properties, <br/>products and services in your area</h3>
-            <form class="sform clearfix">
+            <h3>Explore properties in your area</h3>
+            <form class="sform clearfix" action="{{ url('cemeterys/cemeteryListView')}}" method="GET">
               <img src="{{ asset('newPublic/images/locicon.png') }}" class="locicon">
               <input class="form-control" type="text" placeholder="Enter an address, locality or ZIP code" name="">
-              <button class="btn_search" type="button" data-toggle="modal" data-target="#searchModal"><span>Search</span> <i class="fa fa-search"></i></button>
+              <button class="btn_search" type="submit" data-toggle="modal" data-target="#searchModal"><span>Search</span> <i class="fa fa-search"></i></button>
             </form>
 
             
@@ -173,7 +173,7 @@
         </div>
       </section>
 
-      <section class="samebx">
+      {{-- <section class="samebx">
         <div class="container-lg">
             <h2 class="mheading clearfix">Shop on CemLS<sup>®</sup> <a href="#" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
             <div class="row">
@@ -549,9 +549,9 @@
 
             </div>
         </div>
-      </section>
+      </section> --}}
 
-      <section class="samebx bg_grey">
+      {{-- <section class="samebx bg_grey">
         <div class="container-lg">
           <div class="planbx">
             <h2 class="w-100">Funeral Insurance Plans</h2>
@@ -560,9 +560,9 @@
             <img src="{{ asset('newPublic/images/plan-img.jpg')}}" class="planbx_img" />
           </div>
         </div>
-      </section>
+      </section> --}}
 
-      <section class="samebx">
+      {{-- <section class="samebx">
         <div class="container-lg">
             <h2 class="mheading clearfix">Top Services <a href="#" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
 
@@ -666,9 +666,9 @@
 
             </div>
         </div>
-      </section>
+      </section> --}}
 
-      <section class="samebx bg_grey border-bottom-0">
+      {{-- <section class="samebx bg_grey border-bottom-0">
         <div class="container-lg">
             <div class="owl-carousel owl-theme" id="bottom_slide">
               <div class="item wow zoomIn">
@@ -736,7 +736,7 @@
 
             </div>
         </div>
-      </section>
+      </section> --}}
 
      
       {{-- @section('script') --}}

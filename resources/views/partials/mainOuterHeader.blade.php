@@ -67,7 +67,7 @@
 
 
         <div class="navcollapse justify-content-end collapse  navbar-collapse" id="mnbar">
-          <div class="tcell twcell float-right">
+          {{-- <div class="tcell twcell float-right">
             <form class="form-inline hsform" id="collapseSearch">
 
               <img src="{{ asset('newPublic/images/locicon1.png') }}" class="locicon">
@@ -81,7 +81,8 @@
               <button class="btn_search" type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
-          <div class="mmlist tcell">
+           --}}
+          <div class="mmlist tcell float-right">
             <ul class="navbar-nav dtable">
               <li class="nav-item">
                 <a class="nav-link" href="#">List your Property</a>

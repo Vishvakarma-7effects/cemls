@@ -8,10 +8,17 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="{{ asset('newPublic/css/owl.carousel.min.css ') }}" rel="stylesheet" type="text/css">
+
+    {{-- <link href="{{ asset('newPublic/css/owl.carousel.min.css ') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('newPublic/css/styleab.css') }}" rel="stylesheet" type="text/css" />
-   <link rel="shortcut icon" href="{{ asset('newPublic/images/favicon.ico') }}" type="image/x-icon" /> 
-  {{-- @yield('styles') --}}
+   <link rel="shortcut icon" href="{{ asset('newPublic/images/favicon.ico') }}" type="image/x-icon" />  --}}
+
+
+   <link href="{{ asset('newPublic/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('newPublic/css/magnific-popup.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ asset('newPublic/css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ asset('newPublic/css/styleab.css') }}" rel="stylesheet" type="text/css" />
+  @yield('styles')
 </head>
 
      
@@ -31,6 +38,7 @@
 
 <script src="{{ asset('newPublic/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('newPublic/js/owl.carousel.min.js') }}"></script>
+
 <script src="{{ asset('newPublic/js/custom.js') }}"></script>
 <script type="text/javascript">
  $(function () {
@@ -39,6 +47,26 @@
 </script>
 
 @yield('scripts')
+<script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('newPublic/js/jquery-1.9.1.min.js' ) }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="{{ asset('newPublic/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('newPublic/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('newPublic/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('newPublic/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ asset('newPublic/js/custom.js') }}"></script>
+<script type="text/javascript" src="{{ asset('newPublic/js/jssor.js') }}"></script>
+<script type="text/javascript" src="{{ asset('newPublic/js/jssor.slider.js') }}"></script>
+<script type="text/javascript">
+  $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+
+      
+</script>
+
+
+
 </body>
 
 </html>
