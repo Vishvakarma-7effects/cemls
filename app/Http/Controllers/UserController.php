@@ -124,43 +124,63 @@ class UserController extends Controller {
                         ->with('success', 'User deleted successfully');
     }
 
+
+
+// My Account
+
     public function profile() {
         //
+        // dd(Auth::user());
         $user = Auth::user();
         $data['user'] = $user;
 
         //dd($data);
-        //echo $events;
+        //echo $events; 
         // return view('accountDetails', $data);
-        return view('admin.users.myAccount', $data);
-
+        return view('admin.users.myAccount',compact('user'));
         
     }
 
-    public function updateProfile(Request $request) {
-        if (!empty($request->current_password)) {
+    public function updateProfile(Request $request) 
+    {
+        // dd($request->all());
+        if (!empty($request->current_password))
+        {
             $rules = [
                 'name' => 'required',
                 'last_name' => 'required',
                 'current_password' => [new MatchOldPassword],
                 'new_confirm_password' => 'same:new_password'
             ];
-        } else {
+        } 
+        else 
+        {
             $rules = [
-                'name' => 'required',
-                'last_name' => 'required',
+                // 'name' => 'required',
+                // 'last_name' => 'required',
+                // 'name' => 'required',
+                // 'address_line1' => 'required',
+                // 'address_line2' => 'required',
+                // 'city' => 'required',
+                // 'state' => 'required',
+                // 'zip' => 'required',
             ];
         }
-
-
+         
         $request->validate($rules);
+
+        // dd(33333);
 
         $user = Auth::user();
 
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
+        // $user->name = $request->name;
+        // $user->phone = $request->phone;
+        $user->address_line1 = $request->address_line1;
+        $user->address_line2 = $request->address_line2;
+        $user->city = $request->city;
+        $user->state = $request->state;
+        $user->zip = $request->zip;
+
         if (!empty($request->current_password)) {
             $user->password = Hash::make($request->new_password);
         }
