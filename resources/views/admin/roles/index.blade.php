@@ -36,13 +36,8 @@
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
-<<<<<<< HEAD
                                         <th>Name</th>
                                         <!-- <th>Guard Name</th> -->
-=======
-                                        <th style="padding-left: 10%;">Name</th>
-                                        <th style="padding-left: 5%;">Guard Name</th>
->>>>>>> d3ac9b946ddc75c49912bc133a4902eb8c6ca77b
 
                                         <th  style=""width="40">Action</th>
                                     </tr>
@@ -50,17 +45,9 @@
                                 <tbody >
 
                                     @foreach($roles as $roleKey=>$roleVal)
-<<<<<<< HEAD
-                                        <tr>
-                                            <td>{{ $roleVal->name}}</td>
-                                            <!-- <td>{{ $roleVal->guard_name}}</td> -->
-                                            <td>
-=======
                                         <tr class="">
                                             <td style="padding-left: 10%;">{{ $roleVal->name}}</td>
-                                            <td style="padding-left: 5%;">{{ $roleVal->guard_name}}</td>
                                             <td style="">
->>>>>>> d3ac9b946ddc75c49912bc133a4902eb8c6ca77b
                                                 <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
                                             </td>
                                             <td>

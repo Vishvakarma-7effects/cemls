@@ -39,6 +39,8 @@ class CemeteryController extends Controller
         {
             // get all the sharks
             $cemeterys = Cemetery::paginate(10);
+
+            
     
             // load the view and pass the sharks
             return View('admin.cemetries.index')
@@ -115,14 +117,9 @@ class CemeteryController extends Controller
         public function edit($id)
         {
                 $cemeterys = Cemetery::findOrFail($id);
-                return view('admin.cemetries.edit', compact('cemeterys'));
-        
-            // get the shark
-        //     $cemetery = Cemetery::find($id);
-    
-        //     // show the edit form and pass the shark
-        //     return View::make('cemeterys.edit')
-        //         ->with('cemetery', $cemetery);
+                $created_at = date('d-M-Y', strtotime($cemeterys->created_at));
+                
+                return view('admin.cemetries.edit', compact('cemeterys','created_at'));
         }
 
         /**
@@ -217,6 +214,9 @@ class CemeteryController extends Controller
         }
         public function getEdit(Request $request)
         {
+
+                $cemeterys = Cemetery::findOrFail($id);
+                return view('admin.cemetries.edit', compact('cemeterys'));
                 return view('admin.cemetries.edit');
         }
         public function cemeteryListView(Request $request)

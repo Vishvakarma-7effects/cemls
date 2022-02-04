@@ -50,10 +50,10 @@
      </div>
      <div class="user_info">
       <h2>John Doe <i class="fa fa-pencil editbx"></i></h2>
-      <div class="uemail">Lorem Ipsum is simply <i class="fa fa-pencil editbx"></i></div>
-      <div class="uemail">Gorakhpur</div>
-      <div class="uemail">Gorakhpur </div>
-      <div class="ujoin">Member <small>since</small> 20 April 2018</div>
+      <div class="uemail">{{$cemeterys->country}}  <i class="fa fa-pencil editbx"></i></div>
+      <div class="uemail">{{$cemeterys->state}}</div>
+      <div class="uemail">{{$cemeterys->city}} </div>
+      <div class="ujoin">Member <small>since</small> {{$created_at}}</div>
 
      </div>
     </div>
@@ -78,12 +78,7 @@
      <div class="user_title">
       <h2>About Cemetery <i class="fa fa-pencil editbx"></i></h2>
      </div>
-     <p class="uemail text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-      Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-      into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-      Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-      PageMaker including versions of Lorem Ipsum.</p>
+     <p class="uemail text-justify">{{$cemeterys->cemetery_desc}}</p>
     </div>
    </div>
   </div>

@@ -47,26 +47,6 @@
                                 </div>
 
 
-<<<<<<< HEAD
-            <form role="form" method="post" action="{{ url('updateRole')}}" accept-charset="UTF-8">
-            <input type="hidden" class="form-control" name="id" value="{{$roles->id}}">
-            @csrf 
-                <div class="row">
-                    <div class="col-lg-9 pr-lg-0">
-                        <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Name</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <input type="text" class="form-control" name="name" value="{{$roles->name}}">
-                        </div>
-                        </div>
-
-                        <!-- <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Guard Name</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <input type="text" class="form-control" name="guard_name" value="{{$roles->guard_name}}">
-                        </div>
-                        </div> -->
-=======
                             </div>
                             
                             <div class="row">
@@ -115,7 +95,6 @@
                                     </div>
                                 </div>
                             </div>
->>>>>>> d3ac9b946ddc75c49912bc133a4902eb8c6ca77b
 
                     </div>
 
