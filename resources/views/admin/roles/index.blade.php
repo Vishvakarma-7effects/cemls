@@ -31,7 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Guard Name</th>
+                                        <!-- <th>Guard Name</th> -->
 
                                         <th width="40">Action</th>
                                     </tr>
@@ -41,18 +41,18 @@
                                     @foreach($roles as $roleKey=>$roleVal)
                                         <tr>
                                             <td>{{ $roleVal->name}}</td>
-                                            <td>{{ $roleVal->guard_name}}</td>
+                                            <!-- <td>{{ $roleVal->guard_name}}</td> -->
                                             <td>
                                                 <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
                                             </td>
-                                            <!-- <td>
+                                            <td>
                                             <form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
                                             </form>
-                                                <a  href="" class="btn btn-outline-dark role-edit">Delete</a>
-                                            </td> -->
+                                                <!-- <a  href="" class="btn btn-outline-dark role-edit">Delete</a> -->
+                                            </td>
                                         </tr>
 
                                     @endforeach

@@ -10,27 +10,32 @@
         </nav>
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
+
+        <form method="post" action="{{route('cemeterys.store')}}" accept-charset="UTF-8">
+        @csrf
+
+        
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" id="" name="cemetery_name" placeholder="">
                         </div>
                         </div>
 
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" id="" name="cemetery_desc" placeholder=""></textarea>
                         </div>
                         </div>
 
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Address</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <textarea class="form-control"></textarea>
+                        <textarea class="form-control" id="" name="address" placeholder=""></textarea>
                         </div>
                         </div>
 
@@ -39,7 +44,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                <input type="text" class="form-control" id="" name="city" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -48,7 +53,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">State</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                <input type="text" class="form-control" id="" name="state" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -59,7 +64,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                <input type="text" class="form-control" id="" name="country" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -68,7 +73,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Zip Code</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                <input type="text" class="form-control" id="" name="zip" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -79,9 +84,16 @@
                     <button class="btn_lg btn_none">Add 360 Image</button>
                     <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                     <button class="btn_lg btn_green">Add Videos</button>
+                    <!-- <button class="btn_lg btn_green">save</button> -->
                     </div>
                 </div>
             </div>
+        <!-- </form> -->
+
+
+        <!-- <form method="post" action="" accept-charset="UTF-8">
+            @csrf -->
+
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-6 mb-3">
@@ -173,10 +185,14 @@
 
             </div>
 
+        <!-- </form> -->
+
             <div class="cntbox">
-                <button class="btn_mid btn_green">Add</button>
+                <button class="btn_mid btn_green" type="submit">Add</button>
                 <button class="btn_mid btn_none ml-3">Cancel</button>
                 </div>
+
+                </form>
         </section>
 
     </section>

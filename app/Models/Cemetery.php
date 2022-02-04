@@ -9,6 +9,7 @@ class Cemetery extends Model
 {
   public $table = "cemetery"; 
 	use HasFactory;
+  public $timestamps = false;
 
     protected $fillable = [
         'cemetery_name'

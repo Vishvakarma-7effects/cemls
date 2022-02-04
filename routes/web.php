@@ -60,21 +60,26 @@ Route::view('manage-orgnizer', 'showOrgniser')->middleware('auth');
 
 
 Route::resource('events', EventController::class)->middleware('auth');
-Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePeople']);
-Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember']);
-Route::get('cemeterys/manageMember', [CemeteryController::class, 'manageMember']);
-Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync']);
-Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::get('cemeterys/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
-Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
+// Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePeople']);
+// Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember']);
+// Route::get('cemeterys/manageMember', [CemeteryController::class, 'manageMember']);
+// Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync']);
+// Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
+// Route::get('cemeterys/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
+// Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
+
+
 
 Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit']);
 Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+Route::post('savecemeterys', [CemeteryController::class, 'savecemeterys']); 
+
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::get('plots/getEdit', [PlotController::class, 'getEdit']);
-Route::get('plots/customeNew', [PlotController::class, 'customeNew']);
-Route::resource('plots', PlotController::class)->middleware('auth');
+
+// Route::get('plots/getEdit', [PlotController::class, 'getEdit']);
+// Route::get('plots/customeNew', [PlotController::class, 'customeNew']);
+// Route::resource('plots', PlotController::class)->middleware('auth');
 
 Route::resource('pages', PageController::class)->middleware('auth');
 Route::resource('menus', MenuController::class)->middleware('auth');

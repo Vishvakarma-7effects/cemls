@@ -39,7 +39,7 @@ class RoleController extends Controller {
     public function index() 
     {
         
-        $roles = Role::select('id', 'name','guard_name')
+        $roles = Role::select('id', 'name')
                 ->when(!$this->isAdmin, function ($query) {
                     return $query->where('created_by', $this->userId);
                 })
@@ -110,12 +110,11 @@ class RoleController extends Controller {
 
         $request->validate([
             'name' => 'required',
-            'guard_name' => 'required'
         ]);
 
         $role = new Role;
         $role->name = $request->name;
-        $role->guard_name = $request->guard_name;
+        // $role->guard_name = $request->guard_name;
         $role->save();
 
         return redirect()->route('roles.index')->with('success', 'Role Add Succesfully');
@@ -151,16 +150,15 @@ class RoleController extends Controller {
 
         $request->validate([
             'name' => 'required',
-            'guard_name' => 'required'
         ]);
 
         $role = Role::findOrFail($request->id);
         $role->name = $request->name;
-        $role->guard_name = $request->guard_name;
+        // $role->guard_name = $request->guard_name;
         $role->save();
 
 
-        return redirect()->route('roles.index')->with('success', 'Role Updated Succesfully');
+        return redirect()->route('roles.index') ;
     }
 
     /**

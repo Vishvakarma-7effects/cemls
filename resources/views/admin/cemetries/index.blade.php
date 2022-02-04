@@ -9,6 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Cemetry</li>
         </ol>
     </nav>
+    
 
     <div class="row">
         <div class="col-md-5 col-6">
@@ -51,7 +52,7 @@
                                         </div>
                                     </td>
 
-                                    <td width="40" align="right" style="padding: 15px;">
+                                    <td width="40" align ="right" style="padding: 15px;">
                                         <div class="moption  mt-4">
                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                             <ul class="moptionul">

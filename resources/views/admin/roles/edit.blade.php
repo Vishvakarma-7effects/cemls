@@ -33,12 +33,12 @@
                         </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Guard Name</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
                         <input type="text" class="form-control" name="guard_name" value="{{$roles->guard_name}}">
                         </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
