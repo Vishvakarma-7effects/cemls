@@ -41,11 +41,13 @@ button:focus {
 input {
     outline: none;
 }
-.btn_mid {height: 47px;
+.btn_mid {
+    height: 47px;
     border: 1px solid transparent;
     padding: 10px 15px; transition:0.5s;
     border-radius: 5px; min-width:110px;
-    font-size: 17px; outline:none;}
+    font-size: 17px; outline:none;
+}
 .btn_lg {
     height: 77px;
     border: 1px solid transparent;
@@ -1011,7 +1013,9 @@ div[slider] > input[type=range]::-ms-tooltip {
 .form-control.fmbg{background:#fbfaff;}
 
 .navbar-expand-lg .navbar-collapse.navcollapse {
-    display: table !important;
+    /* display: unset !important; */
+        justify-content: end !important;
+
 }
 .hsform{background: #fff; 
     border-radius: 4px; padding-left:30px; position:relative; /*display:table-cell;*/}
@@ -1862,4 +1866,15 @@ background-size: cover; text-align: center;
     flex: 0 0 100%;
     max-width: 100%; margin-bottom:8px;}
 .mdtlp_lft, .mdtlp_rht{width: 100%;}
+}
+
+.outer_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outer_form .btn_mid{
+    height: 40px !important;
+    padding: 5px 15px !important;
+
 }

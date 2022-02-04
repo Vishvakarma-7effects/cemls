@@ -11,7 +11,7 @@
               </ol>
             </nav>
             <div class="row">
-                <div class="col-md-12 col-12"><h1 class="mheading">Communication</h1></div>
+                <div class="col-md-12 col-12"><h1 class="mheading">Mailbox</h1></div>
             </div>
 
             <div class="mb-5 bxshadow">

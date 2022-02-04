@@ -1,6 +1,6 @@
  <footer class="adm_footer">
             <div class="container-lg">
-                <div class="row">
+                <div class="row pt-md-5">
                 <div class="col-lg-4 col-12">
                     <div class="ftabt">
                     <h2 class="ft_head">About CemLS<sup>®</sup></h2>

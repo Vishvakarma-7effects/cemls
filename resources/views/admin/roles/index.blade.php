@@ -9,10 +9,16 @@
             </ol>
         </nav>
  
-        <div class="">
-                <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add</button></a>
+
+        <div class="row">
+        <div class="col-md-5 col-6">
+            <h1 class="mheading">Roles</h1>
         </div>
-        <br>
+        <div class="col-md-7 col-6 text-right"> <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add Role</button></a>
+        </div>
+    </div>
+
+      
  
          @if(session()->has('success'))
         <div class="alert alert-success">
@@ -30,19 +36,31 @@
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
+<<<<<<< HEAD
                                         <th>Name</th>
                                         <!-- <th>Guard Name</th> -->
+=======
+                                        <th style="padding-left: 10%;">Name</th>
+                                        <th style="padding-left: 5%;">Guard Name</th>
+>>>>>>> d3ac9b946ddc75c49912bc133a4902eb8c6ca77b
 
-                                        <th width="40">Action</th>
+                                        <th  style=""width="40">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody >
 
                                     @foreach($roles as $roleKey=>$roleVal)
+<<<<<<< HEAD
                                         <tr>
                                             <td>{{ $roleVal->name}}</td>
                                             <!-- <td>{{ $roleVal->guard_name}}</td> -->
                                             <td>
+=======
+                                        <tr class="">
+                                            <td style="padding-left: 10%;">{{ $roleVal->name}}</td>
+                                            <td style="padding-left: 5%;">{{ $roleVal->guard_name}}</td>
+                                            <td style="">
+>>>>>>> d3ac9b946ddc75c49912bc133a4902eb8c6ca77b
                                                 <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
                                             </td>
                                             <td>

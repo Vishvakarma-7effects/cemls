@@ -9,7 +9,7 @@
                     class=""></path>
             </svg>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="">
             <img src="{{ asset('newPublic/images/logo.png') }}" alt="Logo" />
 
             {{-- <img src="images/logo.png" alt="Logo" /> --}}
@@ -94,17 +94,17 @@
                             <span class="usericon">
                                 <img src="{{ asset('newPublic/images/user-img.png') }}" alt="" />
                             </span>
-                            <span class="untxt">Jimmy</span>
+                            <span class="untxt">{{ Auth::user()->name }}</span>
                             <i class="fa fa-caret-down"></i>
                         </div>
                         <ul class="nu_ullist">
                             {{-- <li><a href="#">Profile</a></li>
                             <li><a href="#">Logout</a></li>  --}}
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
-                                </a>
+                                </a> --}}
 
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">

@@ -105,21 +105,21 @@ datalist {
                               <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-                                  <div class="form-check col-form-label">
+                                  <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <label class="form-check-label col-form-label" for="exampleRadios1">
                                       Available
                                     </label>
                                   </div>
-                                  <div class="form-check col-form-label">
+                                  <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <label class="form-check-label col-form-label" for="exampleRadios2">
                                     Reserved
                                     </label>
                                   </div>
-                                  <div class="form-check col-form-label">
+                                  <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <label class="form-check-label col-form-label" for="exampleRadios2">
                                       Sold
                                     </label>
                                   </div>
@@ -130,13 +130,36 @@ datalist {
                         <div class="row">
                           <div class="col-md-7">
                               <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Tags</label>
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Types</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Outdoor</label>
+
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
                                   </div>
                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
+                                  </div>
+                                  
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  {{-- @foreach ($roles as $roleItem)
+                                      
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $roleItem->id }}">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox1"> {{ ucFirst($roleItem->name) }}</label>
+                                  </div>
+                                @endforeach --}}
+
+
+                                  {{-- <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                                   </div>
@@ -147,7 +170,7 @@ datalist {
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
+                                  </div> --}}
                                 </div>
                               </div>
                             </div>
@@ -158,7 +181,7 @@ datalist {
                       
 
                       <div class="col-lg-3 text-right">
-                        <button class="btn_lg btn_none">Add 360 Image</button>
+                        {{-- <button class="btn_lg btn_none">Add 360 Image</button> --}}
                         <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                         <button class="btn_lg btn_green">Add Videos</button>
                       </div>
@@ -175,23 +198,24 @@ datalist {
                             <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
 
-                            <input type="range" list="tickmarks" id="customRange1">
 
                             <datalist id="tickmarks">
                             <option value="0" label="$500"></option>
                             <option value="100" label="$5000"></option>
                             </datalist>      
+                              <input type="range" list="tickmarks" id="customRange1">
+
                                 <div class="col-md-6 col-sm-9">
                                       <input type="text" value="$500" class="form-control" id="" placeholder="">
-                                    </div>
+                                  </div>
                         </div>
                         </div>      
-                      <div class="form-group row">
+                      {{-- <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Name</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
                           <input type="text" class="form-control" id="" placeholder="">
                         </div>
-                      </div>
+                      </div> --}}
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">

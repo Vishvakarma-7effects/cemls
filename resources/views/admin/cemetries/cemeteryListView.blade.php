@@ -137,7 +137,7 @@
       </section>
 
 
-      <div class="modal fade dtlpopup" id="mdtlModal"  role="dialog" aria-labelledby="searchModalLabel"
+      {{-- <div class="modal fade dtlpopup" id="mdtlModal"  role="dialog" aria-labelledby="searchModalLabel"
         aria-hidden="true">
         <div class="modal-dialog mCustomScrollbar" role="document">
           <div class="modal-content">
@@ -321,19 +321,11 @@
           </div>
         </div>
       </div>
-     
+      --}}
+      <!-- Modal -->
       
-
-@endsection
-
-@section('scripts')
-@parent
-<script>
-  // debugger
-  $('.boxinner').click(function(){
-    // debugger
-        $('#mdtlModal').modal('toggle');
-  })
-</script>
+      
+      
+      @include('partials.outerDetailModal')
 
 @endsection

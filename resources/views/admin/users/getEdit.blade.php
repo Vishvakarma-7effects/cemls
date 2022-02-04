@@ -74,7 +74,7 @@ font-family: sans-serif;
    </div>
 
 
-   <div class="row">
+   {{-- <div class="row">
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-sm-3 col-form-label pr-0 mr-md-1 col_form_custom">Type</label>
@@ -108,9 +108,9 @@ font-family: sans-serif;
       </div>
      </div>
     </div>
-   </div>
+   </div> --}}
 
-   <div class="row">
+   {{-- <div class="row">
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
@@ -177,8 +177,51 @@ font-family: sans-serif;
       </div>
      </div>
     </div>
-   </div>
+   </div> --}}
+<div class="col-lg-6 pr-lg-4">
+     <div class="form-group row">
+      <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
+      <div class="col-sm-7 pl-3 pl-md-4 d-flex justify-content-between">
+       <div class="row">
+        <div class="col-lg-6 col-6 mb-md-2">
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+          <label class="form-check-label" for="inlineCheckbox1">Role1</label>
+         </div>
+        </div>
+        <div class="col-lg-6 col-6">
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
+          <label class="form-check-label" for="inlineCheckbox2">Role2</label>
+         </div>
+        </div>
+        <div class="col-lg-6 col-6 mb-md-2">
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
+          <label class="form-check-label" for="inlineCheckbox3">Role3</label>
+         </div>
+        </div>
+        <div class="col-lg-6 col-6">
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
+          <label class="form-check-label" for="inlineCheckbox4">Role4</label>
+         </div>
+        </div>
+        <div class="col-lg-6 col-6">
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
+          <label class="form-check-label" for="inlineCheckbox5">Role</label>
+         </div>
+        </div>
+
+       </div>
+      </div>
+     </div>
+    </div>
+
   </div>
+
+
   <div class="cntbox">
    <h2 class="sheading">Picture</h2>
    <div class="row">
