@@ -111,7 +111,7 @@ Route::post('updatepermissions', [RoleController::class, 'update'])->middleware(
 
 
 // Route::resource('photos', PhotoController::class);
-Route::get('communication', [UserController::class, 'communication'])->middleware('auth');
+Route::get('mailbox', [UserController::class, 'mailbox'])->middleware('auth');
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
 

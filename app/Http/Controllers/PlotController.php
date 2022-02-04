@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Plot;
 use Illuminate\Http\Request;
+// use App\Http\Controllers\Role;
 
 class PlotController extends Controller
 {
@@ -19,6 +20,7 @@ class PlotController extends Controller
 								// return view('plot',compact('data'))
 								//  ->with('i', (request()->input('page', 1) - 1) * 20);
 								$data = DB::select('select * from plot ORDER BY `ID` DESC');
+								// $roles=Role::all();
 								// return view('plot', ['data' => $data]);
 								return view('admin.plots.index');
 				}
@@ -31,7 +33,10 @@ class PlotController extends Controller
 				public function create()
 				{
 								//
-				return view('admin.plots.new');	
+										// $roles=DB::select('roles')->get();
+        $roles = DB::table('roles')->get();
+
+							return view('admin.plots.new',compact('roles'));	
 						}
 
 						public function customeNew()

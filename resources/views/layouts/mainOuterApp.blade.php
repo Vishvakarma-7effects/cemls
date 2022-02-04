@@ -23,7 +23,12 @@
 
      
 <body>
-@include('partials.mainOuterHeader')
+@if(empty(request()->segment(count(request()->segments()))))
+  @include('partials.mainOuterIndexHeader')
+
+@else
+  @include('partials.mainOuterHeader')
+@endif
 
 @yield('content')
 
@@ -32,7 +37,7 @@
 
 <script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
@@ -44,9 +49,9 @@
  $(function () {
             $('[data-toggle="tooltip"]').tooltip()
           })
-</script>
+</script> --}}
 
-@yield('scripts')
+
 <script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('newPublic/js/jquery-1.9.1.min.js' ) }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -63,7 +68,9 @@
       })
 
       
+      
 </script>
+@yield('scripts')
 
 
 

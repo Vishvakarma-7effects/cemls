@@ -1,4 +1,5 @@
 <!-- Modal -->
+
 <div class="modal fade dtlpopup" id="mdtlModal" tabindex="-1" role="dialog"       aria-labelledby="searchModalLabel"
   aria-hidden="true">
   <div class="modal-dialog mCustomScrollbar" role="document">
@@ -6,14 +7,16 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
+
+      
       <div class="clearfix pphead">
-        {{-- <ul class="ulshare">
-          <li><a href="#"><i class="far fa-heart"></i> Save</a></li>
-          <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
+        <ul class="ulshare">
+          {{-- <li><a href="#"><i class="far fa-heart"></i> Save</a></li>
+          <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li> --}}
         </ul>
         <div class="adbx">
-          <img src="{{ asset('newPublic/images/adimg.jpg') }}">
-        </div> --}}
+          {{-- <img src="{{ asset('newPublic/images/adimg.jpg') }}"> --}}
+        </div>
       </div>
       <div id="slider1_container"
         style="position: relative; top: 0px; left: 0px; width: 900px; height: 477px; background: #fff; overflow: hidden;">
@@ -105,7 +108,7 @@
               during in-home presentations, and year-round, where weather conditions restrict in-person visits.
               Cemetery360® Software captures ground view 360 imagery with our own capturing and recording equipment.</p>
             <p><a href="#">Read More</a></p>
-            <div class="row">
+            {{-- <div class="row">
               <div class="col-6 fw-414">
                 <a href="#">
                   <div class="boxfour">
@@ -123,13 +126,66 @@
                   </div>
                 </a>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="col-lg-4 pl-3 pl-lg-0">
           <div class="cntbx">Contact Cemetery</div>
           <div class="ppborder">
+
             <div class="agentbx clearfix">
+              {{-- <div class="agentbx_img">
+                <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
+              </div>  --}}
+
+              {{-- <div class="agentcnt"> --}}
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Name" id="name" auotfill="false">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" auotfill="false">
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                     <input type="text" class="form-control" placeholder="Enter message" id="message" auotfill="false">
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-12 outer_form form-group">
+                      <button class="btn_mid btn_green text-center">Send</button>
+                  </div>
+
+
+                </div>
+
+
+                             
+
+                  
+
+
+
+
+
+
+                {{-- </div> --}}
+
+                {{-- <h3>John Doe</h3> --}}
+                {{-- <h4>
+                  Sales Manager
+                  <span class="d-block">(916) 870-4003</span>
+                </h4> --}}
+              </div>
+            </div>
+
+            {{-- <div class="agentbx clearfix">
               <div class="agentbx_img">
                 <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
               </div>
@@ -164,19 +220,7 @@
                   <span class="d-block">(916) 870-4003</span>
                 </h4>
               </div>
-            </div>
-            <div class="agentbx clearfix">
-              <div class="agentbx_img">
-                <img src="{{ asset('newPublic/images/agent-img1.png') }}" alt="">
-              </div>
-              <div class="agentcnt">
-                <h3>John Doe</h3>
-                <h4>
-                  Sales Manager
-                  <span class="d-block">(916) 870-4003</span>
-                </h4>
-              </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
@@ -301,4 +345,5 @@
         $('#mdtlModal').modal('toggle');
   })
 </script>
+
 @endsection

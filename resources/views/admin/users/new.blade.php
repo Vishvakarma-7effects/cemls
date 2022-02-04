@@ -74,41 +74,7 @@ font-family: sans-serif;
    </div>
 
 
-   <div class="row">
-    <div class="col-lg-6 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-sm-3 col-form-label pr-0 mr-md-1 col_form_custom">Type</label>
-      <div class="col-sm-7  pl-4 pl-md-4 ">
-       <div class="row">
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Cemetry User
-          </label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Pubic User
-          </label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Vendor
-          </label>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
+   
 
    <div class="row">
     <div class="col-lg-6 pr-lg-4">
@@ -137,6 +103,8 @@ font-family: sans-serif;
       </div>
      </div>
     </div>
+    
+
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
@@ -145,31 +113,31 @@ font-family: sans-serif;
         <div class="col-lg-6 col-6 mb-md-2">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Outdoor</label>
+          <label class="form-check-label" for="inlineCheckbox1">Permission1</label>
          </div>
         </div>
         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
-          <label class="form-check-label" for="inlineCheckbox2">Outdoor</label>
+          <label class="form-check-label" for="inlineCheckbox2">Role2</label>
          </div>
         </div>
         <div class="col-lg-6 col-6 mb-md-2">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-          <label class="form-check-label" for="inlineCheckbox3">Outdoor</label>
+          <label class="form-check-label" for="inlineCheckbox3">Role3</label>
          </div>
         </div>
         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-          <label class="form-check-label" for="inlineCheckbox4">Outdoor</label>
+          <label class="form-check-label" for="inlineCheckbox4">Role4</label>
          </div>
         </div>
         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
-          <label class="form-check-label" for="inlineCheckbox5">Outdoor</label>
+          <label class="form-check-label" for="inlineCheckbox5">Role5</label>
          </div>
         </div>
 
@@ -177,6 +145,7 @@ font-family: sans-serif;
       </div>
      </div>
     </div>
+
    </div>
   </div>
   <div class="cntbox">

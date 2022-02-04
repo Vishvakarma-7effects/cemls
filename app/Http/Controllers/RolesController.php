@@ -19,7 +19,9 @@ class RolesController extends Controller
     public function add()
     {      
         //   dd($user);
-        return view('roles.add');//folder name.blade file
+                $permissions = DB::table('permissions')->get();
+
+        return view('roles.add',compact('permissions'));//folder name.blade file
     }
 
     public function save(Request $req)

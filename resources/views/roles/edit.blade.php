@@ -28,18 +28,18 @@
                                                       </div>
                                                     </div>
                                 
-                                                    <div class="col-sm-6">
+                                                    <!-- <div class="col-sm-6">
                                                       <div class="form-group">
                                                         <label>Guard Name </label>
                                                         <input type="text" name="guard_name" class="form-control" placeholder="Enter Guard Name" value="">
                                                       </div>
-                                                    </div>
+                                                    </div> -->
                                               </div>
                                             <br>
                        
 
 					<div class="d-flex justify-content-center">
-						<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Save</button>
+						<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Update</button>
 					</div> 
                     </form>
                 </div>

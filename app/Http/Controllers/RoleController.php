@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role as Roles;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+// use App\Models\Permission;
+
 
 class RoleController extends Controller {
 
@@ -57,7 +59,10 @@ class RoleController extends Controller {
      */
     public function create() 
     {
-        return view('admin.roles.new');
+         $permissions = DB::table('permissions')->get();
+
+                // dd($permissions);
+        return view('admin.roles.new',compact('permissions'));
     }
 
     public function assignRole($roleId) {
@@ -135,7 +140,9 @@ class RoleController extends Controller {
     public function edit($id)
     {
         $roles = Role::findOrFail($id);
-        return view('admin.roles.edit', compact('roles'));
+        $permissions = DB::table('permissions')->get();
+
+        return view('admin.roles.edit', compact('roles','permissions'));
     }
 
 

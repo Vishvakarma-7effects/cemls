@@ -1,100 +1,115 @@
 <aside class="asidelft">
-  <ul>
-    {{-- <li>
+	<ul>
+		{{-- <li>
       <a href="#">
       <span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span> 
       <bdi>Dashboard</bdi></a>
     </li> --}}
-    <li>
-      <a href="{{ url('dashboard') }}">
-        <span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span>
-        <bdi>Dashboard</bdi>
-      </a>
-    </li>
 
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
-        <bdi>Property</bdi></a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        
-        <a class="dropdown-item " href="{{ url('cemeterys') }}"><span>
-          <img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
-          <bdi>Cemetery</bdi></a>
-        <a class="dropdown-item" href="{{ url('cemeterys/create') }}">
-          <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
-          <bdi>Add Cemetery</bdi>
-        </a>
-        <a class="dropdown-item" href="{{ url('plots') }}"><span><img src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
-          <bdi>Plots</bdi></a>
-        <a class="dropdown-item" href="{{ url('plots/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span> <bdi>Add
-            Plots</bdi></a>
-        {{-- <a class="dropdown-item" href="{{ url('plots/customeNew') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
+		<li class="{{ request()->is('dashboard') ? 'active' : '' }}">
+			<a href="{{ url('dashboard') }}">
+				<span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span>
+				<bdi>Dashboard</bdi>
+			</a>
+		</li>
+
+		<li class="dropdown {{ request()->is('cemeterys') ? 'show active' : '' }} {{ request()->is('cemeterys/create') ? 'show active' : '' }} {{ request()->is('plots/create') ? 'show active' : 'dssdsd' }} {{ request()->is('plots') ? 'show active' : '' }} ">
+
+			<a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">
+				<span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
+				<bdi>Property</bdi>
+      </a>
+			<div class="dropdown-menu {{ request()->is('cemeterys') ? 'active show' : '' }} {{ request()->is('cemeterys/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}"
+				aria-labelledby="navbarDropdown">
+
+				<a class="dropdown-item {{ request()->is('cemeterys') ? 'active' : '' }}" href="{{ url('cemeterys') }}"><span>
+						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
+					<bdi>Cemetery</bdi></a>
+				<a class="dropdown-item {{ request()->is('cemeterys/create') ? 'active' : '' }}"
+					href="{{ url('cemeterys/create') }}">
+					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+					<bdi>Add Cemetery</bdi>
+				</a>
+				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}" href="{{ url('plots') }}"><span><img
+							src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
+					<bdi>Plots</bdi></a>
+				<a class="dropdown-item {{ request()->is('plots/create') ? 'active' : '' }}"
+					href="{{ url('plots/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
+					<bdi>Add
+						Plots</bdi></a>
+				{{-- <a class="dropdown-item" href="{{ url('plots/customeNew') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
           <bdi>Add Custome Plots</bdi></a> --}}
 
-      </div>
-    </li>
+			</div>
+		</li>
 
-    <!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon3.png') }}" ></span> <bdi>Products</bdi></a></li> -->
-    <!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon4.png') }}" ></span> <bdi>Services</bdi></a></li>
-  <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon5.png') }}" ></span> <bdi>Orders</bdi></a></li>
-  <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon6.png') }}" ></span> <bdi>Payments</bdi></a></li> -->
-    <li>
-      <a href="{{ url('communication') }}">
-        <span><img src="{{ asset('newPublic/images/lfticon7.png') }}"></span>
-        <bdi>Communication</bdi>
-      </a>
-    </li>
+		<!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon3.png') }}" ></span> <bdi>Products</bdi></a></li> -->
+		<!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon4.png') }}" ></span> <bdi>Services</bdi></a></li>
+		<li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon5.png') }}" ></span> <bdi>Orders</bdi></a></li>
+		<li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon6.png') }}" ></span> <bdi>Payments</bdi></a></li> -->
+		<li class="{{ request()->is('mailbox') ? 'active' : '' }}">
+			<a href="{{ url('mailbox') }}">
+				<span><img src="{{ asset('newPublic/images/lfticon7.png') }}"></span>
+				<bdi>Mailbox</bdi>
+			</a>
+		</li>
 
-    {{-- <li><a href="{{ url('cemeterys/dataSync') }}"><span>
+		{{-- <li><a href="{{ url('cemeterys/dataSync') }}"><span>
           <!-- <img src="{{ asset('newPublic/images/img1.jpg') }}" -->
 
           <img src="{{ asset('newPublic/images/lfticon8.png') }}">
         </span> <bdi>Data Sync</bdi></a>
     </li> --}}
-@if(!auth()->user()->roles->contains(3))
-    <li>
-      <a href="{{ url('widgets')}}">
-        <span><img src="{{ asset('newPublic/images/lfticon9.png') }}"></span>
-        <bdi>Widgets</bdi>
-      </a>
-    </li>
-    <!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon10.png') }} "></span> <bdi>Subscription</bdi></a></li> -->
-    <li class="dropdown active">
+		@if (!auth()->user()->roles->contains(3))
+			<li class="{{ request()->is('widgets') ? 'active' : '' }}">
+				<a href="{{ url('widgets') }}">
+					<span><img src="{{ asset('newPublic/images/lfticon9.png') }}"></span>
+					<bdi>Widgets</bdi>
+				</a>
+			</li>
 
-      {{-- <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+			<!-- <li><a href="#"><span><img src="{{ asset('newPublic/images/lfticon10.png') }} "></span> <bdi>Subscription</bdi></a></li> -->
+			<li
+				class="dropdown  {{ request()->is('users') ? 'active show' : '' }} {{ request()->is('cemeterys/getInvitePeople') ? 'show active' : '' }}">
+
+				{{-- <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
         <bdi>Property</bdi></a> --}}
-      <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        {{-- <a href="{{ url('user') }}"> --}}
-        <span><img src="{{ asset('newPublic/images/lfticon11.png') }}"></span> <bdi>Users Management</bdi>
-      </a>
+				<a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					{{-- <a href="{{ url('user') }}"> --}}
+					<span><img src="{{ asset('newPublic/images/lfticon11.png') }}"></span> <bdi>Users Management</bdi>
+				</a>
 
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ url('cemeterys/getInvitePeople') }}">
-          <span><img src="{{  asset('newPublic/images/lfticon15.png') }}"></span>
-          <bdi>Add Cemetery Member</bdi>
-        </a>
-        <a class="dropdown-item " href="{{ url('users') }}"><span><img
-              src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
-          <bdi>Users</bdi></a>
-        {{-- <a class="dropdown-item" href="{{ url('user/getSignIn') }}">
+				<div
+					class="dropdown-menu {{ request()->is('cemeterys/getInvitePeople') ? 'show' : '' }}  {{ request()->is('users') ? 'show' : '' }}"
+					aria-labelledby="navbarDropdown">
+					<a class="dropdown-item  {{ request()->is('cemeterys/getInvitePeople') ? 'active' : '' }}"
+						href="{{ url('cemeterys/getInvitePeople') }}">
+						<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+						<bdi>Invite Cemetery Member</bdi>
+					</a>
+					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
+								src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
+						<bdi>Users</bdi></a>
+					{{-- <a class="dropdown-item" href="{{ url('user/getSignIn') }}">
           <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
           <bdi>SignIn</bdi>
         </a> --}}
-      </div>
-    </li>
-    <li>
-      <a href="{{ url('roles') }}"><span>
-          <img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>
-        <bdi>Roles</bdi>
-      </a>
-    </li>
-    @endif
-    <li><a href="{{ url('user/profile') }}"><span><img src="{{ asset('newPublic/images/lfticon13.png') }}"></span>
-        <bdi>My Account</bdi></a></li>
-  </ul>
+				</div>
+			</li>
+			<li class="{{ request()->is('roles') ? 'active' : '' }}">
+				<a href="{{ url('roles') }}"><span>
+						<img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>
+					<bdi>Roles</bdi>
+				</a>
+			</li>
+		@endif
+		<li class="{{ request()->is('user/profile') ? 'active' : '' }}">
+			<a href="{{ url('user/profile') }}"><span><img src="{{ asset('newPublic/images/lfticon13.png') }}"></span>
+				<bdi>My Account</bdi></a>
+		</li>
+	</ul>
 </aside>

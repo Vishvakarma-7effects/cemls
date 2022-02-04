@@ -731,7 +731,7 @@
   </div>
 </div>
 
-@include('layouts.OuterDetailModal')
+      @include('partials.outerDetailModal')
 
 
 @endsection

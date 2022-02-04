@@ -194,8 +194,8 @@ class UserController extends Controller {
         return view('admin.users.getEdit');
 
     }
-    public function communication(){
-    return view('admin.communication');
+    public function mailbox(){
+    return view('admin.mailbox');
     
     }
 
