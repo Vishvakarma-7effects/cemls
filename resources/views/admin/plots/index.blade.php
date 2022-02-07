@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+   @extends('layouts.admin')
 
 @section('content')
     <section class="panelrht">
@@ -8,7 +8,8 @@
             <li class="breadcrumb-item active" aria-current="page">Plots</li>
             </ol>
         </nav>
-        <div class="text-right mb-4 pb-1">
+        
+        <div class="col-md-7 col-6 text-right">
             <a class="btn_mid btn_green" href="{{ url('plots/create')}}">Add Plot</a>
         </div>
 
@@ -86,6 +87,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -121,6 +123,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -156,6 +159,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -191,6 +195,7 @@
                                 </tr>
                             </table>
                         </div>
+
                     </section>
 
                     <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
@@ -237,3 +242,4 @@
 
     </section>
 @endsection
+   

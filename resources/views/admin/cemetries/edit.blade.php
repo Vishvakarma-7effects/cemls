@@ -49,7 +49,9 @@
       </span>
      </div>
      <div class="user_info">
-      <h2>John Doe <i class="fa fa-pencil editbx"></i></h2>
+      <!-- <h2>John Doe <i class="fa fa-pencil editbx"></i></h2> -->
+            <h2>{{$cemeterys->cemetery_name}}</h2>
+
       <div class="uemail">{{$cemeterys->country}}  <i class="fa fa-pencil editbx"></i></div>
       <div class="uemail">{{$cemeterys->state}}</div>
       <div class="uemail">{{$cemeterys->city}} </div>
