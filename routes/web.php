@@ -70,6 +70,8 @@ Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryLi
 
 Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+Route::post('savecemeterys', [CemeteryController::class, 'savecemeterys']); 
+
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 Route::get('plots/getEdit', [PlotController::class, 'getEdit'])->middleware('auth');

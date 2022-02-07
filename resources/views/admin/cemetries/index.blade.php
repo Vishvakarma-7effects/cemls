@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 
 @section('content')
@@ -9,6 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">Cemeteries</li>
         </ol>
     </nav>
+    
 
     <div class="row">
         <div class="col-md-5 col-6">
@@ -26,7 +28,7 @@
                     <section class="bxshadow mb-3 mb-md-5">
 
                             @foreach ($cemeterys as $cemKey => $cemVal)
-                                {{-- {{ dd($cemVal)}} --}}
+                            
                             <div class="cntbox">
                                 <table class="table mb-0 plot_table">
                                     <tr class="" style="">
@@ -56,7 +58,7 @@
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                 <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('cemeterys/getEdit')}}">Edit</a></li>
+                                                    <li><a href="{{ url('cemeterys/'.$cemVal->ID.'/edit')}}">Edit</a></li>
                                                     <li><a href="#">Delete</a></li>
                                                 </ul>
                                             </div>

@@ -29,35 +29,33 @@ class CemeteryController extends Controller
         }
         */
 
+        // public function index()
+        // {
+        //         $cemeterys = Cemetery::paginate(8);
+        //         return view('admin.cemetries.index', ['cemeterys' => $cemeterys]);
+        // }
+
         public function index()
         {
-                // $cemeterys = DB::select('select * from cemetery');
-                $cemeterys = Cemetery::paginate(8);
-                // return view('showCemetery',['cemeterys'=>$cemeterys]);
-                return view('admin.cemetries.index', ['cemeterys' => $cemeterys]);
+            // get all the sharks
+            $cemeterys = Cemetery::paginate(10);
+
+            
+    
+            // load the view and pass the sharks
+            return View('admin.cemetries.index')
+                ->with('cemeterys', $cemeterys);
         }
+
+
 
         public function create()
+
         {
-                $data['organizers'] = DB::table('organizers')
-                        ->select('id', 'name')
-                        ->when(!$this->isAdmin, function ($query) {
-                                return $query->where('user_id', $this->userId);
-                        })
-                        ->get();
-                $data['venues'] = DB::table('venues')
-                        ->select('id', 'name')
-                        ->when(!$this->isAdmin, function ($query) {
-                                return $query->where('created_by', $this->userId);
-                        })
-                        ->get();
-                $data['categories'] = DB::table('categories')
-                        ->select('id', 'name')
-                        ->get();
-
-                return view('admin.cemetries.new', $data);
+            // load the create form (app/views/sharks/create.blade.php)
+            return View('admin.cemetries.new');
         }
-
+      
         /**
           * Store a newly created resource in storage.
           *
@@ -66,17 +64,25 @@ class CemeteryController extends Controller
           */
         public function store(Request $request)
         {
-                $request->validate([
-                        'title' => 'required',
-                        'description' => 'required',
-                ]);
+                // dd($request->all());
 
-                Post::create($request->all());
+             
+            
+                    $cemetery = new Cemetery;
+                    $cemetery->cemetery_name = $request->cemetery_name;
+                    $cemetery->cemetery_desc = $request->cemetery_desc;
+                    $cemetery->address = $request->address;
+                    $cemetery->city = $request->city;
+                    $cemetery->state = $request->state;
+                    $cemetery->country = $request->country;
+                    $cemetery->zip = $request->zip;
 
-                return redirect()
-                        ->route('posts.index')
-                        ->with('success', 'Post created successfully.');
+                    $cemetery->save();
+            
+                    return redirect()->route('cemeterys.index')->with('success', 'Cemetery Add Succesfully');
+            
         }
+
 
         /**
           * Display the specified resource.
@@ -84,9 +90,18 @@ class CemeteryController extends Controller
           * @param  \App\Models\Cemetery  $cemetery
           * @return \Illuminate\Http\Response
           */
-        public function show(Cemetery $cemetery)
+        // public function show(Cemetery $cemetery)
+        // {
+        //         return view('posts.show', compact('post'));
+        // }
+
+        public function show($id)
         {
-                return view('posts.show', compact('post'));
+            // get the shark
+        //     $cemetery = Cemetery::find($id);
+    
+        //     return View::make('cemeterys.show')
+        //         ->with('cemetery', $cemetery);
         }
 
         /**
@@ -95,9 +110,16 @@ class CemeteryController extends Controller
           * @param  \App\Models\Cemetery  $cemetery
           * @return \Illuminate\Http\Response
           */
-        public function edit(Cemetery $cemetery)
+        // public function edit(Cemetery $cemetery)
+        // {
+        //         return view('posts.edit', compact('post'));
+        // }
+        public function edit($id)
         {
-                return view('posts.edit', compact('post'));
+                $cemeterys = Cemetery::findOrFail($id);
+                $created_at = date('d-M-Y', strtotime($cemeterys->created_at));
+                
+                return view('admin.cemetries.edit', compact('cemeterys','created_at'));
         }
 
         /**
@@ -107,18 +129,70 @@ class CemeteryController extends Controller
           * @param  \App\Models\Cemetery  $cemetery
           * @return \Illuminate\Http\Response
           */
-        public function update(Request $request, Cemetery $cemetery)
+        // public function update(Request $request, Cemetery $cemetery)
+        // {
+        //         $request->validate([
+        //                 'title' => 'required',
+        //                 'description' => 'required',
+        //         ]);
+
+        //         $post->update($request->all());
+
+        //         return redirect()
+        //                 ->route('posts.index')
+        //                 ->with('success', 'Post updated successfully');
+        // }
+        public function update(Request $request)
         {
-                $request->validate([
-                        'title' => 'required',
-                        'description' => 'required',
-                ]);
+        //     $rules = array(
+        //         'name'       => 'required',
+        //         'email'      => 'required|email',
+        //         'shark_level' => 'required|numeric'
+        //     );
+        //     $validator = Validator::make(Input::all(), $rules);
+    
+        //     if ($validator->fails()) {
+        //         return Redirect::to('sharks/' . $id . '/edit')
+        //             ->withErrors($validator)
+        //             ->withInput(Input::except('password'));
+        //     } else {
+        //         $shark = shark::find($id);
+        //         $shark->name       = Input::get('name');
+        //         $shark->email      = Input::get('email');
+        //         $shark->shark_level = Input::get('shark_level');
+        //         $shark->save();
+    
+        //         Session::flash('message', 'Successfully updated shark!');
+        //         return Redirect::to('sharks');
+        //     }
 
-                $post->update($request->all());
 
-                return redirect()
-                        ->route('posts.index')
-                        ->with('success', 'Post updated successfully');
+        $request->validate([
+                'cemetery_name' => 'required',
+                'cemetery_desc' => 'required',
+                'address' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'country' => 'required',
+                'zip' => 'required',
+
+            ]);
+    
+            $cemetery = Cemetery::findOrFail($request->id);
+            $cemetery->cemetery_name = $request->cemetery_name;
+            $cemetery->cemetery_desc = $request->cemetery_desc;
+            $cemetery->address = $request->address;
+            $cemetery->city = $request->city;
+            $cemetery->state = $request->state;
+            $cemetery->country = $request->country;
+            $cemetery->zip = $request->zip;
+             $cemetery->save();
+    
+    
+            return redirect()->route('cemeterys.index')->with('success', 'Cemetery Updated Succesfully');
+
+
+
         }
 
         public function getAddMember()
@@ -140,6 +214,9 @@ class CemeteryController extends Controller
         }
         public function getEdit(Request $request)
         {
+
+                $cemeterys = Cemetery::findOrFail($id);
+                return view('admin.cemetries.edit', compact('cemeterys'));
                 return view('admin.cemetries.edit');
         }
         public function cemeteryListView(Request $request)
@@ -160,10 +237,17 @@ class CemeteryController extends Controller
           */
         public function destroy(Cemetery $cemetery)
         {
-                $cemetery->delete();
+                // $cemetery->delete();
 
-                return redirect()
-                        ->route('cemeterys.index')
-                        ->with('success', 'Cemetery deleted successfully');
+                // return redirect()
+                //         ->route('cemeterys.index')
+                //         ->with('success', 'Cemetery deleted successfully');
+        
+         $cemetery = Cemetery::findOrFail($id);
+
+        $cemetery->delete();
+        
+        return redirect()->route('cemeterys.index')->with('success', 'Cemetery Deleted Succesfully');;
+
         }
 }
