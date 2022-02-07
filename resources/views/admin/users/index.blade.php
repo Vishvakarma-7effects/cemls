@@ -8,11 +8,12 @@
                 <li class="breadcrumb-item active" aria-current="page">All Users</li>
             </ol>
         </nav>
+        
         <div class="row mb-3">
             <div class="col-md-5 col-6">
                 <h1 class="mheading">All Users</h1>
             </div>
-            <div class="col-md-7 col-6 text-right"><a  href="{{ url('users/create')}}" class="btn_mid btn_green">Add Users</a></div>
+            <div class="col-md-7 col-6 text-right"><a  href="{{ url('users/create')}}" class="btn_mid btn_green">Add User</a></div>
         </div>
 
 

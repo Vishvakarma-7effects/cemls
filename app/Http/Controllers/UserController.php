@@ -44,7 +44,7 @@ class UserController extends Controller {
 
         $data['roles'] = $roles;
         // return view('createUser', $data);
-        return view('admin.users.new', $data);
+        return view('admin.users.new', compact('roles'));
 
     }
 

@@ -115,12 +115,12 @@ class RoleController extends Controller {
 
         $request->validate([
             'name' => 'required',
-            'guard_name' => 'required'
+            // 'guard_name' => 'required'
         ]);
 
         $role = new Role;
         $role->name = $request->name;
-        $role->guard_name = $request->guard_name;
+        // $role->guard_name = $request->guard_name;
         $role->save();
 
         return redirect()->route('roles.index')->with('success', 'Role Add Succesfully');
@@ -158,12 +158,12 @@ class RoleController extends Controller {
 
         $request->validate([
             'name' => 'required',
-            'guard_name' => 'required'
+            // 'guard_name' => 'required'
         ]);
 
         $role = Role::findOrFail($request->id);
         $role->name = $request->name;
-        $role->guard_name = $request->guard_name;
+        // $role->guard_name = $request->guard_name;
         $role->save();
 
 

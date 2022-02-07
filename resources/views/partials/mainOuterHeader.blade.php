@@ -57,31 +57,37 @@
     </button>
   </div>
 </header> -->
+<style>
+  .hoverMenu:hover{
+    color: #86c335  !important;
 
- <header class="hm_header">
+  }
+</style>
+
+  <header class="hm_header">
     <div class="container-lg">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="{{ asset('newPublic/images/logo.png') }}" alt="Logo" />
         </a>
-
-
-        <div class="navcollapse justify-content-end collapse  navbar-collapse" id="mnbar">
-          {{-- <div class="tcell twcell float-right">
-            <form class="form-inline hsform" id="collapseSearch">
+          <div class="tcell twcell float-right">
+            <form class="form-inline hsform" id="collapseSearch" style="width: 227px;">
 
               <img src="{{ asset('newPublic/images/locicon1.png') }}" class="locicon">
               <input class="form-control" type="text" placeholder="Search" name="">
-              <select class="form-control">
-                <option>Cemeteries</option>
-                <option>Facilities</option>
+              {{-- <select class="form-control"> --}}
+                {{-- <option>Cemeteries</option> --}}
+                {{-- <option>Facilities</option>
                 <option>Products</option>
-                <option>Services</option>
-              </select>
+                <option>Services</option> --}}
+              {{-- </select> --}}
               <button class="btn_search" type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
-           --}}
+
+        <div class="navcollapse justify-content-end collapse  navbar-collapse" id="mnbar">
+          
+          
           <div class="mmlist tcell float-right">
             <ul class="navbar-nav dtable">
               {{-- <li class="nav-item">
@@ -104,7 +110,7 @@
               </li> --}}
 
               <li class="nav-item">
-                <a class="nav-link" href="#">List your Property</a>
+                <a class="nav-link hoverMenu" href="#">List your Property</a>
               </li>
               
               <!-- <li class="">

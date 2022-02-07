@@ -54,75 +54,82 @@
   }
  }
 </style>
-<div id="switchTabContent" class="tab-content">
- <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
-  <div id="myTabContent" class="tab-content">
-   <div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
-    <section class="bxshadow mb-3 mb-md-5">
-     <div class="cntbox">
-      <div class="wrapper_outer">
-       <div class=" bxshadow p-3 rounded">
-        <div class="d-flex ">
-         <div class="w-25">
-          <img src="{{ asset('newPublic/images/userimg.png') }}" alt="" width="100%" />
-         </div>
-         <div class="w-75 ml-4">
-          <div class="r_heading">
-           <h2>John Doe </h2>
-          </div>
+<section class="panelrht">
 
-          <div class="r_text">john.doe@gmail.com </div>
-          <div class="r_desc">
-           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      <div id="switchTabContent" class="tab-content">
+       <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
+        <div id="myTabContent" class="tab-content">
+         <div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
 
-          </div>
+
+          <section class="bxshadow mb-3 mb-md-5">
+           <div class="cntbox">
+            <div class="wrapper_outer">
+             <div class=" bxshadow p-3 rounded">
+              <div class="d-flex ">
+               <div class="w-25">
+                <img src="{{ asset('newPublic/images/userimg.png') }}" alt="" width="100%" />
+               </div>
+               <div class="w-75 ml-4">
+                <div class="r_heading">
+                 <h2>John Doe </h2>
+                </div>
+
+                <div class="r_text">john.doe@gmail.com </div>
+                <div class="r_desc">
+                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+
+                </div>
+               </div>
+              </div>
+              <div class="d-flex justify-content-between update_text pt-3">
+               <div class="t_update ">Last Updated 10 months ago</div>
+               <button class="btn_mid btn_green">Copy Embed link</button>
+              </div>
+             </div>
+             <div class=" bxshadow p-3 rounded custm_wrapper">
+              <div class="d-flex ">
+               <div class="w-25">
+      <img src="{{ asset('newPublic/images/userimg.png') }}" alt="" width="100%" />         </div>
+               <div class="w-75 ml-4">
+                <div class="r_heading">
+                 <h2>John Doe </h2>
+                </div>
+
+                <div class="r_text">john.doe@gmail.com </div>
+                <div class="r_desc">
+                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+
+                </div>
+               </div>
+              </div>
+              <div class="d-flex justify-content-between update_text pt-3">
+               <div class="t_update ">Last Updated 10 months ago</div>
+               <div>
+                <button class="btn_mid btn_green">Copy Embed link</button>
+                <button class="btn_mid btn_green">Copy Embed link</button>
+               </div>
+
+              </div>
+             </div>
+            </div>
+           </div>
+          </section>
+
+
+
          </div>
-        </div>
-        <div class="d-flex justify-content-between update_text pt-3">
-         <div class="t_update ">Last Updated 10 months ago</div>
-         <button class="btn_mid btn_green">Copy Embed link</button>
+
+
         </div>
        </div>
-       <div class=" bxshadow p-3 rounded custm_wrapper">
-        <div class="d-flex ">
-         <div class="w-25">
-<img src="{{ asset('newPublic/images/userimg.png') }}" alt="" width="100%" />         </div>
-         <div class="w-75 ml-4">
-          <div class="r_heading">
-           <h2>John Doe </h2>
-          </div>
 
-          <div class="r_text">john.doe@gmail.com </div>
-          <div class="r_desc">
-           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 
-          </div>
-         </div>
-        </div>
-        <div class="d-flex justify-content-between update_text pt-3">
-         <div class="t_update ">Last Updated 10 months ago</div>
-         <div>
-          <button class="btn_mid btn_green">Copy Embed link</button>
-          <button class="btn_mid btn_green">Copy Embed link</button>
-         </div>
-
-        </div>
-       </div>
       </div>
-     </div>
-    </section>
+</section>
 
-
-   </div>
-
-
-  </div>
- </div>
-
-
-</div>
 
 
 
