@@ -52,6 +52,7 @@
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
                     <section class="bxshadow mb-3 mb-md-5">
+                        @foreach($plots as $key=>$row)
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -60,143 +61,52 @@
                                 </td>
                                 <td width="">
                                     <div class="plothead">CemLs #30543</div>
-                                    <div class="plotshead">Fernwood Cemetery</div>
+                                    <div class="plotshead">{{$row->garden}}</div>
                                 </td>
                                 <td width="105">
                                     <div class="thead">Status</div>
-                                    <div class="ttxt cl_green">Available</div>
+                                    <div class="ttxt cl_green">{{$row->status}}</div>
                                 </td>
                                 <td width="105">
                                     <div class="thead text-center">Views</div>
-                                    <div class="ttxt cl_green text-center">1</div>
+                                    <div class="ttxt cl_green text-center">{{$row->views}}</div>
                                 </td>
                                 <td width="105">
-                                    <div class="thead">Lat Long</div>
-                                    <div class="ttxt cl_green">Yes</div>
+                                    <div class="thead">Plot Number</div>
+                                    <div class="ttxt cl_green">{{$row->plot_number}}</div>
                                 </td>
                                 <td width="40" align="right">
                                     <div class="moption">
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                     <ul class="moptionul">
                                         <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plots/getEdit')}}">Edit</a></li>
-                                        <li><a href="#">Delete</a></li>
+                                        <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
+                                        <li>
+                                        <form action="{{ route('plots.destroy', $row->id) }}" method="POST">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
+                                            </form>
+                                        </li>
                                     </ul>
                                     </div>
+                                </td>
+                                <td>
+                                
                                 </td>
                                 </tr>
                             </table>
                         </div>
+                        @endforeach
 
-                        <div class="cntbox">
-                            <table class="table mb-0 plot_table">
-                                <tr>
-                                <td width="76">
-                                    <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
-                                </td>
-                                <td width="">
-                                    <div class="plothead">CemLs #30543</div>
-                                    <div class="plotshead">Fernwood Cemetery</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Status</div>
-                                    <div class="ttxt cl_green">Available</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead text-center">Views</div>
-                                    <div class="ttxt cl_green text-center">1</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Lat Long</div>
-                                    <div class="ttxt cl_green">Yes</div>
-                                </td>
-                                <td width="40" align="right">
-                                    <div class="moption">
-                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                    <ul class="moptionul">
-                                        <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plots/getEdit')}}">Edit</a></li>
-                                        <li><a href="#">Delete</a></li>
-                                    </ul>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-                        </div>
+                        <div class="d-flex justify-content-center">
+                                {!! $plots->links('pagination::bootstrap-4') !!}
+                            </div>
 
-                        <div class="cntbox">
-                            <table class="table mb-0 plot_table">
-                                <tr>
-                                <td width="76">
-                                    <img  src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
-                                </td>
-                                <td width="">
-                                    <div class="plothead">CemLs #30543</div>
-                                    <div class="plotshead">Fernwood Cemetery</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Status</div>
-                                    <div class="ttxt cl_green">Available</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead text-center">Views</div>
-                                    <div class="ttxt cl_green text-center">1</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Lat Long</div>
-                                    <div class="ttxt cl_green">Yes</div>
-                                </td>
-                                <td width="40" align="right">
-                                    <div class="moption">
-                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                    <ul class="moptionul">
-                                        <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plots/getEdit')}}">Edit</a></li>
-                                        <li><a href="#">Delete</a></li>
-                                    </ul>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-                        </div>
 
-                        <div class="cntbox">
-                            <table class="table mb-0 plot_table">
-                                <tr>
-                                <td width="76">
-                                    <img  src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
-                                </td>
-                                <td width="">
-                                    <div class="plothead">CemLs #30543</div>
-                                    <div class="plotshead">Fernwood Cemetery</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Status</div>
-                                    <div class="ttxt cl_green">Available</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead text-center">Views</div>
-                                    <div class="ttxt cl_green text-center">1</div>
-                                </td>
-                                <td width="105">
-                                    <div class="thead">Lat Long</div>
-                                    <div class="ttxt cl_green">Yes</div>
-                                </td>
-                                <td width="40" align="right">
-                                    <div class="moption">
-                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                    <ul class="moptionul">
-                                        <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plots/getEdit')}}">Edit</a></li>
-                                        <li><a href="#">Delete</a></li>
-                                    </ul>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-                        </div>
 
-                    </section>
+
+                    <!-- </section>
 
                     <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
@@ -226,7 +136,7 @@
                             ...
 
                         </div>
-                    </section>
+                    </section> -->
                     </div>
                 </div>
             </div>
@@ -242,4 +152,11 @@
 
     </section>
 @endsection
+<script>
+	function myFunction()
+	{
+		if(!confirm("Are you sure to delete this?"))
+		event.preventDefault();
+	}
+</script>
    

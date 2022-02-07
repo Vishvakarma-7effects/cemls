@@ -13,15 +13,18 @@
     width: 100%;
   }
 </style>
-<section class="panelrht">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Property</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Edit Plot</li>
-    </ol>
-  </nav>
-  <h1 class="mheading">Edit Plot</h1>
-  <section class="bxshadow">
+            <section class="panelrht">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Property</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Add Plot</li>
+                </ol>
+              </nav>
+              <h1 class="mheading">Add Plot</h1>
+              <section class="bxshadow">
+  <form method="post" action="{{ url('saveplots')}}" accept-charset="UTF-8">
+       @csrf
+       <input type="hidden" name="id" value="{{$plots->id}}">
     <div class="cntbox">
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
@@ -35,18 +38,18 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Plot Name</label>
-                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                 <input type="text" class="form-control" id="" name="plot_name" placeholder="">
+                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
+                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="garden" value="{{$plots->garden}}">
                 </div>
               </div>
             </div>
 
             <div class="col-md-5">
               <div class="form-group row">
-              <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">cemetery_id</label>
-            <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="section" placeholder="">
+                <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
+                <div class="col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="section" value="{{$plots->section}}">
                 </div>
               </div>
             </div>
@@ -55,40 +58,49 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Description</label>
-                                    <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="plot_desc" placeholder="">
+                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
+                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="lot" value="{{$plots->lot}}">
                 </div>
               </div>
             </div>
 
             <div class="col-md-5">
               <div class="form-group row">
-              <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Plot Min Price</label>
-                                    <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="row" placeholder="">
+                <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Row</label>
+                <div class="col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="row" value="{{$plots->row}}">
                 </div>
               </div>
             </div>
 
-                      </div>
-
+          </div>
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Max Price</label>
-                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                  <input type="text" class="form-control" id="" name="plot_max_price" placeholder="">
+                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Grave</label>
+                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="grave" value="{{$plots->grave}}">
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div class="row">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="form-group row">
+                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Number</label>
+                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                  <input type="text" class="form-control" name="plot_number" value="{{$plots->plot_number}}">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <div class="form-group row">
                 <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
                 <div class="col-md-5 col-sm-9 pl-3 pl-md-4 d-flex ">
-                  <input type="text" class="form-control" id="" placeholder="Create Custom label ">
+                  <input type="text" class="form-control" name="custom_label" placeholder="Create Custom label ">
                   <button class="btn_search">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
@@ -96,30 +108,30 @@
               </div>
             </div>
 
-          </div> -->
-<!-- 
+          </div>
+
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1" checked>
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios1"
+                      value="Available" {{$plots->status=='Available' ? 'checked' : ''}}>
                     <label class="form-check-label" for="exampleRadios1">
                       Available
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2"
+                      value="Reserved" {{$plots->status=='Reserved' ? 'checked' : ''}}>
                     <label class="form-check-label" for="exampleRadios2">
                       Reserved
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2"
+                      value="Sold" {{$plots->status=='Sold' ? 'checked' : ''}}>
                     <label class="form-check-label" for="exampleRadios2">
                       Sold
                     </label>
@@ -135,25 +147,25 @@
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Tags</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Burials" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Burials</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Cremations" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremations</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Indoor" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Outdoor" name="tags">
                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                   </div>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
 
         </div>
@@ -168,46 +180,11 @@
     </div>
     <div class="cntbox">
 
-    <div class="cntbox">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="form-group row">
-                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
-                                     <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                       <input type="text" class="form-control" id="" name="status" placeholder="" value="{{$roles->name}}">
-                                     </div>
-                                </div>
-                              </div>
-                        </div>
-                        
-                      <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Map</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <input type="text" class="form-control" id="" name="map" placeholder="" value="{{$roles->name}}">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Public</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <textarea class="form-control" id="" name="public" placeholder="" value="{{$roles->name}}"></textarea>
-                        </div>
-                      </div>
-
-                    
-
-                    </div>
-                    
-                  </div>
-                </div>
-
-
-
 
 
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
-          <!-- <div class="form-group row">
+          <div class="form-group row">
 
             <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -216,32 +193,23 @@
 
               <datalist id="tickmarks">
                 <option value="0" label="$500"></option>
-                <option value="200" label="$2000"></option>
-
-                <option value="5000" label="$5000"></option>
+                <option value="100" label="$5000"></option>
               </datalist>
               <div class="col-md-6 col-sm-9">
-                <input type="text" value="$2000" class="form-control" id="" placeholder="" value="{{$roles->name}}">
+                <input type="text" value="$500" class="form-control" id="" placeholder="" value="{{$plots->proce}}">
               </div>
             </div>
-          </div> -->
-          
+          </div>
           <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Public</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <textarea class="form-control" id="" name="public" placeholder=""></textarea>
-                        </div>
-           </div>
-          <!-- <div class="form-group row">
-            <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Name</label>
+            <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <input type="text" class="form-control" value="Rozet Plot CCCD"id="" placeholder="">
+              <input type="text" class="form-control" name="cemetery_name" placeholder="" value="{{$plots->cemetery_name}}">
             </div>
           </div>
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="description" value="{{$plots->description}}"></textarea>
             </div>
           </div>
           <div class="row">
@@ -250,15 +218,15 @@
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1" checked>
+                    <input class="form-check-input" type="radio" name="public" id="exampleRadios1"
+                      value="yes" checked>
                     <label class="form-check-label col-form-label" for="exampleRadios1">
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="public" id="exampleRadios2"
+                      value="no">
                     <label class="form-check-label col-form-label" for="exampleRadios2">
                       No
                     </label>
@@ -270,14 +238,12 @@
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Internal Notes</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="internal_notes" value="{{$plots->internal_notes}}"></textarea>
             </div>
-          </div> -->
-
+          </div>
         </div>
 
       </div>
-      
     </div>
     <div class="cntbox">
       <div class="row">
@@ -287,7 +253,7 @@
             <a href="#"><i class="fa fa-search"></i></a>
             <button class="btn_mid btn_bgreen px-3">Get Location</button>
           </div>
-        </div>
+        </div>         
 
         <div class="col-lg-6 mb-1 mb-md-3 loctxt d-flex justify-content-center align-items-end">
           <b>Latitude:</b> 40.3189719 <span class="d-inline-block pl-3"><b>Longitude:</b> -80.11131890000001</span>
@@ -307,6 +273,7 @@
       <button class="btn_mid btn_green" type="submit">Add</button>
       <button class="btn_mid btn_none ml-3">Cancel</button>
     </div>
+  </form>
   </section>
 
 

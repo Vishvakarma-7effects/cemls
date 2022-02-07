@@ -39,12 +39,8 @@ class CemeteryController extends Controller
         {
             // get all the sharks
             $cemeterys = Cemetery::paginate(10);
-
-            
-    
-            // load the view and pass the sharks
             return View('admin.cemetries.index')
-                ->with('cemeterys', $cemeterys);
+            ->with('cemeterys', $cemeterys);
         }
 
 
@@ -62,7 +58,7 @@ class CemeteryController extends Controller
           * @param  \Illuminate\Http\Request  $request
           * @return \Illuminate\Http\Response
           */
-        public function store(Request $request)
+        public function store(Request $req)
         {
                 // dd($request->all());
 
@@ -144,28 +140,6 @@ class CemeteryController extends Controller
         // }
         public function update(Request $request)
         {
-        //     $rules = array(
-        //         'name'       => 'required',
-        //         'email'      => 'required|email',
-        //         'shark_level' => 'required|numeric'
-        //     );
-        //     $validator = Validator::make(Input::all(), $rules);
-    
-        //     if ($validator->fails()) {
-        //         return Redirect::to('sharks/' . $id . '/edit')
-        //             ->withErrors($validator)
-        //             ->withInput(Input::except('password'));
-        //     } else {
-        //         $shark = shark::find($id);
-        //         $shark->name       = Input::get('name');
-        //         $shark->email      = Input::get('email');
-        //         $shark->shark_level = Input::get('shark_level');
-        //         $shark->save();
-    
-        //         Session::flash('message', 'Successfully updated shark!');
-        //         return Redirect::to('sharks');
-        //     }
-
 
         $request->validate([
                 'cemetery_name' => 'required',
@@ -237,11 +211,6 @@ class CemeteryController extends Controller
           */
         public function destroy(Cemetery $cemetery)
         {
-                // $cemetery->delete();
-
-                // return redirect()
-                //         ->route('cemeterys.index')
-                //         ->with('success', 'Cemetery deleted successfully');
         
          $cemetery = Cemetery::findOrFail($id);
 

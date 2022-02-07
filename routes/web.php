@@ -77,9 +77,15 @@ Route::post('savecemeterys', [CemeteryController::class, 'savecemeterys']);
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 
-// Route::get('plots/getEdit', [PlotController::class, 'getEdit']);
-// Route::get('plots/customeNew', [PlotController::class, 'customeNew']);
-// Route::resource('plots', PlotController::class)->middleware('auth');
+//plot
+Route::get('plots/getEdit', [PlotController::class, 'getEdit'])->middleware('auth');
+Route::get('plots/customeNew', [PlotController::class, 'customeNew'])->middleware('auth');
+Route::resource('plots', PlotController::class)->middleware('auth');
+Route::post('saveplots', [PlotController::class, 'saveplots'])->middleware('auth');
+
+
+
+
 
 Route::resource('pages', PageController::class)->middleware('auth');
 Route::resource('menus', MenuController::class)->middleware('auth');
@@ -147,3 +153,6 @@ Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpai
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');
 Route::resource('inbox', InboxController::class)->middleware('auth');
+
+
+

@@ -17,11 +17,13 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Property</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Add Cemetery</li>
+      <li class="breadcrumb-item active" aria-current="page">Add Plot</li>
     </ol>
   </nav>
-  <h1 class="mheading">Add Cemetery</h1>
+  <h1 class="mheading">Add Plot</h1>
   <section class="bxshadow">
+  <form method="post" action="{{route('plots.store')}}" accept-charset="UTF-8">
+       @csrf
     <div class="cntbox">
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
@@ -37,7 +39,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="garden">
                 </div>
               </div>
             </div>
@@ -46,7 +48,7 @@
               <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="section">
                 </div>
               </div>
             </div>
@@ -57,7 +59,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="lot">
                 </div>
               </div>
             </div>
@@ -66,7 +68,7 @@
               <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Row</label>
                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="row">
                 </div>
               </div>
             </div>
@@ -77,7 +79,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Grave</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="grave">
                 </div>
               </div>
             </div>
@@ -87,7 +89,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Number</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="plot_number">
                 </div>
               </div>
             </div>
@@ -97,7 +99,7 @@
               <div class="form-group row">
                 <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
                 <div class="col-md-5 col-sm-9 pl-3 pl-md-4 d-flex ">
-                  <input type="text" class="form-control" id="" placeholder="Create Custom label ">
+                  <input type="text" class="form-control" name="custom_label" placeholder="Create Custom label ">
                   <button class="btn_search">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
@@ -113,22 +115,22 @@
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1" checked>
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios1"
+                      value="available" checked>
                     <label class="form-check-label" for="exampleRadios1">
                       Available
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2"
+                      value="Reserved">
                     <label class="form-check-label" for="exampleRadios2">
                       Reserved
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2"
+                      value="Sold">
                     <label class="form-check-label" for="exampleRadios2">
                       Sold
                     </label>
@@ -137,25 +139,26 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Tags</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Burials" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Burials</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Cremations" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremations</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Indoor" name="tags">
+                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Outdoor" name="tags">
                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                   </div>
                 </div>
@@ -199,13 +202,13 @@
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" name="cemetery_name" placeholder="">
             </div>
           </div>
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="description"></textarea>
             </div>
           </div>
           <div class="row">
@@ -214,15 +217,15 @@
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1" checked>
+                    <input class="form-check-input" type="radio" name="public" id="exampleRadios1"
+                      value="yes" checked>
                     <label class="form-check-label col-form-label" for="exampleRadios1">
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="public" id="exampleRadios2"
+                      value="no">
                     <label class="form-check-label col-form-label" for="exampleRadios2">
                       No
                     </label>
@@ -234,7 +237,7 @@
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Internal Notes</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="internal_notes"></textarea>
             </div>
           </div>
         </div>
@@ -266,9 +269,10 @@
     </div>
 
     <div class="cntbox">
-      <button class="btn_mid btn_green">Add</button>
+      <button class="btn_mid btn_green" type="submit">Add</button>
       <button class="btn_mid btn_none ml-3">Cancel</button>
     </div>
+  </form>
   </section>
 
 
