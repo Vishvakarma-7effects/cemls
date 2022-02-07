@@ -58,7 +58,7 @@ font-family: sans-serif;
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Email address</label>
-      <div class="col-sm b  -8 pl-3 pl-md-4">
+      <div class="col-sm-8 pl-3 pl-md-4">
        <input type="email" class="form-control" id="" placeholder="">
       </div>
      </div>
