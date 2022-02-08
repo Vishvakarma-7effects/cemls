@@ -110,37 +110,17 @@ font-family: sans-serif;
       <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
       <div class="col-sm-7 pl-3 pl-md-4 d-flex justify-content-between">
        <div class="row">
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Permission1</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
+        @foreach ($roles as $item)
+         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
-          <label class="form-check-label" for="inlineCheckbox2">Role2</label>
+          <label class="form-check-label" for="inlineCheckbox2">{{ ucfirst(str_replace('_',' ',$item->name))}}</label>
          </div>
         </div>
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-          <label class="form-check-label" for="inlineCheckbox3">Role3</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-          <label class="form-check-label" for="inlineCheckbox4">Role4</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
-          <label class="form-check-label" for="inlineCheckbox5">Role5</label>
-         </div>
-        </div>
-
+        @endforeach
+       
+       
+       
        </div>
       </div>
      </div>
@@ -290,7 +270,7 @@ font-family: sans-serif;
   </div> -->
 
 
-  <div class="row">
+  <!-- <div class="row">
    <div class="col-lg-6 pr-lg-4">
     <div class="nk-block-actions d-flex  border-top py-4 mt-4 ">
      {{-- <div class="col-sm-8"> --}}
@@ -299,7 +279,12 @@ font-family: sans-serif;
      {{-- </div> --}}
     </div>
    </div>
-  </div>
+  </div> -->
+
+    <div class="cntbox">
+         <button class="btn_mid btn_green" type="button">Submit</button>
+         <button class="btn_mid btn_none ml-3">Cancel</button>
+      </div>
 
 
 

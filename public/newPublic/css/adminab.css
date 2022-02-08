@@ -812,14 +812,32 @@ textarea.form-control{height:106px; resize:none;}
 .smodal .stable td{color: #6A7175;}
 
 
-.role-edit{
+.role-edit {
+    
    padding: 5px 25px !important;
    font-size: 13px !important;
    margin-right: 20px;
-   border-color: #e9e9e9 !important;
-   color: #6A7175 !important;
+   /* color: #fff; */
+   /* color: #6A7175 !important; */
 }
+.btn_green:hover {
+    
+  
+   border-color: #006cd4 !important;
+   background-color: #006cd4  ;
+      color: #fff;
 
+
+   /* color: #6A7175 !important; */
+}
+.role-edit:hover {
+    
+  
+   border-color: #006cd4 !important;
+   background-color: #006cd4  ;
+
+   /* color: #6A7175 !important; */
+}
 .role-sheading {
     font-weight: bold;
     font-size: 18px;

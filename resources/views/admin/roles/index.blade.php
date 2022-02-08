@@ -36,8 +36,8 @@
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <!-- <th>Guard Name</th> -->
+                                        <th style="padding-left: 10%;">Name</th>
+                                        {{-- <th style="padding-left: 5%;">Guard Name</th> --}}
 
                                         <th  style=""width="40">Action</th>
                                     </tr>
@@ -47,17 +47,16 @@
                                     @foreach($roles as $roleKey=>$roleVal)
                                         <tr class="">
                                             <td style="padding-left: 10%;">{{ $roleVal->name}}</td>
-                                            <td style="">
+                                            {{-- <td style="padding-left: 5%;">{{ $roleVal->guard_name}}</td> --}}
+                                        </td>
+                                            <td  class="d-flex" style="">
                                                 <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
-                                            </td>
-                                            <td>
-                                            <form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
+                                                <form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
                                             </form>
-                                                <!-- <a  href="" class="btn btn-outline-dark role-edit">Delete</a> -->
-                                            </td>
+                                            </td> 
                                         </tr>
 
                                     @endforeach

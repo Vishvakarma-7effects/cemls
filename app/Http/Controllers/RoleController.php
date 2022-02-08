@@ -115,6 +115,7 @@ class RoleController extends Controller {
 
         $request->validate([
             'name' => 'required',
+            // 'guard_name' => 'required'
         ]);
 
         $role = new Role;
@@ -157,6 +158,10 @@ class RoleController extends Controller {
 
         $request->validate([ 
             'name' => 'required',
+<<<<<<< HEAD
+            // 'guard_name' => 'required'
+=======
+>>>>>>> 88c7fbe84c25924234a5b6ed3404ddddeb256710
         ]);
 
         $role = Role::findOrFail($request->id);

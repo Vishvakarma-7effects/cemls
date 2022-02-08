@@ -69,13 +69,33 @@
 
                             @endforeach
                             
-
-                            <div class="d-flex justify-content-center">
+                  
+                            {{-- <div class="d-flex justify-content-center">
                                 {!! $cemeterys->links('pagination::bootstrap-4') !!}
-                            </div>
+                            </div>  --}}
 
 
                     </section>
+                       <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                        <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link pn_arrow" href="#" aria-label="Previous">
+                            <i class="fa fa-caret-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item "><a class="page-link " href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">12</a></li>
+                        <li class="page-item">
+                            <a class="page-link pn_arrow" href="#" aria-label="Next">
+                            <i class="fa fa-caret-right"></i>
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>
 
 
                 </div>

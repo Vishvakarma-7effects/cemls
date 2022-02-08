@@ -23,8 +23,12 @@
                     </span>
                     </div>
                     <div class="user_info">
-                        <h2>{{ $user->name.' '.$user->last_name}} <i class="fa fa-pencil editbx"></i></h2>
-                        <div class="uemail">{{ $user->gmail }} <i class="fa fa-pencil editbx"></i></div>
+                        <h2>{{ $user->name.' '.$user->last_name}}
+                             <i class="fa fa-pencil editbx"></i>
+                        </h2>
+                        <div class="uemail">{{ $user->gmail }} 
+                            {{-- <i class="fa fa-pencil editbx"></i> --}}
+                        </div>
                         <div class="ujoin">Member <small>since</small> 20 April 2018</div>
                         <button class="btn_mid btn_green">Update</button>
                     </div>
@@ -56,11 +60,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 pr-lg-4">
+                    <div class="col-lg-6">
                         <div class="form-group row mb-0">
                         <label for="" class="col-sm-4 col-form-label pr-0">&nbsp;</label>
 
-                        <div class="col-sm-8 pl-lg-4">
+                        <div class="col-sm-8">
                             <button class="btn_mid btn_green">Change Password</button>
                             <button class="btn_mid btn_none float-right mw_initial">Cancel</button>
                         </div>
@@ -71,7 +75,7 @@
 
             </div>
             <form action="{{url('user/updateProfile')}}" method="post">
-            @csrf
+              @csrf
                 <div class="cntbox">
                     <h2 class="sheading">Address</h2>
                     <div class="row">
@@ -125,18 +129,25 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-8 pl-lg-4">
-                                <button class="btn_mid btn_green float-right mw_initial" type="submit">Update</button>
+                       <div class="col-sm-6 pl-lg-4">
+                            <div class="form-group row">
+                            <div class="col-sm-8 pl-3 pl-md-4">
+
+                            <button class="btn_mid btn_green float-right mw_initial" type="button">Update</button>
                             </div>
+                            </div>
+                        </div>
+               
 
                     </div>
                 </div>
-            </form>
+                
+                 <div class="cntbox">
+                    <h2 class="sheading">Delete Account</h2>
+                    <button class="btn_mid btn_none">Delete This Account</button>
+                 </div>
+                 </form>
 
-            <!-- <div class="cntbox">
-                <h2 class="sheading">Delete Account</h2>
-                <button class="btn_mid btn_none">Delete This Account</button>
-                </div> -->
         </section>
 
     </section>

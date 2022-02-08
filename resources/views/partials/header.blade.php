@@ -9,11 +9,19 @@
                     class=""></path>
             </svg>
         </button>
-        <a class="navbar-brand" href="">
-            <img src="{{ asset('newPublic/images/logo.png') }}" alt="Logo" />
+        @if(auth()->user()){
+            <a class="navbar-brand" href="{{ url('dashboard') }}">
+                <img src="{{ asset('newPublic/images/logo.png') }}" alt="Logo" />
 
-            {{-- <img src="images/logo.png" alt="Logo" /> --}}
-        </a>
+                {{-- <img src="images/logo.png" alt="Logo" /> --}}
+            </a>
+        @else
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('newPublic/images/logo.png') }}" alt="Logo" />
+
+                {{-- <img src="images/logo.png" alt="Logo" /> --}}
+            </a>
+        @endif
 
 
         <div class="navcollapse justify-content-end collapse navbar-collapse" id="mnbar">

@@ -178,7 +178,7 @@ font-family: sans-serif;
      </div>
     </div>
    </div> --}}
-<div class="col-lg-6 pr-lg-4">
+   {{-- <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
       <div class="col-sm-7 pl-3 pl-md-4 d-flex justify-content-between">
@@ -219,7 +219,7 @@ font-family: sans-serif;
      </div>
     </div>
 
-  </div>
+   </div> --}}
 
 
   <div class="cntbox">
@@ -364,17 +364,11 @@ font-family: sans-serif;
   </div> -->
 
 
-  <div class="row">
-   <div class="col-lg-6 pr-lg-4">
-    <div class="nk-block-actions d-flex  border-top py-4 mt-4 ">
-     {{-- <div class="col-sm-8"> --}}
-     <button class="btn_mid btn_green">Submit</button>
-     <button class="btn_mid btn_none float-right mw_initial ml-2">Cancel</button>
-     {{-- </div> --}}
-    </div>
-   </div>
-  </div>
-
+  
+    <div class="cntbox">
+         <button class="btn_mid btn_green" type="button">Update</button>
+         <button class="btn_mid btn_none ml-3">Cancel</button>
+      </div>
 
 
   </div>
