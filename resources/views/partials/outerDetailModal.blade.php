@@ -340,7 +340,7 @@
 
 <script>
   // debugger
-  $('.boxinner').click(function(){
+  $('.boxinnerdtl_img img').click(function(){
     // debugger
         $('#mdtlModal').modal('toggle');
   })

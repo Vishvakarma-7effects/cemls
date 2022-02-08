@@ -8,6 +8,7 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Mail;
 
 class UserController extends Controller {
 
@@ -54,7 +55,7 @@ class UserController extends Controller {
         $rules = [
             'name' => 'required',
             'email' => 'required|unique:users',
-            'password' => 'required|confirmed',
+            // 'password' => 'required|confirmed',
         ];
         $request->validate($rules);
 
@@ -195,8 +196,38 @@ class UserController extends Controller {
 
     }
     public function mailbox(){
-    return view('admin.mailbox');
-    
+
+        $mails = Mail::with(['creator'])->get();
+        // dd($mails);
+
+        return view('admin.mailbox',compact('mails'));
     }
+
+     public function storeMail(StoreMailRequest $request)
+        {
+                $request->merge(['created_by'=>auth()->user()->id,'status'=>'SEND']);
+                // $request->input('type')='invitation';
+                // dd($request->all());
+
+                $invite = Mail::all();
+                if($invite){
+                        if($request->input('type')=='INVITATION'){
+                                $checkUser=User::where(['email'=>$request->input('email')])->get();
+
+                                // dd($checkUser);
+                                if(count($checkUser)<1){
+                                        
+                                        $a=User::create([
+                                                'email'=>$request->input('email'),'type'=>'INVITATED','status'=>'INVITATED'
+                                        ]);
+                                        // dd($a);
+                                }
+                        }
+                        session()->flash('message', 'Mail Successfully Sent');
+                }
+                return redirect()->url('mailBox');
+
+        }
+       
 
 }

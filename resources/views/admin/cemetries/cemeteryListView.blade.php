@@ -37,7 +37,7 @@
 
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              {{-- <a href="#" > --}}
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -50,11 +50,11 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              {{-- </a> --}}
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              {{-- <a href="#"> --}}
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -67,11 +67,11 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              {{-- </a> --}}
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              {{-- <a href="#"> --}}
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -84,10 +84,12 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              {{-- </a> --}}
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -100,9 +102,12 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -115,9 +120,12 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
+              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -130,6 +138,7 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
+              </a>
             </div>
           </div>
         </div>
@@ -146,8 +155,8 @@
             </button>
             <div class="clearfix pphead">
               <ul class="ulshare">
-                <li><a href="#"><i class="far fa-heart"></i> Save</a></li>
-                <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
+                <li><a href="{{ url('cemeterys/cemeteryDetailPage')}}"><i class="far fa-heart"></i> Save</a></li>
+                <li><a href="{{ url('cemeterys/cemeteryDetailPage')}}"><i class="fa fa-share-alt"></i> Share</a></li>
               </ul>
               <div class="adbx">
                 <img src="{{ asset('newPublic/images/adimg.jpg') }}">
@@ -242,10 +251,10 @@
                   <p>Cemetery360® Software provides the industry a way to promote their business and offerings remotely,
                     during in-home presentations, and year-round, where weather conditions restrict in-person visits.
                     Cemetery360® Software captures ground view 360 imagery with our own capturing and recording equipment.</p>
-                  <p><a href="#">Read More</a></p>
+                  <p><a href="{{ url('cemeterys/cemeteryDetailPage')}}">Read More</a></p>
                   <div class="row">
                     <div class="col-6 fw-414">
-                      <a href="#">
+                      <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
                         <div class="boxfour">
                           <h2 class="w-100">Order from CemLS and get free shipping</h2>
                           <img src="{{ asset('newPublic/images/pbtslide-img1.jpg') }}" class="boxfour_img" alt="">
@@ -254,7 +263,7 @@
                     </div>
       
                     <div class="col-6 fw-414">
-                      <a href="#">
+                      <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
                         <div class="boxfour">
                           <h2 class="w-100">Order from CemLS and get free shipping</h2>
                           <img src="{{ asset('newPublic/images/pbtslide-img1.jpg') }}" class="boxfour_img" alt="">

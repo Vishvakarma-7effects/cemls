@@ -59,7 +59,7 @@
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">CemLs #30543</div>
+                                    <div class="plothead">CemLS #30543</div>
                                     <div class="plotshead">Fernwood Cemetery</div>
                                 </td>
                                 <td width="105">
@@ -95,7 +95,7 @@
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">CemLs #30543</div>
+                                    <div class="plothead">CemLS #30543</div>
                                     <div class="plotshead">Fernwood Cemetery</div>
                                 </td>
                                 <td width="105">
@@ -131,7 +131,7 @@
                                     <img  src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">CemLs #30543</div>
+                                    <div class="plothead">CemLS #30543</div>
                                     <div class="plotshead">Fernwood Cemetery</div>
                                 </td>
                                 <td width="105">
@@ -167,7 +167,7 @@
                                     <img  src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">CemLs #30543</div>
+                                    <div class="plothead">CemLS #30543</div>
                                     <div class="plotshead">Fernwood Cemetery</div>
                                 </td>
                                 <td width="105">

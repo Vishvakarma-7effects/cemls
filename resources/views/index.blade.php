@@ -156,7 +156,7 @@
                   <div class="boxone bxhght">
                       <div class="bxtag clearfix">
                         <span class="tagtxt">Outdoor</span>
-                        <i class="far fa-heart"></i>
+                        {{-- <i class="far fa-heart"></i> --}}
                       </div>
                       <div class="bximg">
                         <img src="{{ asset('newPublic/images/img1.jpg') }}" alt=""/>

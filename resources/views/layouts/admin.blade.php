@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
-        <title>Cemls</title>
+        <title>CemLS</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content=""/>
         <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">
@@ -19,7 +19,13 @@
     <main class="maincnt">
         @include('partials.header')
         <main class="adm_container clearfix collapse navbar-collapse" id="navbarSupportedContent">
-            @include('partials.menu')
+              @if(session('message'))
+                    <div class="row mb-2">
+                        <div class="col-lg-12">
+                            <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                        </div>
+                    </div>
+                @endif            @include('partials.menu')
             @yield('content')
 
         </main>

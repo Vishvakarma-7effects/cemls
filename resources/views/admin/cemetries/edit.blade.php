@@ -32,7 +32,7 @@
  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
    <li class="breadcrumb-item"><a href="#">Property</a></li>
-   <li class="breadcrumb-item active" aria-current="page">Add Cemetery</li>
+   <li class="breadcrumb-item active" aria-current="page">ABCD Cemetery</li>
   </ol>
  </nav>
  <h1 class="mheading">ABCD Cemetery</h1>
@@ -70,8 +70,8 @@
       </div>
      </div>
      <div class="mt-5">
-      <button class="btn_lg btn_bgreen">Add Videos</button>
-      <button class="btn_lg btn_bgreen">Add Videos</button>
+      <button class="btn_lg btn_bgreen">Photos(22)</button>
+      <button class="btn_lg btn_bgreen">Videos(2)</button>
      </div>
     </div>
     <div class="col-lg-12">

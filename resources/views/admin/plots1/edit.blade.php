@@ -28,7 +28,7 @@
           <div class="form-group row">
             <p class="col-lg-3 col-sm-3 col-form-label pr-0">Location ID</p>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <p>Cemls#30453</p>
+              <p>CemLS#30453</p>
             </div>
           </div>
 

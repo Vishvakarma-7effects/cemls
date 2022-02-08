@@ -4,7 +4,7 @@
 
 <head>
  <meta charset="utf-8" />
- <title>Cemls</title>
+ <title>CemLS</title>
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <meta name="description" content="" />
  <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">

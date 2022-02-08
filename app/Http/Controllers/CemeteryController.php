@@ -2,9 +2,14 @@
 
 use App\Models\Cemetery;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreMailRequest;
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Mail;
+use App\Models\User;
+
 class CemeteryController extends Controller
 {
         public $timeStamp;
@@ -122,13 +127,7 @@ class CemeteryController extends Controller
                 return view('admin.cemetries.edit', compact('cemeterys','created_at'));
         }
 
-        /**
-          * Update the specified resource in storage.
-          *
-          * @param  \Illuminate\Http\Request  $request
-          * @param  \App\Models\Cemetery  $cemetery
-          * @return \Illuminate\Http\Response
-          */
+        
         // public function update(Request $request, Cemetery $cemetery)
         // {
         //         $request->validate([
@@ -199,9 +198,35 @@ class CemeteryController extends Controller
         {
                 return view('admin.cemetries.getAddMember');
         }
-        public function getInvitePeople(Request $request)
+        public function getInvitePeople(Request $request )
         {
                 return view('admin.cemetries.getInvitePeople');
+        }
+        
+        public function storeInvitePeople(Request $request)
+        {
+
+                $request->merge(['created_by'=>auth()->user()->id,'status'=>'SEND']);
+                // $request->input('type')='invitation';
+                // dd($request->all());
+                $invite = Mail::create($request->all());
+                if($invite){
+                        if($request->input('type')=='INVITATION'){
+                                $checkUser=User::where(['email'=>$request->input('email')])->get();
+
+                                // dd($checkUser);
+                                if(count($checkUser)<1){
+                                        
+                                        $a=User::create([
+                                                'email'=>$request->input('email'),'type'=>'INVITATED','status'=>'INVITATED'
+                                        ]);
+                                        // dd($a);
+                                }
+                        }
+                        session()->flash('message', 'Mail Successfully Sent');
+                }
+                return redirect()->route('cemeterys.getInvitePeople');
+
         }
         public function manageMember()
         {
@@ -214,10 +239,10 @@ class CemeteryController extends Controller
         }
         public function getEdit(Request $request)
         {
-
-                $cemeterys = Cemetery::findOrFail($id);
+        //       dd($request);
+                $cemeterys = Cemetery::findOrFail($request->id);
                 return view('admin.cemetries.edit', compact('cemeterys'));
-                return view('admin.cemetries.edit');
+                // return view('admin.cemetries.edit');
         }
         public function cemeteryListView(Request $request)
         {
@@ -228,6 +253,11 @@ class CemeteryController extends Controller
         public function cemeteryListDetails(Request $request)
         {
         return view('admin.cemetries.cemeteryListDetails');
+        }
+        
+        public function cemeteryDetailPage(Request $request)
+        {
+        return view('admin.cemetries.cemeteryDetailPage');
         }
         /**
           * Remove the specified resource from storage.
