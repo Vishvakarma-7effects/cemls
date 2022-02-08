@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+   @extends('layouts.admin')
 
 @section('content')
 <section class="panelrht">
@@ -94,6 +94,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -129,6 +130,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>
@@ -164,6 +166,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="cntbox">
                             <table class="table mb-0 plot_table">
                                 <tr>

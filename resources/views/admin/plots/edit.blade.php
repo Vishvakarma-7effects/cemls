@@ -35,18 +35,18 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
-                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control"  value="abc" id="" placeholder="">
+                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Plot Name</label>
+                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                 <input type="text" class="form-control" id="" name="plot_name" placeholder="">
                 </div>
               </div>
             </div>
 
             <div class="col-md-5">
               <div class="form-group row">
-                <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
-                <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" value="veteran" placeholder="">
+              <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">cemetery_id</label>
+            <div class="col-sm-9 pl-3 pl-md-4 ">
+                                    <input type="text" class="form-control" id="" name="section" placeholder="">
                 </div>
               </div>
             </div>
@@ -55,18 +55,18 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
-                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" value="Lot1" id="" placeholder="">
+              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Description</label>
+                                    <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                    <input type="text" class="form-control" id="" name="plot_desc" placeholder="">
                 </div>
               </div>
             </div>
 
             <div class="col-md-5">
               <div class="form-group row">
-                <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Row</label>
-                <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" value="row22" id="" placeholder="">
+              <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Plot Min Price</label>
+                                    <div class="col-sm-9 pl-3 pl-md-4 ">
+                                    <input type="text" class="form-control" id="" name="row" placeholder="">
                 </div>
               </div>
             </div>
@@ -76,9 +76,9 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Grave</label>
-                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" value="grave 1"class="form-control" id="" placeholder="">
+              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Max Price</label>
+                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                  <input type="text" class="form-control" id="" name="plot_max_price" placeholder="">
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
             </div>
 
           </div> -->
-
+<!-- 
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
@@ -128,6 +128,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-7">
               <div class="form-group row">
@@ -152,7 +153,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
         </div>
@@ -167,11 +168,46 @@
     </div>
     <div class="cntbox">
 
+    <div class="cntbox">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
+                                     <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                       <input type="text" class="form-control" id="" name="status" placeholder="" value="{{$roles->name}}">
+                                     </div>
+                                </div>
+                              </div>
+                        </div>
+                        
+                      <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Map</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                        <input type="text" class="form-control" id="" name="map" placeholder="" value="{{$roles->name}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Public</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                        <textarea class="form-control" id="" name="public" placeholder="" value="{{$roles->name}}"></textarea>
+                        </div>
+                      </div>
+
+                    
+
+                    </div>
+                    
+                  </div>
+                </div>
+
+
+
 
 
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
-          <div class="form-group row">
+          <!-- <div class="form-group row">
 
             <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -185,11 +221,18 @@
                 <option value="5000" label="$5000"></option>
               </datalist>
               <div class="col-md-6 col-sm-9">
-                <input type="text" value="$2000" class="form-control" id="" placeholder="">
+                <input type="text" value="$2000" class="form-control" id="" placeholder="" value="{{$roles->name}}">
               </div>
             </div>
-          </div>
+          </div> -->
+          
           <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Public</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                        <textarea class="form-control" id="" name="public" placeholder=""></textarea>
+                        </div>
+           </div>
+          <!-- <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Name</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
               <input type="text" class="form-control" value="Rozet Plot CCCD"id="" placeholder="">
@@ -229,10 +272,12 @@
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
               <textarea class="form-control"></textarea>
             </div>
-          </div>
+          </div> -->
+
         </div>
 
       </div>
+      
     </div>
     <div class="cntbox">
       <div class="row">
@@ -259,7 +304,7 @@
     </div>
 
     <div class="cntbox">
-      <button class="btn_mid btn_green">Add</button>
+      <button class="btn_mid btn_green" type="submit">Add</button>
       <button class="btn_mid btn_none ml-3">Cancel</button>
     </div>
   </section>

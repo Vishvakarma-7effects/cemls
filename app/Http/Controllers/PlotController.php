@@ -34,9 +34,10 @@ class PlotController extends Controller
 				{
 								//
 										// $roles=DB::select('roles')->get();
-        $roles = DB::table('roles')->get();
+      //  $roles = DB::table('roles')->get();
 
-							return view('admin.plots.new',compact('roles'));	
+							//return view('admin.plots.new',compact('roles'));	
+							return view('admin.plots.customeNew');
 						}
 
 						public function customeNew()
