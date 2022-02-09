@@ -38,6 +38,8 @@
  <h1 class="mheading">Edit Cemetery</h1>
 
  <section class="bxshadow">
+ <form action="{{ route('plot.update',$plot->id) }}" method="POST" enctype="multipart/form-data">
+     
   <div class="cntbox">
    <div class="row">
     <div class="col-lg-7">
