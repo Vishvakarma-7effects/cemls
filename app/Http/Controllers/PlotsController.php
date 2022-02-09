@@ -106,7 +106,7 @@ class PlotsController extends Controller
 					*/
 				public function update(Request $request, Plot $plot)
 				{
-					$plot = Plot::findOrFail($request->id);
+					//$plot = Plot::findOrFail($request->id);
 					$plot->garden = $request->garden;
 					$plot->lot = $request->lot;
 					$plot->grave = $request->grave;
@@ -122,7 +122,7 @@ class PlotsController extends Controller
 					$plot->internal_notes = $request->internal_notes;
 					$plot->save();
 
-					return redirect::to('plots.index')->with('success', 'Plots Update Succesfully');
+					return redirect::to('plot.index')->with('success', 'Plots Update Succesfully');
  
 
 

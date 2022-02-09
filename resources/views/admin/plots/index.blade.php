@@ -80,9 +80,9 @@
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                     <ul class="moptionul">
                                         <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plot/'.$row->id.'/edit')}}">Edit</a></li>
+                                        <li><a href="{{ url('plot/'.$row->ID.'/edit')}}">Edit</a></li>
                                         <li>
-                                        <form action="{{ route('plot.destroy', $row->id) }}" method="POST">
+                                        <form action="{{ route('plot.destroy', $row->ID) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button class="btn btn-outline-dark permission-edit" onclick="return myFunction();">Delete</button>
