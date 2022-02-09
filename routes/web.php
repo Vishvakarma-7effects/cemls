@@ -18,7 +18,9 @@ use App\Http\Controllers\BillingController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CemeteryController;
 use App\Http\Controllers\InboxController;
-use App\Http\Controllers\PlotController;
+// use App\Http\Controllers\PlotController;
+use App\Http\Controllers\PlotsController;
+
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -77,9 +79,24 @@ Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::get('plots/getEdit', [PlotController::class, 'getEdit'])->middleware('auth');
-Route::get('plots/customeNew', [PlotController::class, 'customeNew'])->middleware('auth');
-Route::resource('plots', PlotController::class)->middleware('auth');
+
+// Route::get('plots/customeNew', [PlotController::class, 'customeNew'])->middleware('auth');
+// // Route::get('deleteplots/{id}', [PlotController::class, 'destroy']); 
+// Route::resource('plots', PlotController::class)->middleware('auth');
+
+// Route::get('plots/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
+
+Route::resource('plot', PlotsController::class)->middleware('auth');
+//Route::get('plots/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
+Route::get('deleteplots/{id}', [PlotsController::class, 'destroy']); 
+//Route::get('plots/customeNew', [PlotsController::class, 'customeNew'])->middleware('auth');
+
+
+Route::get('plot/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
+
+
+
+
 
 Route::resource('pages', PageController::class)->middleware('auth');
 Route::resource('menus', MenuController::class)->middleware('auth');
@@ -122,6 +139,13 @@ Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->mid
 
 Route::get('users/getEdit', [UserController::class, 'getEdit'])->middleware('auth');
 Route::resource('users', UserController::class)->middleware('auth');
+
+//password
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
+
+
 
 Route::resource('camera', CameraController::class)->middleware('auth');
 

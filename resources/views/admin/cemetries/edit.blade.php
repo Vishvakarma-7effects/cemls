@@ -32,10 +32,10 @@
  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
    <li class="breadcrumb-item"><a href="#">Property</a></li>
-   <li class="breadcrumb-item active" aria-current="page">ABCD Cemetery</li>
+   <li class="breadcrumb-item active" aria-current="page">Edit Cemetery</li>
   </ol>
  </nav>
- <h1 class="mheading">ABCD Cemetery</h1>
+ <h1 class="mheading">Edit Cemetery</h1>
 
  <section class="bxshadow">
   <div class="cntbox">

@@ -11,7 +11,7 @@
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
 
-        <form method="post" action="{{route('cemeterys.store')}}" accept-charset="UTF-8">
+<form method="post" action="{{route('cemeterys.store')}}" accept-charset="UTF-8">
         @csrf
 
         
@@ -91,8 +91,6 @@
         <!-- </form> -->
 
 
-        <!-- <form method="post" action="" accept-charset="UTF-8">
-            @csrf -->
 
             <div class="cntbox">
                 <div class="row">
@@ -185,14 +183,13 @@
 
             </div>
 
-        <!-- </form> -->
 
             <div class="cntbox">
                 <button class="btn_mid btn_green" type="submit">Add</button>
                 <button class="btn_mid btn_none ml-3">Cancel</button>
                 </div>
 
-                </form>
+</form>
         </section>
 
     </section>
