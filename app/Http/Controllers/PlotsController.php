@@ -122,7 +122,7 @@ class PlotsController extends Controller
 					$plot->internal_notes = $request->internal_notes;
 					$plot->save();
 
-					return redirect::to('plot.index')->with('success', 'Plots Update Succesfully');
+					return redirect::to('plot')->with('success', 'Plots Update Succesfully');
  
 
 
@@ -134,15 +134,13 @@ class PlotsController extends Controller
 					* @param  \App\Models\Plot  $plot
 					* @return \Illuminate\Http\Response
 					*/
-					public function destroy($id) 
+					public function destroy(Plot $plot)
 					{
-						// dd(3333);
-						$plot = Plot::findOrFail($id);
+							 $plot->delete();
+					
+						return redirect()->route('plot.index')
+										->with('success','Plot deleted successfully');
 				
-						$plot->delete();
-						
-						return redirect()->route('plots.index')->with('success', 'Plot Deleted Succesfully');;
 					}
-
 
 }

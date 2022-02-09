@@ -23,7 +23,7 @@
   <h1 class="mheading">Edit Plot</h1>
 <section class="bxshadow">
 
-<form action="{{ route('plot.update',$plot->ID) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('plot.update',$plot->id) }}" method="POST" enctype="multipart/form-data">
 
 					
 					@csrf

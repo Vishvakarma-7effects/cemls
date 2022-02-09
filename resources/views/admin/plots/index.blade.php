@@ -8,6 +8,12 @@
             <li class="breadcrumb-item active" aria-current="page">Plots</li>
             </ol>
         </nav>
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
         
         <div class="col-md-7 col-6 text-right">
             <a class="btn_mid btn_green" href="{{ url('plot/create')}}">Add Plot</a>
@@ -80,13 +86,17 @@
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                     <ul class="moptionul">
                                         <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plot/'.$row->ID.'/edit')}}">Edit</a></li>
+                                        <li><a href="{{ url('plot/'.$row->id.'/edit')}}">Edit</a></li>
                                         <li>
-                                        <form action="{{ route('plot.destroy', $row->ID) }}" method="POST">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark permission-edit" onclick="return myFunction();">Delete</button>
-                                            </form>
+                                        <form action="{{ route('plot.destroy',$row->id) }}" method="POST">
+   
+                    
+
+   @csrf
+   @method('DELETE')
+
+   <button type="submit" class="btn btn-danger">Delete</button>
+</form>
                                                 
                                         </li>
                                     </ul>
