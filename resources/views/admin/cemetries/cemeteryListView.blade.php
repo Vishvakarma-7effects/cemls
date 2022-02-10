@@ -9,12 +9,12 @@
           <li><i class="fa fa-list-ul" aria-hidden="true"></i> List</li>
         </ul>
         <div class="mapinner">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14007.216583004956!2d76.99848779601191!3d28.63563147918303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1642699357526!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14007.216583004956!2d76.99848779601191!3d28.63563147918303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1642699357526!5m2!1sen!2sin" width="600" height="450" style="border:0;position:fixed" allowfullscreen="" loading="lazy"></iframe>
             <a class="btn btn-primary mflistbtn">
              <i class="fa fa-chevron-right"></i>
             </a>
         </div>
-        <div class="innercnt">
+        <div class="innercnt" style="overflow-x: hidden;overflow-y: auto;">
           <h2 class="mheading pb-0 pl-0 pl-md-2 toverflow">Cemeteries in <span>Sacramento CA</span></h2>
           <h4 class="shtxt mb-3 mb-md-4 pl-0 pl-md-2">Showing 1 - 8 of 54</h4>
           <div class="row  pl-0 pl-md-2 mb-3">
@@ -336,5 +336,78 @@
       
       
       @include('partials.outerDetailModal')
+      <footer class="adm_footer">
+            <div class="container-lg">
+                <div class="row pt-md-5" align="right">
+                <div class="col-lg-12 col-12">
+                    <div class="ftabt">
+                    <h2 class="ft_head">About CemLS<sup>®</sup></h2>
+                    <p class="ftpara col-sm-6"><span>CemLS<sup>®</sup></span> is a cemetery property Listing service, enabling you to showcase all your available property from your administrative location or remotely with a smartphone or tablet.</p>
+                    </div>
+                </div>
+
+                   <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="ft_head">Quick Navigation</h2>
+                        <ul class="ftlinks">
+                            <li><a href="https://new.cemeterylistingservice.com/aboutUs">About Us</a></li>
+                            <li><a href="https://new.cemeterylistingservice.com/contactUs">Contact Us</a></li>
+                            
+                        </ul>
+                        </div>
+
+                              <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="ft_head">For Cemeteries</h2>
+                        <ul class="ftlinks">
+                            <li><a href="https://new.cemeterylistingservice.com/cemeterys">List Cemetery</a></li>
+                            <li><a href="#">Look Leads</a></li>
+                            
+                        </ul>
+                        </div>
+
+                
+
+
+                </div>
+
+                <div class="ftbbx">
+                <div class="row" align="right">
+                    <div class="col-lg-12 col-md-12">
+                    <ul class="ft_qlink">
+                        <li>© 2018 Cemetery360</li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Helpdesk</a></li>
+                    </ul>
+                
+                
+                    </div>
+
+                         <div class="col-12 pt-3"> 
+                       <ul class="ftinfo">
+                        <li><i class="fa fa-phone"></i> <a href="tel:(916) 330-4126">(916) 330-4126</a></li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:info@cemls.com">info@cemls.com</a></li>
+                        
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+
+                        
+                
+
+                    </div>
+                   <div class="col-12 pt-3"> 
+                           
+                    </div>
+
+                 
+
+                
+                </div>
+
+
+                </div>
+            </div>
+        </footer>
 
 @endsection

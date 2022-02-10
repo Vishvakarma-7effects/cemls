@@ -32,7 +32,9 @@
 
 @yield('content')
 
-@include('partials.footer')
+@if( url()->current() != url('cemeterys/cemeteryDetailPage' || 'cemeterys/cemeteryListView')) 
+
+@endif
 @include('partials.mainOuterModal')
 
 <script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>

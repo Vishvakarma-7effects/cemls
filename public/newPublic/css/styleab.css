@@ -395,10 +395,10 @@ input {
     padding: 0;
     margin: 0;
     font-weight: 400;
-    font-size: 13px;}
+    font-size: 10px;}
 .ft_qlink li{display:inline-block; padding-right:15px;}
 .ft_qlink li a{color: #929699; font-weight:100; text-decoration:none;}
-.ft_qlink li:first-child{padding-right:25px;}
+.ft_qlink li:first-child{padding-right:12px;}
 .ft_qlink li a:hover, .ftinfo li a:hover, .ftsocial li .fab:hover{color: #006cd4;}
 
 .ftinfo{list-style: none;
