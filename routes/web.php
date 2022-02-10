@@ -80,18 +80,9 @@ Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 
-// Route::get('plots/customeNew', [PlotController::class, 'customeNew'])->middleware('auth');
-// // Route::get('deleteplots/{id}', [PlotController::class, 'destroy']); 
-// Route::resource('plots', PlotController::class)->middleware('auth');
-
-// Route::get('plots/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
-
+//PLOT
 Route::resource('plot', PlotsController::class)->middleware('auth');
-//Route::get('plots/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
 Route::get('deleteplots/{id}', [PlotsController::class, 'destroy']); 
-//Route::get('plots/customeNew', [PlotsController::class, 'customeNew'])->middleware('auth');
-
-
 Route::get('plot/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
 
 
@@ -137,14 +128,16 @@ Route::get('mailbox', [UserController::class, 'mailbox'])->middleware('auth');
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
 
-Route::get('users/getEdit', [UserController::class, 'getEdit'])->middleware('auth');
+Route::get('users/Edit/{id}', [UserController::class, 'getEdit'])->middleware('auth');
+Route::post('updateUser', [UserController::class, 'updateUser'])->middleware('auth');
+
 Route::resource('users', UserController::class)->middleware('auth');
+
+
 
 //password
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
-
-
 
 
 Route::resource('camera', CameraController::class)->middleware('auth');
