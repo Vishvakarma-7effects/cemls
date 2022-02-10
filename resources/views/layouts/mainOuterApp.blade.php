@@ -73,9 +73,7 @@
       
 </script>
 @yield('scripts')
-<?php
-echo Request::segment(1);
-?>
+
 @if(Request::segment(1)!='cemeterys') 
 
 <footer class="adm_footer">
