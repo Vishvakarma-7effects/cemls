@@ -935,7 +935,7 @@ div[slider] > input[type=range]::-ms-tooltip {
     border: 0; transition:0.3s;
     color: #525c5d;}
 .mapinner a.btn:hover{background:#0e83df; color:#fff;}
-.mapinner iframe{width:100%; height:100%;}
+.mapinner iframe{ height:100%;}
 .mflist .mapinner{-ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%; min-height:calc(100vh - 55px);}
