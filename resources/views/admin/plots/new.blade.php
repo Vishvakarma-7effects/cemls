@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-<style>
+<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 
+<style>
 datalist {
   display: flex;
   justify-content: space-between;
@@ -30,6 +32,25 @@ datalist {
 
 
                 <div class="cntbox">
+                <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
+                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                  <select name="cemetery_id"  data-control="select2" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">
+                                                          <option value="">Select Cemetery</option>
+                                                              @foreach($cemetery as $row)
+                                                          <option value="{{$row->id}}"><b>{{$row->cemetery_name}}</b></option>.
+                                                          <!-- row->1st table name -->
+                                                               @endforeach
+													                            </select>
+                                    <!-- <input type="text" class="form-control" name="grave" id="" placeholder=""> -->
+                                  </div>
+                                </div>
+                              </div>
+                              
+                        </div>
+                
                     <div class="row">
                       <div class="col-lg-9 pr-lg-0">
                           <div class="form-group row">
@@ -92,16 +113,7 @@ datalist {
                         </div>
                         <!-- <div class="row">
                           <div class="col-md-12">
-                              <div class="form-group row">
-                                <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
-                                <div class="col-md-5 col-sm-9 pl-3 pl-md-4 d-flex ">
-                                  <input type="text" class="form-control" id="" placeholder="Create Custom label ">
-                                  <button class="btn_search">
-                                        <i class="fa fa-plus"  aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                              </div>
-                            </div>
+                             
                            
                         </div>  -->
                         
@@ -128,60 +140,59 @@ datalist {
                                       Sold
                                     </label>
                                   </div>
+
                                 </div>
                               </div>
                             </div>
                         </div>
+
+
+
                         <div class="row">
-                          <div class="col-md-7">
-                              <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Types</label>
-                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-
-                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
-                                  </div>
-                                  
-                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
-                                  {{-- @foreach ($roles as $roleItem)
-                                      
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $roleItem->id }}">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox1"> {{ ucFirst($roleItem->name) }}</label>
-                                  </div>
-                                @endforeach --}}
-
-
-                                  {{-- <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div> --}}
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 1</label>
+                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <label class="form-check-label col-form-label" for="exampleRadios1">
+                                  Cremation
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <label class="form-check-label col-form-label" for="exampleRadios2">
+                                  Cremation
+                                  </label>
                                 </div>
                               </div>
                             </div>
-                        </div>
+                          </div>
+                      </div>
 
 
+                      <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 2</label>
+                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <label class="form-check-label col-form-label" for="exampleRadios1">
+                                  Indoor
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <label class="form-check-label col-form-label" for="exampleRadios2">
+                                  Outdoor
+                                  </label>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                      </div>
                       </div>
                       
 
@@ -192,9 +203,12 @@ datalist {
                       </div>
                     </div>
                 </div>
+
+
+
+
+
                 <div class="cntbox">
-                   
-                    
                 
                   <div class="row">
                     <div class="col-lg-9 pr-lg-0">
@@ -204,9 +218,9 @@ datalist {
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
 
 
-                            <datalist id="tickmarks">
-                            <option value="0" label="$500"></option>
-                            <option value="100" label="$5000"></option>
+                            <datalist id="rangeslider">
+                            <option id="price-min" name="price-min" value="0" label="$500"></option>
+                            <option id="price-max" name="price-max" value="100" label="$5000"></option>
                             </datalist>      
                               <input type="range" list="tickmarks" id="customRange1">
 
@@ -214,13 +228,28 @@ datalist {
                                       <input type="text" value="$500" class="form-control" id="" placeholder="">
                             </div>
                     </div>
-                   </div>      
-                       <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Number</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                          <input type="text" class="form-control" name="plot_number" id="" placeholder="">
-                        </div>
-                      </div> 
+                   </div>    
+
+                   <!-- <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
+                            <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+
+
+                   <div data-role="rangeslider">
+        <label for="price-min">Price:</label>
+        <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+        <label for="price-max">Price:</label>
+        <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+      </div>
+</div>
+</div>
+</div>
+</div> -->
+
+
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -289,5 +318,4 @@ datalist {
   </form>
             </section>
     </section>
-
 @endsection

@@ -104,7 +104,6 @@ Route::resource('categories', CategoryController::class)->middleware('auth');
 // Route::post('role/savePermission/{roleId}', [RoleController::class, 'savePermission'])->middleware('auth');
 
 // Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('auth');
-
 Route::resource('roles', RoleController::class)->middleware('auth');
 Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth');
 
@@ -120,7 +119,6 @@ Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth')
 
 Route::resource('permissions', RoleController::class)->middleware('auth');
 Route::post('updatepermissions', [RoleController::class, 'update'])->middleware('auth');
-
 
 
 // Route::resource('photos', PhotoController::class);

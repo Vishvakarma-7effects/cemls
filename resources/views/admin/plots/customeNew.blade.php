@@ -12,6 +12,7 @@
   #customRange1 {
     width: 100%;
   }
+  
 </style>
 <section class="panelrht">
   <nav aria-label="breadcrumb">
@@ -24,6 +25,24 @@
   <section class="bxshadow">
 
     <div class="cntbox">
+    <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
+                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                  <select name="cemetery_id"  data-control="select2" class="form-select form-select-solid form-select-lg">
+                                                          <option value="">Select Cemetery</option>
+                                                              @foreach($cemetery as $row)
+                                                          <option value="{{$row->id}}"><b>{{$row->cemetery_name}}</b></option>.
+                                                          <!-- row->1st table name -->
+                                                               @endforeach
+													                            </select>
+                                    <!-- <input type="text" class="form-control" name="grave" id="" placeholder=""> -->
+                                  </div>
+                                </div>
+                              </div>
+                              
+                        </div>
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
           <div class="form-group row">
@@ -83,16 +102,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-7">
-              <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Number</label>
-                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" name="plot_number" placeholder="">
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="row">
             <div class="col-md-12">
               <div class="form-group row">

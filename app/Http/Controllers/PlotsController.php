@@ -1,9 +1,9 @@
-<?php
-
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plot;
+use App\Models\Cemetery;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,18 +12,22 @@ class PlotsController extends Controller
 {
     public function index()
 	{
-		$plots = Plot::paginate(10);
+		$plots = Plot::leftjoin('cemetery','plot.cemetery_id','=','cemetery.id')
+		->select('plot.*','cemetery.cemetery_name as cemetery_name')
+		->paginate(10);
 		return view('admin.plots.index')->with('plots', $plots);
 	}
     public function create()
 	{
-		return view('admin.plots.new');
+		$cemetery = Cemetery::all();
+
+		return view('admin.plots.new', compact('cemetery'));
 	}
 
 						public function customeNew()
 						{
-						//
-						return view('admin.plots.customeNew');
+						$cemetery = Cemetery::all();
+						return view('admin.plots.customeNew', compact('cemetery'));
 						}
 
 				/**
@@ -49,6 +53,8 @@ class PlotsController extends Controller
 							$plot->public =$request->public;
 							$plot->views = $request->views;
 							$plot->internal_notes = $request->internal_notes;
+							$plot->cemetery_id = $request->cemetery_id;
+
 							$plot->save();
 
 							return redirect::to('plot')->with('success', 'Plots Add Succesfully');
@@ -120,6 +126,8 @@ class PlotsController extends Controller
 					$plot->public = $request->public;
 					$plot->views = $request->views;
 					$plot->internal_notes = $request->internal_notes;
+					$plot->cemetery_id = $request->cemetery_id;
+
 					$plot->save();
 
 					return redirect::to('plot')->with('success', 'Plots Update Succesfully');
