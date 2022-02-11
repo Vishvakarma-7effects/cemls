@@ -924,7 +924,13 @@ div[slider] > input[type=range]::-ms-tooltip {
 .inner_pages{display:flex; flex-wrap: wrap; transition:0.3s;}
 .mapinner{-ms-flex: 0 0 52%;
     flex: 0 0 52%;
-    max-width: 52%; position:relative; transition:0.5s ease-in; min-height:calc(100vh - 55px);}
+    max-width: 52%; position:relative; transition:0.5s ease-in; height:100vh;
+    /*height:calc(100vh - 55px);*/
+    
+}
+.boxinnerdtl_img1 img {
+    width: 47vw;
+}
 .mapinner a.btn{position: absolute;
     right: 20px;
     top: 108px;
@@ -935,7 +941,7 @@ div[slider] > input[type=range]::-ms-tooltip {
     border: 0; transition:0.3s;
     color: #525c5d;}
 .mapinner a.btn:hover{background:#0e83df; color:#fff;}
-.mapinner iframe{width:100%; height:100%;}
+.mapinner iframe{ width:100%;height:100%;}
 .mflist .mapinner{-ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%; min-height:calc(100vh - 55px);}
@@ -971,7 +977,7 @@ div[slider] > input[type=range]::-ms-tooltip {
     max-width: 25%;}
 .innercnt{-ms-flex: 0 0 48%;
     flex: 0 0 48%; transition:0.5s ease-in;
-    max-width: 48%; padding: 45px 8px 4px 8px}
+    max-width: 48%; padding: 45px 8px 4px 8px; height: 100vh;}
 .innercnt .row{margin-right: -4px; margin-left: -4px;}
 .plr-4{padding-left:4px; padding-right:4px;}
 .mheading span{color:#0e83df;}
