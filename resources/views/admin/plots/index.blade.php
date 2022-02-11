@@ -67,7 +67,7 @@
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">{{$row->Garden}}</div>
+                                    <div class="plothead">{{$row->cemetery_name}}</div>
                                     <div class="plotshead">{{$row->garden}}</div>
                                 </td>
                                 <td width="105">

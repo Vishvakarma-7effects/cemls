@@ -36,10 +36,10 @@
                                 <div class="form-group row">
                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
                                   <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                  <select name="cemetery_name"  data-control="select2" class="form-select form-select-solid form-select-lg">
+                                  <select name="cemetery_id"  data-control="select2" class="form-select form-select-solid form-select-lg">
 															<option value="">Select Cemetery</option>
                                 @foreach($cemetery as $row)
-														    	<option value="{{$row->id}}" {{$data->cemetery_id==$row->id ? 'selected' : '' }}><b>{{$row->cemetery_name}}</b></option>
+														    	<option value="{{$row->ID}}" {{$plot->cemetery_id==$row->ID ? 'selected' : '' }}><b>{{$row->cemetery_name}}</b></option>
                                  @endforeach
 														</select>
                                     <!-- <input type="text" class="form-control" name="grave" id="" placeholder=""> -->

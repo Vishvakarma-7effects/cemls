@@ -94,12 +94,26 @@
 					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }} {{ request()->is('users/create') ? 'active' : '' }} {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
 								src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
 						<bdi>Users</bdi></a>
-					{{-- <a class="dropdown-item" href="{{ url('user/getSignIn') }}">
-          <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
-          <bdi>SignIn</bdi>
-        </a> --}}
+					 <a class="dropdown-item" href="{{ url('user/create') }}">
+						 <!-- //getSignIn replacement of create -->
+          <!-- <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+          <bdi>Add User</bdi> -->
+
+        </a> 
 				</div>
 			</li>
+
+
+			<!-- <a class="dropdown-item {{ request()->is('cemeterys') ? 'active' : '' }}  {{ request()->is('cemeterys/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeterys') }}"><span>
+						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
+					<bdi>Cemetery</bdi></a>
+				<a class="dropdown-item {{ request()->is('cemeterys/create') ? 'active' : '' }}"
+					href="{{ url('cemeterys/create') }}">
+					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+					<bdi>Add Cemetery</bdi>
+				</a> -->
+
+
 			<li class="{{ request()->is('roles*') ? 'active' : '' }}">
 				<a href="{{ url('roles') }}"><span>
 						<img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>

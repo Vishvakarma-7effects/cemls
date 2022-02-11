@@ -124,22 +124,22 @@
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1" checked>
+                    <input class="form-check-input" type="radio" name="Status" id="exampleRadios1"
+                      value="available" checked>
                     <label class="form-check-label" for="exampleRadios1">
                       Available
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="Status" id="exampleRadios2"
+                      value="reserved">
                     <label class="form-check-label" for="exampleRadios2">
                       Reserved
                     </label>
                   </div>
                   <div class="form-check col-form-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2">
+                    <input class="form-check-input" type="radio" name="Status" id="exampleRadios2"
+                      value="sold">
                     <label class="form-check-label" for="exampleRadios2">
                       Sold
                     </label>
@@ -148,34 +148,66 @@
               </div>
             </div>
           </div>
+
+
+
           <div class="row">
-            <div class="col-md-7">
-              <div class="form-group row">
-                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Tags</label>
-                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox1">Outdoor</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 1</label>
+                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios1" value="burial" checked>
+                                  <label class="form-check-label col-form-label" for="exampleRadios1">
+                                  Burial
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios2" value="cremation">
+                                  <label class="form-check-label col-form-label" for="exampleRadios2">
+                                  Cremation
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 2</label>
+                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios1" value="indoor" checked>
+                                  <label class="form-check-label col-form-label" for="exampleRadios1">
+                                  Indoor
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios2" value="outdoor">
+                                  <label class="form-check-label col-form-label" for="exampleRadios2">
+                                  Outdoor
+                                  </label>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
 
 
-        </div>
+
+
+
+
+
+
+
+
+
+          
 
 
         <div class="col-lg-3 text-right">

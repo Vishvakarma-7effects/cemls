@@ -14,7 +14,9 @@ class PlotsController extends Controller
 	{
 		$plots = Plot::leftjoin('cemetery','plot.cemetery_id','=','cemetery.id')
 		->select('plot.*','cemetery.cemetery_name as cemetery_name')
+		->orderBy('id','DESC')
 		->paginate(10);
+
 		return view('admin.plots.index')->with('plots', $plots);
 	}
     public function create()
@@ -48,12 +50,14 @@ class PlotsController extends Controller
 							$plot->status = $request->status;
 							$plot->tags = $request->tags;
 							$plot->price = $request->price;
-							$plot->cemetery_name = $request->cemetery_name;
+							// $plot->cemetery_name = $request->cemetery_name;
 							$plot->description = $request->description;
 							$plot->public =$request->public;
 							$plot->views = $request->views;
 							$plot->internal_notes = $request->internal_notes;
 							$plot->cemetery_id = $request->cemetery_id;
+							$plot->type1 = $request->type1;
+							$plot->type2 = $request->type2;
 
 							$plot->save();
 
@@ -91,7 +95,8 @@ class PlotsController extends Controller
 
 					public function edit(Plot $plot)
     {
-             return view('admin.plots.edit',compact('plot'));
+		$cemetery = Cemetery::all();
+             return view('admin.plots.edit',compact('plot','cemetery'));
 
     }
 

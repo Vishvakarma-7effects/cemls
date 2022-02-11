@@ -28,28 +28,42 @@ font-family: sans-serif;
  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
    <li class="breadcrumb-item"><a href="#">Home</a></li>
-   <li class="breadcrumb-item active" aria-current="page">Edit    User</li>
+   <li class="breadcrumb-item active" aria-current="page">Edit User</li>
   </ol>
  </nav>
- <h1 class="mheading">Edit    User</h1>
+ <h1 class="mheading">Edit User</h1>
+ <form action="{{url('updateUser')}}" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" value="{{$users->id}}" name="id">
  <section class="bxshadow">
 
   <div class="cntbox">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+   </div>
+   @endif
    <h2 class="sheading">Basic Details</h2>
+   
    <div class="row">
+   
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">User Name</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="text" class="form-control" id="" placeholder="">
+       <input type="text" class="form-control" name="name" value="{{$users->name}}">
       </div>
      </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
      <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">Current Password</label>
+      <label for="" class="col-sm-4 col-form-label pr-0">New Password</label>
       <div class="col-sm-8 pl-3  pl-md-4">
-       <input type="password" class="form-control" id="" placeholder="">
+       <input type="password" class="form-control" name="password" placeholder="">
       </div>
      </div>
     </div>
@@ -59,7 +73,7 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Email address</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="email" class="form-control" id="" placeholder="">
+       <input type="email" class="form-control" name="email" value="{{$users->email}}">
       </div>
      </div>
     </div>
@@ -67,7 +81,7 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Confirm Password</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="password" class="form-control" id="" placeholder="">
+       <input type="password" class="form-control" name="password_confirmation" placeholder="">
       </div>
      </div>
     </div>
@@ -228,7 +242,7 @@ font-family: sans-serif;
     <div class="col-md-6">
      <div class="form-group">
 
-      <input type="file" id="actual-btn" hidden />
+      <input type="file" accept="image/*" name="profile_image" id="actual-btn" hidden />
       
       <!-- our custom upload button -->
       <label class="file_label" for="actual-btn">Choose File</label>
@@ -245,135 +259,19 @@ font-family: sans-serif;
 
    {{-- <button class="btn_mid btn_none">Delete This Account</button> --}}
   </div>
-  <!-- <div class="cntbox">
-   <h2 class="sheading">Membership</h2>
-   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">User Name</label>
-      <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="text" class="form-control" id="" placeholder="">
-      </div>
-     </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">Subscription</label>
-      <div class="col-sm-8 pl-3 pl-md-4">
-      <select class="form-control form-select-lg mb-3">
-         <option selected>Business</option>
-         <option value="1">One</option>
-         <option value="2">Two</option>
-         <option value="3">Three</option>
-         </select>
-      </div>
-      
-     </div>
-    </div>
-   </div>
-
-  </div> -->
-  <!-- <div class="cntbox">
-   <h2 class="sheading">Permission</h2>
-   <div class="row">
-    <div class="col-md-6 mb-4">
-
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-    </div>
-    <div class="col-md-6 mb-4">
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-    </div>
-    <div class="col-md-6 mt-5">
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-     @for($i =0; $i<=5;$i++) <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-    </div>
-    @endfor
-    {{-- <div class="row">
-       <div class="col-10 col-md-11 mt-3">
-        <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-       </div>
-       <div class="col-2 col-md-1 mt-3 text-center">
-        <input type="checkbox" id="defaultCheck" name="example2">
-       </div>
-      </div> --}}
-   </div>
-  </div> -->
-
-
   
+
+
+   
     <div class="cntbox">
-         <button class="btn_mid btn_green" type="button">Update</button>
+         <button class="btn_mid btn_green" type="submit">Update</button>
          <button class="btn_mid btn_none ml-3">Cancel</button>
       </div>
 
 
   </div>
  </section>
-
+   </form>
 </section>
 <script>
 

@@ -37,10 +37,10 @@ datalist {
                                 <div class="form-group row">
                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
                                   <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                  <select name="cemetery_id"  data-control="select2" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">
+                                  <select name="cemetery_id"  class="form-group">
                                                           <option value="">Select Cemetery</option>
                                                               @foreach($cemetery as $row)
-                                                          <option value="{{$row->id}}"><b>{{$row->cemetery_name}}</b></option>.
+                                                          <option value="{{$row->ID}}"><b>{{$row->cemetery_name}}</b></option>.
                                                           <!-- row->1st table name -->
                                                                @endforeach
 													                            </select>
@@ -50,6 +50,9 @@ datalist {
                               </div>
                               
                         </div>
+
+
+                        
                 
                     <div class="row">
                       <div class="col-lg-9 pr-lg-0">
@@ -98,7 +101,6 @@ datalist {
                                     </div>
                                   </div>
                               </div>
-                             
                           </div>
                           <div class="row">
                             <div class="col-md-7">
@@ -154,13 +156,13 @@ datalist {
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 1</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios1" value="burial" checked>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
-                                  Cremation
+                                  Burial
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios2" value="cremation">
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   Cremation
                                   </label>
@@ -177,13 +179,13 @@ datalist {
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 2</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios1" value="indoor" checked>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
                                   Indoor
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios2" value="outdoor">
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   Outdoor
                                   </label>

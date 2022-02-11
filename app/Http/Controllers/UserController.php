@@ -27,7 +27,7 @@ class UserController extends Controller {
      */
     public function index() {
         //
-        $users = User::all();
+        $users = User::orderBy('id','DESC')->get();
         $data['users'] = $users;
         //echo $events;
         return view('admin.users.index', compact('users'));
@@ -50,20 +50,32 @@ class UserController extends Controller {
     }
 
     
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
+        // dd($request->all());
         //
         $rules = [
             'name' => 'required',
             'email' => 'required|unique:users',
-            // 'password' => 'required|confirmed',
+            'password' => 'required|confirmed',
         ];
         $request->validate($rules);
 
         $user = new User;
-        $user->address_line1 = $request->address_line1;
-        $user->address_line2 = $request->address_line2;
-        $user->state = $request->state;
-        $user->zip = $request->zip;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = hash::make($request->password);
+        if($request->file('profile_image'))
+        {
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $user->profile_image = $image;
+        
+        }
+        $user->status = $request->status;
 
         $user->password = Hash::make($request->password);
         $user->save();
@@ -72,7 +84,7 @@ class UserController extends Controller {
 
         //return redirect('events');
 
-        return redirect()->route('user.index')->with('success', 'User Add Succesfully');
+        return redirect()->route('users.index')->with('success', 'User Add Succesfully');
     }
 
     public function show(User $user) {
@@ -187,8 +199,58 @@ class UserController extends Controller {
         return redirect('user/profile')->with('success', 'Profile Updated');
     }
 
-    public function getEdit(){
-        return view('admin.users.getEdit');
+    public function getEdit($id)
+    {
+        $users = User::where('id',$id)->first();
+        return view('admin.users.getEdit',compact('users'));
+    }
+    public function updateUser(Request $request)
+    {
+        if(!isset($request->new_password))
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+            ]);            
+        }
+        else
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|confirmed|min:8',
+            ]);
+        }
+
+        
+
+        $users = User::findOrFail($request->id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        if(isset($request->password))
+        {
+            $pass = Hash::make($request->password);
+            $users->password = $pass;           
+        }
+
+        if($request->file('profile_image'))
+        {
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $users->profile_image = $image;
+        
+        }
+        $users->save();
+        
+
+
+        
+        
+
+        return redirect()->route('users.index')->with('success', 'User Updated Succesfully');
 
     }
     public function mailbox(){
