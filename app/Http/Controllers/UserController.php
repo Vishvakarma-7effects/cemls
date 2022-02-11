@@ -60,9 +60,11 @@ class UserController extends Controller {
         $request->validate($rules);
 
         $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
+        $user->address_line1 = $request->address_line1;
+        $user->address_line2 = $request->address_line2;
+        $user->state = $request->state;
+        $user->zip = $request->zip;
+
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -94,12 +96,6 @@ class UserController extends Controller {
      */
     public function update(Request $request, User $user) {
         //
-        $rules = [
-            'name' => 'required',
-            'password' => 'required|confirmed',
-        ];
-        $request->validate($rules);
-
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);

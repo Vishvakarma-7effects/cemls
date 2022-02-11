@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
 <style>
 
@@ -23,10 +22,12 @@ datalist {
             </ol>
         </nav>
         <h1 class="mheading">Add Plot</h1>
-     <section class="bxshadow">
-       
-       <form method="post" action="{{route('plots.store')}}" accept-charset="UTF-8">
-       @csrf
+       <section class="bxshadow">
+
+  <form method="post" action="{{route('plot.store')}}" accept-charset="UTF-8">
+        @csrf
+
+
 
                 <div class="cntbox">
                     <div class="row">
@@ -41,18 +42,18 @@ datalist {
                           <div class="row">
                               <div class="col-md-7">
                                   <div class="form-group row">
-                                    <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Plot Name</label>
+                                    <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
                                     <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                     <input type="text" class="form-control" id="" name="plot_name" placeholder="">
+                                      <input type="text" class="form-control" name="garden" id="" placeholder="">
                                     </div>
                                   </div>
                               </div>
 
                               <div class="col-md-5">
                                   <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">cemetery_id</label>
+                                    <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
                                     <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="section" placeholder="">
+                                      <input type="text" class="form-control" name="section" id="" placeholder="">
                                     </div>
                                   </div>
                               </div>
@@ -61,69 +62,173 @@ datalist {
                           <div class="row">
                               <div class="col-md-7">
                                   <div class="form-group row">
-                                    <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Description</label>
+                                    <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
                                     <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="plot_desc" placeholder="">
+                                      <input type="text" class="form-control" name="lot" id="" placeholder="">
                                     </div>
                                   </div>
                               </div>
 
                               <div class="col-md-5">
                                   <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Plot Min Price</label>
+                                    <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Row</label>
                                     <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" name="row" placeholder="">
+                                      <input type="text" class="form-control" name="row" id="" placeholder="">
                                     </div>
                                   </div>
                               </div>
+                             
                           </div>
-
                           <div class="row">
                             <div class="col-md-7">
                                 <div class="form-group row">
-                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Max Price</label>
+                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Grave</label>
                                   <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                  <input type="text" class="form-control" id="" name="plot_max_price" placeholder="">
+                                    <input type="text" class="form-control" name="grave" id="" placeholder="">
                                   </div>
                                 </div>
                               </div>
+                              
                         </div>
+                        <!-- <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group row">
+                                <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
+                                <div class="col-md-5 col-sm-9 pl-3 pl-md-4 d-flex ">
+                                  <input type="text" class="form-control" id="" placeholder="Create Custom label ">
+                                  <button class="btn_search">
+                                        <i class="fa fa-plus"  aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                              </div>
+                            </div>
+                           
+                        </div>  -->
+                        
+                        <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label col-form-label" for="exampleRadios1">
+                                      Available
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label col-form-label" for="exampleRadios2">
+                                    Reserved
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label col-form-label" for="exampleRadios2">
+                                      Sold
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Types</label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
+                                  </div>
+                                  
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  {{-- @foreach ($roles as $roleItem)
+                                      
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $roleItem->id }}">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox1"> {{ ucFirst($roleItem->name) }}</label>
+                                  </div>
+                                @endforeach --}}
+
+
+                                  {{-- <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div> --}}
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+
                       </div>
+                      
+
                       <div class="col-lg-3 text-right">
-                        <button class="btn_lg btn_none">Add 360 Image</button>
+                        <button class="btn_lg btn_none">Add 360 Image</button> 
                         <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                         <button class="btn_lg btn_green">Add Videos</button>
                       </div>
                     </div>
                 </div>
-
                 <div class="cntbox">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="form-group row">
-                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
-                                     <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                       <input type="text" class="form-control" id="" name="status" placeholder="">
-                                     </div>
-                                </div>
-                              </div>
-                        </div>
+                   
+                    
+                
+                  <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
 
-                      <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Map</label>
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
+                            <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+
+
+                            <datalist id="tickmarks">
+                            <option value="0" label="$500"></option>
+                            <option value="100" label="$5000"></option>
+                            </datalist>      
+                              <input type="range" list="tickmarks" id="customRange1">
+
+                                <div class="col-md-6 col-sm-9">
+                                      <input type="text" value="$500" class="form-control" id="" placeholder="">
+                            </div>
+                    </div>
+                   </div>      
+                       <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Number</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <input type="text" class="form-control" id="" name="map" placeholder="">
+                          <input type="text" class="form-control" name="plot_number" id="" placeholder="">
+                        </div>
+                      </div> 
+                      <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <textarea class="form-control" name="description" ></textarea>
                         </div>
                       </div>
-
-                      <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Public</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                        <textarea class="form-control" id="" name="public" placeholder=""></textarea>
-                        </div>
-                      </div>
-
-                      <!-- <div class="row">
+                      
+                      <div class="row">
                         <div class="col-md-7">
                             <div class="form-group row">
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
@@ -143,19 +248,18 @@ datalist {
                               </div>
                             </div>
                           </div>
-                      </div> -->
-
+                      </div>
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Internal Notes</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                          <textarea class="form-control"></textarea>
+                          <textarea class="form-control" name="internal_notes" ></textarea>
                         </div>
                       </div>
                     </div>
                     
                   </div>
                 </div>
-                
+
                 <div class="cntbox">
                     <div class="row">
                       <div class="col-lg-6 mb-3">
@@ -182,12 +286,8 @@ datalist {
                     <button class="btn_mid btn_green" type="submit">Add</button>
                     <button class="btn_mid btn_none ml-3">Cancel</button>
                   </div>
-                      </form>
-            <!-- </section> -->
-
-
-
-
+  </form>
+            </section>
     </section>
 
 @endsection

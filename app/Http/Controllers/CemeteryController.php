@@ -141,56 +141,21 @@ class CemeteryController extends Controller
         //                 ->route('posts.index')
         //                 ->with('success', 'Post updated successfully');
         // }
-        public function update(Request $request)
+        public function update(Request $request, $id)
         {
-        //     $rules = array(
-        //         'name'       => 'required',
-        //         'email'      => 'required|email',
-        //         'shark_level' => 'required|numeric'
-        //     );
-        //     $validator = Validator::make(Input::all(), $rules);
-    
-        //     if ($validator->fails()) {
-        //         return Redirect::to('sharks/' . $id . '/edit')
-        //             ->withErrors($validator)
-        //             ->withInput(Input::except('password'));
-        //     } else {
-        //         $shark = shark::find($id);
-        //         $shark->name       = Input::get('name');
-        //         $shark->email      = Input::get('email');
-        //         $shark->shark_level = Input::get('shark_level');
-        //         $shark->save();
-    
-        //         Session::flash('message', 'Successfully updated shark!');
-        //         return Redirect::to('sharks');
-        //     }
+        
 
+                $cemetery = Cemetery::where('ID',$id)->update([
+                        'cemetery_name'=>$request->cemetery_name,
+                        'cemetery_desc'=>$request->cemetery_desc,
+                        'address'=>$request->address,
+                        'city'=>$request->city,
+                        'state'=>$request->state,
+                        'country'=>$request->country,
+                        'zip'=>$request->zip
+                ]);
 
-        $request->validate([
-                'cemetery_name' => 'required',
-                'cemetery_desc' => 'required',
-                'address' => 'required',
-                'city' => 'required',
-                'state' => 'required',
-                'country' => 'required',
-                'zip' => 'required',
-
-            ]);
-    
-            $cemetery = Cemetery::findOrFail($request->id);
-            $cemetery->cemetery_name = $request->cemetery_name;
-            $cemetery->cemetery_desc = $request->cemetery_desc;
-            $cemetery->address = $request->address;
-            $cemetery->city = $request->city;
-            $cemetery->state = $request->state;
-            $cemetery->country = $request->country;
-            $cemetery->zip = $request->zip;
-             $cemetery->save();
-    
-    
-            return redirect()->route('cemeterys.index')->with('success', 'Cemetery Updated Succesfully');
-
-
+                return redirect()->route('cemeterys.index')->with('success', 'Cemetery Updated Succesfully');
 
         }
 
@@ -267,17 +232,15 @@ class CemeteryController extends Controller
           */
         public function destroy(Cemetery $cemetery)
         {
-                // $cemetery->delete();
 
-                // return redirect()
-                //         ->route('cemeterys.index')
-                //         ->with('success', 'Cemetery deleted successfully');
-        
-         $cemetery = Cemetery::findOrFail($id);
+                $data = Cemetery::where('ID',$cemetery->ID)->delete();
+                // $data->delete();
 
-        $cemetery->delete();
+                // dd($data);
+
+
         
-        return redirect()->route('cemeterys.index')->with('success', 'Cemetery Deleted Succesfully');;
+                return redirect()->route('cemeterys.index')->with('success', 'Cemetery Deleted Succesfully');;
 
         }
 }

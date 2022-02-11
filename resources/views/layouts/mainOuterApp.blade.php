@@ -32,7 +32,9 @@
 
 @yield('content')
 
-@include('partials.footer')
+@if( url()->current() != url('cemeterys/cemeteryDetailPage' || 'cemeterys/cemeteryListView')) 
+
+@endif
 @include('partials.mainOuterModal')
 
 <script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>
@@ -72,7 +74,74 @@
 </script>
 @yield('scripts')
 
+@if(Request::segment(1)!='cemeterys') 
 
+<footer class="adm_footer">
+            <div class="container-lg">
+                <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="ftabt">
+                    <h2 class="ft_head">About CemLS<sup>®</sup></h2>
+                    <p class="ftpara"><span>CemLS<sup>®</sup></span> is a cemetery property Listing service, enabling you to showcase all your available property from your administrative location or remotely with a smartphone or tablet.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="ft_head">Quick Navigation</h2>
+                        <ul class="ftlinks">
+                            <li><a href="http://127.0.0.1:8000/aboutUs">About Us</a></li>
+                            <li><a href="http://127.0.0.1:8000/contactUs">Contact Us</a></li>
+                            
+                        </ul>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="ft_head">For Cemeteries</h2>
+                        <ul class="ftlinks">
+                            <li><a href="http://127.0.0.1:8000/cemeterys">List Cemetery</a></li>
+                            <li><a href="#">Look Leads</a></li>
+                            
+                        </ul>
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+
+
+                </div>
+
+                <div class="ftbbx">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12">
+                    <ul class="ft_qlink">
+                        <li>© 2018 Cemetery360</li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Helpdesk</a></li>
+                    </ul>
+                    <ul class="ftinfo">
+                        <li><i class="fa fa-phone"></i> <a href="tel:(916) 330-4126">(916) 330-4126</a></li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:info@cemls.com">info@cemls.com</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12">
+                    <ul class="ftsocial">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </footer>
+@endif
 
 </body>
 

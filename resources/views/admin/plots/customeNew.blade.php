@@ -22,6 +22,7 @@
   </nav>
   <h1 class="mheading">Add Cemetery</h1>
   <section class="bxshadow">
+
     <div class="cntbox">
       <div class="row">
         <div class="col-lg-9 pr-lg-0">
@@ -37,7 +38,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="garden" id="" placeholder="">
                 </div>
               </div>
             </div>
@@ -46,7 +47,7 @@
               <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="section" id="" placeholder="">
                 </div>
               </div>
             </div>
@@ -57,7 +58,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="lot" id="" placeholder="">
                 </div>
               </div>
             </div>
@@ -66,7 +67,7 @@
               <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Row</label>
                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="garden" id="" placeholder="">
                 </div>
               </div>
             </div>
@@ -77,7 +78,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Grave</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="garden" id="" placeholder="">
                 </div>
               </div>
             </div>
@@ -87,7 +88,7 @@
               <div class="form-group row">
                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Plot Number</label>
                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" id="" name="plot_number" placeholder="">
                 </div>
               </div>
             </div>
@@ -192,20 +193,20 @@
                 <option value="100" label="$5000"></option>
               </datalist>
               <div class="col-md-6 col-sm-9">
-                <input type="text" value="$500" class="form-control" id="" placeholder="">
+                <input type="text" value="$500" class="form-control" id="" placeholder="" name="price" >
               </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="" name="garden">
             </div>
           </div>
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="garden"></textarea>
             </div>
           </div>
           <div class="row">
@@ -234,7 +235,7 @@
           <div class="form-group row">
             <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Internal Notes</label>
             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" name="internal_notes"></textarea>
             </div>
           </div>
         </div>
