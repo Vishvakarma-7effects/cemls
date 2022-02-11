@@ -96,7 +96,6 @@
 
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
-                                                
                                         </li>
                                     </ul>
                                     </div>

@@ -137,7 +137,7 @@ Route::resource('users', UserController::class)->middleware('auth');
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
-
+ 
 Route::resource('camera', CameraController::class)->middleware('auth');
 
 Route::get('attendee/create/{id}', [AttendeeController::class, 'create'])->middleware('auth');
