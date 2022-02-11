@@ -24,7 +24,6 @@
 	</div>
 </div>
 
-
 <div id="switchTabContent" class="tab-content">
 <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
 		<div id="myTabContent" class="tab-content">

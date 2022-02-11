@@ -120,7 +120,6 @@ Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth')
 Route::resource('permissions', RoleController::class)->middleware('auth');
 Route::post('updatepermissions', [RoleController::class, 'update'])->middleware('auth');
 
-
 // Route::resource('photos', PhotoController::class);
 Route::get('mailbox', [UserController::class, 'mailbox'])->middleware('auth');
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');

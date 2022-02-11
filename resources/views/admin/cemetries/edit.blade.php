@@ -15,7 +15,6 @@
 @csrf
            @method('PUT')
 
-        
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">

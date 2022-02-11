@@ -14,7 +14,6 @@
 <form method="post" action="{{route('cemeterys.store')}}" accept-charset="UTF-8">
         @csrf
 
-        
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">

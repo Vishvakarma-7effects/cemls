@@ -15,7 +15,6 @@
 				<h1 class="mheading">Invite People</h1>
 			</div>
 		</div>
-
 		<section class="bxshadow">
 			<div class="cntbox">
 				<form method="POST" action="{{ route("cemeterys.storeInvitePeople") }}" enctype="multipart/form-data">
