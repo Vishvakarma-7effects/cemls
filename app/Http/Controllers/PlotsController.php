@@ -40,6 +40,7 @@ class PlotsController extends Controller
 					*/
 				public function store(Request $request)
 				{
+					
 					// dd($request->all());
 							$plot = new Plot;
 							$plot->garden = $request->garden;

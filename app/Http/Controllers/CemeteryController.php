@@ -44,8 +44,6 @@ class CemeteryController extends Controller
         {
             // get all the sharks
             $cemeterys = Cemetery::paginate(10);
-
-            
     
             // load the view and pass the sharks
             return View('admin.cemetries.index')
