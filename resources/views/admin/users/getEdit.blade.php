@@ -32,11 +32,12 @@ font-family: sans-serif;
   </ol>
  </nav>
  <h1 class="mheading">Edit User</h1>
- <form action="{{url('updateUser')}}" method="post" enctype="multipart/form-data">
+ <form action="{{url('updateUser')}}" method="post" php>
     @csrf
     <input type="hidden" value="{{$users->id}}" name="id">
  <section class="bxshadow">
 
+ 
   <div class="cntbox">
   @if ($errors->any())
     <div class="alert alert-danger">

@@ -16,7 +16,6 @@
             <div class="col-md-7 col-6 text-right"><a  href="{{ url('users/create')}}" class="btn_mid btn_green">Add User</a></div>
         </div>
 
-
         <div class="row">
             <div class="col-lg-8">
                 <ul class="nav nav-tabs same_tabs clearfix" id="userTab" role="tablist">

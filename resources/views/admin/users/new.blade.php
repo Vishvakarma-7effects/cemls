@@ -164,7 +164,6 @@ font-family: sans-serif;
    {{-- <button class="btn_mid btn_none">Delete This Account</button> --}}
   </div>
 
-
  
 
     <div class="cntbox">

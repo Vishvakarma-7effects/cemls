@@ -17,6 +17,7 @@
  {{-- @yield('styles') --}}
 
 </head>
+
 <style>
  .fb {
   color: #3B5998;

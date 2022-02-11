@@ -158,6 +158,7 @@ Route::resource('billing', BillingController::class)->middleware('auth');
 Route::get('orders/recent-orders', [OrderController::class, 'recent_orders'])->middleware('auth');
 Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpaid_orders'])->middleware('auth');
 
+
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');
 Route::resource('inbox', InboxController::class)->middleware('auth');

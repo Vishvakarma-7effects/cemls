@@ -14,6 +14,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    
         <h1 class="mheading">My Account</h1>
         <section class="bxshadow">
 

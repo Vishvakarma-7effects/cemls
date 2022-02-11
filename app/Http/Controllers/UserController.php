@@ -34,6 +34,8 @@ class UserController extends Controller {
         // return view('showUser', $data);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *
