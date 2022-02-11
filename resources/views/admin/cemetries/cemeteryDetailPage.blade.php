@@ -72,7 +72,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
@@ -89,7 +89,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
@@ -106,7 +106,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
@@ -122,7 +122,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
@@ -137,7 +137,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
@@ -152,7 +152,7 @@
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
                   <div class="boxinner_img">
-                    <img src="http://127.0.0.1:8000/newPublic/images/cemlist-img1.jpg" alt="">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
                   <div class="boxinnercnt">
                     <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>

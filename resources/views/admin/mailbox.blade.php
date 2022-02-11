@@ -21,8 +21,8 @@
             </div>
 
             <div class="mb-5 bxshadow">
-              <table class="table thtable main_table mb-0">
-                <!-- <tbody>
+               <!--<table class="table thtable main_table mb-0">
+                <tbody>
                   <tr>
                     <td width="40" class="text-center">
                       <div class="mycheck d-inline-block">
@@ -93,7 +93,12 @@
               </div>
 
 
-                  <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                 
+
+              
+                
+            </div>
+             <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
                             <li class="page-item">
                                 <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -112,12 +117,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                  </nav>
 
-
-              
-                
-            </div>
             
 </section>
 

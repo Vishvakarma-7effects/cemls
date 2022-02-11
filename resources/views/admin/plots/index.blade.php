@@ -203,11 +203,8 @@
                             </table>
                         </div>
 
-
-                   
-
-                </section>
-                 <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                    </section>
+                    <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
                             <li class="page-item">
                                 <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -239,15 +236,17 @@
                     </div> --}}
                 </div>
             </div>
+        </div>
 
-            <div class="tab-pane fade pb-4" id="switchtwo" role="tabpanel" aria-labelledby="switchtwo-tab">
+
+            {{-- <div class="tab-pane fade pb-4" id="switchtwo" role="tabpanel" aria-labelledby="switchtwo-tab">
                 <div class="mframe">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30703867.071679905!2d64.40183608457193!3d20.04915895569306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1641668183864!5m2!1sen!2sin"
                         width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-            </div>
-        </div>
+            </div> --}}
+    </div>
 
 
 

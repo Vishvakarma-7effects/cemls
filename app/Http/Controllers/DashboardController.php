@@ -44,16 +44,16 @@ class DashboardController extends Controller {
                     ->get();
             return view('organizerDashboard', $data);
         } else {
-            $data['organizers'] = DB::table('organizers')->count();
-            $data['venues'] = DB::table('venues')->count();
-            $data['event'] = DB::table('events')->count();
+            // $data['organizers'] = DB::table('organizers')->count();
+            // $data['venues'] = DB::table('venues')->count();
+            // $data['event'] = DB::table('events')->count();
             $data['users'] = DB::table('users')->count();
-            $data['camera'] = DB::table('cameras')->count();
-            $data['attendee'] = DB::table('attendees')->count();
+            // $data['camera'] = DB::table('cameras')->count();
+            // $data['attendee'] = DB::table('attendees')->count();
             $data['total_revenue'] = '$' . (8234 + 2704);
             $data['total_paid'] = '$8234';
             $data['total_unpaid'] = '$2704';
-            $data['events'] = Event::select('id', 'title', 'urlSlug', 'type', 'zip', 'location', 'startDate')->get();
+            // $data['events'] = Event::select('id', 'title', 'urlSlug', 'type', 'zip', 'location', 'startDate')->get();
 
             return view('dashboard', $data);
         }
