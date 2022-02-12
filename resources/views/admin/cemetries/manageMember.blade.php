@@ -17,6 +17,7 @@
             <button class="btn_mid btn_green">Add People</button>
         </div>
     </div>
+
     <div class="row">
 
         <div class="col-lg-12 pl-lg-0 col-12 tabcnt">

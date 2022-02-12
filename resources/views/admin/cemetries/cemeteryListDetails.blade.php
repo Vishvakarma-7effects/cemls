@@ -15,7 +15,6 @@
       <i class="fa fa-chevron-right"></i>
     </a>
   </div>
-  
   <div class="innercnt pt-3">
 
     <div class="row mb-2">

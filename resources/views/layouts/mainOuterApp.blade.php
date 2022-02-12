@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>CemLS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />9
+    <meta name="description" content="" />
     <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 

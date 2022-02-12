@@ -95,7 +95,6 @@
 					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }}  {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
 								src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
 						<bdi>Users</bdi></a>
-<<<<<<< HEAD
 
 							<a class="dropdown-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ url('users/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
           <bdi>Add User</bdi></a>
@@ -104,14 +103,6 @@
           <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
           <bdi>SignIn</bdi>
         </a> --}}
-=======
-					 <a class="dropdown-item" href="{{ url('user/create') }}">
-						 <!-- //getSignIn replacement of create -->
-          <!-- <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
-          <bdi>Add User</bdi> -->
-
-        </a> 
->>>>>>> 30c71a52c5e6d0e40f5091d82abd5067f75033d5
 				</div>
 			</li>
 

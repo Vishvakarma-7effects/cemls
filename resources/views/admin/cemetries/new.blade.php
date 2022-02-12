@@ -10,10 +10,6 @@
         </nav>
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
-
-    <form method="post" action="{{route('cemeterys.store')}}" accept-charset="UTF-8">
-        @csrf
-
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">
@@ -181,7 +177,6 @@
                 <button class="btn_mid btn_green">Add</button>
                 <button class="btn_mid btn_none ml-3">Cancel</button>
                 </div>
-    </form>>
         </section>
 
     </section>

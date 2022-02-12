@@ -3,7 +3,6 @@
 
 @section('content')
 
-
       <section class="inner_pages clearfix" id="mflist">
         <ul class="mobtoggle mflistbtn">
           <li><i class="fa fa-map" aria-hidden="true"></i> Map</li>

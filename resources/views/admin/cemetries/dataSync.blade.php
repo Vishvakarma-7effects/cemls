@@ -12,6 +12,7 @@
   #customRange1 {
     width: 100%;
   }
+
   .b_card {
     box-shadow: 0 0 4px 0 rgb(147 150 153 / 27%);
   }

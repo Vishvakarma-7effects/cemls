@@ -74,17 +74,13 @@ Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryLis
 
 Route::get('cemetery/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
 Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::post('savecemetery', [CemeteryController::class, 'savecemetery']);
-
-
-Route::get('cemeteries', [CemeteryController::class, 'index']); 
+Route::post('savecemetery', [CemeteryController::class, 'savecemetery']); 
+Route::get('cemeteries', [CemeteryController::class, 'index'])->middleware('auth'); 
 
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 Route::resource('cemetery', CemeteryController::class, ['except' => [
     'index'
 ]])->middleware('auth');
-
-
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 
@@ -112,6 +108,7 @@ Route::resource('categories', CategoryController::class)->middleware('auth');
 // Route::post('role/savePermission/{roleId}', [RoleController::class, 'savePermission'])->middleware('auth');
 
 // Route::get('roles/getEdit', [RoleController::class, 'getEdit'])->middleware('auth');
+
 Route::resource('roles', RoleController::class)->middleware('auth');
 Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth');
 
@@ -127,6 +124,8 @@ Route::post('updateRole', [RoleController::class, 'update'])->middleware('auth')
 
 Route::resource('permissions', RoleController::class)->middleware('auth');
 Route::post('updatepermissions', [RoleController::class, 'update'])->middleware('auth');
+
+
 
 // Route::resource('photos', PhotoController::class);
 Route::get('mailbox', [UserController::class, 'mailbox'])->middleware('auth');
@@ -144,7 +143,7 @@ Route::resource('users', UserController::class)->middleware('auth');
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
- 
+
 Route::resource('camera', CameraController::class)->middleware('auth');
 
 Route::get('attendee/create/{id}', [AttendeeController::class, 'create'])->middleware('auth');
@@ -165,7 +164,6 @@ Route::resource('billing', BillingController::class)->middleware('auth');
 
 Route::get('orders/recent-orders', [OrderController::class, 'recent_orders'])->middleware('auth');
 Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpaid_orders'])->middleware('auth');
-
 
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');

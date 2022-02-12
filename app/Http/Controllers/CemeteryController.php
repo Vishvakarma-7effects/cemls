@@ -43,13 +43,9 @@ class CemeteryController extends Controller
         public function index()
         {
             // get all the sharks
-<<<<<<< HEAD
             $cemeterys = Cemetery::orderBy('id','desc')->paginate(10);
 
             
-=======
-            $cemeterys = Cemetery::paginate(10);
->>>>>>> 30c71a52c5e6d0e40f5091d82abd5067f75033d5
     
             // load the view and pass the sharks
             return View('admin.cemetries.index')
