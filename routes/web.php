@@ -62,20 +62,28 @@ Route::view('manage-orgnizer', 'showOrgniser')->middleware('auth');
 
 
 Route::resource('events', EventController::class)->middleware('auth');
-Route::get('cemeterys/getInvitePeople', [CemeteryController::class, 'getInvitePeople'])->name('cemeterys.getInvitePeople')->middleware('auth');
-Route::post('cemeterys/storeInvitePeople', [CemeteryController::class, 'storeInvitePeople'])->name('cemeterys.storeInvitePeople')->middleware('auth');
+Route::get('cemetery/getInvitePeople', [CemeteryController::class, 'getInvitePeople'])->name('cemetery.getInvitePeople')->middleware('auth');
+Route::post('cemetery/storeInvitePeople', [CemeteryController::class, 'storeInvitePeople'])->name('cemetery.storeInvitePeople')->middleware('auth');
 
-Route::get('cemeterys/getAddMember', [CemeteryController::class, 'getAddMember'])->middleware('auth');
-Route::get('cemeterys/manageMember', [CemeteryController::class, 'manageMember'])->middleware('auth');
-Route::get('cemeterys/dataSync', [CemeteryController::class, 'dataSync'])->middleware('auth');
-Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::get('cemeterys/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
-Route::get('cemeterys/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
+Route::get('cemetery/getAddMember', [CemeteryController::class, 'getAddMember'])->middleware('auth');
+Route::get('cemetery/manageMember', [CemeteryController::class, 'manageMember'])->middleware('auth');
+Route::get('cemetery/dataSync', [CemeteryController::class, 'dataSync'])->middleware('auth');
+Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
+Route::get('cemetery/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
+Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
-Route::get('cemeterys/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
-Route::get('cemeterys/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
-Route::post('savecemeterys', [CemeteryController::class, 'savecemeterys']); 
-Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+Route::get('cemetery/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
+Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
+Route::post('savecemetery', [CemeteryController::class, 'savecemetery']);
+
+
+Route::get('cemeteries', [CemeteryController::class, 'index']); 
+
+// Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
+Route::resource('cemetery', CemeteryController::class, ['except' => [
+    'index'
+]])->middleware('auth');
+
 
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');

@@ -43,7 +43,7 @@ class CemeteryController extends Controller
         public function index()
         {
             // get all the sharks
-            $cemeterys = Cemetery::paginate(10);
+            $cemeterys = Cemetery::orderBy('id','desc')->paginate(10);
 
             
     
@@ -71,7 +71,6 @@ class CemeteryController extends Controller
         {
                 // dd($request->all());
 
-             
             
                     $cemetery = new Cemetery;
                     $cemetery->cemetery_name = $request->cemetery_name;
@@ -81,10 +80,13 @@ class CemeteryController extends Controller
                     $cemetery->state = $request->state;
                     $cemetery->country = $request->country;
                     $cemetery->zip = $request->zip;
+                     $cemetery->created_by = auth()->user()->id;
 
                     $cemetery->save();
+                    // return Redirect::to('cemeteries');
+
             
-                    return redirect()->route('cemeterys.index')->with('success', 'Cemetery Add Succesfully');
+                    return redirect()->to('cemeteries')->with('success', 'Cemetery Add Succesfully');
             
         }
 
@@ -141,7 +143,7 @@ class CemeteryController extends Controller
         //                 ->route('posts.index')
         //                 ->with('success', 'Post updated successfully');
         // }
-        public function update(Request $request, $id)
+         public function update(Request $request, $id)
         {
         
 
@@ -155,9 +157,10 @@ class CemeteryController extends Controller
                         'zip'=>$request->zip
                 ]);
 
-                return redirect()->route('cemeterys.index')->with('success', 'Cemetery Updated Succesfully');
+                return redirect()->to('cemeteries')->with('success', 'Cemetery Updated Succesfully');
 
         }
+
 
         public function getAddMember()
         {
@@ -232,15 +235,19 @@ class CemeteryController extends Controller
           */
         public function destroy(Cemetery $cemetery)
         {
+            // $cemetery->delete();
 
-                $data = Cemetery::where('ID',$cemetery->ID)->delete();
-                // $data->delete();
+                // return redirect()
+                //         ->route('cemeterys.index')
+                //         ->with('success', 'Cemetery deleted successfully');
+        // dd($cemetery->ID);
+          $a = Cemetery::where(['ID'=>$cemetery->ID])->delete();
+        //   dd(Cemetery::where(['ID'=>$cemetery->ID])->get());
+        //   dd(Cemetery::where(['id'=>$cemetery->id])->get());
 
-                // dd($data);
-
-
+        // $cemetery->delete();
         
-                return redirect()->route('cemeterys.index')->with('success', 'Cemetery Deleted Succesfully');;
+        return redirect()->to('cemeteries')->with('success', 'Cemetery Deleted Succesfully');;
 
         }
 }

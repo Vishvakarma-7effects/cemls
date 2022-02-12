@@ -55,6 +55,15 @@
  }
 </style>
 <section class="panelrht">
+                  <nav aria-label="breadcrumb" class="mt-3 mt-lg-0">
+              <ol class="breadcrumb d-none d-lg-block">
+                <li class="breadcrumb-item active" aria-current="page">&nbsp;</li>
+              </ol>
+            </nav>
+            <div class="row">
+                <div class="col-md-12 col-12"><h1 class="mheading">Widgets</h1></div>
+            </div>
+
 
       <div id="switchTabContent" class="tab-content">
        <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">

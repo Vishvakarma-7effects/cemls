@@ -14,7 +14,7 @@
              <i class="fa fa-chevron-right"></i>
             </a>
         </div>
-        <div class="innercnt">
+        <div class="innercnt" style="overflow-x: hidden;overflow-y: auto;">
           <h2 class="mheading pb-0 pl-0 pl-md-2 toverflow">Cemeteries in <span>Sacramento CA</span></h2>
           <h4 class="shtxt mb-3 mb-md-4 pl-0 pl-md-2">Showing 1 - 8 of 54</h4>
           <div class="row  pl-0 pl-md-2 mb-3">
@@ -37,7 +37,7 @@
 
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
 
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
@@ -124,7 +124,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              <a href="{{ url('cemeterys/cemeteryDetailPage')}}">
+              <a href="{{ url('cemetery/cemeteryDetailPage')}}">
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
@@ -141,10 +141,14 @@
               </a>
             </div>
           </div>
-
-<div class="ftbbx">
-
-          <footer class="adm_footer">
+        
+        
+        
+        
+        
+        <div class="ftbbx">
+        
+         <footer class="adm_footer">
             <div class="container-lg">
                 <div class="row">
                 <div class="col-lg-4 col-12">
@@ -159,8 +163,8 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2 class="ft_head">Quick Navigation</h2>
                         <ul class="ftlinks">
-                            <li><a href="http://127.0.0.1:8000/aboutUs">About Us</a></li>
-                            <li><a href="http://127.0.0.1:8000/contactUs">Contact Us</a></li>
+                            <li><a href="{{ url('aboutUs') }}">About Us</a></li>
+                            <li><a href="{{ url('contactUs') }}">Contact Us</a></li>
                             
                         </ul>
                         </div>
@@ -168,7 +172,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2 class="ft_head">For Cemeteries</h2>
                         <ul class="ftlinks">
-                            <li><a href="http://127.0.0.1:8000/cemeterys">List Cemetery</a></li>
+                            <li><a href="{{ url('cemeteries') }}">List Cemetery</a></li>
                             <li><a href="#">Look Leads</a></li>
                             
                         </ul>
@@ -209,12 +213,10 @@
                 </div>
             </div>
         </footer>
-
+        
+          </div>
         </div>
         
- </div>
-
-
       </section>
 
 
@@ -227,8 +229,8 @@
             </button>
             <div class="clearfix pphead">
               <ul class="ulshare">
-                <li><a href="{{ url('cemeterys/cemeteryDetailPage')}}"><i class="far fa-heart"></i> Save</a></li>
-                <li><a href="{{ url('cemeterys/cemeteryDetailPage')}}"><i class="fa fa-share-alt"></i> Share</a></li>
+                <li><a href="{{ url('cemetery/cemeteryDetailPage')}}"><i class="far fa-heart"></i> Save</a></li>
+                <li><a href="{{ url('cemetery/cemeteryDetailPage')}}"><i class="fa fa-share-alt"></i> Share</a></li>
               </ul>
               <div class="adbx">
                 <img src="{{ asset('newPublic/images/adimg.jpg') }}">

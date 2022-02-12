@@ -15,7 +15,7 @@
 
           <div class="carousel-caption">
             <h3>Explore properties in your area</h3>
-            <form class="sform clearfix" action="{{ url('cemeterys/cemeteryListView')}}" method="GET">
+            <form class="sform clearfix" action="{{ url('cemetery/cemeteryListView')}}" method="GET">
               <img src="{{ asset('newPublic/images/locicon.png') }}" class="locicon">
               <input class="form-control" type="text" placeholder="Enter an address, locality or ZIP code" name="">
               <button class="btn_search" type="submit" data-toggle="modal" data-target="#searchModal"><span>Search</span> <i class="fa fa-search"></i></button>
@@ -34,7 +34,7 @@
 
       <section class="samebx">
         <div class="container-lg">
-            <h2 class="mheading clearfix">Properties near you <a href="{{ url('cemeterys/cemeteryListView')}}" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
+            <h2 class="mheading clearfix">Properties near you <a href="{{ url('cemetery/cemeteryListView')}}" class="vall_link">View All <i class="fa fa-chevron-right"></i></a></h2>
 
             <div class="owl-carousel owl-theme" id="prop_slide">
               <div class="item wow zoomIn">

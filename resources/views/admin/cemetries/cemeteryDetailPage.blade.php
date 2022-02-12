@@ -15,7 +15,7 @@
       <i class="fa fa-chevron-right"></i>
     </a>
   </div>
-  <div class="innercnt pt-3">
+  <div class="innercnt pt-3" style="overflow-x: hidden;overflow-y: auto;">
 
     <div class="row mb-2">
       <div class="col-md-3 col-sm-4 col-4 plr-4">
@@ -37,8 +37,8 @@
 
     <div class="boxinnerdtl">
       <div class="boxinnerdtl_inner">
-        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-        <div class="boxinnerdtl_img">
+        <a href="{{ url('cemeterys/cemeteryListView') }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+        <div class="boxinnerdtl_img1">
           <img src="{{ asset('newPublic/images/cemlistd-img1.jpg') }}" />
         </div>
         <div class="boxinnerdtl_cnt">
@@ -68,7 +68,8 @@
         <div class="row">
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              
+                                                          <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -81,11 +82,31 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              
+              </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              
+                                                                        <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+
+                <div class="boxinner">
+                  <span class="tagtxt">Outdoor</span>
+                  <i class="far fa-heart"></i>
+                  <div class="boxinner_img ">
+                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
+                  </div>
+                  <div class="boxinnercnt">
+                    <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
+                    <address class="bxaddress mb-0">3155 Barberry Ln, Sacramento, CA</address>
+                  </div>
+                  <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
+                </div>
+                            </a>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
+                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -98,11 +119,13 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              
+                                        </a>
+  
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-              
+                                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -115,25 +138,13 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
-              
+                                                        </a>
+
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                <div class="boxinner">
-                  <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
-                  <div class="boxinner_img">
-                    <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
-                  </div>
-                  <div class="boxinnercnt">
-                    <h2 class="bxhead mt-0">Arbor Memorial Glen Oaks Cemetery</h2>
-                    <address class="bxaddress mb-0">3155 Barberry Ln, Sacramento, CA</address>
-                  </div>
-                  <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
-                </div>
-            </div>
+                                                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -146,9 +157,13 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
+                                                                        </a>
+
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
+                                                                          <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
                   <i class="far fa-heart"></i>
@@ -161,6 +176,8 @@
                   </div>
                   <div class="bxprice"><sup>$</sup> 3249 <span>Onwards</span></div>
                 </div>
+                
+                </a>
             </div>
           </div>
 
@@ -190,7 +207,6 @@
      
     </div>
 
- 
 
 
 <div class="ftbbx">
@@ -262,8 +278,6 @@
         </footer>
 
         </div>
-
-
   </div>
 </section>
 

@@ -272,7 +272,7 @@
     </div>
   </section>
 
-    <footer class="adm_footer">
+    <footer class="adm_footer mt-5">
             <div class="container-lg">
                 <div class="row">
                 <div class="col-lg-4 col-12">

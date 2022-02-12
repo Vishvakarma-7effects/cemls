@@ -74,9 +74,9 @@
 </script>
 @yield('scripts')
 
-@if(Request::segment(1)!='cemeterys') 
+@if(Request::segment(1)!='cemetery') 
 
-<footer class="adm_footer">
+<footer class="adm_footer mt-5">
             <div class="container-lg">
                 <div class="row">
                 <div class="col-lg-4 col-12">
