@@ -12,6 +12,7 @@
   #customRange1 {
     width: 100%;
   }
+  
 </style>
 <section class="panelrht">
   <nav aria-label="breadcrumb">
@@ -25,10 +26,27 @@
 
 <form action="{{ route('plot.update',$plot->id) }}" method="POST" enctype="multipart/form-data">
 
+
 					
 					@csrf
            @method('PUT')
         <div class="cntbox">
+        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
+                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
+                                  <select name="cemetery_id"  data-control="select2" class="form-select form-select-solid form-select-lg">
+															<option value="">Select Cemetery</option>
+                                @foreach($cemetery as $row)
+														    	<option value="{{$row->ID}}" {{$plot->cemetery_id==$row->ID ? 'selected' : '' }}><b>{{$row->cemetery_name}}</b></option>
+                                 @endforeach
+														</select>
+                                    <!-- <input type="text" class="form-control" name="grave" id="" placeholder=""> -->
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
                     <div class="row">
                       <div class="col-lg-9 pr-lg-0">
                           <div class="form-group row">
@@ -214,12 +232,8 @@
                             </div>
                     </div>
                    </div>      
-                       <div class="form-group row">
-                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Plot Number</label>
-                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                          <input type="text" class="form-control" name="plot_number" id="" placeholder="">
-                        </div>
-                      </div> 
+
+                      
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -285,7 +299,7 @@
     </div>
 
     <div class="cntbox">
-      <button class="btn_mid btn_green" type="submit">Add</button>
+      <button class="btn_mid btn_green" type="submit">Update</button>
       <button class="btn_mid btn_none ml-3">Cancel</button>
     </div>
  </form>

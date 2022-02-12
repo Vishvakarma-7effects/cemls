@@ -1,9 +1,9 @@
-<?php
-
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plot;
+use App\Models\Cemetery;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,18 +12,24 @@ class PlotsController extends Controller
 {
     public function index()
 	{
-		$plots = Plot::paginate(10);
+		$plots = Plot::leftjoin('cemetery','plot.cemetery_id','=','cemetery.id')
+		->select('plot.*','cemetery.cemetery_name as cemetery_name')
+		->orderBy('id','DESC')
+		->paginate(10);
+
 		return view('admin.plots.index')->with('plots', $plots);
 	}
     public function create()
 	{
-		return view('admin.plots.new');
+		$cemetery = Cemetery::all();
+
+		return view('admin.plots.new', compact('cemetery'));
 	}
 
 						public function customeNew()
 						{
-						//
-						return view('admin.plots.customeNew');
+						$cemetery = Cemetery::all();
+						return view('admin.plots.customeNew', compact('cemetery'));
 						}
 
 				/**
@@ -34,6 +40,7 @@ class PlotsController extends Controller
 					*/
 				public function store(Request $request)
 				{
+					
 					// dd($request->all());
 							$plot = new Plot;
 							$plot->garden = $request->garden;
@@ -44,11 +51,15 @@ class PlotsController extends Controller
 							$plot->status = $request->status;
 							$plot->tags = $request->tags;
 							$plot->price = $request->price;
-							$plot->cemetery_name = $request->cemetery_name;
+							// $plot->cemetery_name = $request->cemetery_name;
 							$plot->description = $request->description;
 							$plot->public =$request->public;
 							$plot->views = $request->views;
 							$plot->internal_notes = $request->internal_notes;
+							$plot->cemetery_id = $request->cemetery_id;
+							$plot->type1 = $request->type1;
+							$plot->type2 = $request->type2;
+
 							$plot->save();
 
 							return redirect::to('plot')->with('success', 'Plots Add Succesfully');
@@ -85,7 +96,8 @@ class PlotsController extends Controller
 
 					public function edit(Plot $plot)
     {
-             return view('admin.plots.edit',compact('plot'));
+		$cemetery = Cemetery::all();
+             return view('admin.plots.edit',compact('plot','cemetery'));
 
     }
 
@@ -120,6 +132,8 @@ class PlotsController extends Controller
 					$plot->public = $request->public;
 					$plot->views = $request->views;
 					$plot->internal_notes = $request->internal_notes;
+					$plot->cemetery_id = $request->cemetery_id;
+
 					$plot->save();
 
 					return redirect::to('plot')->with('success', 'Plots Update Succesfully');

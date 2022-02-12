@@ -15,7 +15,6 @@
 				<h1 class="mheading">Invite User</h1>
 			</div>
 		</div>
-
 		<section class="bxshadow">
 			<div class="cntbox">
 				<div class="row">

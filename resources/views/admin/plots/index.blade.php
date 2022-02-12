@@ -14,6 +14,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    
         
         <div class="col-md-7 col-6 text-right">
             <a class="btn_mid btn_green" href="{{ url('plot/create')}}">Add Plot</a>
@@ -66,7 +67,7 @@
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                    <div class="plothead">{{$row->Garden}}</div>
+                                    <div class="plothead">{{$row->cemetery_name}}</div>
                                     <div class="plotshead">{{$row->garden}}</div>
                                 </td>
                                 <td width="105">
@@ -90,14 +91,11 @@
                                         <li>
                                         <form action="{{ route('plot.destroy',$row->id) }}" method="POST">
    
-                    
+                                            @csrf
+                                            @method('DELETE')
 
-   @csrf
-   @method('DELETE')
-
-   <button type="submit" class="btn btn-danger">Delete</button>
-</form>
-                                                
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                         </li>
                                     </ul>
                                     </div>

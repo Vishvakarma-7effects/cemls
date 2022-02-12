@@ -4,7 +4,6 @@
 <section class="panelrht">
 
     <h1 class="mheading">Add Member</h1>
-    
     <section class="bxshadow">
         <div class="cntbox">
             <div class="row">

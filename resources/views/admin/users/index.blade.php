@@ -16,13 +16,12 @@
             <div class="col-md-7 col-6 text-right"><a  href="{{ url('users/create')}}" class="btn_mid btn_green">Add User</a></div>
         </div>
 
-
         <div class="row">
             <div class="col-lg-8">
                 <ul class="nav nav-tabs same_tabs clearfix" id="userTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab"
-                            aria-controls="Cemetery" aria-selected="true">Cemetery User</a>
+                        <!-- <a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab"
+                            aria-controls="Cemetery" aria-selected="true">Cemetery User</a> -->
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" id="public-tab" data-toggle="tab" href="#public" role="tab"
@@ -60,23 +59,16 @@
                                                 <label for="chkbx1">&nbsp;</label>
                                             </div>
                                         </th>
-                                        {{-- <th>Username</th> --}}
+                                        
                                         <th>Name</th>
+                                        <th>Profile</th>
                                         <th>Email ID</th>
                                         <th>Active</th>
                                         <th>Role</th>
                                         <th>Last access</th>
                                         <th>Subscription</th>
-                                        <th width="40">
-                                            <div class="moption">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <ul class="moptionul">
-                                                    <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </th>
+                                        <th>Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,7 +82,7 @@
                                             </div>
                                         </td>
                                         <td>{{ $user->name .' '. $user->lastname }}</td>
-                                        {{-- <td>Christopher J. Moon</td> --}}
+                                        <td><img src="{{asset('/uploads').'/'.$user->profile_image}}" width="150" height="200"></td>
                                         <td>{{ $user->email }}</td>
                                         <td>Yes</td>
                                         <td>Admin</td>
@@ -101,7 +93,7 @@
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                 <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
+                                                    <li><a href="{{ url('users/Edit/'.$user->id)}}">Edit</a></li>
                                                     <li><a href="#">Delete</a></li>
                                                 </ul>
                                             </div>

@@ -9,6 +9,12 @@
             <li class="breadcrumb-item active" aria-current="page">My Account</li>
             </ol>
         </nav>
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    
         <h1 class="mheading">My Account</h1>
         <section class="bxshadow">
 
@@ -34,6 +40,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="cntbox">
                 <h2 class="sheading">Change Password</h2>
