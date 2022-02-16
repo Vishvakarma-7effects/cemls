@@ -120,8 +120,8 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+{{ $users->links('layouts.custom') }}
+                       <!-- <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -140,7 +140,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav>-->
                     </div>
 
 
@@ -215,7 +215,7 @@
                             </table>
                         </div>
 
-                        <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                        <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -234,7 +234,9 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav>-->
+                        {{ $users->links('layouts.custom') }}
+
                     </div>
                     <!--<div class="tab-pane fade" id="public" role="tabpanel" aria-labelledby="public-tab">
                         <section class="bxshadow">
@@ -339,7 +341,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{url('testimonial/update-feature')}}",
+                url: "{{url('users/update-feature')}}",
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'event_id': event_id,

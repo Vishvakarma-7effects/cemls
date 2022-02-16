@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mail;
+use Illuminate\Support\Facades\Redirect;
+
 
 class UserController extends Controller {
 
@@ -27,11 +29,14 @@ class UserController extends Controller {
      */
     public function index() {
         //
-        $users = User::all();
-        $data['users'] = $users;
-        //echo $events;
-        return view('admin.users.index', compact('users'));
-        // return view('showUser', $data);
+       // $users = User::all();
+       // $data['users'] = $users;
+     
+       // return view('admin.users.index', compact('users'));
+         $users = User::orderBy('id', 'DESC')->paginate(10);
+    
+        return View('admin.users.index')->with('users', $users);
+ 
     }
 
     /**
@@ -120,7 +125,19 @@ class UserController extends Controller {
         return redirect()->route('user.index')
                         ->with('success', 'User deleted successfully');
     }
+public function updateFeature(Request $request) {
 
+          $cemetery = User::where('id',$request->event_id)->update([
+                        'feature'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
 
 
 // My Account

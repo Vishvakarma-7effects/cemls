@@ -172,3 +172,4 @@ Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew
 Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::post('cemeteries/update-feature', [CemeteryController::class, 'updateFeature'])->middleware('auth');
 Route::post('plots/update-feature', [PlotsController::class, 'updateFeature'])->middleware('auth');
+Route::post('users/update-feature', [UserController::class, 'updateFeature'])->middleware('auth');
