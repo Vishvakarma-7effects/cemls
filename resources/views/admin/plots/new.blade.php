@@ -24,7 +24,7 @@ datalist {
         <h1 class="mheading">Add Plot</h1>
        <section class="bxshadow">
 
-  <form method="post" action="{{route('plot.store')}}" accept-charset="UTF-8">
+  <form method="post" action="{{route('plots.store')}}" accept-charset="UTF-8">
         @csrf
 
 

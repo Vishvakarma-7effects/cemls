@@ -85,7 +85,7 @@ Route::resource('cemetery', CemeteryController::class, ['except' => [
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 
 //PLOT
-Route::resource('plot', PlotsController::class)->middleware('auth');
+Route::resource('plots', PlotsController::class)->middleware('auth');
 Route::get('deleteplots/{id}', [PlotsController::class, 'destroy']); 
 Route::get('plot/getEdit', [PlotsController::class, 'getEdit'])->middleware('auth');
 
@@ -171,4 +171,4 @@ Route::resource('inbox', InboxController::class)->middleware('auth');
 Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
 Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::post('cemeteries/update-feature', [CemeteryController::class, 'updateFeature'])->middleware('auth');
-Route::post('plot/update-feature', [PlotsController::class, 'updateFeature'])->middleware('auth');
+Route::post('plots/update-feature', [PlotsController::class, 'updateFeature'])->middleware('auth');

@@ -31,11 +31,11 @@
 					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
 					<bdi>Add Cemetery</bdi>
 				</a>
-				<a class="dropdown-item {{ request()->is('plot') ? 'active' : '' }}  {{ request()->is('plot/getEdit') ? 'show active' : '' }}" href="{{ url('plot') }}"><span><img
+				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}  {{ request()->is('plot/getEdit') ? 'show active' : '' }}" href="{{ url('plots') }}"><span><img
 							src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
 					<bdi>Plots</bdi></a>
-				<a class="dropdown-item {{ request()->is('plot/create') ? 'active' : '' }}"
-					href="{{ url('plot/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
+				<a class="dropdown-item {{ request()->is('plots/create') ? 'active' : '' }}"
+					href="{{ url('plots/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
 					<bdi>Add
 						Plots</bdi></a>
 				{{-- <a class="dropdown-item" href="{{ url('plot/customeNew') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>

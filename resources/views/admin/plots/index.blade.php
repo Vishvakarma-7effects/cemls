@@ -59,8 +59,14 @@
             <li class="breadcrumb-item active" aria-current="page">Plots</li>
         </ol>
     </nav>
+
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <div class="text-right mb-4 pb-1">
-        <a class="btn_mid btn_green" href="{{ url('plot/create')}}">Add Plot</a>
+        <a class="btn_mid btn_green" href="{{ url('plots/create')}}">Add Plot</a>
     </div>
 
     <div class="row">
@@ -146,9 +152,9 @@
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                     <ul class="moptionul">
                                         <i class="fa fa-caret-up"></i>
-                                        <li><a href="{{ url('plot/'.$row->id.'/edit')}}">Edit</a></li>
+                                        <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
                                         <li>
-                                        <form action="{{ route('plot.destroy',$row->id) }}" method="POST">
+                                        <form action="{{ route('plots.destroy',$row->id) }}" method="POST">
    
                     
 
@@ -230,7 +236,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{url('plot/update-feature')}}",
+                url: "{{url('plots/update-feature')}}",
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'event_id': event_id,

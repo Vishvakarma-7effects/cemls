@@ -152,4 +152,14 @@ $plot = Plot::findOrFail($request->event_id);
 
         return response()->json($response, 200);
     }
+
+      public function destroy(Plot $plot)
+        {
+            
+          $a = plot::where(['id'=>$plot->id])->delete();
+      ;
+        
+        return redirect()->to('plots')->with('success', 'Plot Deleted Succesfully');;
+
+        }
 }
