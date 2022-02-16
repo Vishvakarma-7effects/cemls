@@ -20,7 +20,7 @@
 				<span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
 				<bdi>Property</bdi>
       </a>
-			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemetery/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
+			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemetery/create') ? 'active show' : '' }} {{ request()->is('plot') ? 'active show' : '' }} {{ request()->is('plot/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
 				aria-labelledby="navbarDropdown">
 
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
@@ -91,12 +91,10 @@
 						<bdi>Invite User</bdi>
 					</a>
 
-				
-					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }}  {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
+					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }} {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
 								src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
 						<bdi>Users</bdi></a>
-
-							<a class="dropdown-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ url('users/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
+						<a class="dropdown-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ url('users/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
           <bdi>Add User</bdi></a>
 
 					{{-- <a class="dropdown-item" href="{{ url('user/getSignIn') }}">
@@ -105,18 +103,6 @@
         </a> --}}
 				</div>
 			</li>
-
-
-			<!-- <a class="dropdown-item {{ request()->is('cemeterys') ? 'active' : '' }}  {{ request()->is('cemeterys/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeterys') }}"><span>
-						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
-					<bdi>Cemetery</bdi></a>
-				<a class="dropdown-item {{ request()->is('cemeterys/create') ? 'active' : '' }}"
-					href="{{ url('cemeterys/create') }}">
-					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
-					<bdi>Add Cemetery</bdi>
-				</a> -->
-
-
 			<li class="{{ request()->is('roles*') ? 'active' : '' }}">
 				<a href="{{ url('roles') }}"><span>
 						<img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>

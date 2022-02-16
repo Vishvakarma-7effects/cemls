@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Event;
+// use App\Models\Event;
 
 class DashboardController extends Controller {
 
@@ -39,9 +39,9 @@ class DashboardController extends Controller {
             $data['total_bill_month'] = '$540';
             $data['upcoming_event'] = '5';
 
-            $data['events'] = Event::select('id', 'title', 'urlSlug', 'type', 'zip', 'location', 'startDate')
-                    ->where('created_by', $this->userId)
-                    ->get();
+            // $data['events'] = Event::select('id', 'title', 'urlSlug', 'type', 'zip', 'location', 'startDate')
+            //         ->where('created_by', $this->userId)
+            //         ->get();
             return view('organizerDashboard', $data);
         } else {
             // $data['organizers'] = DB::table('organizers')->count();

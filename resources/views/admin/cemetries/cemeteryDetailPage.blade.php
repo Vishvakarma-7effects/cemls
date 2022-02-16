@@ -236,7 +236,7 @@
                         <h2 class="ft_head">For Cemeteries</h2>
                         <ul class="ftlinks">
                             <li><a href="{{ url('cemeteries') }}">List Cemetery</a></li>
-                            <li><a href="#">Look Leads</a></li>
+                            <li><a href="{{ url('cemetery/widget') }}">Look Leads</a></li>
                             
                         </ul>
                         </div>

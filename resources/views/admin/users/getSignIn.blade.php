@@ -4,7 +4,7 @@
 
 <head>
  <meta charset="utf-8" />
- <title>CemLS</title>
+ <title>Cemls</title>
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <meta name="description" content="" />
  <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">
@@ -17,7 +17,6 @@
  {{-- @yield('styles') --}}
 
 </head>
-
 <style>
  .fb {
   color: #3B5998;

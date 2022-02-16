@@ -250,4 +250,13 @@ class CemeteryController extends Controller
         return redirect()->to('cemeteries')->with('success', 'Cemetery Deleted Succesfully');;
 
         }
+         public function cemeteryDetailPagenew(Request $request)
+        {
+                die('aa');
+        return view('admin.cemetries.cemeteryDetailPagenew');
+        }
+         public function cemeteryDetail(Request $request)
+        {
+        return view('admin.cemetries.cemeterypopup');
+        }
 }

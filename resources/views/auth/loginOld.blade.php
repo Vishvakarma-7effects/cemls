@@ -3,66 +3,61 @@
 @section('content')
 <!--=================-->
 <section class="section-content padding-y bg-white">
- <div class="container">
-  <div class="row">
-   <div class="col-12 col-lg-4 offset-lg-4">
-    <div class="col-12 mb-5">
-     <h1 class="card-title text-center">Sign in</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4 offset-lg-4">
+                <div class="col-12 mb-5">
+                    <h1 class="card-title text-center">Sign in</h1>
+                </div>
+                <form method="post"action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border-0"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border-0"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-block">Sign in</button>
+                    </div>
+                    <p class="text-center"><a href="#">Forgot your password ?</a></p>
+                    <p class="text-center">Not a member yet ? <a href="{{ route('register') }}" class="text-primary _600">Sign up</a></p>
+                </form>
+            </div>
+        </div>
     </div>
-    <form method="post" action="{{ route('login') }}">
-     @csrf
-     <div class="form-group">
-      <div class="input-group">
-       <div class="input-group-prepend">
-        <span class="input-group-text border-0"> <i class="fa fa-user"></i> </span>
-       </div>
-       <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror"
-        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-       @error('email')
-       <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-       </span>
-       @enderror
-      </div>
-     </div>
-
-     <div class="form-group">
-      <div class="input-group">
-       <div class="input-group-prepend">
-        <span class="input-group-text border-0"> <i class="fa fa-lock"></i> </span>
-       </div>
-       <input id="password" placeholder="Password" type="password"
-        class="form-control @error('password') is-invalid @enderror" name="password" required
-        autocomplete="current-password">
-
-       @error('password')
-       <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-       </span>
-       @enderror
-      </div>
-     </div>
-     <div class="form-group">
-      <div class="custom-control custom-checkbox">
-       <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : ''
-        }}>
-       <label class="form-check-label" for="remember">
-        {{ __('Remember Me') }}
-       </label>
-      </div>
-     </div>
-
-
-     <div class="form-group">
-      <button type="submit" name="submit" class="btn btn-primary btn-block">Sign in</button>
-     </div>
-     <p class="text-center"><a href="#">Forgot your password ?</a></p>
-     <p class="text-center">Not a member yet ? <a href="{{ route('register') }}" class="text-primary _600">Sign up</a>
-     </p>
-    </form>
-   </div>
-  </div>
- </div>
 </section>
 
 <!--=================-->

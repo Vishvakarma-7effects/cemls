@@ -72,11 +72,16 @@
                                 </div>
                                 </div>
                             </div>
+<div class="col-md-7">
+
+                            Add 360 Image
+                    <input data-id="userstatus" class=" form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
                         </div>
                     </div>
-
+ </div>
                     <div class="col-lg-3 text-right">
-                    <button class="btn_lg btn_none">Add 360 Image</button>
+                    <!--<button class="btn_lg btn_none">Add 360 Image</button>-->
+
                     <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                     <button class="btn_lg btn_green">Add Videos</button>
                     </div>
@@ -86,7 +91,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                     <div class="loc_search position-relative">
-                        <input type="text" class="form-control" id="" placeholder="enter location">
+                        <input type="text" class="form-control" id="pac-input" placeholder="enter location">
                         <a href="#"><i class="fa fa-search"></i></a>
                         <button class="btn_mid btn_bgreen px-3">Get Location</button>
                     </div>
@@ -97,9 +102,14 @@
                     </div>
                 </div>
 
-                <div class="mframe mb-4 pb-1">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30703867.071679905!2d64.40183608457193!3d20.04915895569306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1641668183864!5m2!1sen!2sin" width="100%" height="470" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+                  <div class="mframe mb-4 pb-1">
+                      <div id="map" style="height:400px;"></div>
+                                    <div id="infowindow-content">
+                                        <span id="place-name" class="title"></span><br />
+                                        <span id="place-address"></span>
+                                    </div>
+                    </div>
+
 
                 <div class="row">
                     <div class="col-lg-5">

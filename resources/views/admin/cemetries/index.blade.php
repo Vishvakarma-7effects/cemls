@@ -18,13 +18,44 @@
 
 <div class="row">
 <div class="col-md-5 col-6">
-		<h1 class="mheading">Cemeteries</h1>
+		<h1 class="mheading"></h1>
 </div>
 	<div class="col-md-7 col-6 text-right"><a class="btn_mid btn_green" href="{{ url('cemetery/create')}}">Add Cemetry</a>
 	</div>
 </div>
+<br>
+ <div class="row">
+        <div class="col-lg-2 col-12">
+            <h1 class="mheading">Cemeteries</h1>
+        </div>
+        <div class="col-lg-10 pl-lg-0 col-12 tabcnt">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#burials" role="tab"
+                        aria-controls="Burials" aria-selected="true">Burials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cremations" role="tab"
+                        aria-controls="Cremations" aria-selected="false">Cremations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#indoor" role="tab"
+                        aria-controls="Indoor" aria-selected="false">Indoor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#outdoor" role="tab"
+                        aria-controls="Outdoor" aria-selected="false">Outdoor</a>
+                </li>
+            </ul>
 
+            <div class="searchbx position-relative">
+                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
+                <a href="#"><i class="fa fa-search"></i></a>
+            </div>
 
+            
+        </div>
+    </div>
 <div id="switchTabContent" class="tab-content">
 <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
 		<div id="myTabContent" class="tab-content">
@@ -39,18 +70,20 @@
 								<td width="76" style="padding: 15px;">
 									<img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
 								</td>
-							<td width="" style="padding: 15px;">
+							<td width="" style="padding: 3px;">
 								<div class="plothead">{{$cemVal->cemetery_name}}</div>
 								<div class="plotshead">
 									{{$cemVal->address.',' .$cemVal->city.','.$cemVal->state}}
 								</div>
 							</td>
-						<td width="350" style="padding: 15px;">
+
+						<td width="500px" style="padding: 15px;">
 								<div class="thead">Actions</div>
 							<div class="d-flex">
-								<a class="btn_mid btn_cms_list mr-3" href="{{ url('cemetery/getInvitePeople') }}">Manage Members</a>
+								<input data-id="{{ $cemVal->ID}}" class="radio userstatus btn_mid btn_cms_list" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary"> &nbsp;&nbsp;
+								<a class="btn_mid btn_cms_list mr-3" href="{{ url('users') }}">Manage Members</a>
 																																										
-								<a class="btn_mid btn_cms_list"	href="{{ url('cemetery/getAddMember') }}">Add Members</a>
+								<a class="btn_mid btn_cms_list"	href="{{ url('cemetery/getInvitePeople') }}">Add Members</a>
 										
 							</div>
 						</td>

@@ -754,7 +754,7 @@
                               <div class="col-lg-12 col-md-12 col-sm-12">
                         <h2 class="ft_head">For Cemeteries</h2>
                         <ul class="ftlinks">
-                            <li><a href="https://new.cemeterylistingservice.com/cemeterys">List Cemetery</a></li>
+                            <li><a href="https://new.cemeterylistingservice.com/cemeteries">List Cemetery</a></li>
                             <li><a href="#">Look Leads</a></li>
                             
                         </ul>

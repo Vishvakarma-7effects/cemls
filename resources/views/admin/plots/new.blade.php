@@ -1,9 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
-
 <style>
+
 datalist {
   display: flex;
   justify-content: space-between;
@@ -32,30 +30,19 @@ datalist {
 
 
                 <div class="cntbox">
-                <div class="row">
-                            <div class="col-md-7">
-                                <div class="form-group row">
-                                  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Cemetery Name</label>
-                                  <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                  <select name="cemetery_id"  class="form-group">
-                                                          <option value="">Select Cemetery</option>
-                                                              @foreach($cemetery as $row)
-                                                          <option value="{{$row->ID}}"><b>{{$row->cemetery_name}}</b></option>.
-                                                          <!-- row->1st table name -->
-                                                               @endforeach
-													                            </select>
-                                    <!-- <input type="text" class="form-control" name="grave" id="" placeholder=""> -->
-                                  </div>
-                                </div>
-                              </div>
-                              
-                        </div>
-
-
-                        
-                
                     <div class="row">
                       <div class="col-lg-9 pr-lg-0">
+
+                        <div class="form-group row">
+                            <p class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery</p>
+                            <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                             <select  class="form-control">
+    <option value="1">Cemetery1</option>
+    <option value="2">Cemetery2</option>
+    <option value="3">Cemetery3</option>
+</select>
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <p class="col-lg-3 col-sm-3 col-form-label pr-0">Location ID</p>
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -101,6 +88,7 @@ datalist {
                                     </div>
                                   </div>
                               </div>
+                             
                           </div>
                           <div class="row">
                             <div class="col-md-7">
@@ -115,7 +103,16 @@ datalist {
                         </div>
                         <!-- <div class="row">
                           <div class="col-md-12">
-                             
+                              <div class="form-group row">
+                                <div class="col-md-3 col-sm-9 pl-3 pl-md-4 d-flex "></div>
+                                <div class="col-md-5 col-sm-9 pl-3 pl-md-4 d-flex ">
+                                  <input type="text" class="form-control" id="" placeholder="Create Custom label ">
+                                  <button class="btn_search">
+                                        <i class="fa fa-plus"  aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                              </div>
+                            </div>
                            
                         </div>  -->
                         
@@ -142,115 +139,129 @@ datalist {
                                       Sold
                                     </label>
                                   </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Types</label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
+                                  </div>
+                                  
+                                  
+                                  {{-- @foreach ($roles as $roleItem)
+                                      
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $roleItem->id }}">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox1"> {{ ucFirst($roleItem->name) }}</label>
+                                  </div>
+                                @endforeach --}}
+
+
+                                  {{-- <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div> --}}
                                 </div>
                               </div>
                             </div>
                         </div>
 
+ <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"></label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+
+                                   
+                                  
+                                   <div class="form-check form-check-inline">
+                                  
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                
 
 
-                        <div class="row">
-                        <div class="col-md-7">
-                            <div class="form-group row">
-                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 1</label>
-                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios1" value="burial" checked>
-                                  <label class="form-check-label col-form-label" for="exampleRadios1">
-                                  Burial
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="type1" id="exampleRadios2" value="cremation">
-                                  <label class="form-check-label col-form-label" for="exampleRadios2">
-                                  Cremation
-                                  </label>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-7">
-                            <div class="form-group row">
-                              <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Type 2</label>
-                              <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios1" value="indoor" checked>
-                                  <label class="form-check-label col-form-label" for="exampleRadios1">
-                                  Indoor
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="type2" id="exampleRadios2" value="outdoor">
-                                  <label class="form-check-label col-form-label" for="exampleRadios2">
-                                  Outdoor
-                                  </label>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                      </div>
+                        </div>
                       </div>
                       
 
                       <div class="col-lg-3 text-right">
-                        <button class="btn_lg btn_none">Add 360 Image</button> 
+                        <!--<button class="btn_lg btn_none">Add 360 Image</button> -->
                         <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                         <button class="btn_lg btn_green">Add Videos</button>
                       </div>
                     </div>
                 </div>
-
-
-
-
-
                 <div class="cntbox">
+                   
+                    
                 
                   <div class="row">
                     <div class="col-lg-9 pr-lg-0">
                          <div class="form-group row">
 
-                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price Range</label>
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
 
-
-                            <datalist id="rangeslider">
-                            <option id="price-min" name="price-min" value="0" label="$500"></option>
-                            <option id="price-max" name="price-max" value="100" label="$5000"></option>
-                            </datalist>      
-                              <input type="range" list="tickmarks" id="customRange1">
-
-                                <div class="col-md-6 col-sm-9">
-                                      <input type="text" value="$500" class="form-control" id="" placeholder="">
-                            </div>
-                    </div>
-                   </div>    
-
-                   <!-- <div class="row">
-                    <div class="col-lg-9 pr-lg-0">
-                         <div class="form-group row">
-
-                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price</label>
-                            <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-
-
-                   <div data-role="rangeslider">
-        <label for="price-min">Price:</label>
-        <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
-        <label for="price-max">Price:</label>
-        <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+<div class="price-input">
+        <div class="field">
+          <span>Min</span>
+          <input type="number" class="input-min" value="2500">$
+        </div>
+        <div class="separator">-</div>
+        <div class="field">
+          <span>Max</span>
+          <input type="number" class="input-max" value="7500">$
+        </div>
       </div>
-</div>
-</div>
-</div>
-</div> -->
+      <div class="slider">
+        
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+      </div>                               
+                 <br>            
 
-
+                                <!--<div class="col-md-6 col-sm-9">
+                                   <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Price Range</label>
+                                      <input type="text" value="$500" class="form-control" id="" placeholder="">
+                            </div>-->
+                    </div>
+                   </div>      
+                      <div class="form-group row">
+                        <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Price</label>
+                        <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                           <input type="text" value="500" class="form-control" id="" placeholder="">
+                        </div>
+                      </div> 
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
@@ -294,9 +305,9 @@ datalist {
                     <div class="row">
                       <div class="col-lg-6 mb-3">
                         <div class="loc_search position-relative">
-                          <input type="text" class="form-control" id="" placeholder="enter location">
+                          <input type="text" class="form-control" id="pac-input" placeholder="enter location">
                           <a href="#"><i class="fa fa-search"></i></a>
-                          <button class="btn_mid btn_bgreen px-3">Get Location</button>
+                          <a id="getlocation" class="btn_mid btn_bgreen px-3">Get Location</a>
                         </div>
                       </div>
 
@@ -306,7 +317,11 @@ datalist {
                     </div>
 
                     <div class="mframe mb-4 pb-1">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30703867.071679905!2d64.40183608457193!3d20.04915895569306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1641668183864!5m2!1sen!2sin" width="100%" height="470" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                      <div id="map" style="height:400px;"></div>
+                                    <div id="infowindow-content">
+                                        <span id="place-name" class="title"></span><br />
+                                        <span id="place-address"></span>
+                                    </div>
                     </div>
 
                     
@@ -319,4 +334,16 @@ datalist {
   </form>
             </section>
     </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <script>
+      
+      $(document).ready(function() {
+  $('select').select2().select2();
+});
+  </script>
 @endsection

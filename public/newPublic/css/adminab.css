@@ -485,7 +485,7 @@ textarea.form-control{height:106px; resize:none;}
 .plot_table .fa-ellipsis-v{color: #929699;
     font-size: 22px; margin-right: 14px;
     transform: rotate(90deg);}
-.pagination .page-link:hover, .page-item.active .page-link{border-color:#006cd4; color:#006cd4; background:#fff; position:relative;border-radius: 0;}
+.pagination .page-link:hover, .page-item.active .page-link{border-color:#006cd4; color:#006cd4; background:#fff; position:relative;}
 .pagination .page-link.pn_arrow{font-size: 30px; background:#006cd4; border-color:#006cd4; color:#fff; transition:0.3s;}
 .pagination .page-link.pn_arrow:hover{background:#86C335; border-color:#86C335;}
 .cntbox{position:relative; /*cursor:pointer;*/}

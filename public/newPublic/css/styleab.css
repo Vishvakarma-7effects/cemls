@@ -977,7 +977,7 @@ div[slider] > input[type=range]::-ms-tooltip {
     max-width: 25%;}
 .innercnt{-ms-flex: 0 0 48%;
     flex: 0 0 48%; transition:0.5s ease-in;
-    max-width: 48%; padding: 45px 8px 4px 8px; height: 100vh;}
+    max-width: 48%; padding: 45px 8px 4px 8px; height: 90vh;}
 .innercnt .row{margin-right: -4px; margin-left: -4px;}
 .plr-4{padding-left:4px; padding-right:4px;}
 .mheading span{color:#0e83df;}

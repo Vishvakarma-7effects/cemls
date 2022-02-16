@@ -168,3 +168,5 @@ Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpai
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');
 Route::resource('inbox', InboxController::class)->middleware('auth');
+Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
+Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
