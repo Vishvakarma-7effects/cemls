@@ -135,7 +135,7 @@
                                     <div class="ttxt cl_green text-center">{{$row->views}}</div>
                                 </td>
                                   <td> 
-                        <input data-id="{{ $row->id}}" class="" id="" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
+                          <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
                                 </td>
                                <!-- <td width="105">
                                     <div class="thead">Lat Long</div>
@@ -212,6 +212,45 @@
 
 
     </section>
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".radio").change(function () {
+            var event_id = $(this).data("id");
+
+            var selected_value = 0;
+            if ($(this).is(":checked")) {
+                selected_value = 1;
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "{{url('plot/update-feature')}}",
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'event_id': event_id,
+                    'value': selected_value
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $('#ajax_loader').show();
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                complete: function () {
+                    $('#ajax_loader').hide();
+                }
+            });
+        });
+    });
+</script>
+      
 @endsection
 <script>
 	function myFunction()

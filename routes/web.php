@@ -170,3 +170,5 @@ Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post'
 Route::resource('inbox', InboxController::class)->middleware('auth');
 Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
 Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
+Route::post('cemeteries/update-feature', [CemeteryController::class, 'updateFeature'])->middleware('auth');
+Route::post('plot/update-feature', [PlotsController::class, 'updateFeature'])->middleware('auth');

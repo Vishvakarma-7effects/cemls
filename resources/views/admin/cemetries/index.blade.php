@@ -80,7 +80,7 @@
 						<td width="500px" style="padding: 15px;">
 								<div class="thead">Actions</div>
 							<div class="d-flex">
-								<input data-id="{{ $cemVal->ID}}" class="radio userstatus btn_mid btn_cms_list" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary"> &nbsp;&nbsp;
+								    <input data-id="{{$cemVal->ID}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $cemVal->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary"> &nbsp;&nbsp;
 								<a class="btn_mid btn_cms_list mr-3" href="{{ url('users') }}">Manage Members</a>
 																																										
 								<a class="btn_mid btn_cms_list"	href="{{ url('cemetery/getInvitePeople') }}">Add Members</a>
@@ -162,7 +162,46 @@
 
 
 </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".radio").change(function () {
+            var event_id = $(this).data("id");
+
+            var selected_value = 0;
+            if ($(this).is(":checked")) {
+                selected_value = 1;
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "{{url('cemeteries/update-feature')}}",
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'event_id': event_id,
+                    'value': selected_value
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $('#ajax_loader').show();
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                complete: function () {
+                    $('#ajax_loader').hide();
+                }
+            });
+        });
+    });
+</script>
+      
 @endsection
+
+
 <script>
 	function myFunction()
 	{

@@ -134,13 +134,22 @@ class PlotsController extends Controller
 					* @param  \App\Models\Plot  $plot
 					* @return \Illuminate\Http\Response
 					*/
-					public function destroy(Plot $plot)
-					{
-							 $plot->delete();
-					
-						return redirect()->route('plot.index')
-										->with('success','Plot deleted successfully');
-				
-					}
+					public function updateFeature(Request $request, Plot $plot) {
 
+
+$plot = Plot::findOrFail($request->event_id);
+					
+					$plot->feature = $request->value;
+					$plot->save();
+
+
+
+         
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
 }
