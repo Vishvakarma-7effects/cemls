@@ -73,7 +73,7 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -87,11 +87,11 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                                                                        <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+                            <a  href="{{ url('cemetery/cemls') }}">
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img ">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -106,11 +106,12 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+                                                                                                               <a  href="{{ url('cemetery/cemls') }}">
+
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -125,11 +126,12 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+                                                                                                                               <a  href="{{ url('cemetery/cemls') }}">
+
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -144,11 +146,12 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                                                                                                                      <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+                                                                                                            <a  href="{{ url('cemetery/cemls') }}">
+
 
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -163,11 +166,12 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 plr-4">
-                                                                          <a data-target="#mdtlModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#mdtlModal">
+                                                                                                   <a  href="{{ url('cemetery/cemls') }}">
+
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                 <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>

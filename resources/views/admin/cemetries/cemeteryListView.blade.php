@@ -40,7 +40,7 @@
               <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>
@@ -57,7 +57,7 @@
               <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>
@@ -74,7 +74,7 @@
               <a href="{{ url('cemetery/cemeteryDetailPage')}}">
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>
@@ -92,7 +92,7 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>
@@ -110,7 +110,7 @@
 
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>
@@ -128,7 +128,7 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="" />
                   </div>

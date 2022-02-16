@@ -57,7 +57,7 @@
           <p><a href="#">Read More <i class="fa fa-chevron-down"></i></a></p>
           <ul class="ulshare">
             <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
-            <li><a href="#"><i class="far fa-heart"></i> Save</a></li>
+            <!--<li><a href="#"><i class="far fa-heart"></i> Save</a></li>-->
           </ul>
         </div>
       </div>
@@ -72,7 +72,7 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                  <!--<i class="far fa-heart"></i>-->
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -90,7 +90,8 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                                   <!--<i class="far fa-heart"></i>-->
+
                   <div class="boxinner_img ">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -109,7 +110,8 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                                   <!--<i class="far fa-heart"></i>-->
+
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -128,7 +130,8 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                                  <!--<i class="far fa-heart"></i>-->
+
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -147,7 +150,8 @@
 
                 <div class="boxinner"> 
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                                 <!--<i class="far fa-heart"></i>-->
+
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
@@ -166,7 +170,8 @@
 
                 <div class="boxinner">
                   <span class="tagtxt">Outdoor</span>
-                  <i class="far fa-heart"></i>
+                                   <!--<i class="far fa-heart"></i>-->
+
                   <div class="boxinner_img">
                     <img src="{{ asset('newPublic/images/cemlist-img1.jpg') }}" alt="">
                   </div>
