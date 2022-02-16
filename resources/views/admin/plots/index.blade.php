@@ -174,8 +174,8 @@
                         @endforeach
 
                     </section>
-
-                    <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+{{ $plots->links('layouts.custom') }}
+                    <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
                         <li class="page-item">
                             <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -194,7 +194,7 @@
                             </a>
                         </li>
                         </ul>
-                    </nav>
+                    </nav>-->
                     </div>
 
                     <div class="tab-pane fade" id="cremations" role="tabpanel" aria-labelledby="cremations-tab">

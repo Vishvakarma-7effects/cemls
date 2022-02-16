@@ -12,8 +12,16 @@ class PlotsController extends Controller
 {
     public function index()
 	{
-		$plots = Plot::paginate(10);
-		return view('admin.plots.index')->with('plots', $plots);
+		
+
+  $plots = Plot::orderBy('id','desc','feature')->paginate(5);
+
+            
+    
+            // load the view and pass the sharks
+            return View('admin.plots.index')
+                ->with('plots', $plots);
+
 	}
     public function create()
 	{
