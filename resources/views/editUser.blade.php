@@ -15,7 +15,7 @@
 <section class="section-content padding-y bg-white">
     <div class="container">
         <div class="row">
-            @include('layouts.sidebar')
+           
             <div class="col-lg-9 mt-4 mt-lg-0">
                 <form action="{{ route('user.update',$user->id) }}" method="post">
                     @csrf

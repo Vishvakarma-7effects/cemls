@@ -10,6 +10,12 @@
                 <li class="breadcrumb-item active" aria-current="page">&nbsp;</li>
               </ol>
             </nav>
+
+            @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
             <div class="row">
                 <div class="col-md-12 col-12"><h1 class="mheading"></h1></div>
             </div>
@@ -72,6 +78,9 @@
               <div class="table-responsive">
                 <table class="table main_table mb-0">
                       <tbody>
+<?php $i=1; ?>
+                         @foreach($cemetery360_inboxs as $cemetery360_inbox)
+                         <?php $i++; ?>
                         <tr class="curpointer" data-toggle="collapse" href="#tablecnt" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                           <td width="40" class="text-center">
                             <div class="mycheck d-inline-block">
@@ -79,123 +88,52 @@
                                 <label for="chkbx11">&nbsp;</label>
                             </div>
                           </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td ><small>12 Jan 2018</small></td>
+                          <td><b>{{ $cemetery360_inbox->sender_message }}</b></td>
+                          <td>{{ $cemetery360_inbox->sender_name }}</td>
+                          <td>{{ $cemetery360_inbox->inbox_title }}</td>
+                          <td ><small>{{ $cemetery360_inbox->created_at }}</small></td>
                         </tr>
-                        <tr class="collapse multi-collapse" id="tablecnt">
+<tr class="collapse multi-collapse" id="tablecnt">
                           <td></td>
                           <td colspan="4">
                             <div class="row">
                                 <div class="col-lg-5">
-                                  <p class="clearfix"><b>Name:</b> <span>John Doe</span></p>
-                                  <p class="clearfix"><b>Email:</b> <span>john.doe@rozetcemetery.com</span></p>
-                                  <p class="clearfix"><b>Phone:</b> <span>(916) 330-4126</span></p>
+                                  <p class="clearfix"><b>Name:</b> <span>{{ $cemetery360_inbox->sender_name }}</span></p>
+                                  <p class="clearfix"><b>Email:</b> <span>{{ $cemetery360_inbox->sender_email }}</span></p>
+                                  <p class="clearfix"><b>Phone:</b> <span>{{ $cemetery360_inbox->sender_phone }}</span></p>
                                 </div>
 
                                 <div class="col-lg-6">
-                                  <p class="clearfix"><b>Message:</b> <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span></p>
+                                  <p class="clearfix"><b>Message:</b> <span>{{ $cemetery360_inbox->sender_message }}</span></p>
                                 </div>
                                 <div class="col-lg-1"></div>
                             </div>
                             <div class="text-right actionbtn pt-2">
-                              <a href="#"><i class="fa fa-share-from-square" aria-hidden="true"></i></a> 
-                              <a href="#"><i class="fa fa-trash-can" aria-hidden="true"></i></a>
+                             
+                             <!-- <a href="#"><i class="fa fa-trash-can" aria-hidden="true"></i></a>-->
+
+  <form action="{{ route('mailbox.destroy',$cemetery360_inbox->ID) }}" method="POST">
+   
+                                            @csrf
+                                            @method('DELETE')
+
+                                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash-can" aria-hidden="true"></i></button>
+                                        </form>
+
+                            
                             </div>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx12" name="chkbx12">
-                                <label for="chkbx12">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx13" name="chkbx13">
-                                <label for="chkbx13">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx14" name="chkbx14">
-                                <label for="chkbx14">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx15" name="chkbx15">
-                                <label for="chkbx15">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx16" name="chkbx16">
-                                <label for="chkbx16">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx17" name="chkbx17">
-                                <label for="chkbx17">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx18" name="chkbx18">
-                                <label for="chkbx18">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem..</b></td>
-                          <td>Rozet Cemetery</td>
-                          <td>CemLS #30543</td>
-                          <td><small>12 Jan 2018</small></td>
-                        </tr>
+                          @endforeach
+                        
+                       
                       </tbody>
                 </table>
               </div>
               
             </div>
             
-             <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+             <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
                             <li class="page-item">
                                 <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -215,7 +153,10 @@
                             </li>
                         </ul>
                     </nav>
-            
+           -->
+
+                                   {{ $cemetery360_inboxs->links('layouts.custom') }}
+ 
         </section>
 
 @endsection

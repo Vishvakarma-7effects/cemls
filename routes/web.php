@@ -20,6 +20,8 @@ use App\Http\Controllers\CemeteryController;
 use App\Http\Controllers\InboxController;
 // use App\Http\Controllers\PlotController;
 use App\Http\Controllers\PlotsController;
+use App\Http\Controllers\MailboxController;
+
 
 /*
   |--------------------------------------------------------------------------
@@ -73,14 +75,17 @@ Route::get('cemetery/cemeteryListDetails', [CemeteryController::class, 'cemetery
 Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
 Route::get('cemetery/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
+Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
+Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 Route::post('savecemetery', [CemeteryController::class, 'savecemetery']); 
-Route::get('cemeteries', [CemeteryController::class, 'index'])->middleware('auth'); 
+//Route::get('cemeteries', [CemeteryController::class, 'index'])->middleware('auth'); 
+Route::resource('cemeteries', CemeteryController::class)->middleware('auth');
 
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
-Route::resource('cemetery', CemeteryController::class, ['except' => [
-    'index'
-]])->middleware('auth');
+//Route::resource('cemetery', CemeteryController::class, ['except' => [
+   // 'index'
+//]])->middleware('auth');
 // Route::resource('cemeterys', CemeteryController::class)->middleware('auth');
 // Route::get('roles/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 
@@ -128,7 +133,7 @@ Route::post('updatepermissions', [RoleController::class, 'update'])->middleware(
 
 
 // Route::resource('photos', PhotoController::class);
-Route::get('mailbox', [UserController::class, 'mailbox'])->middleware('auth');
+Route::resource('mailbox', MailboxController::class)->middleware('auth');
 Route::get('user/profile', [UserController::class, 'profile'])->middleware('auth');
 Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->middleware('auth');
 
@@ -168,8 +173,13 @@ Route::get('orders/recent-unpaid-orders', [OrderController::class, 'recent_unpai
 Route::get('stripe', [HomeController::class, 'stripe']);
 Route::post('stripe', [HomeController::class, 'stripePost'])->name('stripe.post');
 Route::resource('inbox', InboxController::class)->middleware('auth');
-Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
-Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::post('cemeteries/update-feature', [CemeteryController::class, 'updateFeature'])->middleware('auth');
 Route::post('plots/update-feature', [PlotsController::class, 'updateFeature'])->middleware('auth');
 Route::post('users/update-feature', [UserController::class, 'updateFeature'])->middleware('auth');
+Route::post('cemeteries/update-public', [CemeteryController::class, 'updatePublic'])->middleware('auth');
+Route::post('plots/get-locationtitle1', [PlotsController::class, 'getLocationtitle1'])->middleware('auth');
+Route::post('plots/get-locationtitle2', [PlotsController::class, 'getLocationtitle2'])->middleware('auth');
+Route::post('plots/get-locationtitle3', [PlotsController::class, 'getLocationtitle3'])->middleware('auth');
+Route::post('plots/get-locationtitle4', [PlotsController::class, 'getLocationtitle4'])->middleware('auth');
+Route::post('plots/get-locationtitle5', [PlotsController::class, 'getLocationtitle5'])->middleware('auth');
+Route::post('plots/get-locationtitle6', [PlotsController::class, 'getLocationtitle6'])->middleware('auth');

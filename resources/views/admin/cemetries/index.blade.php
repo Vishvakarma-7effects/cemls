@@ -20,7 +20,7 @@
 <div class="col-md-5 col-6">
 		<h1 class="mheading"></h1>
 </div>
-	<div class="col-md-7 col-6 text-right"><a class="btn_mid btn_green" href="{{ url('cemetery/create')}}">Add Cemetry</a>
+	<div class="col-md-7 col-6 text-right"><a class="btn_mid btn_green" href="{{ url('cemeteries/create')}}">Add Cemetry</a>
 	</div>
 </div>
 <br>
@@ -49,8 +49,12 @@
             </ul>
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
+            	                <form action="{{ route('cemeteries.index') }}" method="GET" role="search">
+
+                <input type="text" class="form-control"  name="term" id="" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
+                                </form>
+
             </div>
 
             
@@ -76,7 +80,14 @@
 									{{$cemVal->address.',' .$cemVal->city.','.$cemVal->state}}
 								</div>
 							</td>
-
+<td  style="padding: 15px;">
+								<div class="thead">Public</div>
+							<div class="d-flex">
+								    <input data-id="{{$cemVal->ID}}" class="public" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $cemVal->public == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary"> &nbsp;&nbsp;
+								
+										
+							</div>
+						</td>
 						<td width="500px" style="padding: 15px;">
 								<div class="thead">Actions</div>
 							<div class="d-flex">
@@ -93,10 +104,10 @@
 								<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 									<ul class="moptionul">
 										<i class="fa fa-caret-up"></i>
-										<li><a href="{{ url('cemetery/'.$cemVal->ID.'/edit')}}">Edit</a></li>
+										<li><a href="{{ url('cemeteries/'.$cemVal->ID.'/edit')}}">Edit</a></li>
 													<!-- <li><a href="#">Delete</a></li> -->
 													<li>
-                                        <form action="{{ route('cemetery.destroy',$cemVal->ID) }}" method="POST">
+                                        <form action="{{ route('cemeteries.destroy',$cemVal->ID) }}" method="POST">
    
                                             @csrf
                                             @method('DELETE')
@@ -173,7 +184,40 @@
         });
     });
 </script>
-      
+   <script>
+    $(document).ready(function () {
+        $(".public").change(function () {
+            var event_id = $(this).data("id");
+
+            var selected_value = 0;
+            if ($(this).is(":checked")) {
+                selected_value = 1;
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "{{url('cemeteries/update-public')}}",
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'event_id': event_id,
+                    'value': selected_value
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $('#ajax_loader').show();
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                complete: function () {
+                    $('#ajax_loader').hide();
+                }
+            });
+        });
+    });
+</script>   
 @endsection
 
 

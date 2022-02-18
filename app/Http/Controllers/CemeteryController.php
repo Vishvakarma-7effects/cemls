@@ -43,8 +43,8 @@ class CemeteryController extends Controller
         public function index()
         {
             // get all the sharks
-            $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
-
+            $cemeterys = Cemetery::orderBy('id','desc','feature','public')->paginate(10);
+  //$cemeterys =
             
     
             // load the view and pass the sharks
@@ -76,10 +76,17 @@ class CemeteryController extends Controller
                     $cemetery->cemetery_name = $request->cemetery_name;
                     $cemetery->cemetery_desc = $request->cemetery_desc;
                     $cemetery->address = $request->address;
+                      $cemetery->location = $request->location;
                     $cemetery->city = $request->city;
                     $cemetery->state = $request->state;
                     $cemetery->country = $request->country;
                     $cemetery->zip = $request->zip;
+                     $cemetery->locationtitle1 = $request->locationtitle1;
+                      $cemetery->locationtitle2 = $request->locationtitle2;
+                       $cemetery->locationtitle3 = $request->locationtitle3;
+                        $cemetery->locationtitle4 = $request->locationtitle4;
+                         $cemetery->locationtitle5 = $request->locationtitle5;
+                          $cemetery->locationtitle6 = $request->locationtitle6;
                      $cemetery->created_by = auth()->user()->id;
 
                     $cemetery->save();
@@ -145,26 +152,54 @@ class CemeteryController extends Controller
         // }
          public function update(Request $request, $id)
         {
+           
+
         
 
                 $cemetery = Cemetery::where('ID',$id)->update([
                         'cemetery_name'=>$request->cemetery_name,
                         'cemetery_desc'=>$request->cemetery_desc,
                         'address'=>$request->address,
+                        'location'=>$request->location,
                         'city'=>$request->city,
                         'state'=>$request->state,
                         'country'=>$request->country,
-                        'zip'=>$request->zip
+                        'zip'=>$request->zip,
+                         'locationtitle1'=>$request->locationtitle1,
+                        'locationtitle2'=>$request->locationtitle2,
+                        'locationtitle3'=>$request->locationtitle3,
+                         'locationtitle4'=>$request->locationtitle4,
+                        'locationtitle5'=>$request->locationtitle5,
+                        'locationtitle6'=>$request->locationtitle6,
+
+
+
+
                 ]);
 
                 return redirect()->to('cemeteries')->with('success', 'Cemetery Updated Succesfully');
 
         }
 
+        
+
  public function updateFeature(Request $request) {
 
           $cemetery = Cemetery::where('ID',$request->event_id)->update([
                         'feature'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
+    public function updatePublic(Request $request) {
+
+          $cemetery = Cemetery::where('ID',$request->event_id)->update([
+                        'public'=>$request->value,
                        
                 ]);
         

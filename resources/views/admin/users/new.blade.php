@@ -32,6 +32,9 @@ font-family: sans-serif;
   </ol>
  </nav>
  <h1 class="mheading">Add User</h1>
+ <form method="post" action="{{route('users.store')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+        @csrf
+
  <section class="bxshadow">
 
   <div class="cntbox">
@@ -41,15 +44,15 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">User Name</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="text" class="form-control" id="" placeholder="">
+       <input type="text" class="form-control" name="name" id="" placeholder="" required>
       </div>
      </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
      <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">Password</label>
+      <label for="" class="col-sm-4 col-form-label pr-0">New Password</label>
       <div class="col-sm-8 pl-3  pl-md-4">
-       <input type="password" class="form-control" id="" placeholder="">
+       <input type="password" class="form-control" name="password" id="" placeholder="" required>
       </div>
      </div>
     </div>
@@ -59,7 +62,7 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Email address</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="email" class="form-control" id="" placeholder="">
+       <input type="email" class="form-control" name="email" id="" placeholder="" required>
       </div>
      </div>
     </div>
@@ -67,7 +70,7 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Confirm Password</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="password" class="form-control" id="" placeholder="">
+       <input type="password" class="form-control" name="password_confirmation" id="" placeholder="" required>
       </div>
      </div>
     </div>
@@ -84,7 +87,7 @@ font-family: sans-serif;
        <div class="row">
         <div class="col-lg-6 col-6 mb-md-2">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="feature" id="exampleRadios1" value="1" checked>
           <label class="form-check-label" for="exampleRadios1">
            Active
           </label>
@@ -92,7 +95,7 @@ font-family: sans-serif;
         </div>
         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+          <input class="form-check-input" type="radio" name="feature" id="exampleRadios1" value="0">
           <label class="form-check-label" for="exampleRadios1">
            Blocked
           </label>
@@ -105,6 +108,15 @@ font-family: sans-serif;
     </div>
     
 
+
+
+
+
+
+
+
+    
+
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
@@ -113,7 +125,7 @@ font-family: sans-serif;
         @foreach ($roles as $item)
          <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
+          <input class="form-check-input" type="radio" id="inlineCheckbox2" name="roles" value="{{$item->name}}">
           <label class="form-check-label" for="inlineCheckbox2">{{ ucfirst(str_replace('_',' ',$item->name))}}</label>
          </div>
         </div>
@@ -134,7 +146,7 @@ font-family: sans-serif;
     <div class="col-md-6">
      <div class="form-group">
 
-      <input type="file" id="actual-btn" hidden />
+      <input type="file" id="actual-btn" name="profile_image" hidden />
       
       <!-- our custom upload button -->
       <label class="file_label" for="actual-btn">Choose File</label>
@@ -151,138 +163,11 @@ font-family: sans-serif;
 
    {{-- <button class="btn_mid btn_none">Delete This Account</button> --}}
   </div>
-  <!-- <div class="cntbox">
-   <h2 class="sheading">Membership</h2>
-   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">User Name</label>
-      <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="text" class="form-control" id="" placeholder="">
-      </div>
-     </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label pr-0">Subscription</label>
-      <div class="col-sm-8 pl-3 pl-md-4">
-      <select class="form-control form-select-lg mb-3">
-         <option selected>Business</option>
-         <option value="1">One</option>
-         <option value="2">Two</option>
-         <option value="3">Three</option>
-         </select>
-      </div>
-      
-     </div>
-    </div>
-   </div>
 
-  </div> -->
-  <!-- <div class="cntbox">
-   <h2 class="sheading">Permission</h2>
-   <div class="row">
-    <div class="col-md-6 mb-4">
-
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-    </div>
-    <div class="col-md-6 mb-4">
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-     </div>
-    </div>
-    <div class="col-md-6 mt-5">
-     <div class="nk-block-actions d-flex justify-content-between border-bottom">
-      <label for="title1" class="role-sheading ">Title 1</label>
-      <div class="custom-control custom-switch mr-n2 ">
-       <input type="checkbox" ng-model="prot.status" ng-checked="false == true"
-        class="custom-control-input ng-valid ng-empty ng-dirty ng-valid-parse ng-touched" id="activity-logCADD"
-        data-ng-click="protocolUpdate(prot)">
-       <label class="custom-control-label" for="activity-logCADD"></label>
-      </div>
-     </div>
-     @for($i =0; $i<=5;$i++) <div class="row">
-      <div class="col-10 col-md-11 mt-3">
-       <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-      </div>
-      <div class="col-2 col-md-1 mt-3 text-center">
-       <input type="checkbox" id="defaultCheck" name="example2">
-      </div>
-    </div>
-    @endfor
-    {{-- <div class="row">
-       <div class="col-10 col-md-11 mt-3">
-        <label for="defaultCheck" class="col-form-label">Default checkbox</label>
-       </div>
-       <div class="col-2 col-md-1 mt-3 text-center">
-        <input type="checkbox" id="defaultCheck" name="example2">
-       </div>
-      </div> --}}
-   </div>
-  </div> -->
-
-
-  <!-- <div class="row">
-   <div class="col-lg-6 pr-lg-4">
-    <div class="nk-block-actions d-flex  border-top py-4 mt-4 ">
-     {{-- <div class="col-sm-8"> --}}
-     <button class="btn_mid btn_green">Submit</button>
-     <button class="btn_mid btn_none float-right mw_initial ml-2">Cancel</button>
-     {{-- </div> --}}
-    </div>
-   </div>
-  </div> -->
+ 
 
     <div class="cntbox">
-         <button class="btn_mid btn_green" type="button">Submit</button>
+         <button class="btn_mid btn_green" type="submit">Add</button>
          <button class="btn_mid btn_none ml-3">Cancel</button>
       </div>
 
@@ -290,6 +175,7 @@ font-family: sans-serif;
 
   </div>
  </section>
+</form>
 
 </section>
 <script>

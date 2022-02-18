@@ -9,18 +9,19 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mail;
-use Illuminate\Support\Facades\Redirect;
+use App\Models\Mailinbox;
 
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller {
 
-    function __construct() {
-        $permssion_slug = 'role_user';
-        $this->middleware('permission:' . $permssion_slug . '_main|' . $permssion_slug . '_add|' . $permssion_slug . '_edit|' . $permssion_slug . '_delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:' . $permssion_slug . '_add', ['only' => ['create', 'store']]);
-        $this->middleware('permission:' . $permssion_slug . '_edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:' . $permssion_slug . '_delete', ['only' => ['destroy']]);
-    }
+    // function __construct() {
+    //     $permssion_slug = 'role_user';
+    //     $this->middleware('permission:' . $permssion_slug . '_main|' . $permssion_slug . '_add|' . $permssion_slug . '_edit|' . $permssion_slug . '_delete', ['only' => ['index', 'show']]);
+    //     $this->middleware('permission:' . $permssion_slug . '_add', ['only' => ['create', 'store']]);
+    //     $this->middleware('permission:' . $permssion_slug . '_edit', ['only' => ['edit', 'update']]);
+    //     $this->middleware('permission:' . $permssion_slug . '_delete', ['only' => ['destroy']]);
+    // }
 
     /**
      * Display a listing of the resource.
@@ -29,15 +30,13 @@ class UserController extends Controller {
      */
     public function index() {
         //
-       // $users = User::all();
-       // $data['users'] = $users;
-     
-       // return view('admin.users.index', compact('users'));
-         $users = User::orderBy('id', 'DESC')->paginate(10);
-    
-        return View('admin.users.index')->with('users', $users);
- 
+        $users = User::orderBy('id','DESC')->get();
+        $data['users'] = $users;
+        //echo $events;
+        return view('admin.users.index', compact('users'));
+        // return view('showUser', $data);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -55,20 +54,33 @@ class UserController extends Controller {
     }
 
     
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
+        // dd($request->all());
         //
         $rules = [
             'name' => 'required',
             'email' => 'required|unique:users',
-            // 'password' => 'required|confirmed',
+            'password' => 'required|confirmed',
         ];
         $request->validate($rules);
 
         $user = new User;
-        $user->address_line1 = $request->address_line1;
-        $user->address_line2 = $request->address_line2;
-        $user->state = $request->state;
-        $user->zip = $request->zip;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = hash::make($request->password);
+          $user->feature = $request->feature; 
+
+        if($request->file('profile_image'))
+        {
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $user->profile_image = $image;
+        
+        }
 
         $user->password = Hash::make($request->password);
         $user->save();
@@ -77,7 +89,7 @@ class UserController extends Controller {
 
         //return redirect('events');
 
-        return redirect()->route('user.index')->with('success', 'User Add Succesfully');
+        return redirect()->route('users.index')->with('success', 'User Add Succesfully');
     }
 
     public function show(User $user) {
@@ -118,27 +130,35 @@ class UserController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user) {
-        //
+    // public function destroy(User $user) {
+    //     $user->delete();
+
+    //     return redirect()->route('user.index')
+    //                     ->with('success', 'User deleted successfully');
+    // }
+    public function delete(User $user)
+    // { 
+    //     dd($user);
+    //     $data=User::where('id',$id)->delete();
+    //     return Redirect::to('user.index')->with('message', 'User Deleted Sucessfully');
+    // }
+    {
+        dd($user);
         $user->delete();
 
-        return redirect()->route('user.index')
-                        ->with('success', 'User deleted successfully');
-    }
-public function updateFeature(Request $request) {
+   return redirect()->route('user.index')
+                   ->with('success','User deleted successfully');
 
-          $cemetery = User::where('id',$request->event_id)->update([
-                        'feature'=>$request->value,
-                       
-                ]);
-        
-
-        $response['status'] = true;
-        $response['msg'] = 'Upadted';
-
-        return response()->json($response, 200);
     }
 
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('users.index')
+                        ->with('success','User deleted successfully');
+    }
 
 // My Account
 
@@ -158,62 +178,126 @@ public function updateFeature(Request $request) {
     public function updateProfile(Request $request) 
     {
         // dd($request->all());
-        if (!empty($request->current_password))
+        if (!empty($request->password))
         {
-            $rules = [
-                'name' => 'required',
-                'last_name' => 'required',
-                'current_password' => [new MatchOldPassword],
-                'new_confirm_password' => 'same:new_password'
-            ];
+            $request->validate([
+                'password' => 'required|confirmed|min:8',
+            ]);
         } 
-        else 
-        {
-            $rules = [
-                // 'name' => 'required',
-                // 'last_name' => 'required',
-                // 'name' => 'required',
-                // 'address_line1' => 'required',
-                // 'address_line2' => 'required',
-                // 'city' => 'required',
-                // 'state' => 'required',
-                // 'zip' => 'required',
-            ];
-        }
-         
-        $request->validate($rules);
-
-        // dd(33333);
+        
 
         $user = Auth::user();
 
-        // $user->name = $request->name;
-        // $user->phone = $request->phone;
-        $user->address_line1 = $request->address_line1;
-        $user->address_line2 = $request->address_line2;
-        $user->city = $request->city;
-        $user->state = $request->state;
-        $user->zip = $request->zip;
 
-        if (!empty($request->current_password)) {
-            $user->password = Hash::make($request->new_password);
+        if($request->file('profile_image'))
+        {
+            // dd(333);
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $user->profile_image = $image;
+        
+        }
+        if($request->address_line1)
+        {
+            $user->address_line1 = $request->address_line1;
+
+        }
+        if($request->address_line2)
+        {
+            $user->address_line2 = $request->address_line2;
+
+        }
+        if($request->city)
+        {
+            $user->city = $request->city;
+
+        }
+
+        if($request->state)
+        {
+            $user->state = $request->state;
+
+        }
+        if($request->file('zip'))
+        {
+            $user->zip = $request->zip;
+
+        }
+    
+
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
         }
 
         $user->update();
 
         return redirect('user/profile')->with('success', 'Profile Updated');
     }
+    
+    public function getEdit($id)
+    {
+        $users = User::where('id',$id)->first();
+        return view('admin.users.getEdit',compact('users'));
+    }
+    public function updateUser(Request $request) 
 
-    public function getEdit(){
-        return view('admin.users.getEdit');
+    {
+        // dd($request->all());
+        if(!isset($request->new_password))
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+            ]);            
+        }
+        else
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|confirmed|min:8',
+            ]);
+        }
+
+        
+
+        $users = User::findOrFail($request->id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        if(isset($request->password))
+        {
+            $pass = Hash::make($request->password);
+            $users->password = $pass;           
+        }
+
+        if($request->file('profile_image'))
+        {
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $users->profile_image = $image;
+        
+        }
+
+        $users->save();
+                
+        return redirect()->route('users.index')->with('success', 'User Updated Succesfully');
 
     }
     public function mailbox(){
 
-        $mails = Mail::with(['creator'])->get();
-        // dd($mails);
 
-        return view('admin.mailbox',compact('mails'));
+       
+           $cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
+    
+        return View('admin.mailbox')->with('cemetery360_inboxs', $cemetery360_inboxs);
+
+        //return view('admin.mailbox',compact('mails'));
     }
 
      public function storeMail(StoreMailRequest $request)
@@ -239,8 +323,20 @@ public function updateFeature(Request $request) {
                         session()->flash('message', 'Mail Successfully Sent');
                 }
                 return redirect()->url('mailBox');
-
         }
-       
+      public function updateFeature(Request $request) {
+
+          $cemetery = User::where('id',$request->event_id)->update([
+                        'feature'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
+  
 
 }
