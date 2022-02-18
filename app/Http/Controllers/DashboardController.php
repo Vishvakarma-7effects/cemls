@@ -88,6 +88,9 @@ class DashboardController extends Controller {
 
     public function widgets()
     {
+        $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
+        return View('admin.widgets')
+        ->with('cemeterys', $cemeterys);
     return view('admin.widgets');
     }
 
