@@ -36,27 +36,39 @@
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
-                                        <th style="padding-left: 10%;">Name</th>
+                                        <th style="padding-left: 2%;">Role</th>
                                         {{-- <th style="padding-left: 5%;">Guard Name</th> --}}
 
-                                        <th  style=""width="40">Action</th>
+                                        <th  style=""width="40"></th>
                                     </tr>
                                 </thead>
                                 <tbody >
 
                                     @foreach($roles as $roleKey=>$roleVal)
                                         <tr class="">
-                                            <td style="padding-left: 10%;">{{ $roleVal->name}}</td>
+                                            <td style="padding-left: 2%;">{{ $roleVal->name}}</td>
                                             {{-- <td style="padding-left: 5%;">{{ $roleVal->guard_name}}</td> --}}
                                         </td>
-                                            <td  class="d-flex" style="">
-                                                <a  href="{{route('roles.edit', $roleVal->id)}}" class="btn btn-outline-dark role-edit">Edit</a>
-                                                <form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
+                                        
+                                           <td>
+                                            <div class="moption">
+                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                <ul class="moptionul">
+                                                    <i class="fa fa-caret-up"></i>
+                                                    <li><a href="{{route('roles.edit', $roleVal->id)}}"  >Edit</a></li>
+                                                    <li><form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
-                                            </form>
-                                            </td> 
+                                            </form></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        
+                                        
+                                        
+                                        
+                                         
                                         </tr>
 
                                     @endforeach
@@ -91,9 +103,9 @@
     </section>
 @endsection
 <script>
-	function myFunction()
-	{
-		if(!confirm("Are you sure to delete this?"))
-		event.preventDefault();
-	}
+    function myFunction()
+    {
+        if(!confirm("Are you sure to delete this?"))
+        event.preventDefault();
+    }
 </script>

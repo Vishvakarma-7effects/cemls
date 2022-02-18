@@ -20,7 +20,7 @@
 				<span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
 				<bdi>Property</bdi>
       </a>
-			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemeteries/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
+			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemeteries/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/edit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
 				aria-labelledby="navbarDropdown">
 
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
