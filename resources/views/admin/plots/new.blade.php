@@ -435,7 +435,7 @@ $(function() {
 
 
                 
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location2 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle2" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location2 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle2" id="" placeholder=""></div>';
                     $('#location2').html(iframe);
                
                  
@@ -523,7 +523,7 @@ $(function() {
 
 
                
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location4 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle4" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location4 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle4" id="" placeholder=""></div>';
                     $('#location4').html(iframe);
                
                  
@@ -610,7 +610,7 @@ $(function() {
 
 
                
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location6 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle6" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location6 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle6" id="" placeholder=""></div>';
                     $('#location6').html(iframe);
                   
                  
