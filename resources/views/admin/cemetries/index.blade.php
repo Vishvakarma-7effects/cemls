@@ -29,24 +29,24 @@
             <h1 class="mheading">Cemeteries</h1>
         </div>
         <div class="col-lg-10 pl-lg-0 col-12 tabcnt">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#burials" role="tab"
-                        aria-controls="Burials" aria-selected="true">Burials</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cremations" role="tab"
-                        aria-controls="Cremations" aria-selected="false">Cremations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#indoor" role="tab"
-                        aria-controls="Indoor" aria-selected="false">Indoor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#outdoor" role="tab"
-                        aria-controls="Outdoor" aria-selected="false">Outdoor</a>
-                </li>
-            </ul>
+            <!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
+            <!--    <li class="nav-item">-->
+            <!--        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#burials" role="tab"-->
+            <!--            aria-controls="Burials" aria-selected="true">Burials</a>-->
+            <!--    </li>-->
+            <!--    <li class="nav-item">-->
+            <!--        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cremations" role="tab"-->
+            <!--            aria-controls="Cremations" aria-selected="false">Cremations</a>-->
+            <!--    </li>-->
+            <!--    <li class="nav-item">-->
+            <!--        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#indoor" role="tab"-->
+            <!--            aria-controls="Indoor" aria-selected="false">Indoor</a>-->
+            <!--    </li>-->
+            <!--    <li class="nav-item">-->
+            <!--        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#outdoor" role="tab"-->
+            <!--            aria-controls="Outdoor" aria-selected="false">Outdoor</a>-->
+            <!--    </li>-->
+            <!--</ul>-->
 
             <div class="searchbx position-relative">
                 <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
