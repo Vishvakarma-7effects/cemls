@@ -34,10 +34,10 @@
                             aria-controls="Cemetery" aria-selected="true">Cemetery User</a>
                     </li>
                   
-                     {{-- <li class="nav-item">
-                        <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
-                            aria-controls="Vendor" aria-selected="false">Vendor</a>
-                    </li> --}}
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"-->
+                    <!--        aria-controls="Vendor" aria-selected="false">Vendor</a>-->
+                    <!--</li>-->
                 </ul>
             </div>
             <div class="col-lg-4">
@@ -72,18 +72,18 @@
                                         <th>Email ID</th>
                                        
                                         <th>Role</th>
-                                        <th>Last access</th>
-                                        <th>Subscription</th>
-                                        <th>Action</th>
+                                        <th>Date Created</th>
+                                        <!--<th>Subscription</th>-->
+                                        <th>Active</th>
                                         <th width="40">
-                                            <div class="moption">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <ul class="moptionul">
-                                                    <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
-                                                </ul>
-                                            </div>
+                                            <!--<div class="moption">-->
+                                            <!--    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
+                                            <!--    <ul class="moptionul">-->
+                                            <!--        <i class="fa fa-caret-up"></i>-->
+                                            <!--        <li><a href="{{ url('users/getEdit')}}">Edit</a></li>-->
+                                            <!--        <li><a href="#">Delete</a></li>-->
+                                            <!--    </ul>-->
+                                            <!--</div>-->
                                         </th>
                                     </tr>
                                 </thead>
@@ -103,7 +103,7 @@
                                        
                                         <td>Admin</td>
                                         <td>12 min 42 sec ago</td>
-                                        <td>Business</td>
+                                        <!--<td>Business</td>-->
                                            <td width="150px"> 
                         <input data-id="{{$user->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
                                 </td>
