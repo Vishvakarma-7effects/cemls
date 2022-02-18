@@ -193,7 +193,7 @@
             </div>
 
             <div class="cntbox">
-                <button class="btn_mid btn_green">Add</button>
+                <button class="btn_mid btn_green">Update</button>
                   </form>
 
                 <button class="btn_mid btn_none ml-3">Cancel</button>
