@@ -18,3 +18,9 @@ function getcemeteryname($cemeteryid) {
 
     return $cemeteryname;
 }
+function getplotlocationtitle($plotid) {
+           $locationtitlename=DB::table('plot')->where('id', $plotid)->get();
+     
+
+    return $locationtitlename;
+}

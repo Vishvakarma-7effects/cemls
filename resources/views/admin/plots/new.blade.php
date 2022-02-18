@@ -36,7 +36,7 @@ datalist {
                         <div class="form-group row">
                             <p class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery</p>
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                              <select id="category_id" name="cemetery_id" required class="form-control allmyselectdropdown">
+                              <select id="cemetery_id" name="cemetery_id" required class="form-control allmyselectdropdown">
                                             <option value="">Select Cemetery</option>
                                             @foreach($cemeteries as $cemetery)
                                             <option value="{{$cemetery->ID}}">{{$cemetery->cemetery_name}}</option>
@@ -51,27 +51,53 @@ datalist {
                             </div>
                           </div>
 
-                          <div class="row">
+                          <div class="row" id="cemeterylocation">
                               <div class="col-md-7">
-                                  <div class="form-group row">
-                                    <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Garden</label>
-                                    <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                      <input type="text" class="form-control" name="garden" id="" placeholder="">
-                                    </div>
+                                  <div class="form-group row" id="location1">
+                                    
+                                    
+                                   
                                   </div>
                               </div>
 
                               <div class="col-md-5">
-                                  <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">Section</label>
-                                    <div class="col-sm-9 pl-3 pl-md-4 ">
-                                      <input type="text" class="form-control" name="section" id="" placeholder="">
-                                    </div>
+                                  <div class="form-group row" id="location2">
+                                   
+                                  </div>
+                              </div>
+
+
+                               <div class="col-md-7">
+                                  <div class="form-group row" id="location3">
+                                    
+                                    
+                                   
+                                  </div>
+                              </div>
+
+                             <div class="col-md-5">
+                                  <div class="form-group row" id="location4">
+                                   
+                                  </div>
+                              </div>
+
+                               <div class="col-md-7">
+                                  <div class="form-group row" id="location5">
+                                    
+                                    
+                                   
+                                  </div>
+                              </div>
+
+
+                               <div class="col-md-5">
+                                  <div class="form-group row" id="location6">
+                                   
                                   </div>
                               </div>
                           </div>
 
-                          <div class="row">
+                         <!-- <div class="row">
                               <div class="col-md-7">
                                   <div class="form-group row">
                                     <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">Lot</label>
@@ -101,7 +127,7 @@ datalist {
                                 </div>
                               </div>
                               
-                        </div>
+                        </div>-->
                         <!-- <div class="row">
                           <div class="col-md-12">
                               <div class="form-group row">
@@ -151,7 +177,7 @@ datalist {
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Burial">
+                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Burial" checked>
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
                                   </div>
                                   <div class="form-check form-check-inline">
@@ -179,11 +205,11 @@ datalist {
                                   
                                    <div class="form-check form-check-inline">
                                   
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Indoor">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Indoor">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Outdoor">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Outdoor">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                                   </div>
                                 
@@ -217,20 +243,20 @@ datalist {
 <div class="price-input">
         <div class="field">
           <span>Min</span>
-          <input type="number" class="input-min" value="2500" name="minprice">$
+          <input type="number" class="input-min" value="0" name="minprice">$
         </div>
         <div class="separator">-</div>
         <div class="field">
           <span>Max</span>
-          <input type="number" class="input-max" value="7500" name="maxprice">$
+          <input type="number" class="input-max" value="100000" name="maxprice">$
         </div>
       </div>
       <div class="slider">
         
       </div>
       <div class="range-input">
-        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+        <input type="range" class="range-min" min="0" max="100000" value="0" step="100">
+        <input type="range" class="range-max" min="0" max="100000" value="100000" step="100">
       </div>                               
                  <br>            
 
@@ -330,4 +356,275 @@ datalist {
   $('select').select2().select2();
 });
   </script>
+
+  
+
+    <script>
+   
+    $(document).ready(function () {
+  $("#cemetery_id").change(function () {
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle1')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location = data.location;
+             
+
+
+
+                if (data.status) {
+                    $('#locationlabel').show();
+                    var location = data.location;
+
+                 if(location!= null)
+                 {
+
+ $('#location1').show();
+                
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location + '</label> <div class="col-md-6 col-sm-9 pl-3 pl-md-4 "><input type="text" class="form-control" name="locationtitle1" id="" placeholder=""></div>';
+                    $('#location1').html(iframe);
+                 
+
+                 
+                }
+                else
+                {
+  $('#location1').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+
+$(function() {
+  $("#cemetery_id").change(function () {
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle2')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location2 = data.location;
+             
+
+
+
+                if (data.status) {
+                   $('#location2').show();
+                    var location2 = data.location;
+                 if(location2!= null){
+
+
+                
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location2 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle2" id="" placeholder=""></div>';
+                    $('#location2').html(iframe);
+               
+                 
+                }
+                else
+                {
+  $('#location2').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+$(function() {
+  $("#cemetery_id").change(function () {
+//alert('hi');
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle3')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location = data.location;
+             
+
+
+
+                if (data.status) {
+                   $('#location3').show();
+                    var location3 = data.location;
+                 if(location3!= null){
+
+
+                 
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location3 + '</label> <div class="col-md-6 col-sm-9 pl-3 pl-md-4 "><input type="text" class="form-control" name="locationtitle3" id="" placeholder=""></div>';
+                    $('#location3').html(iframe);
+                
+                 
+                }
+                else
+                {
+  $('#location3').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+
+$(function() {
+  $("#cemetery_id").change(function () {
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle4')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location4 = data.location;
+             
+
+
+
+                if (data.status) {
+                    $('#location4').show();
+                    var location4 = data.location;
+
+                 if(location4!= null){
+
+
+               
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location4 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle4" id="" placeholder=""></div>';
+                    $('#location4').html(iframe);
+               
+                 
+                }
+                else
+                {
+  $('#location4').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+$(function() {
+  $("#cemetery_id").change(function () {
+//alert('hi');
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle5')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location5 = data.location;
+             
+
+
+
+                if (data.status) {
+                  $('#location5').show();
+                    var location5 = data.location;
+                 if(location5!= null){
+
+
+                
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location5 + '</label> <div class="col-md-6 col-sm-9 pl-3 pl-md-4 "><input type="text" class="form-control" name="locationtitle5" id="" placeholder=""></div>';
+                    $('#location5').html(iframe);
+              
+                 
+                }
+                else
+                {
+  $('#location5').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+
+$(function() {
+  $("#cemetery_id").change(function () {
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-locationtitle6')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': $(this).val()
+            },
+            dataType: "json",
+            //alert(data);
+            success: function (data) {
+                var location6 = data.location;
+             
+
+
+
+                if (data.status) {
+                   $('#location6').show();
+                    var location6 = data.location;
+                 if(location6!= null){
+
+
+               
+                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location6 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle6" id="" placeholder=""></div>';
+                    $('#location6').html(iframe);
+                  
+                 
+                }
+                else
+                {
+  $('#location6').hide();
+
+                }
+             }
+            }
+        });
+
+    });
+   }); 
+</script>
 @endsection

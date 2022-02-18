@@ -43,8 +43,8 @@ class CemeteryController extends Controller
         public function index()
         {
             // get all the sharks
-            $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
-  $cemeterys =
+            $cemeterys = Cemetery::orderBy('id','desc','feature','public')->paginate(10);
+  //$cemeterys =
             
     
             // load the view and pass the sharks
@@ -187,6 +187,19 @@ class CemeteryController extends Controller
 
           $cemetery = Cemetery::where('ID',$request->event_id)->update([
                         'feature'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
+    public function updatePublic(Request $request) {
+
+          $cemetery = Cemetery::where('ID',$request->event_id)->update([
+                        'public'=>$request->value,
                        
                 ]);
         

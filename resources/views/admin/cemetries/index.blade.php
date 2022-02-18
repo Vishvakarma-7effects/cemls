@@ -80,7 +80,14 @@
 									{{$cemVal->address.',' .$cemVal->city.','.$cemVal->state}}
 								</div>
 							</td>
-
+<td  style="padding: 15px;">
+								<div class="thead">Public</div>
+							<div class="d-flex">
+								    <input data-id="{{$cemVal->ID}}" class="public" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $cemVal->public == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary"> &nbsp;&nbsp;
+								
+										
+							</div>
+						</td>
 						<td width="500px" style="padding: 15px;">
 								<div class="thead">Actions</div>
 							<div class="d-flex">
@@ -177,7 +184,40 @@
         });
     });
 </script>
-      
+   <script>
+    $(document).ready(function () {
+        $(".public").change(function () {
+            var event_id = $(this).data("id");
+
+            var selected_value = 0;
+            if ($(this).is(":checked")) {
+                selected_value = 1;
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "{{url('cemeteries/update-public')}}",
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'event_id': event_id,
+                    'value': selected_value
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $('#ajax_loader').show();
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                complete: function () {
+                    $('#ajax_loader').hide();
+                }
+            });
+        });
+    });
+</script>   
 @endsection
 
 

@@ -50,6 +50,7 @@ class PlotsController extends Controller
 							$plot->cemetery_id = $request->cemetery_id;
 								$plot->plotstatus = $request->plotstatus;
 									$plot->plottype = $request->plottype;
+									$plot->plottype2 = $request->plottype2;
 										$plot->minprice = $request->minprice;
 											$plot->maxprice = $request->maxprice;
 							$plot->plot_public = $request->plot_public;
@@ -66,6 +67,17 @@ class PlotsController extends Controller
 							$plot->public =$request->public;
 							$plot->views = $request->views;
 							$plot->internal_notes = $request->internal_notes;
+							$plot->locationtitle1 = $request->locationtitle1;
+							$plot->locationtitle2 = $request->locationtitle2;
+							$plot->locationtitle3 = $request->locationtitle3;
+							$plot->locationtitle4 = $request->locationtitle4;
+							$plot->locationtitle5 = $request->locationtitle5;
+							$plot->locationtitle6 = $request->locationtitle6;
+
+
+
+
+
 							$plot->save();
 
 							return redirect::to('plots')->with('success', 'Plots Add Succesfully');
@@ -131,6 +143,7 @@ class PlotsController extends Controller
 					$plot->cemetery_id = $request->cemetery_id;
 								$plot->plotstatus = $request->plotstatus;
 									$plot->plottype = $request->plottype;
+										$plot->plottype2 = $request->plottype2;
 										$plot->minprice = $request->minprice;
 											$plot->maxprice = $request->maxprice;
 							$plot->plot_public = $request->plot_public;
@@ -147,6 +160,12 @@ class PlotsController extends Controller
 					$plot->public = $request->public;
 					$plot->views = $request->views;
 					$plot->internal_notes = $request->internal_notes;
+					$plot->locationtitle1 = $request->locationtitle1;
+							$plot->locationtitle2 = $request->locationtitle2;
+							$plot->locationtitle3 = $request->locationtitle3;
+							$plot->locationtitle4 = $request->locationtitle4;
+							$plot->locationtitle5 = $request->locationtitle5;
+							$plot->locationtitle6 = $request->locationtitle6;
 					$plot->save();
 
 					return redirect::to('plots')->with('success', 'Plots Update Succesfully');
@@ -189,4 +208,102 @@ $plot = Plot::findOrFail($request->event_id);
         return redirect()->to('plots')->with('success', 'Plot Deleted Succesfully');;
 
         }
+
+
+          public function getLocationtitle1(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle1')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle1,
+        ];
+
+        return response()->json($response, 200);
+    }
+     public function getLocationtitle2(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle2')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle2,
+        ];
+
+        return response()->json($response, 200);
+    }
+     public function getLocationtitle3(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle3')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle3,
+        ];
+
+        return response()->json($response, 200);
+    }
+     public function getLocationtitle4(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle4')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle4,
+        ];
+
+        return response()->json($response, 200);
+    }
+     public function getLocationtitle5(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle5')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle5,
+        ];
+
+        return response()->json($response, 200);
+    }
+     public function getLocationtitle6(Request $request) {
+
+
+        $cemetery = DB::table('cemetery')
+                        ->select('cemetery.ID', 'cemetery.locationtitle6')
+                      
+                        ->where('cemetery.ID', $request->venue_id)->first();
+
+
+        $response = [
+            'status' => true,
+            'location' => $cemetery->locationtitle6,
+        ];
+
+        return response()->json($response, 200);
+    }
 }

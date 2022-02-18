@@ -20,7 +20,7 @@
 				<span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
 				<bdi>Property</bdi>
       </a>
-			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemetery/create') ? 'active show' : '' }} {{ request()->is('plot') ? 'active show' : '' }} {{ request()->is('plot/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
+			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemeteries/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
 				aria-labelledby="navbarDropdown">
 
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
@@ -31,7 +31,7 @@
 					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
 					<bdi>Add Cemetery</bdi>
 				</a>
-				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}  {{ request()->is('plot/getEdit') ? 'show active' : '' }}" href="{{ url('plots') }}"><span><img
+				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}  {{ request()->is('plots/getEdit') ? 'show active' : '' }}" href="{{ url('plots') }}"><span><img
 							src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
 					<bdi>Plots</bdi></a>
 				<a class="dropdown-item {{ request()->is('plots/create') ? 'active' : '' }}"
