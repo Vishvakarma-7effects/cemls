@@ -431,7 +431,7 @@ if(!empty($gettitle[0]->locationtitle6))
                 </div>
 
                 <div class="cntbox">  
-                    <button class="btn_mid btn_green" type="submit">Add</button>
+                    <button class="btn_mid btn_green" type="submit">Update</button>
                     <button class="btn_mid btn_none ml-3">Cancel</button>
                   </div>
   </form>
