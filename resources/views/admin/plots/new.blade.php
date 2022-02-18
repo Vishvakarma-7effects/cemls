@@ -36,11 +36,12 @@ datalist {
                         <div class="form-group row">
                             <p class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery</p>
                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                             <select  class="form-control">
-    <option value="1">Cemetery1</option>
-    <option value="2">Cemetery2</option>
-    <option value="3">Cemetery3</option>
-</select>
+                              <select id="category_id" name="cemetery_id" required class="form-control allmyselectdropdown">
+                                            <option value="">Select Cemetery</option>
+                                            @foreach($cemeteries as $cemetery)
+                                            <option value="{{$cemetery->ID}}">{{$cemetery->cemetery_name}}</option>
+                                            @endforeach
+                                        </select>
                             </div>
                           </div>
                           <div class="form-group row">
@@ -122,19 +123,19 @@ datalist {
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <input class="form-check-input" type="radio" name="plotstatus" id="exampleRadios1" value="Available" checked>
                                     <label class="form-check-label col-form-label" for="exampleRadios1">
                                       Available
                                     </label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plotstatus" id="exampleRadios2" value="Reserved">
                                     <label class="form-check-label col-form-label" for="exampleRadios2">
                                     Reserved
                                     </label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plotstatus" id="exampleRadios2" value="Sold">
                                     <label class="form-check-label col-form-label" for="exampleRadios2">
                                       Sold
                                     </label>
@@ -150,36 +151,19 @@ datalist {
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Burial">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Cremation">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
                                   </div>
                                   
                                   
-                                  {{-- @foreach ($roles as $roleItem)
-                                      
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $roleItem->id }}">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox1"> {{ ucFirst($roleItem->name) }}</label>
-                                  </div>
-                                @endforeach --}}
+                                
 
 
-                                  {{-- <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
-                                  </div> --}}
+                                
                                 </div>
                               </div>
                             </div>
@@ -195,11 +179,11 @@ datalist {
                                   
                                    <div class="form-check form-check-inline">
                                   
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Indoor">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="inlineCheckbox2" value="option2">
+                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Outdoor">
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                                   </div>
                                 
@@ -233,12 +217,12 @@ datalist {
 <div class="price-input">
         <div class="field">
           <span>Min</span>
-          <input type="number" class="input-min" value="2500">$
+          <input type="number" class="input-min" value="2500" name="minprice">$
         </div>
         <div class="separator">-</div>
         <div class="field">
           <span>Max</span>
-          <input type="number" class="input-max" value="7500">$
+          <input type="number" class="input-max" value="7500" name="maxprice">$
         </div>
       </div>
       <div class="slider">
@@ -259,7 +243,7 @@ datalist {
                       <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Price</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                           <input type="text" value="500" class="form-control" id="" placeholder="">
+                           <input type="number" name="price" class="form-control" id="" placeholder="">
                         </div>
                       </div> 
                       <div class="form-group row">
@@ -275,13 +259,13 @@ datalist {
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="yes" checked>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
                                     Yes
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="no">
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   No
                                   </label>

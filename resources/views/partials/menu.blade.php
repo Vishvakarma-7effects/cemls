@@ -26,8 +26,8 @@
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
 						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
 					<bdi>Cemeteries</bdi></a>
-				<a class="dropdown-item {{ request()->is('cemetery/create') ? 'active' : '' }}"
-					href="{{ url('cemetery/create') }}">
+				<a class="dropdown-item {{ request()->is('cemeteries/create') ? 'active' : '' }}"
+					href="{{ url('cemeteries/create') }}">
 					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
 					<bdi>Add Cemetery</bdi>
 				</a>

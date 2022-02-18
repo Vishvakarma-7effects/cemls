@@ -125,9 +125,17 @@
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
                                 <td width="">
-                                     <div class="">American Heritage Cemetery Funeral Home Crematory(CemLS#30453
+                                    {{$row->cemetery_id}}
+                                     <div class="">
+                                  
+<?php
+ //echo $row->cemetery_id;
+                         
+                         $cemeteryname=getcemeteryname($row->cemetery_id);
+                   if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
+                            ?>
 
-)
+                                      
 </div>
                                     <div class="plothead">{{$row->Garden}}</div>
                                     <div class="plotshead">{{$row->garden}}</div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Plot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 
 class PlotsController extends Controller
@@ -13,7 +14,6 @@ class PlotsController extends Controller
     public function index()
 	{
 		
-
   $plots = Plot::orderBy('id','desc','feature')->paginate(5);
 
             
@@ -25,7 +25,10 @@ class PlotsController extends Controller
 	}
     public function create()
 	{
-		return view('admin.plots.new');
+
+          $data['cemeteries'] = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
+      return view('admin.plots.new', $data);
+		
 	}
 
 						public function customeNew()
@@ -44,6 +47,12 @@ class PlotsController extends Controller
 				{
 					// dd($request->all());
 							$plot = new Plot;
+							$plot->cemetery_id = $request->cemetery_id;
+								$plot->plotstatus = $request->plotstatus;
+									$plot->plottype = $request->plottype;
+										$plot->minprice = $request->minprice;
+											$plot->maxprice = $request->maxprice;
+							$plot->plot_public = $request->plot_public;
 							$plot->garden = $request->garden;
 							$plot->lot = $request->lot;
 							$plot->grave = $request->grave;
@@ -59,7 +68,7 @@ class PlotsController extends Controller
 							$plot->internal_notes = $request->internal_notes;
 							$plot->save();
 
-							return redirect::to('plot')->with('success', 'Plots Add Succesfully');
+							return redirect::to('plots')->with('success', 'Plots Add Succesfully');
 				}
 
 				/**
@@ -93,7 +102,11 @@ class PlotsController extends Controller
 
 					public function edit(Plot $plot)
     {
-             return view('admin.plots.edit',compact('plot'));
+  $cemetery = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
+
+             return view('admin.plots.edit',compact('plot','cemetery'));
+
+    	       
 
     }
 
@@ -115,6 +128,12 @@ class PlotsController extends Controller
 				public function update(Request $request, Plot $plot)
 				{
 					//$plot = Plot::findOrFail($request->id);
+					$plot->cemetery_id = $request->cemetery_id;
+								$plot->plotstatus = $request->plotstatus;
+									$plot->plottype = $request->plottype;
+										$plot->minprice = $request->minprice;
+											$plot->maxprice = $request->maxprice;
+							$plot->plot_public = $request->plot_public;
 					$plot->garden = $request->garden;
 					$plot->lot = $request->lot;
 					$plot->grave = $request->grave;
@@ -130,7 +149,7 @@ class PlotsController extends Controller
 					$plot->internal_notes = $request->internal_notes;
 					$plot->save();
 
-					return redirect::to('plot')->with('success', 'Plots Update Succesfully');
+					return redirect::to('plots')->with('success', 'Plots Update Succesfully');
  
 
 
@@ -165,7 +184,7 @@ $plot = Plot::findOrFail($request->event_id);
         {
             
           $a = plot::where(['id'=>$plot->id])->delete();
-      ;
+      
         
         return redirect()->to('plots')->with('success', 'Plot Deleted Succesfully');;
 

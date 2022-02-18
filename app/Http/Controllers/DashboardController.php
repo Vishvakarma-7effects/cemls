@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 // use App\Models\Event;
+use App\Models\Cemetery;
 
 class DashboardController extends Controller {
 
@@ -62,7 +63,15 @@ class DashboardController extends Controller {
 
     public function widgets()
     {
-    return view('admin.widgets');
+  $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
+
+            
+    
+          
+            return View('admin.widgets')
+                ->with('cemeterys', $cemeterys);
+
+   // return view('admin.widgets');
     }
 
     public function contactUs()

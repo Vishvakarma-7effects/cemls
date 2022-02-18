@@ -105,15 +105,26 @@
                                         <td>12 min 42 sec ago</td>
                                         <td>Business</td>
                                            <td width="150px"> 
-                        <input data-id="{{$user->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
+                        <input data-id="{{ $user->id}}" class="" id="" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
                                 </td>
                                         <td>
                                             <div class="moption">
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                 <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/Edit/'.$user->id)}}"  >Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
+                                    <li><a href="{{ url('users/'.$user->id.'/edit')}}">Edit</a></li>
+
+                                                    <li><!--<a href="#">Delete</a>-->
+                                                        
+ <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+   
+                                            @csrf
+                                            @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -124,8 +135,8 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+{{ $users->links('layouts.custom') }}
+                       <!-- <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -173,12 +184,16 @@
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                 <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/Edit/'.$user->id)}}"  >Edit</a></li>
-                                                    <li> <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete1</button>
-                                            </form></li>
+                                 <li><a href="{{ url('users/'.$user->id.'/edit')}}">Edit</a></li>
+
+                                                    <li>
+                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+   
+                                            @csrf
+                                            @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form></li>
                                                 </ul>
                                             </div>
                                         </th>
@@ -202,19 +217,16 @@
                                         <td>12 min 42 sec ago</td>
                                         <td>Business</td>
                                       <td width="150px"> 
+                     
                         <input data-id="{{$user->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
                                 </td>
                                         <td>
                                             <div class="moption">
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                 <ul class="moptionul">
+                                                <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/Edit/'.$user->id)}}"  >Edit</a></li>
-                                                    <li> <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete2</button>
-                                            </form></li>
+                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
+                                                    <li><a href="#">Delete</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -226,7 +238,7 @@
                             </table>
                         </div>
 
-                       <!-- <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                        <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -246,6 +258,8 @@
                                 </li>
                             </ul>
                         </nav>-->
+                        {{ $users->links('layouts.custom') }}
+
                     </div>
                     <!--<div class="tab-pane fade" id="public" role="tabpanel" aria-labelledby="public-tab">
                         <section class="bxshadow">
@@ -332,7 +346,9 @@
 
 
     </section>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {
@@ -368,4 +384,5 @@
         });
     });
 </script>
+      
 @endsection

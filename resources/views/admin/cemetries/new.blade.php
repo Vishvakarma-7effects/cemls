@@ -10,27 +10,29 @@
         </nav>
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
+            <form method="post" action="{{route('cemeteries.store')}}" accept-charset="UTF-8">
+        @csrf
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery Name</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="cemetery_name" id="" placeholder="">
                         </div>
                         </div>
 
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Description</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="cemetery_desc"></textarea>
                         </div>
                         </div>
 
                         <div class="form-group row">
                         <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Address</label>
                         <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="address"></textarea>
                         </div>
                         </div>
 
@@ -39,7 +41,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" name="city" id="" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -48,7 +50,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">State</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" name="state" id="" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -59,7 +61,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" name="country" id="" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -68,7 +70,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Zip Code</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" id=""  name="zip" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -95,7 +97,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                     <div class="loc_search position-relative">
-                        <input type="text" class="form-control" id="pac-input" placeholder="enter location">
+                        <input type="text" name="location" class="form-control" id="pac-input" placeholder="enter location">
                         <a href="#"><i class="fa fa-search"></i></a>
                         <button class="btn_mid btn_bgreen px-3">Get Location</button>
                     </div>
@@ -120,8 +122,8 @@
                         <div class="form-group row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 1</label>
                         <div class="col-sm-7 infosec">
-                            <input type="text" class="form-control" id="" placeholder="">
-                            <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
+                            <input type="text" class="form-control"  name="locationtitle1" id="" placeholder="">
+                            <div class="infobx"><i class="fa fa-info"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
 
                         </div>
@@ -131,7 +133,7 @@
                         <div class="form-group position-relative row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 2</label>
                         <div class="col-sm-7 infosec pl-lg-0">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="locationtitle2" id="" placeholder="">
                             <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
 
@@ -144,7 +146,7 @@
                         <div class="form-group position-relative row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 3</label>
                         <div class="col-sm-7 infosec">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="locationtitle3" id="" placeholder="">
                             <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
 
@@ -154,7 +156,7 @@
                         <div class="form-group position-relative row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 4</label>
                         <div class="col-sm-7 pl-lg-0 infosec">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="locationtitle4" id="" placeholder="">
                             <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
                         </div>
@@ -166,7 +168,7 @@
                         <div class="form-group position-relative row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 5</label>
                         <div class="col-sm-7 infosec">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="locationtitle5" id="" placeholder="">
                             <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
 
@@ -176,7 +178,7 @@
                         <div class="form-group position-relative row">
                         <label for="" class="col-sm-5 col-form-label pr-0">Location ID: Title 6</label>
                         <div class="col-sm-7 infosec pl-lg-0">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" name="locationtitle6" id="" placeholder="">
                             <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
                         </div>
 
@@ -189,6 +191,8 @@
 
             <div class="cntbox">
                 <button class="btn_mid btn_green">Add</button>
+                  </form>
+
                 <button class="btn_mid btn_none ml-3">Cancel</button>
                 </div>
         </section>
