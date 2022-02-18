@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="col-lg-6 mb-1 mb-md-3 loctxt d-flex justify-content-center align-items-end">
-                    <b>Latitude:</b> 40.3189719  <span class="d-inline-block pl-3"><b>Longitude:</b> -80.11131890000001</span>
+                    <b>Latitude:</b> <span id='latbox'></span><span class="d-inline-block pl-3"><b>Longitude:</b> <span id='lngbox'></span></span>
                     </div>
                 </div>
 

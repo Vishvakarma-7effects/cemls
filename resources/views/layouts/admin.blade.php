@@ -121,11 +121,25 @@
         <script>
 
 function initMap() {
+    const myLatLng = { lat: 38.755971, lng: -121.283956 };
     const map = new google.maps.Map(document.getElementById("map"), {
-        center: {lat: 36.778259, lng: -119.417931},
-        zoom: 13,
+        center: myLatLng,
+        zoom:13,
         mapTypeControl: false,
+        mapTypeId: 'satellite',
     });
+    var marker1 = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Set lat/lon values for this property',
+    draggable: true
+});
+
+google.maps.event.addListener(marker1, 'dragend', function (event) {
+    document.getElementById("latbox").innerHTML = this.getPosition().lat();
+    document.getElementById("lngbox").innerHTML = this.getPosition().lng();
+});
+
     const card = document.getElementById("pac-card");
     const input = document.getElementById("pac-input");
     const biasInputElement = document.getElementById("use-location-bias");
