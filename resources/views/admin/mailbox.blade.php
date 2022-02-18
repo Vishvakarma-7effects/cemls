@@ -90,8 +90,8 @@
                           </td>
                           <td><b>{{ $cemetery360_inbox->sender_message }}</b></td>
                           <td>{{ $cemetery360_inbox->sender_name }}</td>
-                          <td>{{ $cemetery360_inbox->inbox_title }}</td>
-                          <td ><small>{{ $cemetery360_inbox->created_at }}</small></td>
+                          <td width="150px">{{ $cemetery360_inbox->inbox_title }}</td>
+                          <td width="150px"><small>{{ $cemetery360_inbox->created_at }}</small></td>
                         </tr>
 <tr class="collapse multi-collapse" id="tablecnt">
                           <td></td>
