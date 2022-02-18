@@ -74,16 +74,16 @@
                                         <th>Role</th>
                                         <th>Date Created</th>
                                         <!--<th>Subscription</th>-->
-                                        <th>Action</th>
+                                        <th>Active</th>
                                         <th width="40">
-                                            <div class="moption">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <ul class="moptionul">
-                                                    <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
-                                                </ul>
-                                            </div>
+                                            <!--<div class="moption">-->
+                                            <!--    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
+                                            <!--    <ul class="moptionul">-->
+                                            <!--        <i class="fa fa-caret-up"></i>-->
+                                            <!--        <li><a href="{{ url('users/getEdit')}}">Edit</a></li>-->
+                                            <!--        <li><a href="#">Delete</a></li>-->
+                                            <!--    </ul>-->
+                                            <!--</div>-->
                                         </th>
                                     </tr>
                                 </thead>
