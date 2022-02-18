@@ -36,17 +36,17 @@
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
-                                        <th style="padding-left: 10%;">Name</th>
+                                        <th style="padding-left: 2%;">Role</th>
                                         {{-- <th style="padding-left: 5%;">Guard Name</th> --}}
 
-                                        <th  style=""width="40">Action</th>
+                                        <th  style=""width="40"></th>
                                     </tr>
                                 </thead>
                                 <tbody >
 
                                     @foreach($roles as $roleKey=>$roleVal)
                                         <tr class="">
-                                            <td style="padding-left: 10%;">{{ $roleVal->name}}</td>
+                                            <td style="padding-left: 2%;">{{ $roleVal->name}}</td>
                                             {{-- <td style="padding-left: 5%;">{{ $roleVal->guard_name}}</td> --}}
                                         </td>
                                         
