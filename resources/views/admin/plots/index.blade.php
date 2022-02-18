@@ -59,8 +59,8 @@
             <li class="breadcrumb-item active" aria-current="page">Plots</li>
         </ol>
     </nav>
-
-    @if ($message = Session::get('success'))
+    
+      @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -94,11 +94,11 @@
             </ul>
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Search by Cemetery Name or ID">
+                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
             </div>
 
-           <!-- <ul class="nav nav-tabs ml-4 clearfix" id="switchTab" role="tablist">
+            <ul class="nav nav-tabs ml-4 clearfix" id="switchTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="switchone-tab" data-toggle="tab" href="#switchone" role="tab"
                         aria-controls="switchone" aria-selected="true"><i class="fa fa-bars"></i></a>
@@ -107,7 +107,7 @@
                     <a class="nav-link" id="switchtwo-tab" data-toggle="tab" href="#switchtwo" role="tab"
                         aria-controls="switchtwo" aria-selected="false"><i class="fas fa-map-marked-alt"></i></a>
                 </li>
-            </ul>-->
+            </ul>
         </div>
     </div>
 
@@ -124,34 +124,35 @@
                                 <td width="76">
                                     <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
                                 </td>
-                                <td width="">
-                                    {{$row->cemetery_id}}
-                                     <div class="">
-                                  
+                                <td width="450px">
+                                     <div class="plothead"> CemLS #{{$row->id}} </div>
+                                     <div class="plotshead">
+
 <?php
  //echo $row->cemetery_id;
                          
                          $cemeteryname=getcemeteryname($row->cemetery_id);
                    if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
                             ?>
-
-                                      
 </div>
-                                    <div class="plothead">{{$row->Garden}}</div>
-                                    <div class="plotshead">{{$row->garden}}</div>
+                                    <!--<div class="plothead">{{$row->Garden}}</div>-->
+                                    <!--<div class="plotshead">{{$row->garden}}</div>-->
                                 </td>
                                 <td width="105">
                                     <div class="thead">Status</div>
-                                    <div class="ttxt cl_green">{{$row->status}}</div>
+                                    <div class="ttxt cl_green">{{$row->plotstatus}}</div>
                                 </td>
-                                <td width="105">
-                                    <div class="thead text-center">Views</div>
-                                    <div class="ttxt cl_green text-center">{{$row->views}}</div>
+                                <td width="205">
+                                    <div class="thead text-center">Type</div>
+                                    <div class="ttxt cl_green text-center">{{$row->plottype}}, 
+                                    {{$row->plottype2}}
+                                    
+                                    </div>
                                 </td>
                                   <td> 
-                          <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
+                        <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
                                 </td>
-                               <!-- <td width="105">
+                                <!--<td width="105">
                                     <div class="thead">Lat Long</div>
                                     <div class="ttxt cl_green">Yes</div>
                                 </td>-->
@@ -182,8 +183,8 @@
                         @endforeach
 
                     </section>
-{{ $plots->links('layouts.custom') }}
-                    <!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+
+                  <!--  <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
                         <ul class="pagination justify-content-end">
                         <li class="page-item">
                             <a class="page-link pn_arrow" href="#" aria-label="Previous">
@@ -203,6 +204,9 @@
                         </li>
                         </ul>
                     </nav>-->
+                    
+                    {{ $plots->links('layouts.custom') }}
+
                     </div>
 
                     <div class="tab-pane fade" id="cremations" role="tabpanel" aria-labelledby="cremations-tab">
@@ -226,9 +230,8 @@
 
 
     </section>
-
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {
@@ -264,13 +267,12 @@
         });
     });
 </script>
-      
 @endsection
 <script>
-	function myFunction()
-	{
-		if(!confirm("Are you sure to delete this?"))
-		event.preventDefault();
-	}
+    function myFunction()
+    {
+        if(!confirm("Are you sure to delete this?"))
+        event.preventDefault();
+    }
 </script>
    
