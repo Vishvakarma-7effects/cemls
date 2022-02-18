@@ -149,9 +149,14 @@
                                     
                                     </div>
                                 </td>
-                                  <td> 
-                        <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
-                                </td>
+                                <td style="padding: 15px;">
+                                <div class="thead">Public</div>
+                            <div class="d-flex">
+                                    <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary"></div></div> &nbsp;&nbsp;
+                                
+                                        
+                            </div>
+                        
                                 <!--<td width="105">
                                     <div class="thead">Lat Long</div>
                                     <div class="ttxt cl_green">Yes</div>
