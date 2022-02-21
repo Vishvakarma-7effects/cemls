@@ -47,11 +47,13 @@
             <!--            aria-controls="Outdoor" aria-selected="false">Outdoor</a>-->
             <!--    </li>-->
             <!--</ul>-->
+                <form action="{{ route('cemeteries.index') }}" method="GET" role="search">
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
-                <a href="#"><i class="fa fa-search"></i></a>
+                <input type="text" class="form-control" name="term" id="" placeholder="Cemetery Name or ID">
+               <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </div>
+                </form>
 
             
         </div>
@@ -63,6 +65,10 @@
                                 <section class="bxshadow mb-3 mb-md-5">
 
                             @foreach ($cemeterys as $cemKey => $cemVal)
+
+                           
+                     
+                           
                                                                         
                             <div class="cntbox">
                 <table class="table mb-0 plot_table">
@@ -126,13 +132,20 @@
             </table>        
         </div>
 
+
+                               
+             
+
     @endforeach
                                                                         
-                                        
-                {{-- <div class="d-flex justify-content-center">
-                        {!! $cemeterys->links('pagination::bootstrap-4') !!}
-                    </div>  --}}
+<?php
+     if ($cemeterys === null) {
+
     
+
+        echo "No Recotd";
+     }    
+     ?>
 
         </section>
 
@@ -162,8 +175,13 @@
                         </li>
                             </ul>
                         </nav>-->
+                        <?php
+                         if (!request('term')) {
+                            ?>
                         {{ $cemeterys->links('layouts.custom') }}
-
+ <?php
+  }
+  ?>
 
                         </div>
 

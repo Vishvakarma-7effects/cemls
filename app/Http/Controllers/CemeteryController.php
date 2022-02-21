@@ -42,14 +42,21 @@ class CemeteryController extends Controller
 
         public function index()
         {
-            // get all the sharks
-            $cemeterys = Cemetery::orderBy('id','desc','feature','public')->paginate(10);
-  //$cemeterys =
-            
+          
+         
+    $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
+        if (request('term')) {
+
+           
+        $cemeterys = DB::table('cemetery')
+            ->where('cemetery_name','like',"%".request('term')."%")->get();
+
+        }
+   
     
             // load the view and pass the sharks
-            return View('admin.cemetries.index')
-                ->with('cemeterys', $cemeterys);
+         return View('admin.cemetries.index')
+               ->with('cemeterys', $cemeterys);
         }
 
 
