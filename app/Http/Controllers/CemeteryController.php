@@ -47,15 +47,11 @@ class CemeteryController extends Controller
     $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
         if (request('term')) {
 
-           
-        $cemeterys = DB::table('cemetery')
+     $cemeterys = DB::table('cemetery')
             ->where('cemetery_name','like',"%".request('term')."%")->get();
 
         }
-   
-    
-            // load the view and pass the sharks
-         return View('admin.cemetries.index')
+   return View('admin.cemetries.index')
                ->with('cemeterys', $cemeterys);
         }
 
@@ -80,6 +76,11 @@ class CemeteryController extends Controller
 
             
                     $cemetery = new Cemetery;
+
+                    if ($request->file('image')) {
+            $imageName = $request->file('image')->store('cemetery', 'uploads');
+           $cemetery->image = $imageName; 
+        }
                     $cemetery->cemetery_name = $request->cemetery_name;
                     $cemetery->cemetery_desc = $request->cemetery_desc;
                     $cemetery->address = $request->address;
@@ -94,6 +95,8 @@ class CemeteryController extends Controller
                         $cemetery->locationtitle4 = $request->locationtitle4;
                          $cemetery->locationtitle5 = $request->locationtitle5;
                           $cemetery->locationtitle6 = $request->locationtitle6;
+                           $cemetery->cemetery_latitude = $request->cemetery_latitude;
+                            $cemetery->cemetery_longitude = $request->cemetery_longitude;
                      $cemetery->created_by = auth()->user()->id;
 
                     $cemetery->save();
@@ -160,7 +163,30 @@ class CemeteryController extends Controller
          public function update(Request $request, $id)
         {
            
+if ($request->file('image')) {
+            $imageName = $request->file('image')->store('cemetery', 'uploads');
+             $cemetery = Cemetery::where('ID',$id)->update([
+                        'cemetery_name'=>$request->cemetery_name,
+                        'cemetery_desc'=>$request->cemetery_desc,
+                        'address'=>$request->address,
+                        'location'=>$request->location,
+                        'city'=>$request->city,
+                        'state'=>$request->state,
+                        'country'=>$request->country,
+                        'zip'=>$request->zip,
+                         'locationtitle1'=>$request->locationtitle1,
+                        'locationtitle2'=>$request->locationtitle2,
+                        'locationtitle3'=>$request->locationtitle3,
+                         'locationtitle4'=>$request->locationtitle4,
+                        'locationtitle5'=>$request->locationtitle5,
+                        'locationtitle6'=>$request->locationtitle6,
+                         'cemetery_latitude'=>$request->cemetery_latitude,
+                         'cemetery_longitude'=>$request->cemetery_longitude,
+                       'image'=>$imageName,
 
+                ]);
+           
+        }
         
 
                 $cemetery = Cemetery::where('ID',$id)->update([
@@ -178,8 +204,8 @@ class CemeteryController extends Controller
                          'locationtitle4'=>$request->locationtitle4,
                         'locationtitle5'=>$request->locationtitle5,
                         'locationtitle6'=>$request->locationtitle6,
-
-
+                         'cemetery_latitude'=>$request->cemetery_latitude,
+                         'cemetery_longitude'=>$request->cemetery_longitude,
 
 
                 ]);

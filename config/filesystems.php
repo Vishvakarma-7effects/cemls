@@ -53,6 +53,13 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'uploads' => [
+            'driver' => 'local',
+            //'root' => '/staging/public/uploads/',
+                        'root' => public_path() . '/uploads',
+
+        ],
+
     ],
 
     /*
