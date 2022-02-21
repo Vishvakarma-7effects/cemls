@@ -92,13 +92,15 @@
                         aria-controls="Outdoor" aria-selected="false">Outdoor</a>
                 </li>
             </ul>
-                <form action="{{ route('plots.index') }}" method="GET" role="search">
 
             <div class="searchbx position-relative">
+                                <form action="{{ route('plots.index') }}" method="GET" role="search">
+
                 <input type="text" class="form-control" id="" name="term" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
+                  </form>
+
             </div>
-  </form>
             <ul class="nav nav-tabs ml-4 clearfix" id="switchTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="switchone-tab" data-toggle="tab" href="#switchone" role="tab"
