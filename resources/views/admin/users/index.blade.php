@@ -42,12 +42,14 @@
             </div>
             <div class="col-lg-4">
 
+                <form action="{{ route('users.index') }}" method="GET" role="search">
 
                 <div class="searchbx w-100 mb-2 mt-2 mb-lg-0 mt-lg-0 position-relative">
-                                       <input type="text" class="form-control" id="" placeholder="Search by name,email or cemetery">
+                                       <input type="text" class="form-control" name="term" id="" placeholder="Search by name,email or cemetery">
 
                     <a href="#"><i class="fa fa-search"></i></a>
                 </div>
+                </form>
 
             </div>
         </div>
@@ -97,12 +99,12 @@
                                                 <label for="chkbx2">&nbsp;</label>
                                             </div>
                                         </td>
-                                        <td>{{ $user->name .' '. $user->lastname }}</td>
-                                        {{-- <td>Christopher J. Moon</td> --}}
+                                        <td>{{ $user->name  }}</td>
+                                      
                                         <td>{{ $user->email }}</td>
                                        
                                         <td>Admin</td>
-                                        <td>12 min 42 sec ago</td>
+                                       <td>{{ $user->created_at }}</td>
                                         <!--<td>Business</td>-->
                                            <td width="150px"> 
                         <input data-id="{{$user->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
@@ -165,8 +167,8 @@
                                         <th>Email ID</th>
                                         <th>Active</th>
                                         <th>Role</th>
-                                        <th>Last access</th>
-                                        <th>Subscription</th>
+                                       <th>Date Created</th>
+                                    
                                     <th>Action</th>
                                         <th width="40">
                                             <div class="moption">
@@ -194,13 +196,13 @@
                                                 <label for="chkbx2">&nbsp;</label>
                                             </div>
                                         </td>
-                                        <td>{{ $user->name .' '. $user->lastname }}</td>
-                                        {{-- <td>Christopher J. Moon</td> --}}
+                                        <td>{{ $user->name }}</td>
+                                     
                                         <td>{{ $user->email }}</td>
                                         <td>Yes</td>
                                         <td>Admin</td>
-                                        <td>12 min 42 sec ago</td>
-                                        <td>Business</td>
+                                         <td>{{ $user->created_at }}</td>
+                                       
                                       <td width="150px"> 
                         <input data-id="{{$user->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary">
                                 </td>
@@ -247,77 +249,7 @@
                             </ul>
                         </nav>-->
                     </div>
-                    <!--<div class="tab-pane fade" id="public" role="tabpanel" aria-labelledby="public-tab">
-                        <section class="bxshadow">
-                            <div class="cntbox">
-                              <div class="table-responsive mb-5 bxshadow">
-                            <table class="table  main_table mb-0">
-                                <thead>
-                                    <tr>
-                                        <th width="60" class="text-center">
-                                            <div class="mycheck d-inline-block">
-                                                <input type="checkbox" id="chkbx1" name="chkbx1">
-                                                <label for="chkbx1">&nbsp;</label>
-                                            </div>
-                                        </th>
-                                        {{-- <th>Username</th> --}}
-                                        <th>Name</th>
-                                        <th>Email ID</th>
-                                        <th>Active</th>
-                                        <th>Role</th>
-                                        <th>Last access</th>
-                                        <th>Subscription</th>
-                                        <th width="40">
-                                            <div class="moption">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <ul class="moptionul">
-                                                    <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    @foreach($users as $user)
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="mycheck d-inline-block">
-                                                <input type="checkbox" id="chkbx2" name="chkbx2">
-                                                <label for="chkbx2">&nbsp;</label>
-                                            </div>
-                                        </td>
-                                        <td>{{ $user->name .' '. $user->lastname }}</td>
-                                        {{-- <td>Christopher J. Moon</td> --}}
-                                        <td>{{ $user->email }}</td>
-                                        <td>Yes</td>
-                                        <td>Admin</td>
-                                        <td>12 min 42 sec ago</td>
-                                        <td>Business</td>
-                                        <td>
-                                            <div class="moption">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <ul class="moptionul">
-                                                    <i class="fa fa-caret-up"></i>
-                                                    <li><a href="{{ url('users/getEdit')}}">Edit</a></li>
-                                                    <li><a href="#">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                            </div>
-                        </section>
-                    </div>-->
+                 
                 </div>
             </div>
 

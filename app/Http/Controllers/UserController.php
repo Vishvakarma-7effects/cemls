@@ -29,12 +29,20 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
-        $users = User::orderBy('id','DESC')->get();
-        $data['users'] = $users;
-        //echo $events;
-        return view('admin.users.index', compact('users'));
-        // return view('showUser', $data);
+       
+        //$users = User::orderBy('id','DESC')->get();
+        //$data['users'] = $users;
+       
+        //return view('admin.users.index', compact('users'));
+        $users = User::orderBy('id', 'DESC')->paginate(10);
+        if (request('term')) {
+
+     $users = DB::table('users')
+            ->where('name','like',"%".request('term')."%")->orWhere('email', 'like' , '%'. request('term') .'%')->get();
+
+        }
+   return View('admin.users.index')
+               ->with('users', $users);
     }
     
 
