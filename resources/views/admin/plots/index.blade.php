@@ -92,12 +92,13 @@
                         aria-controls="Outdoor" aria-selected="false">Outdoor</a>
                 </li>
             </ul>
+                <form action="{{ route('plots.index') }}" method="GET" role="search">
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
+                <input type="text" class="form-control" id="" name="term" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
             </div>
-
+  </form>
             <ul class="nav nav-tabs ml-4 clearfix" id="switchTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="switchone-tab" data-toggle="tab" href="#switchone" role="tab"
@@ -135,8 +136,7 @@
                    if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
                             ?>
 </div>
-                                    <!--<div class="plothead">{{$row->Garden}}</div>-->
-                                    <!--<div class="plotshead">{{$row->garden}}</div>-->
+                                   
                                 </td>
                                 <td width="105">
                                     <div class="thead">Status</div>
@@ -209,8 +209,13 @@
                         </li>
                         </ul>
                     </nav>-->
-                    
+                      <?php
+                         if (!request('term')) {
+                            ?>
                     {{ $plots->links('layouts.custom') }}
+<?php
+  }
+  ?>
 
                     </div>
 

@@ -14,13 +14,24 @@ class PlotsController extends Controller
     public function index()
 	{
 		
-  $plots = Plot::orderBy('id','desc','feature')->paginate(5);
+  //$plots = Plot::orderBy('id','desc','feature')->paginate(5);
 
-            
+       $plots = Plot::orderBy('id', 'DESC')->paginate(10);
+        if (request('term')) {
+
+           
+       
+
+$plots =  DB::table('plot')
+        ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
+        ->select('plot.*', 'cemetery.cemetery_name')->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
+         ->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
+
+
+        }
     
             // load the view and pass the sharks
-            return View('admin.plots.index')
-                ->with('plots', $plots);
+            return View('admin.plots.index')->with('plots', $plots);
 
 	}
     public function create()
