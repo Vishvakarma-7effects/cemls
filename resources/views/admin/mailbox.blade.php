@@ -44,8 +44,11 @@
             </ul>
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
+                <form action="{{ route('mailbox.index') }}" method="GET" role="search">
+                <input type="text" class="form-control" name="term" id="" value="@if(null !==(request('term')))
+{{request('term')}} @endif" placeholder="Cemetery Name or User Name">
                 <a href="#"><i class="fa fa-search"></i></a>
+                  </form>
             </div>
 
             
@@ -154,8 +157,14 @@
                         </ul>
                     </nav>
            -->
-
+  <?php
+                         if (!request('term')) {
+                            ?>
                                    {{ $cemetery360_inboxs->links('layouts.custom') }}
+
+                                   <?php
+  }
+  ?>
  
         </section>
 
