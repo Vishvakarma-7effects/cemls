@@ -121,6 +121,17 @@ class UserController extends Controller {
      */
     public function update(Request $request, User $user) {
         //
+
+         if($request->file('profile_image'))
+        {
+            $file = $request->file('profile_image'); // input name
+            $destinationPath = 'uploads'; 
+            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
+            $image = $file->getClientOriginalName();
+
+            $user->profile_image = $image;
+        
+        }
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
