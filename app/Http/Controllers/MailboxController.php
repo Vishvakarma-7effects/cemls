@@ -19,14 +19,8 @@ class MailboxController extends Controller
      */
     public function index()
     {
-      $cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
-        if (request('term')) {
-
-     $cemetery360_inboxs = DB::table('cemetery360_inbox')
-            ->where('inbox_title','like',"%".request('term')."%")->orwhere('sender_name','like',"%".request('term')."%")->orwhere('sender_email','like',"%".request('term')."%")->orwhere('sender_phone','like',"%".request('term')."%")->get();
-
-        } 
-  //$cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
+      
+  $cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
     
         return View('admin.mailbox')->with('cemetery360_inboxs', $cemetery360_inboxs);
     }
