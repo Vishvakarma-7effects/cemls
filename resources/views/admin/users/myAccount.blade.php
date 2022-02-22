@@ -30,13 +30,17 @@
                     </span>
                     </div>
                     <div class="user_info">
-                        <h2>{{ $user->name.' '.$user->name}}
-                             <i class="fa fa-pencil editbx"></i>
+                        <h2>{{ $user->name}}
+                             <i class="fa fa-pencil editbx" id="editname"></i>
                         </h2>
+                        <input type="text" id="username" name="username" class="form-control col-md-3" value="{{auth()->user()->name}}" style="display:none;">
                         <div class="uemail">{{ $user->gmail }} 
                             {{-- <i class="fa fa-pencil editbx"></i> --}}
                         </div>
-                        <div class="ujoin">Member <small>since</small> 20 April 2018</div>
+                        <div class="ujoin">Member <small>since</small> <?php
+ $yrdata= strtotime($user->created_at);
+    echo date('d M Y', $yrdata);
+ ?></div>
                         <button class="btn_mid btn_green" type="submit">Update</button>
                     </div>
                 </div>
@@ -186,4 +190,16 @@ var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#editname").click(function()
+  {
+      $('#showname').hide();
+      $('#username').show();
+    // $(this).hide();
+    //alert(232);
+  });
+});
 </script>

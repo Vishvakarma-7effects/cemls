@@ -81,11 +81,11 @@
 <?php $i=1; ?>
                          @foreach($cemetery360_inboxs as $cemetery360_inbox)
                          <?php $i++; ?>
-                        <tr class="curpointer" data-toggle="collapse" href="#tablecnt" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                        <tr class="curpointer" data-toggle="collapse" href="#tablecnt<?php echo $i; ?>" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                           <td width="40" class="text-center">
                             <div class="mycheck d-inline-block">
-                                <input type="checkbox" id="chkbx11" name="chkbx11">
-                                <label for="chkbx11">&nbsp;</label>
+                                <input type="checkbox" id="chkbx<?php echo $i; ?>" name="chkbx11">
+                                <label for="chkbx<?php echo $i; ?>">&nbsp;</label>
                             </div>
                           </td>
                           <td><b>{{ $cemetery360_inbox->sender_message }}</b></td>
@@ -93,7 +93,7 @@
                           <td width="150px">{{ $cemetery360_inbox->inbox_title }}</td>
                           <td width="150px"><small>{{ $cemetery360_inbox->created_at }}</small></td>
                         </tr>
-<tr class="collapse multi-collapse" id="tablecnt">
+<tr class="collapse multi-collapse" id="tablecnt<?php echo $i; ?>">
                           <td></td>
                           <td colspan="4">
                             <div class="row">

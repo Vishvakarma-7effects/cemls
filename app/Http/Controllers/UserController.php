@@ -219,6 +219,12 @@ class UserController extends Controller {
             $user->profile_image = $image;
         
         }
+
+        if($request->username)
+        {
+            $user->name = $request->username;
+
+        }
         if($request->address_line1)
         {
             $user->address_line1 = $request->address_line1;
