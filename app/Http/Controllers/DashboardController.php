@@ -11,6 +11,7 @@ use App\Models\Cemetery;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Mail;
+use App\Models\Mailinbox;
 
 
 class DashboardController extends Controller {
@@ -63,9 +64,35 @@ class DashboardController extends Controller {
             $data['total_unpaid'] = '$2704';
 
             // dd($data);
-            $plot = Plot::all();
-            $mail = Mail::orderBy('id','DESC')->limit(10)->get();
+            //Recent Messages 
+            // $plot = Plot::leftjoin('cemetery','plot.id','=','cemetery.id')
+            // ->select('plot.id','cemetery.cemetery_name','location_id','cemetery.address')->get();
+            $cemeterys = Cemetery::orderBy('id','DESC')
+            ->limit(10)
+            ->get();
 
+            $cemeteryscount = Cemetery::all();
+// ............
+            $mailcount = Mailinbox::orderBy('id','DESC')
+            ->get();
+
+            $mail = Mailinbox::orderBy('id','DESC')->limit(10)
+            ->get();
+// ..........
+
+            $recentmsg = Mailinbox::orderBy('id','DESC')
+            ->limit(10)
+            ->get();
+// .......
+            $plotscount = Plot::orderBy('id','DESC')
+            ->get();
+
+            $plots = Plot::orderBy('id','DESC')
+            ->limit(10)
+            ->get();
+
+
+            //My Listings
             $recentPlot = Plot::leftjoin('cemetery','plot.cemetery_id','=','cemetery.id')
             ->select('plot.*','cemetery.cemetery_name as cemetery_name')
             ->orderBy('id','DESC')
@@ -73,14 +100,10 @@ class DashboardController extends Controller {
             ->get();
             // $recentPlot = Plot::orderBy('id','DESC')->limit(10)->get();
 
-            return view('admin.dashboard',compact('plot','mail','recentPlot'));
-            // $data['events'] = Event::select('id', 'title', 'urlSlug', 'type', 'zip', 'location', 'startDate')->get();
-            
 
-            // DD($plot);
-            return view('dashboard', $plot);
 
-            return view('dashboard', compact('plot'));
+            // dd($plot);
+            return view('admin.dashboard',compact('mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
 
         }
        
