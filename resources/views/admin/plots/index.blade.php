@@ -96,11 +96,11 @@
             <div class="searchbx position-relative">
                                 <form action="{{ route('plots.index') }}" method="GET" role="search">
 
-                <input type="text" class="form-control" id="" name="term" placeholder="Cemetery Name or ID">
+                <input type="text" class="form-control" name="term" id="" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
                   </form>
-
             </div>
+
             <ul class="nav nav-tabs ml-4 clearfix" id="switchTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="switchone-tab" data-toggle="tab" href="#switchone" role="tab"
@@ -138,7 +138,7 @@
                    if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
                             ?>
 </div>
-                                   
+                                  
                                 </td>
                                 <td width="105">
                                     <div class="thead">Status</div>
@@ -146,8 +146,9 @@
                                 </td>
                                 <td width="205">
                                     <div class="thead text-center">Type</div>
-                                    <div class="ttxt cl_green text-center">{{$row->plottype}}, 
-                                    {{$row->plottype2}}
+                                    <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
                                     
                                     </div>
                                 </td>

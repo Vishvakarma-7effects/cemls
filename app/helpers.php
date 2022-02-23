@@ -24,3 +24,10 @@ function getplotlocationtitle($plotid) {
 
     return $locationtitlename;
 }
+
+function getplotgallery($plotid) {
+           $plotgallery=DB::table('plotigallery')->where('plot_id', $plotid)->get();
+     
+
+    return $plotgallery;
+}
