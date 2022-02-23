@@ -162,6 +162,8 @@ class CemeteryController extends Controller
         // }
          public function update(Request $request, $id)
         {
+
+      
            
 if ($request->file('image')) {
             $imageName = $request->file('image')->store('cemetery', 'uploads');
@@ -248,7 +250,11 @@ if ($request->file('image')) {
         }
         public function getInvitePeople(Request $request )
         {
-                return view('admin.cemetries.getInvitePeople');
+                $cemeteries = Cemetery::all();
+                                                    
+          
+
+                return view('admin.cemetries.getInvitePeople',compact('cemeteries'));
         }
         
         public function storeInvitePeople(Request $request)
