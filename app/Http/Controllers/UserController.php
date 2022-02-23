@@ -246,7 +246,7 @@ class UserController extends Controller {
             $user->state = $request->state;
 
         }
-        if($request->file('zip'))
+        if($request->zip)
         {
             $user->zip = $request->zip;
 
