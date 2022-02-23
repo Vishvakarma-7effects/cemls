@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role as Roles;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-// use App\Models\Permission;
+
+use App\Models\Permission;
 
 
 class RoleController extends Controller {
@@ -118,10 +119,19 @@ class RoleController extends Controller {
             // 'guard_name' => 'required'
         ]);
 
-        $role = new Role;
-        $role->name = $request->name;
+        // dd($request->input('name'));
+
+        $role = Role::create(['name'=>$request->input('name')]);
+        // $role->name = $request->name;
+        $permissions= $request->input('permissions');
         // $role->guard_name = $request->guard_name;
-        $role->save();
+        //  $isStored = $role->save();
+        if($role){
+            foreach ($permissions as $perKey => $perValue) {
+            DB::table('role_has_permissions')->insert(['role_id'=>$role->id,'permission_id'=>$perValue]);
+            }
+        }
+
 
         return redirect()->route('roles.index')->with('success', 'Role Add Succesfully');
     }
@@ -137,23 +147,19 @@ class RoleController extends Controller {
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        $roles = Role::findOrFail($id);
+        // $roles = Role::with(['permissions'])->find($id);
+        $role->load('permissions');
+
+        // dd($role);
         $permissions = DB::table('permissions')->get();
 
-        return view('admin.roles.edit', compact('roles','permissions'));
+        return view('admin.roles.edit', compact('role','permissions'));
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request) 
+    public function update(Request $request)
     {
 
         $request->validate([
@@ -165,17 +171,9 @@ class RoleController extends Controller {
         $role->name = $request->name;
         // $role->guard_name = $request->guard_name;
         $role->save();
-
-
+        $role->permissions()->sync($request->input('permissions', []));
         return redirect()->route('roles.index')->with('success', 'Role Updated Succesfully');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id) 
     {
         $Role = Role::findOrFail($id);

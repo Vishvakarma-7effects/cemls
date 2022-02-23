@@ -18,5 +18,26 @@ class Role extends Model {
                 ->count();
         return $count;
     }
+    protected $fillable = [
+        'name',
+        'created_by',
+        'created_at',
+        'updated_at',
+        'updated_by'
+
+        // 'deleted_at',
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at'
+        // 'deleted_at',
+    ];
+    
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class,'role_has_permissions');
+    }
+
 
 }

@@ -51,40 +51,17 @@
                                 <label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Permission</label>
                                 <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
                                     <div class="row">
-                                        {{-- @foreach ($permissions as $item) --}}
+                                        @foreach ($permissions as $perKey=>$perItem)
                                             
                                         <div class="col-lg-6 col-6">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox1">Permission1</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" id="inlineCheckbox_{{ $perKey}}" value="{{ $perItem->id}}">
+                                                <label class="form-check-label" for="inlineCheckbox1">{{ ucwords(preg_replace('/[^a-zA-Z0-9-]/',' ',$perItem->name))}}</label>
                                             </div>
                                         </div>
-                                        {{-- @endforeach --}}
+                                        @endforeach
 
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox2">Permission2</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox3">Permission3</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox4">Permission4</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox5">Permission5</label>
-                                            </div>
-                                        </div>
+                                        
 
                                     </div>
                                 </div>
