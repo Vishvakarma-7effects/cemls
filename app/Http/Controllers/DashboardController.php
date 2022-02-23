@@ -91,19 +91,29 @@ class DashboardController extends Controller {
             ->limit(10)
             ->get();
 
+            $recentPlotlists = Plot::orderBy('id','DESC')
+            ->limit(5)
+            ->get();
+
+
 
             //My Listings
             $recentPlot = Plot::leftjoin('cemetery','plot.cemetery_id','=','cemetery.id')
-            ->select('plot.*','cemetery.cemetery_name as cemetery_name')
-            ->orderBy('id','DESC')
-            ->limit(10)
-            ->get();
+                ->leftjoin('views', 'plot.id','=','views.plot_id')
+                ->select('plot.id','views.view')
+                ->orderBy('id','DESC')
+                ->limit(10)
+                ->get();
+
+            
+
+
             // $recentPlot = Plot::orderBy('id','DESC')->limit(10)->get();
 
 
 
-            // dd($plot);
-            return view('admin.dashboard',compact('mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
+            // dd($recentPlot);
+            return view('admin.dashboard',compact('recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
 
         }
        

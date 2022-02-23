@@ -205,7 +205,7 @@
    <div class="col-lg-6 ">
     <div class="pad38">
      <h2 class="sheading">My Listings </h2>
-     @foreach($recentPlot as $key=>$row)
+     @foreach($recentPlotlists as $key=>$row)
      <div class="plotbx clearfix">
       <div class="plot_img">
        <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
@@ -436,7 +436,7 @@
     <span aria-hidden="true">&times;</span>
    </button>
    <h2 class="sheading">Top Listings</h2>
-   <p class="mb-2">Number of top listings: {{count($cemeteryscount)}}</p>
+   <p class="mb-2">Number of top listings: {{count($plotscount)}}</p>
    <p class="mb-2 cl_grey">Here are the top 10 listings</p>
    <table class="table stable ">
     <thead>
@@ -447,12 +447,12 @@
      </tr>
     </thead>
     <tbody>
-    @foreach($plots as $key=>$row)
+    @foreach($recentPlot as $key=>$row)
 
      <tr>
       <th scope="row">{{$key+1}}</th>
       <td>CemLS #{{$row->id}}</td>
-      <td>100</td>
+      <td>{{$row->view !=null ? $row->view : 0}}</td>
      </tr>
      @endforeach
 
