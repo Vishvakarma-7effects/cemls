@@ -50,7 +50,7 @@
                 <form action="{{ route('cemeteries.index') }}" method="GET" role="search">
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" name="term" id="" placeholder="Cemetery Name or ID">
+                <input type="text" class="form-control" name="term" id=""  placeholder="Cemetery Name">
                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </div>
                 </form>
@@ -74,7 +74,14 @@
                 <table class="table mb-0 plot_table">
                     <tr class="" style="">
                                 <td width="76" style="padding: 4px;">
-                                    <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
+                                    <?php
+                                    if(!empty($cemVal->image))
+                                    { 
+                                        ?>
+                                    <img src="{{asset('/uploads/' . $cemVal->image)}}" class="plot_img"/>
+                                    <?php } else { ?>
+                            <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+<?php } ?>
                                 </td>
                             <td width="350px" style="padding: 3px;">
                                 <div class="plothead">{{$cemVal->cemetery_name}}</div>
@@ -138,14 +145,7 @@
 
     @endforeach
                                                                         
-<?php
-     if ($cemeterys === null) {
 
-    
-
-        echo "No Recotd";
-     }    
-     ?>
 
         </section>
 
