@@ -177,12 +177,36 @@ datalist {
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Burial" checked>
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
+                                    <input class="form-check-input" type="radio" name="plottype1" id="inlineCheckbox2" value="Indoor" checked>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Cremation">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
+                                    <input class="form-check-input" type="radio" name="plottype1" id="inlineCheckbox2" value="Outdoor">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  
+                                  
+                                
+
+
+                                
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                          <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"></label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Above Ground" checked>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Above Ground</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Below Ground">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Below Ground</label>
                                   </div>
                                   
                                   
@@ -205,12 +229,12 @@ datalist {
                                   
                                    <div class="form-check form-check-inline">
                                   
-                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Indoor">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Burial">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial </label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Outdoor">
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Cremation">
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
                                   </div>
                                 
 
@@ -219,14 +243,16 @@ datalist {
                               </div>
                             </div>
                         </div>
+
+
                       </div>
                       
 
-                      <div class="col-lg-3 text-right">
-                        <!--<button class="btn_lg btn_none">Add 360 Image</button> -->
+                      <!--<div class="col-lg-3 text-right">
+                        <!--<button class="btn_lg btn_none">Add 360 Image</button>
                         <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                         <button class="btn_lg btn_green">Add Videos</button>
-                      </div>
+                      </div> -->
                     </div>
                 </div>
                 <div class="cntbox">

@@ -14,14 +14,8 @@ class PlotsController extends Controller
     public function index()
 	{
 		
-  //$plots = Plot::orderBy('id','desc','feature')->paginate(5);
-
-       $plots = Plot::orderBy('id', 'DESC')->paginate(10);
+$plots = Plot::orderBy('id', 'DESC')->paginate(10);
         if (request('term')) {
-
-           
-       
-
 $plots =  DB::table('plot')
         ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
         ->select('plot.*', 'cemetery.cemetery_name')->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
@@ -30,8 +24,7 @@ $plots =  DB::table('plot')
 
         }
     
-            // load the view and pass the sharks
-            return View('admin.plots.index')->with('plots', $plots);
+    return View('admin.plots.index')->with('plots', $plots);
 
 	}
     public function create()
@@ -60,8 +53,9 @@ $plots =  DB::table('plot')
 							$plot = new Plot;
 							$plot->cemetery_id = $request->cemetery_id;
 								$plot->plotstatus = $request->plotstatus;
-									$plot->plottype = $request->plottype;
+									$plot->plottype1 = $request->plottype1;
 									$plot->plottype2 = $request->plottype2;
+									$plot->plottype3 = $request->plottype3;
 										$plot->minprice = $request->minprice;
 											$plot->maxprice = $request->maxprice;
 							$plot->plot_public = $request->plot_public;
@@ -153,8 +147,9 @@ $plots =  DB::table('plot')
 					//$plot = Plot::findOrFail($request->id);
 					$plot->cemetery_id = $request->cemetery_id;
 								$plot->plotstatus = $request->plotstatus;
-									$plot->plottype = $request->plottype;
-										$plot->plottype2 = $request->plottype2;
+									$plot->plottype1 = $request->plottype1;
+									$plot->plottype2 = $request->plottype2;
+									$plot->plottype3 = $request->plottype3;
 										$plot->minprice = $request->minprice;
 											$plot->maxprice = $request->maxprice;
 							$plot->plot_public = $request->plot_public;

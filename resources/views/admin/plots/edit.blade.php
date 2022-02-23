@@ -18,10 +18,10 @@ datalist {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Property</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Plot</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Plot</li>
             </ol>
         </nav>
-        <h1 class="mheading">Add Plot</h1>
+        <h1 class="mheading">Edit Plot</h1>
        <section class="bxshadow">
 
  <form action="{{ route('plots.update',$plot->id) }}" method="POST" enctype="multipart/form-data">
@@ -61,7 +61,7 @@ datalist {
                                   <div class="form-group row">
                                     <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">
                                       <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle1))
 {
   echo $gettitle[0]->locationtitle1;
@@ -81,7 +81,7 @@ if(!empty($gettitle[0]->locationtitle1))
                                   <div class="form-group row">
                                     <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right"> 
                                       <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle2))
 {
   echo $gettitle[0]->locationtitle2;
@@ -101,7 +101,7 @@ if(!empty($gettitle[0]->locationtitle2))
                                <div class="col-md-7">
                                   <div class="form-group row">
                                     <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">  <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle3))
 {
   echo $gettitle[0]->locationtitle3;
@@ -120,7 +120,7 @@ if(!empty($gettitle[0]->locationtitle3))
  <div class="col-md-5">
                                   <div class="form-group row">
                                     <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">  <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle4))
 {
   echo $gettitle[0]->locationtitle4;
@@ -138,7 +138,7 @@ if(!empty($gettitle[0]->locationtitle4))
                                <div class="col-md-7">
                                 <div class="form-group row">
                                   <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">  <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle5))
 {
   echo $gettitle[0]->locationtitle5;
@@ -157,7 +157,7 @@ if(!empty($gettitle[0]->locationtitle5))
                                <div class="col-md-5">
                                   <div class="form-group row">
                                     <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">  <?php
-                                   $gettitle=getplotlocationtitle($plot->id);
+                                   $gettitle=getplotlocationtitle($plot->cemetery_id);
 if(!empty($gettitle[0]->locationtitle6))
 {
   echo $gettitle[0]->locationtitle6;
@@ -263,19 +263,44 @@ if(!empty($gettitle[0]->locationtitle6))
                               </div>
                             </div>
                         </div>
-                        <div class="row">
+
+                         <div class="row">
                           <div class="col-md-7">
                               <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Types</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Burial"  <?= $plot->plottype == 'Burial' ? 'checked' : '' ?>>
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
+                                    <input class="form-check-input" type="radio" name="plottype1" id="inlineCheckbox2" value="Indoor" <?= $plot->plottype1 == 'Indoor' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype" id="inlineCheckbox2" value="Cremation"  <?= $plot->plottype == 'Cremation' ? 'checked' : '' ?>>
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
+                                    <input class="form-check-input" type="radio" name="plottype1" id="inlineCheckbox2" value="Outdoor" <?= $plot->plottype1 == 'Outdoor' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                  </div>
+                                  
+                                  
+                                
+
+
+                                
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7">
+                              <div class="form-group row">
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"></label>
+                                <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
+
+                                   <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Above Ground"  <?= $plot->plottype2 == 'Above Ground ' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Above Ground </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Below Ground"  <?= $plot->plottype2 == 'Below Ground' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Below Ground</label>
                                   </div>
                                   
                                   
@@ -298,11 +323,11 @@ if(!empty($gettitle[0]->locationtitle6))
                                   
                                    <div class="form-check form-check-inline">
                                   
-                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Indoor" <?= $plot->plottype == 'Indoor' ? 'checked' : '' ?>>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Indoor" <?= $plot->plottype3 == 'Indoor' ? 'checked' : '' ?>>
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Outdoor" <?= $plot->plottype == 'Outdoor' ? 'checked' : '' ?>>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Outdoor" <?= $plot->plottype3 == 'Outdoor' ? 'checked' : '' ?>>
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
                                   </div>
                                 
@@ -532,7 +557,7 @@ $(function() {
 
 
                 
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location2 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle2" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location2 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle2" id="" placeholder=""></div>';
                     $('#location2').html(iframe);
                
                  
@@ -577,7 +602,8 @@ $(function() {
 
 
                  
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location3 + '</label> <div class="col-md-6 col-sm-9 pl-3 pl-md-4 "><input type="text" class="form-control" name="locationtitle3" id="" placeholder=""></div>';
+          var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location3 + '</label> <div class="col-md-6 col-sm-9 pl-3 pl-md-4 "><input type="text" class="form-control" name="locationtitle3" id="" placeholder=""></div>';
+
                     $('#location3').html(iframe);
                 
                  
@@ -624,7 +650,7 @@ $(function() {
 
 
                
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location4 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle4" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location4 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle4" id="" placeholder=""></div>';
                     $('#location4').html(iframe);
                
                  
@@ -715,7 +741,7 @@ $(function() {
 
 
                
-                    var iframe = '  <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1 text-right">' + location6 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle6" id="" placeholder=""></div>';
+                    var iframe = '  <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0 text-right">' + location6 + '</label> <div class="col-sm-9 pl-3 pl-md-4"><input type="text" class="form-control" name="locationtitle6" id="" placeholder=""></div>';
                     $('#location6').html(iframe);
                   
                  
