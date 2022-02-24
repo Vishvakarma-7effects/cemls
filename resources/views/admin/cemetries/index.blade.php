@@ -51,7 +51,7 @@
 
             <div class="searchbx position-relative">
                 <input type="text" class="form-control" name="term" id=""  placeholder="Cemetery Name">
-               <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+               <a href="#"><i class="fa fa-search"></i></a>
             </div>
                 </form>
 
@@ -128,7 +128,7 @@
                                             @csrf
                                             @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
                                         </form>
                                                 
                                         </li>
