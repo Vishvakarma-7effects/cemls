@@ -28,18 +28,11 @@ font-family: sans-serif;
  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
    <li class="breadcrumb-item"><a href="#">Home</a></li>
-   <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+   <li class="breadcrumb-item active" aria-current="page">Add User</li>
   </ol>
  </nav>
- <h1 class="mheading">Edit User</h1>
- <form action="{{url('updateUser')}}" method="post" enctype="multipart/form-data">
-    @csrf
-    <input type="hidden" value="{{$users->id}}" name="id">
- <section class="bxshadow">
 
- 
-  <div class="cntbox">
-  @if ($errors->any())
+ @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -48,10 +41,18 @@ font-family: sans-serif;
         </ul>
    </div>
    @endif
+ <h1 class="mheading">Add User</h1>
+<form action="{{url('updateUser')}}" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" value="{{$users->id}}" name="id">
+
+ <section class="bxshadow">
+
+  <div class="cntbox">
+
+
    <h2 class="sheading">Basic Details</h2>
-   
    <div class="row">
-   
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">User Name</label>
@@ -64,7 +65,7 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">New Password</label>
       <div class="col-sm-8 pl-3  pl-md-4">
-       <input type="password" class="form-control" name="password" placeholder="">
+       <input type="password" class="form-control" name="password" id="" placeholder="">
       </div>
      </div>
     </div>
@@ -82,50 +83,16 @@ font-family: sans-serif;
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label pr-0">Confirm Password</label>
       <div class="col-sm-8 pl-3 pl-md-4">
-       <input type="password" class="form-control" name="password_confirmation" placeholder="">
+       <input type="password" class="form-control" name="password_confirmation" id="" placeholder="">
       </div>
      </div>
     </div>
    </div>
 
 
-   {{-- <div class="row">
-    <div class="col-lg-6 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-sm-3 col-form-label pr-0 mr-md-1 col_form_custom">Type</label>
-      <div class="col-sm-7  pl-4 pl-md-4 ">
-       <div class="row">
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Cemetry User
-          </label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Pubic User
-          </label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-           Vendor
-          </label>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div> --}}
+   
 
-   {{-- <div class="row">
+   <div class="row">
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-sm-3 col-form-label pr-0 mr-md-1">Status</label>
@@ -133,7 +100,7 @@ font-family: sans-serif;
        <div class="row">
         <div class="col-lg-6 col-6 mb-md-2">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="feature" id="exampleRadios1" value="1" <?= $users->feature == '1' ? 'checked' : '' ?>>
           <label class="form-check-label" for="exampleRadios1">
            Active
           </label>
@@ -141,7 +108,7 @@ font-family: sans-serif;
         </div>
         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="feature" id="exampleRadios1" value="0" <?= $users->feature == '0' ? 'checked' : '' ?>>
           <label class="form-check-label" for="exampleRadios1">
            Blocked
           </label>
@@ -152,98 +119,46 @@ font-family: sans-serif;
       </div>
      </div>
     </div>
+    
+
+
+
+
+
+
+
+    
+
     <div class="col-lg-6 pr-lg-4">
      <div class="form-group row">
       <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
       <div class="col-sm-7 pl-3 pl-md-4 d-flex justify-content-between">
        <div class="row">
-        <div class="col-lg-6 col-6 mb-md-2">
+        @foreach ($roles as $item)
+         <div class="col-lg-6 col-6">
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Outdoor</label>
+          <input class="form-check-input" type="radio" id="inlineCheckbox2" name="userrole" value="{{$item->id}}" <?= $users->userrole == $item->id ? 'checked' : '' ?>>
+          <label class="form-check-label" for="inlineCheckbox2">{{ ucfirst(str_replace('_',' ',$item->name))}}</label>
          </div>
         </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
-          <label class="form-check-label" for="inlineCheckbox2">Outdoor</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-          <label class="form-check-label" for="inlineCheckbox3">Outdoor</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-          <label class="form-check-label" for="inlineCheckbox4">Outdoor</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
-          <label class="form-check-label" for="inlineCheckbox5">Outdoor</label>
-         </div>
-        </div>
-
-       </div>
-      </div>
-     </div>
-    </div>
-   </div> --}}
-   {{-- <div class="col-lg-6 pr-lg-4">
-     <div class="form-group row">
-      <label for="" class="col-sm-4 col-form-label col_form_custom pr-0 mr-md-1">Roles</label>
-      <div class="col-sm-7 pl-3 pl-md-4 d-flex justify-content-between">
-       <div class="row">
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
-          <label class="form-check-label" for="inlineCheckbox1">Role1</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
-          <label class="form-check-label" for="inlineCheckbox2">Role2</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6 mb-md-2">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-          <label class="form-check-label" for="inlineCheckbox3">Role3</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-          <label class="form-check-label" for="inlineCheckbox4">Role4</label>
-         </div>
-        </div>
-        <div class="col-lg-6 col-6">
-         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
-          <label class="form-check-label" for="inlineCheckbox5">Role</label>
-         </div>
-        </div>
-
+        @endforeach
+       
+       
+       
        </div>
       </div>
      </div>
     </div>
 
-   </div> --}}
-
-
+   </div>
+  </div>
   <div class="cntbox">
    <h2 class="sheading">Picture</h2>
    <div class="row">
     <div class="col-md-6">
      <div class="form-group">
 
-      <input type="file" accept="image/*" name="profile_image" id="actual-btn" hidden />
+      <input type="file" id="actual-btn" name="profile_image" hidden />
       
       <!-- our custom upload button -->
       <label class="file_label" for="actual-btn">Choose File</label>
@@ -260,19 +175,20 @@ font-family: sans-serif;
 
    {{-- <button class="btn_mid btn_none">Delete This Account</button> --}}
   </div>
-  
 
+ 
 
-   
     <div class="cntbox">
-         <button class="btn_mid btn_green" type="submit">Update</button>
+         <button class="btn_mid btn_green" type="submit">Add</button>
          <button class="btn_mid btn_none ml-3">Cancel</button>
       </div>
 
 
+
   </div>
  </section>
-   </form>
+</form>
+
 </section>
 <script>
 

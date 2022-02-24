@@ -103,7 +103,12 @@
                                       
                                         <td>{{ $user->email }}</td>
                                        
-                                        <td>Admin</td>
+                                        <td> <?php
+
+                         
+                         $rolename=getuserrolename($user->userrole);
+
+                   if(!empty($rolename[0]->name )) { echo $rolename[0]->name; }  ?></td>
                                        <td>{{ $user->created_at }}</td>
                                         <!--<td>Business</td>-->
                                            <td width="150px"> 
@@ -215,7 +220,7 @@
                                                     <li> <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete2</button>
+                                                <button class="btn btn-outline-dark role-edit" onclick="return confirm('Are you sure you want to delete?')"">Delete</button>
                                             </form></li>
                                                 </ul>
                                             </div>

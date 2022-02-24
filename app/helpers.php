@@ -31,3 +31,10 @@ function getplotgallery($plotid) {
 
     return $plotgallery;
 }
+
+function getuserrolename($roleid) {
+           $rolename=DB::table('roles')->where('id', $roleid)->get();
+     
+
+    return $rolename;
+}
