@@ -208,12 +208,28 @@
      @foreach($recentPlotlists as $key=>$row)
      <div class="plotbx clearfix">
       <div class="plot_img">
-       <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
+      <?php
+
+                         
+                         $plotgallery=getplotgallery($row->id);
+
+                   if(!empty($plotgallery[0]->plotimage)) {  ?>
+
+                                    <img src="{{asset('/uploads/plotgallery/' . $plotgallery[0]->plotimage)}}" class="plot_img" />
+                                <?php } else { ?>
+
+   <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+                                <?php } ?>
       </div>
       <div class="plot_cnt">
       <h3>CemLS #{{$row->id}}</h3>
 
-       <h4>{{$row->cemetery_name}}</h4>
+       <h4><?php
+ //echo $row->cemetery_id;
+                         
+                         $cemeteryname=getcemeteryname($row->cemetery_id);
+                   if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
+                            ?></h4>
        <!-- <h4>{{$row->address}}</h4> -->
        <h4>{{$row->address}} {{$row->city}} {{$row->state}}</h4>
        <p>{{$row->plot_number}} {{$row->section}} {{$row->row}}</p>
