@@ -17,18 +17,22 @@
 		</div>
 
 		<section class="bxshadow">
+ <form action="{{url('storeInvitePeople')}}" method="POST" >
+    @csrf
+qq
 			<div class="cntbox">
 				<div class="row">
 					<div class="col-lg-9 pr-lg-0">
-					    
+					    						   
 					    	<div class="form-group row">
 							<label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery</label>
 							<div class="col-lg-7 col-sm-9">
-						  <select  class="form-control" multiple>
-    <option value="1">Cemetery1</option>
-    <option value="2">Cemetery2</option>
-    <option value="3">Cemetery3</option>
-</select>
+						  <select  class="form-control" name="cemetery_id" >
+						      <option>Please Select One </option>
+						      @foreach($cemeteries as $cemKey=>$cemVal)
+                                <option value="{{ $cemVal->ID }}">{{  $cemVal->cemetery_name }}</option>
+                              @endforeach
+                            </select>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -72,8 +76,8 @@
 							<label for="" class="col-lg-3 col-sm-3 col-form-label"></label>
 							<div class="col-lg-7 col-sm-9">
 
-								<button class="btn_mid btn_green">invite</button>
-								<button class="btn_mid btn_none ml-3">Cancel</button>
+								<button type="submit" class="btn_mid btn_green">invite</button>
+								<button type="reset" class="btn_mid btn_none ml-3">Cancel</button>
 							</div>
 						</div>
 
@@ -84,6 +88,7 @@
 
 
 			</div>
+			</form>
 
 
 		</section>
