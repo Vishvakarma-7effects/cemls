@@ -94,7 +94,7 @@ $plots =  DB::table('plot')
               $file->move(public_path('uploads/plotgallery'), $imageName);  
                //$file->store('plotgallery', 'uploads'), $name);  
         	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
-            DB::table('plotigallery')->insert([
+            DB::table('plotgallery')->insert([
                 'plot_id' => $plot->id,
                 'plotimage' => $imageName
                
@@ -203,7 +203,7 @@ $plots =  DB::table('plot')
               $file->move(public_path('uploads/plotgallery'), $imageName);  
                //$file->store('plotgallery', 'uploads'), $name);  
         	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
-            DB::table('plotigallery')->insert([
+            DB::table('plotgallery')->insert([
                 'plot_id' => $plot->id,
                 'plotimage' => $imageName
                

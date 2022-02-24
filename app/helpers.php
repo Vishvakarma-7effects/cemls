@@ -26,7 +26,7 @@ function getplotlocationtitle($plotid) {
 }
 
 function getplotgallery($plotid) {
-           $plotgallery=DB::table('plotigallery')->where('plot_id', $plotid)->get();
+           $plotgallery=DB::table('plotgallery')->where('plot_id', $plotid)->get();
      
 
     return $plotgallery;
