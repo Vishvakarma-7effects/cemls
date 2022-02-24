@@ -183,3 +183,4 @@ Route::post('plots/get-locationtitle3', [PlotsController::class, 'getLocationtit
 Route::post('plots/get-locationtitle4', [PlotsController::class, 'getLocationtitle4'])->middleware('auth');
 Route::post('plots/get-locationtitle5', [PlotsController::class, 'getLocationtitle5'])->middleware('auth');
 Route::post('plots/get-locationtitle6', [PlotsController::class, 'getLocationtitle6'])->middleware('auth');
+Route::post('plots/get-destroyplotimage', [PlotsController::class, 'destroyplotimage'])->middleware('auth');

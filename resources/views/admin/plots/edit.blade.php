@@ -500,7 +500,9 @@ if(!empty($gettitle[0]->locationtitle6))
 
                             ?>
                                 <td width="76" style="padding: 4px;">
-                                  <i class="fa fa-trash-can" aria-hidden="true"></i>
+                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteMovie" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
+   <i class="fa fa-trash-can" aria-hidden="true"></i>
+</a>
 
                                   
                                                                  <img src="{{asset('/uploads/plotgallery/' . $galleryimage->plotimage)}}" class="plot_img"/>
@@ -823,5 +825,45 @@ $(function() {
 
     });
    }); 
+
+
+</script>
+
+<script>
+
+     $(function() {
+  $(".deleteMovie").click(function (e) {
+    if(!confirm("Do you really want to delete plot image?")) {
+       return false;
+     }
+         e.preventDefault();
+        var id = $(this).data("id");
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-destroyplotimage')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': id
+            },
+            dataType: "json",
+            
+            success: function (data) {
+             //alert(data);  
+              location.reload(true);               
+
+
+
+
+              
+            }
+        });
+
+    });
+   }); 
+
+
 </script>
 @endsection

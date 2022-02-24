@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plot;
+use App\Models\Plotgallery;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -249,6 +251,19 @@ $plot = Plot::findOrFail($request->event_id);
         
         return redirect()->to('plots')->with('success', 'Plot Deleted Succesfully');;
 
+        }
+  public function destroyplotimage(Request $request)
+        {
+         
+       $a =  DB::table('plotigallery')->where('id',$request->venue_id)->delete();
+
+       $response = [
+            'status' => true,
+           
+        ];
+
+        return response()->json($response, 200);
+ 
         }
 
 
