@@ -17,9 +17,16 @@
 		</div>
 
 		<section class="bxshadow">
- <form action="{{url('storeInvitePeople')}}" method="POST" >
+
+			@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
+ <form action="{{ route('cemetery.storeInvitePeople')}}" method="POST" >
     @csrf
-qq
+
 			<div class="cntbox">
 				<div class="row">
 					<div class="col-lg-9 pr-lg-0">
@@ -27,18 +34,18 @@ qq
 					    	<div class="form-group row">
 							<label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Cemetery</label>
 							<div class="col-lg-7 col-sm-9">
-						  <select  class="form-control" name="cemetery_id" >
-						      <option>Please Select One </option>
+						  <select  class="form-control" name="cemetery_id[]" multiple>
+						      <option>Please Select  </option>
 						      @foreach($cemeteries as $cemKey=>$cemVal)
-                                <option value="{{ $cemVal->ID }}">{{  $cemVal->cemetery_name }}</option>
-                              @endforeach
-                            </select>
+															<option value="{{ $cemVal->ID }}">{{  $cemVal->cemetery_name }}</option>
+													@endforeach
+											</select>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="" class="col-lg-3 col-sm-3 col-form-label pr-0">Email id</label>
 							<div class="col-lg-7 col-sm-9">
-								<input type="email" class="form-control" id="" placeholder="">
+								<input type="email" name="email" class="form-control" id="" placeholder="">
 							</div>
 						</div>
 
@@ -67,7 +74,7 @@ qq
 						<div class="form-group row">
 							<label for="" class="col-lg-3 col-sm-3 col-form-label pr-0 ">Message</label>
 							<div class="col-lg-7 col-sm-9">
-								<textarea class="form-control" rows="4" cols="50"></textarea>
+								<textarea class="form-control" rows="4" cols="50" name="message"></textarea>
 
 							</div>
 						</div>

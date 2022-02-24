@@ -14,11 +14,12 @@ class CreateCemeteriesUsersTable extends Migration
     public function up()
     {
         Schema::create('cemeteries_users', function (Blueprint $table) {
+            
             $table->id();
-            $table->Integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->Integer('cemetery_id');
-            $table->foreign('cemetery_id')->references('id')->on('cemetery');
+            $table->integer('cemetery_id');
+            $table->foreign('cemetery_id')->references('ID')->on('cemetery');
             $table->string('status')->nullable();
             $table->timestamps();
         });
