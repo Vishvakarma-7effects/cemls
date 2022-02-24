@@ -122,9 +122,14 @@ class DashboardController extends Controller {
     public function widgets()
     {
         $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
-        return View('admin.widgets')
-        ->with('cemeterys', $cemeterys);
-    return view('admin.widgets');
+        if (request('term')) 
+        {
+            $cemeterys = DB::table('cemetery')
+            ->where('cemetery_name','like',"%".request('term')."%")
+            ->orWhere('email','like',"%".request('term')."%")
+            ->paginate(10);
+        }
+        return View('admin.widgets')->with('cemeterys', $cemeterys);
     }
 
     public function contactUs()

@@ -54,11 +54,14 @@
             </li>
 
         </ul>
-
+        
+        <form action="{{ url('widgets') }}" method="GET" role="search">
         <div class="searchbx position-relative">
-            <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
+
+            <input type="text" name="term" class="form-control" id="" placeholder="Cemetery Name or ID">
             <a href="#"><i class="fa fa-search"></i></a>
-        </div>
+         </div>
+        </form>
 
 
     </div>
@@ -86,7 +89,7 @@
                                    </h2>
                                </div>
 
-                               <div class="r_text">john.doe@gmail.com </div>
+                               <div class="r_text">{{$cemVal->email}}</div>
                                <div class="r_desc">
 
 
@@ -96,7 +99,7 @@
                        <div class="d-flex justify-content-between update_text pt-3">
                          <div class="t_update ">Last Updated 10 months ago
                            <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
-                            <input data-id="{{$cemVal->id}}" class="form-control" id="" type="checkbox" data-toggle="toggle" data-on="Active" checked="" data-off="Inactive" data-size="small" data-onstyle="primary"><div class="toggle-group"><label for="" class="btn btn-primary btn-sm toggle-on">Active</label><label for="" class="btn btn-light btn-sm toggle-off">Inactive</label><span class="toggle-handle btn btn-light btn-sm"></span></div></div>
+                            <input data-id="{{$cemVal->ID}}" class="form-control" id="" type="checkbox" data-toggle="toggle" data-on="Active" checked="" data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                         </div>
                         <button class="btn_mid btn_green">Copy Embed link</button>
                     </div>
