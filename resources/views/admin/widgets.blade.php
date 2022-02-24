@@ -58,7 +58,7 @@
         <form action="{{ url('widgets') }}" method="GET" role="search">
         <div class="searchbx position-relative">
 
-            <input type="text" name="term" class="form-control" id="" placeholder="Cemetery Name or ID">
+            <input type="text" name="term" class="form-control" id="" placeholder="Cemetery Name">
             <a href="#"><i class="fa fa-search"></i></a>
          </div>
         </form>
@@ -81,7 +81,14 @@
                         <div class="bxshadow p-3 rounded">
                           <div class="d-flex">
                              <div class="w-25">
-                                <img src="https://new.cemeterylistingservice.com/newPublic/images/img1.jpg" alt="" height="100%;" width="100%">
+                                 <?php
+                                    if(!empty($cemVal->image))
+                                    { 
+                                        ?>
+                                    <img src="{{asset('/uploads/' . $cemVal->image)}}" class="plot_img"/>
+                                    <?php } else { ?>
+                            <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+<?php } ?>
                             </div>
                             <div class="w-75 ml-4">
                                 <div class="r_heading">
@@ -99,7 +106,7 @@
                        <div class="d-flex justify-content-between update_text pt-3">
                          <div class="t_update ">Last Updated 10 months ago
                            <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
-                            <input data-id="{{$cemVal->ID}}" class="form-control" id="" type="checkbox" data-toggle="toggle" data-on="Active" checked="" data-off="Inactive" data-size="small" data-onstyle="primary"></div>
+                            <input data-id="{{$cemVal->ID}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                         </div>
                         <button class="btn_mid btn_green">Copy Embed link</button>
                     </div>
@@ -139,7 +146,7 @@
 <script>
     $(document).ready(function () {
         $(".radio").change(function () {
-            var event_id = $(this).data("id");
+            var cemetery_id = $(this).data("id");
 
             var selected_value = 0;
             if ($(this).is(":checked")) {
@@ -150,10 +157,10 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{url('cemeteries/update-feature')}}",
+                url: "{{url('widgets/update-feature')}}",
                 data: {
                     '_token': '{{ csrf_token() }}',
-                    'event_id': event_id,
+                    'cemetery_id': cemetery_id,
                     'value': selected_value
                 },
                 dataType: "json",

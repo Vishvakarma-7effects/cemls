@@ -142,4 +142,19 @@ class DashboardController extends Controller {
     return view('admin.aboutUs');
     }
 
+
+    public function updateFeature(Request $request) {
+
+          $cemetery = Cemetery::where('ID',$request->cemetery_id)->update([
+                        'cemetery_widget'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
+    }
+
 }
