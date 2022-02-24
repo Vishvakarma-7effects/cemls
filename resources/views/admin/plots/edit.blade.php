@@ -500,6 +500,9 @@ if(!empty($gettitle[0]->locationtitle6))
 
                             ?>
                                 <td width="76" style="padding: 4px;">
+                                  <i class="fa fa-trash-can" aria-hidden="true"></i>
+
+                                  
                                                                  <img src="{{asset('/uploads/plotgallery/' . $galleryimage->plotimage)}}" class="plot_img"/>
                                 </td>
                                  

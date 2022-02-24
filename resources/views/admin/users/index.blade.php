@@ -220,7 +220,7 @@
                                                     <li> <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button class="btn btn-outline-dark role-edit" onclick="return confirm('Are you sure you want to delete?')"">Delete</button>
+                                                <button class="btn btn-outline-dark role-edit" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
                                             </form></li>
                                                 </ul>
                                             </div>

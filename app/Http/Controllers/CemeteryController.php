@@ -181,6 +181,18 @@ class CemeteryController extends Controller
         // }
          public function update(Request $request, $id)
         {
+
+
+ if($request->status)
+                {
+                    $imagestatus = $request->status; 
+                }
+                else
+                {
+           $imagestatus = 0;  
+
+                }
+
            
                 if ($request->file('image')) {
                         $imageName = $request->file('image')->store('cemetery', 'uploads');
@@ -202,6 +214,7 @@ class CemeteryController extends Controller
                          'cemetery_latitude'=>$request->cemetery_latitude,
                          'cemetery_longitude'=>$request->cemetery_longitude,
                        'image'=>$imageName,
+                        'imagestatus'=>$imagestatus,
 
                 ]);
            
@@ -225,6 +238,7 @@ class CemeteryController extends Controller
                         'locationtitle6'=>$request->locationtitle6,
                          'cemetery_latitude'=>$request->cemetery_latitude,
                          'cemetery_longitude'=>$request->cemetery_longitude,
+                         'imagestatus'=>$imagestatus,
 
 
                 ]);
