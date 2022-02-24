@@ -365,7 +365,7 @@ class CemeteryController extends Controller
         }
          public function cemeteryDetailPagenew(Request $request)
         {
-                die('aa');
+               
         return view('admin.cemetries.cemeteryDetailPagenew');
         }
          public function cemeteryDetail(Request $request)
