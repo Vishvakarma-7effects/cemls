@@ -44,24 +44,33 @@ class CemeteryController extends Controller
         {
           
          
-    $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
-        if (request('term')) {
+           $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
+            if (request('term')) {
 
-     $cemeterys = DB::table('cemetery')
-            ->where('cemetery_name','like',"%".request('term')."%")->get();
+           $cemeterys = DB::table('cemetery')
+            ->where('cemetery_name','like',"%".request('term')."%")
+            ->orWhere('email','like',"%".request('term')."%")
+            ->get();
 
         }
-   return View('admin.cemetries.index')
-               ->with('cemeterys', $cemeterys);
+          return View('admin.cemetries.index')->with('cemeterys', $cemeterys);
         }
 
-
+        public function changeStatus(Request $request)
+        {
+                $cemeterys = Cemetery::find($request->cemetery_id);
+                $cemeterys->image = $request->image;
+                $cemeterys->save();
+                return response()->json(['success'=>'Status change successfully.']);
+        }
 
         public function create()
-
         {
+
+                // $cemeterys = Cemetery::find($request->cemetery_id);
+            $cemetery  = '';
             // load the create form (app/views/sharks/create.blade.php)
-            return View('admin.cemetries.new');
+            return View('admin.cemetries.new',compact('cemetery'));
         }
       
         /**
@@ -75,35 +84,45 @@ class CemeteryController extends Controller
                 // dd($request->all());
 
             
-                    $cemetery = new Cemetery;
+                $cemetery = new Cemetery;
 
-                    if ($request->file('image')) {
-            $imageName = $request->file('image')->store('cemetery', 'uploads');
-           $cemetery->image = $imageName; 
-        }
-                    $cemetery->cemetery_name = $request->cemetery_name;
-                    $cemetery->cemetery_desc = $request->cemetery_desc;
-                    $cemetery->address = $request->address;
-                      $cemetery->location = $request->location;
-                    $cemetery->city = $request->city;
-                    $cemetery->state = $request->state;
-                    $cemetery->country = $request->country;
-                    $cemetery->zip = $request->zip;
-                     $cemetery->locationtitle1 = $request->locationtitle1;
-                      $cemetery->locationtitle2 = $request->locationtitle2;
-                       $cemetery->locationtitle3 = $request->locationtitle3;
-                        $cemetery->locationtitle4 = $request->locationtitle4;
-                         $cemetery->locationtitle5 = $request->locationtitle5;
-                          $cemetery->locationtitle6 = $request->locationtitle6;
-                           $cemetery->cemetery_latitude = $request->cemetery_latitude;
-                            $cemetery->cemetery_longitude = $request->cemetery_longitude;
-                     $cemetery->created_by = auth()->user()->id;
+                if ($request->file('image')) 
+                {
+                        $imageName = $request->file('image')->store('cemetery', 'uploads');
+                        $cemetery->image = $imageName; 
+                }
+                if($request->status)
+                {
+                    $cemetery->imagestatus = $request->status; 
+                }
+                else
+                {
+  $cemetery->imagestatus = 0;  
 
-                    $cemetery->save();
+                }
+                $cemetery->cemetery_name = $request->cemetery_name;
+                $cemetery->cemetery_desc = $request->cemetery_desc;
+                $cemetery->address = $request->address;
+                $cemetery->location = $request->location;
+                $cemetery->city = $request->city;
+                $cemetery->state = $request->state;
+                $cemetery->country = $request->country;
+                $cemetery->zip = $request->zip;
+                $cemetery->locationtitle1 = $request->locationtitle1;
+                $cemetery->locationtitle2 = $request->locationtitle2;
+                $cemetery->locationtitle3 = $request->locationtitle3;
+                $cemetery->locationtitle4 = $request->locationtitle4;
+                $cemetery->locationtitle5 = $request->locationtitle5;
+                $cemetery->locationtitle6 = $request->locationtitle6;
+                $cemetery->cemetery_latitude = $request->cemetery_latitude;
+                $cemetery->cemetery_longitude = $request->cemetery_longitude;
+                $cemetery->created_by = auth()->user()->id;
+
+                $cemetery->save();
                     // return Redirect::to('cemeteries');
 
             
-                    return redirect()->to('cemeteries')->with('success', 'Cemetery Add Succesfully');
+                return redirect()->to('cemeteries')->with('success', 'Cemetery Add Succesfully');
             
         }
 
@@ -162,12 +181,10 @@ class CemeteryController extends Controller
         // }
          public function update(Request $request, $id)
         {
-
-      
            
-if ($request->file('image')) {
-            $imageName = $request->file('image')->store('cemetery', 'uploads');
-             $cemetery = Cemetery::where('ID',$id)->update([
+                if ($request->file('image')) {
+                        $imageName = $request->file('image')->store('cemetery', 'uploads');
+                        $cemetery = Cemetery::where('ID',$id)->update([
                         'cemetery_name'=>$request->cemetery_name,
                         'cemetery_desc'=>$request->cemetery_desc,
                         'address'=>$request->address,
@@ -250,11 +267,7 @@ if ($request->file('image')) {
         }
         public function getInvitePeople(Request $request )
         {
-                $cemeteries = Cemetery::all();
-                                                    
-          
-
-                return view('admin.cemetries.getInvitePeople',compact('cemeteries'));
+                return view('admin.cemetries.getInvitePeople');
         }
         
         public function storeInvitePeople(Request $request)

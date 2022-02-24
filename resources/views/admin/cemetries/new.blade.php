@@ -10,12 +10,8 @@
         </nav>
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
-            <form method="post" action="{{route('cemeteries.store')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+            <form method="post" action="{{route('cemeteries.store')}}" accept-charset="UTF-8">
         @csrf
-                            <input type="hidden" class="form-control" id="cemetery_latitude" name="cemetery_latitude" id="" value="">
-                            <input type="hidden" class="form-control" id="cemetery_longitude"  name="cemetery_longitude" id="" value="">
-
-
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">
@@ -78,11 +74,12 @@
                                 </div>
                                 </div>
                             </div>
+                            
                             <div class="col-md-7">
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"> Add 360 Image</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                     <input data-id="userstatus" class=" form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
+                                     <input data-id="userstatus" value="1" data class=" form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" name="status" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
                                 </div>
                                 </div>
                             </div>
@@ -92,7 +89,7 @@
                     <div class="col-lg-3 text-right">
                     <!--<button class="btn_lg btn_none">Add 360 Image</button>-->
 
-                    <input type="file" name="image" class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos
+                    <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                     <button class="btn_lg btn_green">Add Videos</button>
                     </div>
                 </div>
@@ -108,7 +105,7 @@
                     </div>
 
                     <div class="col-lg-6 mb-1 mb-md-3 loctxt d-flex justify-content-center align-items-end">
-                   <b>Latitude:</b> <span id='latbox'></span><span class="d-inline-block pl-3"><b>Longitude:</b> <span id='lngbox'></span></span>
+                    <b>Latitude:</b> 40.3189719  <span class="d-inline-block pl-3"><b>Longitude:</b> -80.11131890000001</span>
                     </div>
                 </div>
 
