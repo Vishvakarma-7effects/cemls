@@ -24,7 +24,7 @@ datalist {
         <h1 class="mheading">Add Plot</h1>
        <section class="bxshadow">
 
-  <form method="post" action="{{route('plots.store')}}" accept-charset="UTF-8">
+  <form method="post" action="{{route('plots.store')}}" accept-charset="UTF-8" enctype="multipart/form-data">
         @csrf
 
 
@@ -362,7 +362,35 @@ datalist {
 
                     
                 </div>
+<div class="cntbox">
+                   
+                    
+                
+                  <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
 
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Video Url</label>
+                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <textarea class="form-control" name="videourl" ></textarea>
+                      
+                   
+                 </div></div>
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Plot Image</label>
+                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <input type="file" class="form-control" name="plotimage[]" multiple>
+                      </div>
+
+
+                </div>
                 <div class="cntbox">  
                     <button class="btn_mid btn_green" type="submit">Add</button>
                     <button class="btn_mid btn_none ml-3">Cancel</button>

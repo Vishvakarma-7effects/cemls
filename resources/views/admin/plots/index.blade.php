@@ -125,7 +125,19 @@
                                 <tr>
 
                                 <td width="76">
-                                    <img src="{{ asset('newPublic/images/img1.jpg') }}" class="plot_img" />
+
+                                      <?php
+
+                         
+                         $plotgallery=getplotgallery($row->id);
+
+                   if(!empty($plotgallery[0]->plotimage)) {  ?>
+
+                                    <img src="{{asset('/uploads/plotgallery/' . $plotgallery[0]->plotimage)}}" class="plot_img" />
+                                <?php } else { ?>
+
+   <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+                                <?php } ?>
                                 </td>
                                 <td width="450px">
                                      <div class="plothead"> CemLS #{{$row->id}} </div>

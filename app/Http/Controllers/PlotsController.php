@@ -78,12 +78,26 @@ $plots =  DB::table('plot')
 							$plot->locationtitle4 = $request->locationtitle4;
 							$plot->locationtitle5 = $request->locationtitle5;
 							$plot->locationtitle6 = $request->locationtitle6;
-
-
-
-
-
+							$plot->videourl = $request->videourl;
 							$plot->save();
+
+							  if($request->file('plotimage'))
+        {
+
+
+ foreach($request->file('plotimage') as $key => $file)
+            {
+
+            	 $imageName = time().rand(1,100000).'.'.$file->extension();
+              $file->move(public_path('uploads/plotgallery'), $imageName);  
+               //$file->store('plotgallery', 'uploads'), $name);  
+        	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
+            DB::table('plotigallery')->insert([
+                'plot_id' => $plot->id,
+                'plotimage' => $imageName
+               
+            ]);
+        }}
 
 							return redirect::to('plots')->with('success', 'Plots Add Succesfully');
 				}
@@ -172,7 +186,29 @@ $plots =  DB::table('plot')
 							$plot->locationtitle4 = $request->locationtitle4;
 							$plot->locationtitle5 = $request->locationtitle5;
 							$plot->locationtitle6 = $request->locationtitle6;
+							$plot->videourl = $request->videourl;
 					$plot->save();
+
+
+					  if($request->file('plotimage'))
+        {
+
+
+ foreach($request->file('plotimage') as $key => $file)
+            {
+
+            	 $imageName = time().rand(1,100000).'.'.$file->extension();
+              $file->move(public_path('uploads/plotgallery'), $imageName);  
+               //$file->store('plotgallery', 'uploads'), $name);  
+        	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
+            DB::table('plotigallery')->insert([
+                'plot_id' => $plot->id,
+                'plotimage' => $imageName
+               
+            ]);
+        }
+
+        }
 
 					return redirect::to('plots')->with('success', 'Plots Update Succesfully');
  
