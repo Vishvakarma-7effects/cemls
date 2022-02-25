@@ -186,3 +186,5 @@ Route::post('plots/get-locationtitle6', [PlotsController::class, 'getLocationtit
 Route::post('plots/get-destroyplotimage', [PlotsController::class, 'destroyplotimage'])->middleware('auth');
 Route::post('widgets/update-feature', [DashboardController::class, 'updateFeature'])->middleware('auth');
 Route::delete('myproductsDeleteAll', [MailboxController::class, 'deleteAll']);
+Route::post('fetchstates',[CemeteryController::class, 'fetchstates']);
+Route::post('cemeteries/get-destroycemeteryimage', [CemeteryController::class, 'destroycemeteryimage'])->middleware('auth');

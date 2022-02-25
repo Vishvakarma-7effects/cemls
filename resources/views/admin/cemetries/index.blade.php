@@ -74,14 +74,19 @@
                 <table class="table mb-0 plot_table">
                     <tr class="" style="">
                                 <td width="76" style="padding: 4px;">
-                                    <?php
-                                    if(!empty($cemVal->image))
-                                    { 
-                                        ?>
-                                    <img src="{{asset('/uploads/' . $cemVal->image)}}" class="plot_img"/>
-                                    <?php } else { ?>
-                            <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
-<?php } ?>
+                                   
+                                      <?php
+
+                         
+                         $cemeterygallery=getcemeterygallery($cemVal->ID);
+
+                   if(!empty($cemeterygallery[0]->cemeteryimage)) {  ?>
+
+                                    <img src="{{asset('/uploads/cemeterygallery/' . $cemeterygallery[0]->cemeteryimage)}}" class="plot_img" />
+                                <?php } else { ?>
+
+   <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+                                <?php } ?>
                                 </td>
                             <td width="350px" style="padding: 3px;">
                                 <div class="plothead">{{$cemVal->cemetery_name}}</div>
