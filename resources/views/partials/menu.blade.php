@@ -1,17 +1,25 @@
+
+<?php 
+ $permissionArr =getPermission(auth()->user()->userrole);
+	?>
+
 <aside class="asidelft">
+					{{-- {{ dd(Auth::guard('web')->user()->userrole)}} --}}
+
 	<ul>
 		{{-- <li>
       <a href="#">
       <span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span> 
       <bdi>Dashboard</bdi></a>
-    </li> --}}
-
-		<li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-			<a href="{{ url('dashboard') }}">
-				<span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span>
-				<bdi>Dashboard</bdi>
-			</a>
-		</li>
+			</li> --}}
+			@if($permissionArr->contains('admin_dashboard'))
+				<li class="{{ request()->is('dashboard') ? 'active' : '' }}">
+						<a href="{{ url('dashboard') }}">
+							<span><img src="{{ asset('newPublic/images/lfticon1.png') }}"></span>
+							<bdi>Dashboard</bdi>
+						</a>
+					</li>
+			@endif
 
 		<li class="dropdown {{ request()->is('cemetery') ? 'show active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'show active' : 'aaa' }}  {{ request()->is('cemetery/create') ? 'show active' : '' }} {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }} {{ request()->is('plots/create') ? 'show active' : 'dssdsd' }} {{ request()->is('plots') ? 'show active' : '' }} "  >
 
@@ -22,22 +30,42 @@
       </a>
 			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemeteries/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/edit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
 				aria-labelledby="navbarDropdown">
+				                         
 
+    {{-- @can('cemetery_main') --}}
+				@if($permissionArr->contains('cemetery_main'))
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
 						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
 					<bdi>Cemeteries</bdi></a>
+ 		@endif
+					{{-- @endcan --}}
+
+			@if($permissionArr->contains('cemetery_add'))
+
 				<a class="dropdown-item {{ request()->is('cemeteries/create') ? 'active' : '' }}"
 					href="{{ url('cemeteries/create') }}">
 					<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
 					<bdi>Add Cemetery</bdi>
 				</a>
+				@endif
+						{{-- @endcan --}}
+			@if($permissionArr->contains('plot_main'))
+
 				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}  {{ request()->is('plots/getEdit') ? 'show active' : '' }}" href="{{ url('plots') }}"><span><img
 							src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
 					<bdi>Plots</bdi></a>
+
+			@endif
+
+			@if($permissionArr->contains('plot_add'))
+
 				<a class="dropdown-item {{ request()->is('plots/create') ? 'active' : '' }}"
 					href="{{ url('plots/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
 					<bdi>Add
-						Plots</bdi></a>
+						Plots</bdi>
+				</a>
+
+			@endif
 				{{-- <a class="dropdown-item" href="{{ url('plot/customeNew') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
           <bdi>Add Custome Plots</bdi></a> --}}
 

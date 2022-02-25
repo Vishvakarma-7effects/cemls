@@ -295,7 +295,7 @@ if(!empty($gettitle[0]->locationtitle6))
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
 
                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Above Ground"  <?= $plot->plottype2 == 'Above Ground ' ? 'checked' : '' ?>>
+                                    <input class="form-check-input" type="radio" name="plottype2" id="inlineCheckbox2" value="Above Ground"  <?= $plot->plottype2 == 'Above Ground' ? 'checked' : '' ?>>
                                     <label class="form-check-label col-form-label" for="inlineCheckbox2">Above Ground </label>
                                   </div>
                                   <div class="form-check form-check-inline">
@@ -323,12 +323,12 @@ if(!empty($gettitle[0]->locationtitle6))
                                   
                                    <div class="form-check form-check-inline">
                                   
-                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Indoor" <?= $plot->plottype3 == 'Indoor' ? 'checked' : '' ?>>
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Indoor</label>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Burial" <?= $plot->plottype3 == 'Burial' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Burial</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Outdoor" <?= $plot->plottype3 == 'Outdoor' ? 'checked' : '' ?>>
-                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Outdoor</label>
+                                    <input class="form-check-input" type="radio" name="plottype3" id="inlineCheckbox2" value="Cremation" <?= $plot->plottype3 == 'Cremation' ? 'checked' : '' ?>>
+                                    <label class="form-check-label col-form-label" for="inlineCheckbox2">Cremation</label>
                                   </div>
                                 
 
@@ -340,11 +340,11 @@ if(!empty($gettitle[0]->locationtitle6))
                       </div>
                       
 
-                      <div class="col-lg-3 text-right">
-                        <!--<button class="btn_lg btn_none">Add 360 Image</button> -->
+                      <!--<div class="col-lg-3 text-right">
+                        <!--<button class="btn_lg btn_none">Add 360 Image</button> 
                         <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                         <button class="btn_lg btn_green">Add Videos</button>
-                      </div>
+                      </div>-->
                     </div>
                 </div>
                 <div class="cntbox">
@@ -373,8 +373,8 @@ if(!empty($gettitle[0]->locationtitle6))
         
       </div>
       <div class="range-input">
-        <input type="range" class="range-min" min="0" max="100000" value="0" step="100">
-        <input type="range" class="range-max" min="0" max="100000" value="100000" step="100">
+        <input type="range" class="range-min" min="0" max="100000" value="{{$plot->minprice}}" step="100">
+        <input type="range" class="range-max" min="0" max="100000" value="{{$plot->maxprice}}" step="100">
       </div>                               
                  <br>            
 
@@ -452,8 +452,76 @@ if(!empty($gettitle[0]->locationtitle6))
                                     </div>
                     </div>
 
+                 </div>
+  <div class="cntbox">
+                   
                     
+                
+                  <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Video Url</label>
+                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <textarea class="form-control" name="videourl" >{{$plot->videourl}}</textarea>
+                      
+                   
+                 </div></div>
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Plot Image</label>
+                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <input type="file" class="form-control" name="plotimage[]" multiple>
+                      </div>
+
+
                 </div>
+                <div class="cntbox">
+                   
+                   <table class="table mb-0 plot_table">
+                    <tbody>
+                      <tr class="" style="">
+
+                        <?php
+
+                         
+                         $plotgallery=getplotgallery($plot->id);
+
+                   if(!empty($plotgallery[0]->plotimage)) {  
+
+                    foreach($plotgallery as $galleryimage)
+                    {
+
+                            ?>
+                                <td width="76" style="padding: 4px;">
+                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteMovie" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
+   <i class="fa fa-trash-can" aria-hidden="true"></i>
+</a>
+
+                                  
+                                                                 <img src="{{asset('/uploads/plotgallery/' . $galleryimage->plotimage)}}" class="plot_img"/>
+                                </td>
+                                 
+                              <?php }} ?>
+                              </tr>
+                                </tr>
+
+
+
+                              </tbody></table> 
+                
+                 
+                   
+                 </div></div></div>
+
+
+                </div></div>
 
                 <div class="cntbox">  
                     <button class="btn_mid btn_green" type="submit">Update</button>
@@ -757,5 +825,45 @@ $(function() {
 
     });
    }); 
+
+
+</script>
+
+<script>
+
+     $(function() {
+  $(".deleteMovie").click(function (e) {
+    if(!confirm("Do you really want to delete plot image?")) {
+       return false;
+     }
+         e.preventDefault();
+        var id = $(this).data("id");
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('plots/get-destroyplotimage')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': id
+            },
+            dataType: "json",
+            
+            success: function (data) {
+             //alert(data);  
+              location.reload(true);               
+
+
+
+
+              
+            }
+        });
+
+    });
+   }); 
+
+
 </script>
 @endsection

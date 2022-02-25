@@ -2,13 +2,19 @@
 
 use App\Models\Cemetery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 use App\Http\Requests\StoreMailRequest;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
+
 use App\Models\Mail;
 use App\Models\User;
+use App\Models\CemeteryUser;
 
 class CemeteryController extends Controller
 {
@@ -42,19 +48,41 @@ class CemeteryController extends Controller
 
 				public function index()
 				{
-								$cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
+					// dd(auth()->user()->role->permissions);
+											// abort_if(Gate::denies('cemetery_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+								if(auth()->user()->userrole=='2'){
+											$cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
+											->orderBy('cemetery.id', 'DESC')->select('cemetery.*')->paginate(10);
+
+								}else {
+											$cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
+
+								}
 								if (request('term')) {
-												$cemeterys = DB::table('cemetery')
-																->where('cemetery_name', 'like', '%' . request('term') . '%')
-																->get();
+										$cemeterys = Cemetery::where('cemetery_name', 'like', '%' . request('term') . '%')
+												->orWhere('email', 'like', '%' . request('term') . '%')
+												->get();
 								}
 								return View('admin.cemetries.index')->with('cemeterys', $cemeterys);
 				}
 
+				public function changeStatus(Request $request)
+				{
+								$cemeterys = Cemetery::find($request->cemetery_id);
+								$cemeterys->image = $request->image;
+								$cemeterys->save();
+								return response()->json(['success' => 'Status change successfully.']);
+				}
+
 				public function create()
 				{
+								// abort_if(Gate::denies('cemetery_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+								// $cemeterys = Cemetery::find($request->cemetery_id);
+								$cemetery = '';
 								// load the create form (app/views/sharks/create.blade.php)
-								return View('admin.cemetries.new');
+								return View('admin.cemetries.new', compact('cemetery'));
 				}
 
 				/**
@@ -72,6 +100,11 @@ class CemeteryController extends Controller
 								if ($request->file('image')) {
 												$imageName = $request->file('image')->store('cemetery', 'uploads');
 												$cemetery->image = $imageName;
+								}
+								if ($request->status) {
+												$cemetery->imagestatus = $request->status;
+								} else {
+												$cemetery->imagestatus = 0;
 								}
 								$cemetery->cemetery_name = $request->cemetery_name;
 								$cemetery->cemetery_desc = $request->cemetery_desc;
@@ -152,6 +185,12 @@ class CemeteryController extends Controller
 				// }
 				public function update(Request $request, $id)
 				{
+								if ($request->status) {
+												$imagestatus = $request->status;
+								} else {
+												$imagestatus = 0;
+								}
+
 								if ($request->file('image')) {
 												$imageName = $request->file('image')->store('cemetery', 'uploads');
 												$cemetery = Cemetery::where('ID', $id)->update([
@@ -172,6 +211,7 @@ class CemeteryController extends Controller
 																'cemetery_latitude' => $request->cemetery_latitude,
 																'cemetery_longitude' => $request->cemetery_longitude,
 																'image' => $imageName,
+																'imagestatus' => $imagestatus,
 												]);
 								}
 
@@ -192,6 +232,7 @@ class CemeteryController extends Controller
 												'locationtitle6' => $request->locationtitle6,
 												'cemetery_latitude' => $request->cemetery_latitude,
 												'cemetery_longitude' => $request->cemetery_longitude,
+												'imagestatus' => $imagestatus,
 								]);
 
 								return redirect()
@@ -225,15 +266,11 @@ class CemeteryController extends Controller
 				{
 								return view('admin.cemetries.getAddMember');
 				}
-				public function getInvitePeople(Request $request)
-				{
+				public function getInvitePeople(Request $request){
 								$cemeteries = Cemetery::all();
-
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
-
-				public function storeInvitePeople(Request $request)
-				{
+				public function storeInvitePeople(Request $request){
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
 								$request->merge(['type' => 'INVITATION']);
 								// dd($request->all());
@@ -244,41 +281,37 @@ class CemeteryController extends Controller
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }
+									if (count($checkUser) < 1) {
+												$a = User::create([
+																'email' => $request->input('email'),
+																'type' => 'INVITATED',
+																'status' => 'INVITATED',
+																'userrole'=>2,
+																'password'=>Hash::make('111111')
+												]);
+												$user_id=	$a->id;
+											}else{
+												// dd($checkUser);
+													$user_id=	$checkUser[0]->id;
+											}
 
 								$invite = Mail::create($request->all());
 								if ($invite) {
 												if ($request->type == 'INVITATION') {
-																$checkUser = User::where(['email' => $request->input('email')])->get();
-																// dd($checkUser);
-																if (count($checkUser) < 1) {
-																				$a = User::create([
-																								'email' => $request->input('email'),
-																								'type' => 'INVITATED',
-																								'status' => 'INVITATED'
-																				]);
-																				$user_id=	$a->id;
-																}else{
-																		$checkUser=	$checkUser->id;
+														foreach ($cemeteries as $key => $value) {
+																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])
+																				->get();
+																if (count($checkCemeteryUser) < 1) {
+																				CemeteryUser::create(['user_id' => $user_id, 'cemetery_id' => $value,'status'=>1]);
 																}
-																				// dd($a);
-																				if($a){
-																								foreach ($cemeteries as $key => $value) {
-																												$checkCemeteryUser = DB::table('cemeteries_users')
-																																->where(['user_id' => $a->id, 'cemetery_id' => $value])
-																																->get();
-																												if (count($checkCemeteryUser) < 1) {
-																																DB::table('cemeteries_users')->insert(['user_id' => $a->id, 'cemetery_id' => $value,'status'=>1]);
-																												}
-																								}
-																				}
-																				// dd($a);
-																
+														}
 												}
 												session()->flash('message', 'Mail Successfully Sent');
 								}
 								// url('cemetery/getInvitePeople') 
 								return redirect()->route('cemetery.getInvitePeople');
 				}
+				
 				public function manageMember()
 				{
 								return view('admin.cemetries.manageMember');
@@ -335,7 +368,6 @@ class CemeteryController extends Controller
 				}
 				public function cemeteryDetailPagenew(Request $request)
 				{
-								die('aa');
 								return view('admin.cemetries.cemeteryDetailPagenew');
 				}
 				public function cemeteryDetail(Request $request)

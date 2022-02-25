@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plot;
+use App\Models\Plotgallery;
+use App\Models\CemeteryUser;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -11,20 +15,29 @@ use Illuminate\Support\Facades\DB;
 
 class PlotsController extends Controller
 {
-    public function index()
-	{
-		
-$plots = Plot::orderBy('id', 'DESC')->paginate(10);
-        if (request('term')) {
-$plots =  DB::table('plot')
-        ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
-        ->select('plot.*', 'cemetery.cemetery_name')->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
-         ->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
+		public function index(){
+					if(auth()->user()->userrole=='2'){
+					// $cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
+					// 						->orderBy('cemetery.id', 'DESC')
+					// 						->select('cemetery.*')
+					// 						->paginate(10);
+					$plots = Plot::whereIn('cemetery_id',CemeteryUser::where('user_id','=',auth()->user()->id)->pluck('cemetery_id'))
+					->orderBy('id', 'DESC')->select('plot.*')->paginate(10);
 
 
-        }
-    
-    return View('admin.plots.index')->with('plots', $plots);
+					}else{
+							$plots = Plot::orderBy('id', 'DESC')->paginate(10);
+					}
+				if (request('term')) {
+				$plots =  DB::table('plot')
+												->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
+												->select('plot.*', 'cemetery.cemetery_name')->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
+													->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
+
+
+				}
+								
+								return View('admin.plots.index')->with('plots', $plots);
 
 	}
     public function create()
@@ -78,12 +91,26 @@ $plots =  DB::table('plot')
 							$plot->locationtitle4 = $request->locationtitle4;
 							$plot->locationtitle5 = $request->locationtitle5;
 							$plot->locationtitle6 = $request->locationtitle6;
-
-
-
-
-
+							$plot->videourl = $request->videourl;
 							$plot->save();
+
+							  if($request->file('plotimage'))
+        {
+
+
+ foreach($request->file('plotimage') as $key => $file)
+            {
+
+            	 $imageName = time().rand(1,100000).'.'.$file->extension();
+              $file->move(public_path('uploads/plotgallery'), $imageName);  
+               //$file->store('plotgallery', 'uploads'), $name);  
+        	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
+            DB::table('plotgallery')->insert([
+                'plot_id' => $plot->id,
+                'plotimage' => $imageName
+               
+            ]);
+        }}
 
 							return redirect::to('plots')->with('success', 'Plots Add Succesfully');
 				}
@@ -172,7 +199,29 @@ $plots =  DB::table('plot')
 							$plot->locationtitle4 = $request->locationtitle4;
 							$plot->locationtitle5 = $request->locationtitle5;
 							$plot->locationtitle6 = $request->locationtitle6;
+							$plot->videourl = $request->videourl;
 					$plot->save();
+
+
+					  if($request->file('plotimage'))
+        {
+
+
+ foreach($request->file('plotimage') as $key => $file)
+            {
+
+            	 $imageName = time().rand(1,100000).'.'.$file->extension();
+              $file->move(public_path('uploads/plotgallery'), $imageName);  
+               //$file->store('plotgallery', 'uploads'), $name);  
+        	 //$imageName = $file->file('plotimage')->store('plotgallery', 'uploads');
+            DB::table('plotgallery')->insert([
+                'plot_id' => $plot->id,
+                'plotimage' => $imageName
+               
+            ]);
+        }
+
+        }
 
 					return redirect::to('plots')->with('success', 'Plots Update Succesfully');
  
@@ -213,6 +262,19 @@ $plot = Plot::findOrFail($request->event_id);
         
         return redirect()->to('plots')->with('success', 'Plot Deleted Succesfully');;
 
+        }
+  public function destroyplotimage(Request $request)
+        {
+         
+       $a =  DB::table('plotigallery')->where('id',$request->venue_id)->delete();
+
+       $response = [
+            'status' => true,
+           
+        ];
+
+        return response()->json($response, 200);
+ 
         }
 
 

@@ -26,8 +26,23 @@ function getplotlocationtitle($plotid) {
 }
 
 function getplotgallery($plotid) {
-           $plotgallery=DB::table('plotigallery')->where('plot_id', $plotid)->get();
+           $plotgallery=DB::table('plotgallery')->where('plot_id', $plotid)->get();
      
 
     return $plotgallery;
 }
+
+function getuserrolename($roleid) {
+           $rolename=DB::table('roles')->where('id', $roleid)->get();
+     
+
+    return $rolename;
+}
+function getPermission($roleid) {
+    $permissions=DB::table('permissions')
+    ->join('role_has_permissions','permissions.id','=','role_has_permissions.permission_id')
+    ->where('role_has_permissions.role_id', $roleid)->pluck('name','id');
+    return $permissions;
+}
+
+

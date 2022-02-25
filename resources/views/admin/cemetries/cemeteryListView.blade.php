@@ -483,5 +483,10 @@
                 </div>
             </div>
         </footer>-->
+        <style>
+body{
+  overflow: hidden;
+}
+      </style>
 
 @endsection

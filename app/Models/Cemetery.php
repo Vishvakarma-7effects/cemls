@@ -13,4 +13,5 @@ class Cemetery extends Model
     protected $fillable = [
         'cemetery_name'
     ];
+    
 }

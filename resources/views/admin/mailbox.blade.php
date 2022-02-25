@@ -44,8 +44,11 @@
             </ul>
 
             <div class="searchbx position-relative">
-                <input type="text" class="form-control" id="" placeholder="Cemetery Name or ID">
-                <a href="#"><i class="fa fa-search"></i></a>
+            <form action="{{ route('mailbox.index') }}" method="GET" role="search">
+
+                <input type="text" class="form-control" id="" name="term" placeholder="Sender Name or Sender Email or Cemetery Title"  value="@if(null !==request('term')) {{request('term')}}   @endif">
+               <a href="#"><i class="fa fa-search"></i></a>
+            </form>
             </div>
 
             

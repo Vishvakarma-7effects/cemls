@@ -100,7 +100,13 @@
                     <li class="nu_profile tcell">
                         <div class="nu_pinner">
                             <span class="usericon">
-                                <img src="{{ asset('newPublic/images/user-img.png') }}" alt="" />
+                              
+                                <?php 
+                                if(!empty(Auth::user()->profile_image)) { ?>
+                                <img src="{{asset('/uploads').'/'.Auth::user()->profile_image}}" alt="" />
+                                <?php } else { ?>
+                                  <img src="{{ asset('newPublic/images/user-img.png') }}" alt="" />
+                                  <?php } ?>
                             </span>
                             <span class="untxt">{{ Auth::user()->name }}</span>
                             <i class="fa fa-caret-down"></i>

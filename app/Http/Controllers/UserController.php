@@ -162,7 +162,6 @@ class UserController extends Controller {
     //     return Redirect::to('user.index')->with('message', 'User Deleted Sucessfully');
     // }
     {
-        dd($user);
         $user->delete();
 
    return redirect()->route('user.index')
@@ -264,12 +263,19 @@ class UserController extends Controller {
     
     public function getEdit($id)
     {
+        $roles = DB::table('roles')->get();
+
+
+        $data['roles'] = $roles;
+        // return view('createUser', $data);
+       
         $users = User::where('id',$id)->first();
-        return view('admin.users.getEdit',compact('users'));
+        return view('admin.users.getEdit',compact('users','roles'));
     }
     public function updateUser(Request $request) 
 
     {
+
         // dd($request->all());
         if(!isset($request->new_password))
         {
@@ -292,6 +298,9 @@ class UserController extends Controller {
         $users = User::findOrFail($request->id);
         $users->name = $request->name;
         $users->email = $request->email;
+         $users->feature = $request->feature;
+        $users->userrole = $request->userrole;
+
         if(isset($request->password))
         {
             $pass = Hash::make($request->password);

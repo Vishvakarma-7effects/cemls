@@ -22,8 +22,25 @@ class User extends Authenticatable {
     protected $fillable = [
         'name',
         'email',
-        // 'password',
-        //  'feature',
+        'phone',
+        'address_line1',
+        'address_line2',
+        'city',
+        'state',
+        'zip',
+        'email_verified_at',
+        'remember_token',
+        'created_at',
+        'created_by',
+        'updated_at',
+        'deleted_at',
+        'status',
+        'profile_image',
+        'type',
+        'password',
+        'userrole',
+        'password',
+        'feature',
     ];
 
     /**
@@ -41,13 +58,24 @@ class User extends Authenticatable {
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+    
+    protected $dates = [
+        'email_verified_at',
+        'verified_at',
+        'created_at',
+        'joining_date',
+        'date_of_birth',
+        'exit_date',
+        'updated_at',
+        'deleted_at',
     ];
 
-    // public function roles()
-    // {
-    //     return $this->belongsToMany(Role::class);
-    // }
+    public function role()
+    {
+        return $this->belongsTo(Role::class,'userrole');
+    }
 
 }
