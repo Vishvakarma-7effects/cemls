@@ -403,13 +403,13 @@ if(!empty($gettitle[0]->locationtitle6))
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="yes" <?= $plot->plot_public == 'yes' ? 'checked' : '' ?>>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="1" <?= $plot->plot_public == '1' ? 'checked' : '' ?>>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
                                     Yes
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="no"  <?= $plot->plot_public == 'no' ? 'checked' : '' ?>>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="0"  <?= $plot->plot_public == '0' ? 'checked' : '' ?>>
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   No
                                   </label>

@@ -229,7 +229,7 @@ $plots =  DB::table('plot')
 
 $plot = Plot::findOrFail($request->event_id);
 					
-					$plot->feature = $request->value;
+					$plot->plot_public = $request->value;
 					$plot->save();
 
 
