@@ -67,7 +67,7 @@
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">State</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
                                 <select name="state" id="state_select" class="form-control"  data-control="select2">
-															<option value="">Select Country</option>
+															<option value="">Select State</option>
                                                             @foreach($states as $row)
 															<option value="{{$row->id}}" {{$cemeterys->state==$row->id ? 'selected' : '' }}><b>{{$row->state}}</b></option>
                                                             @endforeach
