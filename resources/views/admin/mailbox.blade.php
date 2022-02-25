@@ -83,7 +83,7 @@
                 <table class="table main_table mb-0">
                       <tbody>
                         
-                         <input type="checkbox" id="master"> All <button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ url('myproductsDeleteAll') }}">Delete All Selected</button>
+                         <input type="checkbox" id="master"> All <button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ url('allmaildatadelete') }}">Delete All Selected</button>
                       
 <?php $i=1; ?>
                          @foreach($cemetery360_inboxs as $cemetery360_inbox)
