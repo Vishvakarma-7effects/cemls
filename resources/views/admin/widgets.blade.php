@@ -55,13 +55,14 @@
 
         </ul>
         
-        <form action="{{ url('widgets') }}" method="GET" role="search">
+       
         <div class="searchbx position-relative">
-
+ <form action="{{ url('widgets') }}" method="GET" role="search">
             <input type="text" name="term" class="form-control" id="" placeholder="Cemetery Name">
             <a href="#"><i class="fa fa-search"></i></a>
+            </form>
          </div>
-        </form>
+        
 
 
     </div>
