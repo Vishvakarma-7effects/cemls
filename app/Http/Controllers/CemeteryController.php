@@ -46,17 +46,11 @@ class CemeteryController extends Controller
 
         public function index()
         {
-         
-           $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
-            if (request('term')) {
+       $cemeterys = Cemetery::orderBy('id', 'DESC')->paginate(10);
+        if (request('term')) {
 
-           $cemeterys = DB::table('cemetery')
-          -> leftjoin('cemetery', 'cemetery.id','=','countries.countries_id')
-           ->select('countries.*', 'cemetery.*')
-
-            ->where('cemetery_name','like',"%".request('term')."%")
-            ->orWhere('email','like',"%".request('term')."%")
-            ->get();
+     $cemeterys = DB::table('cemetery')
+            ->where('cemetery_name','like',"%".request('term')."%")->get();
 
         }
           return View('admin.cemetries.index')->with('cemeterys', $cemeterys);
@@ -218,7 +212,15 @@ class CemeteryController extends Controller
          public function update(Request $request, $id)
         {
            
-               
+               if($request->status)
+                {
+                    $imagestatus = $request->status; 
+                }
+                else
+                {
+           $imagestatus = 0;  
+
+                }   
 
                 $cemetery = Cemetery::where('ID',$id)->update([
                         'cemetery_name'=>$request->cemetery_name,
@@ -238,7 +240,7 @@ class CemeteryController extends Controller
                          'cemetery_latitude'=>$request->cemetery_latitude,
                          'cemetery_longitude'=>$request->cemetery_longitude,
                           'videourl'=> $request->videourl,
-
+                        'imagestatus'=>$imagestatus,
 
                 ]);
 

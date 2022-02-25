@@ -98,7 +98,7 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"> Add 360 Image</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                     <input data-id="userstatus" name="userstatus" class="form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
+                                    <input data-id="userstatus" value="1" name="status" class="form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemeterys->imagestatus == 1 ? 'checked' : '' }}  data-off="Inactive"  data-size="small" data-onstyle="primary">
                                 </div>
                                 </div>
                             </div>
