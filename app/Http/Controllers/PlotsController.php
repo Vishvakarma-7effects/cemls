@@ -254,13 +254,12 @@ $plot = Plot::findOrFail($request->event_id);
         }
   public function destroyplotimage(Request $request)
         {
+        	//die('aa');
          
-       $a =  DB::table('plotigallery')->where('id',$request->venue_id)->delete();
+       $a =  DB::table('plotgallery')->where('id',$request->venue_id)->delete();
 
-       $response = [
-            'status' => true,
-           
-        ];
+       $response['status'] = true;
+        $response['msg'] = 'Upadted';
 
         return response()->json($response, 200);
  

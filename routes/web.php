@@ -185,3 +185,4 @@ Route::post('plots/get-locationtitle5', [PlotsController::class, 'getLocationtit
 Route::post('plots/get-locationtitle6', [PlotsController::class, 'getLocationtitle6'])->middleware('auth');
 Route::post('plots/get-destroyplotimage', [PlotsController::class, 'destroyplotimage'])->middleware('auth');
 Route::post('widgets/update-feature', [DashboardController::class, 'updateFeature'])->middleware('auth');
+Route::delete('myproductsDeleteAll', [MailboxController::class, 'deleteAll']);
