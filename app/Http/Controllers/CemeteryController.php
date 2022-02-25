@@ -306,7 +306,9 @@ class CemeteryController extends Controller
         }
         public function getInvitePeople(Request $request )
         {
-                return view('admin.cemetries.getInvitePeople');
+                      $data['cemeteries'] = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
+
+                return view('admin.cemetries.getInvitePeople', $data);
         }
         
         public function storeInvitePeople(Request $request)

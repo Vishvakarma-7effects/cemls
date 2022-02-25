@@ -19,7 +19,7 @@
 		<section class="bxshadow">
  <form action="{{url('storeInvitePeople')}}" method="POST" >
     @csrf
-qq
+
 			<div class="cntbox">
 				<div class="row">
 					<div class="col-lg-9 pr-lg-0">
