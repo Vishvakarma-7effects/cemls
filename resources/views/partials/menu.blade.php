@@ -29,12 +29,13 @@
 				aria-expanded="false">
 				<span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
 				<bdi>Property</bdi>
-      </a>
+				</a>
+
 			<div class="dropdown-menu {{ request()->is('cemeteries') ? 'active show' : '' }} {{ request()->is('cemeteries/create') ? 'active show' : '' }} {{ request()->is('plots') ? 'active show' : '' }} {{ request()->is('plots/create') ?'active show' : 'ASDD' }}  {{ request()->is('cemetery/edit') ? 'show active' : 'aaa' }}  {{ request()->is('plots/getEdit') ? 'show active' : 'fdhsf' }}"
 				aria-labelledby="navbarDropdown">
 				                         
 
-    @can('cemetery_main')
+    @can('cemetery_list')
 				{{-- @if($permissionArr->contains('cemetery_main')) --}}
 				<a class="dropdown-item {{ request()->is('cemeteries') ? 'active' : '' }}  {{ request()->is('cemetery/getEdit') ? 'active' : 'fdhsf' }}" href="{{ url('cemeteries') }}"><span>
 						<img src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
@@ -53,7 +54,7 @@
 				{{-- @endif --}}
 				@endcan
 				
-			@can('plot_main')
+			@can('plot_list')
 
 				<a class="dropdown-item {{ request()->is('plots') ? 'active' : '' }}  {{ request()->is('plots/getEdit') ? 'show active' : '' }}" href="{{ url('plots') }}"><span><img
 							src="{{ asset('newPublic/images/lfticon16.png') }}"></span>
@@ -96,7 +97,7 @@
           <img src="{{ asset('newPublic/images/lfticon8.png') }}">
         </span> <bdi>Data Sync</bdi></a>
     </li> --}}
-		@if (!auth()->user()->roles->contains(3))
+		{{-- @if (!auth()->user()->roles->contains(3)) --}}
 			<li class="{{ request()->is('widgets') ? 'active' : '' }}">
 				<a href="{{ url('widgets') }}">
 					<span><img src="{{ asset('newPublic/images/lfticon9.png') }}"></span>
@@ -120,17 +121,27 @@
 
 				<div class="dropdown-menu {{ request()->is('cemetery/getInvitePeople') ? 'show' : '' }} {{ request()->is('users') ? 'show' : '' }}   {{ request()->is('users/getEdit') ? 'show' : '' }} {{ request()->is('users/create') ? 'show' : '' }}"
 					aria-labelledby="navbarDropdown">
-					<a class="dropdown-item  {{ request()->is('cemetery/getInvitePeople') ? 'active' : '' }}"
-						href="{{ url('cemetery/getInvitePeople') }}">
-						<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
-						<bdi>Invite User</bdi>
-					</a>
 
-					<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }} {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
-								src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
-						<bdi>Users</bdi></a>
+					@can('invite_user')
+						<a class="dropdown-item  {{ request()->is('cemetery/getInvitePeople') ? 'active' : '' }}"
+							href="{{ url('cemetery/getInvitePeople') }}">
+							<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+							<bdi>Invite User</bdi>
+						</a>
+					@endcan
+
+					@can('user_list')
+						<a class="dropdown-item {{ request()->is('users') ? 'active' : '' }} {{ request()->is('users/getEdit') ? 'active' : '' }}" href="{{ url('users') }}"><span><img
+									src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
+							<bdi>Users</bdi>
+						</a>
+					@endcan
+
+					@can('user_add')
 						<a class="dropdown-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ url('users/create') }}"><span><img src="{{ asset('newPublic/images/lfticon17.png') }}"></span>
-          <bdi>Add User</bdi></a>
+          <bdi>Add User</bdi>
+						</a>
+					@endcan
 
 					{{-- <a class="dropdown-item" href="{{ url('user/getSignIn') }}">
           <span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
@@ -138,16 +149,23 @@
         </a> --}}
 				</div>
 			</li>
-			<li class="{{ request()->is('roles*') ? 'active' : '' }}">
-				<a href="{{ url('roles') }}"><span>
-						<img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>
-					<bdi>Roles</bdi>
-				</a>
-			</li>
-		@endif
+
+			@can('role_list')
+				<li class="{{ request()->is('roles*') ? 'active' : '' }}">
+					<a href="{{ url('roles') }}"><span>
+							<img src="{{ asset('newPublic/images/lfticon12.png') }}"></span>
+						<bdi>Roles</bdi>
+					</a>
+				</li>
+			@endcan
+		{{-- @endif --}}
+
+		@can('my_account')
 		<li class="{{ request()->is('user/profile') ? 'active' : '' }}">
 			<a href="{{ url('user/profile') }}"><span><img src="{{ asset('newPublic/images/lfticon13.png') }}"></span>
 				<bdi>My Account</bdi></a>
 		</li>
+
+		@endcan
 	</ul>
 </aside>

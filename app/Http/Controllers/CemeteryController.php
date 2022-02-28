@@ -15,10 +15,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Gate;
 
 
-use App\Models\Mail;
+// use App\Models\Mail;
 use App\Models\User;
 use App\Models\CemeteryUser;
 use App\Models\Countries;
+use Mail;
+use App\Mail\UserEmail;
 
 class CemeteryController extends Controller
 {
@@ -53,7 +55,7 @@ class CemeteryController extends Controller
 				public function index()
 				{
 					// dd(auth()->user()->role->permissions);
-							abort_if(Gate::denies('cemetery_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+							abort_if(Gate::denies('cemetery_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 								if(auth()->user()->userrole=='2'){
 											$cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
@@ -291,6 +293,7 @@ class CemeteryController extends Controller
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
 				public function storeInvitePeople(Request $request){
+
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
 								$request->merge(['type' => 'INVITATION']);
 								// dd($request->all());
@@ -298,9 +301,16 @@ class CemeteryController extends Controller
 
 								$checkUser = User::where(['email' => $request->input('email')])->get();
 
+
+
+
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }
+
+								mail::to($request->input('email'))->send(new UserEmail( $request->all() ));
+
+
 									if (count($checkUser) < 1) {
 												$a = User::create([
 																'email' => $request->input('email'),
@@ -315,8 +325,8 @@ class CemeteryController extends Controller
 													$user_id=	$checkUser[0]->id;
 											}
 
-								$invite = Mail::create($request->all());
-								if ($invite) {
+								// $invite = Mail::create($request->all());
+								// if ($invite) {
 												if ($request->type == 'INVITATION') {
 														foreach ($cemeteries as $key => $value) {
 																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])
@@ -327,7 +337,7 @@ class CemeteryController extends Controller
 														}
 												}
 												session()->flash('message', 'Mail Successfully Sent');
-								}
+								// }
 								// url('cemetery/getInvitePeople') 
 								return redirect()->route('cemetery.getInvitePeople');
 				}

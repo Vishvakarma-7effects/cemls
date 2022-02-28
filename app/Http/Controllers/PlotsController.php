@@ -18,7 +18,7 @@ use Gate;
 class PlotsController extends Controller
 {
 		public function index(){
-					abort_if(Gate::denies('plot_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+					abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 					if(auth()->user()->userrole=='2'){
 					// $cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)

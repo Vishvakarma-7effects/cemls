@@ -12,6 +12,8 @@ class RolesController extends Controller
 {
     public function manage()
     {        // dd($user);
+        abort_if(Gate::denies('role_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $data = Roles::paginate(10);
         return view('roles.manage',compact('data'));
     }
@@ -19,7 +21,9 @@ class RolesController extends Controller
     public function add()
     {      
         //   dd($user);
-                $permissions = DB::table('permissions')->get();
+        abort_if(Gate::denies('role_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $permissions = DB::table('permissions')->get();
 
         return view('roles.add',compact('permissions'));//folder name.blade file
     }
@@ -40,6 +44,8 @@ class RolesController extends Controller
     }
     public function edit($id)
     {
+        abort_if(Gate::denies('role_update'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $data = Roles::find($id);
         return view('roles.edit',compact('data'));//folername.blade file
     }
@@ -59,6 +65,8 @@ class RolesController extends Controller
      }
      public function view($id)
      {
+        abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
          $data = Roles::find($id);
          return view('roles.view',compact('data'));
      }
