@@ -62,19 +62,21 @@
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
 						<section class="bxshadow mb-3 mb-md-5">
-     
 							@if(count($cemeterys))
+
 							@foreach ($cemeterys as $cemKey => $cemVal)
 								<div class="cntbox">
 									<table class="table mb-0 plot_table">
 										<tr class="" style="">
 											<td width="76" style="padding: 4px;">
-												<?php
-														if(!empty($cemVal->image))
-														{ 
-													?>
-												<img src="{{ asset('/uploads/' . $cemVal->image) }}" class="plot_img" />
+
+												<?php $cemeterygallery=getcemeterygallery($cemVal->ID);
+															if(!empty($cemeterygallery[0]->cemeteryimage)) {  ?>
+
+												<img src="{{ asset('/uploads/cemeterygallery/' . $cemeterygallery[0]->cemeteryimage) }}"
+													class="plot_img" />
 												<?php } else { ?>
+
 												<img src="{{ asset('/uploads/') }}/noimage.png" class="plot_img" />
 												<?php } ?>
 											</td>
@@ -107,8 +109,7 @@
 											<td width="350px" style="padding: 15px;">
 												<!--<div class="thead">Actions</div>-->
 												<div class="d-flex">
-													<a class="btn_mid btn_cms_list mr-3" href="{{ url('users', ['cemetry_id' => $cemVal->ID]) }}">Manage
-														Members</a>
+													<a class="btn_mid btn_cms_list mr-3" href="{{ route('users.index',['cemetery_id'=>$cemVal->ID]) }}">Manage Members</a>
 
 													<a class="btn_mid btn_cms_list" href="{{ url('cemetery/getInvitePeople') }}">Add Members</a>
 
@@ -142,8 +143,7 @@
 							@endforeach
 
 							@else
-
-							 Any Cemetery Not assigned.
+							Any cemetery not assigned.
 							@endif
 
 
@@ -162,20 +162,20 @@
                         {!! $cemeterys->links('pagination::bootstrap-4') !!}
                 </li> --}}
 
-																									<li class="page-item "><a class="page-link " href="#">1</a></li>
-																									<li class="page-item active"><a class="page-link" href="#">2</a></li>
-																									<li class="page-item"><a class="page-link" href="#">3</a></li>
-																									<li class="page-item"><a class="page-link" href="#">4</a></li>
-																									<li class="page-item"><a class="page-link" href="#">...</a></li>
-																									<li class="page-item"><a class="page-link" href="#">12</a></li>
-																									<li class="page-item">
+																										<li class="page-item "><a class="page-link " href="#">1</a></li>
+																										<li class="page-item active"><a class="page-link" href="#">2</a></li>
+																										<li class="page-item"><a class="page-link" href="#">3</a></li>
+																										<li class="page-item"><a class="page-link" href="#">4</a></li>
+																										<li class="page-item"><a class="page-link" href="#">...</a></li>
+																										<li class="page-item"><a class="page-link" href="#">12</a></li>
+																										<li class="page-item">
 
-																									<a class="page-link pn_arrow" href="#" aria-label="Next">
-																									<i class="fa fa-caret-right"></i>
-																									</a>
-																									</li>
-																													</ul>
-																									</nav>-->
+																										<a class="page-link pn_arrow" href="#" aria-label="Next">
+																										<i class="fa fa-caret-right"></i>
+																										</a>
+																										</li>
+																														</ul>
+																										</nav>-->
 						<?php
                          if (!request('term')) {
                             ?>

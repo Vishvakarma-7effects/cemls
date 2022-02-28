@@ -11,11 +11,15 @@ use App\Models\CemeteryUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
+use Gate;
 
 class PlotsController extends Controller
 {
 		public function index(){
+					abort_if(Gate::denies('plot_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 					if(auth()->user()->userrole=='2'){
 					// $cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
 					// 						->orderBy('cemetery.id', 'DESC')
@@ -42,8 +46,9 @@ class PlotsController extends Controller
 	}
     public function create()
 	{
+					abort_if(Gate::denies('plot_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-          $data['cemeteries'] = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
+					$data['cemeteries'] = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
       return view('admin.plots.new', $data);
 		
 	}
@@ -240,7 +245,7 @@ class PlotsController extends Controller
 
 $plot = Plot::findOrFail($request->event_id);
 					
-					$plot->feature = $request->value;
+					$plot->plot_public = $request->value;
 					$plot->save();
 
 
@@ -265,13 +270,12 @@ $plot = Plot::findOrFail($request->event_id);
         }
   public function destroyplotimage(Request $request)
         {
+        	//die('aa');
          
-       $a =  DB::table('plotigallery')->where('id',$request->venue_id)->delete();
+       $a =  DB::table('plotgallery')->where('id',$request->venue_id)->delete();
 
-       $response = [
-            'status' => true,
-           
-        ];
+       $response['status'] = true;
+        $response['msg'] = 'Upadted';
 
         return response()->json($response, 200);
  

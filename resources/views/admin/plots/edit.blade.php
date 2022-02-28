@@ -403,13 +403,13 @@ if(!empty($gettitle[0]->locationtitle6))
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="yes" <?= $plot->plot_public == 'yes' ? 'checked' : '' ?>>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="1" <?= $plot->plot_public == '1' ? 'checked' : '' ?>>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
                                     Yes
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="no"  <?= $plot->plot_public == 'no' ? 'checked' : '' ?>>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="0"  <?= $plot->plot_public == '0' ? 'checked' : '' ?>>
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   No
                                   </label>
@@ -500,7 +500,7 @@ if(!empty($gettitle[0]->locationtitle6))
 
                             ?>
                                 <td width="76" style="padding: 4px;">
-                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteMovie" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
+                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteplot" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
    <i class="fa fa-trash-can" aria-hidden="true"></i>
 </a>
 
@@ -832,7 +832,7 @@ $(function() {
 <script>
 
      $(function() {
-  $(".deleteMovie").click(function (e) {
+  $(".deleteplot").click(function (e) {
     if(!confirm("Do you really want to delete plot image?")) {
        return false;
      }

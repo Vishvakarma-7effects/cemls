@@ -15,9 +15,6 @@
                     
                     @csrf
            @method('PUT')
-
-             <input type="hidden" class="form-control" id="cemetery_latitude" name="cemetery_latitude" id="">
-                            <input type="hidden" class="form-control" id="cemetery_longitude"  name="cemetery_longitude" id="">
             <div class="cntbox">
                 <div class="row">
                     <div class="col-lg-9 pr-lg-0">
@@ -43,11 +40,24 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-7">
+                          <div class="col-md-7">
                                 <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="city" value="{{$cemeterys->city}}" id="" placeholder="">
+
+                                <select name="countries_id" id="countries_id" class="form-control"  data-control="select2">
+                                                            <option value="">Select Country</option>
+                                                            @foreach($countries as $row)
+                                                            <option value="{{$row->id}}" {{$cemeterys->countries_id==$row->id ? 'selected' : '' }}><b>{{$row->countries}}</b></option>
+                                                            @endforeach
+                                                        </select>
+                                    <!-- <input type="text" class="form-control" name="country" value="{{$cemeterys->country}}" id="" placeholder=""> -->
+                                  
+   
+                              
+                              
+                              
+                              
                                 </div>
                                 </div>
                             </div>
@@ -56,22 +66,26 @@
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">State</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="state" value="{{$cemeterys->state}}" id="" placeholder="">
-                                </div>
+                                <select name="state" id="state_select" class="form-control"  data-control="select2">
+															<option value="">Select State</option>
+                                                            @foreach($states as $row)
+															<option value="{{$row->id}}" {{$cemeterys->state==$row->id ? 'selected' : '' }}><b>{{$row->state}}</b></option>
+                                                            @endforeach
+														</select>                                </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-7">
+                            
+  <div class="col-md-7">
                                 <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="country" value="{{$cemeterys->country}}" id="" placeholder="">
+                                    <input type="text" class="form-control" name="city" value="{{$cemeterys->city}}" id="" placeholder="">
                                 </div>
                                 </div>
                             </div>
-
                             <div class="col-md-5">
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">Zip Code</label>
@@ -84,19 +98,19 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"> Add 360 Image</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                     <input data-id="userstatus" value="1" name="status" class="form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemeterys->imagestatus == 1 ? 'checked' : '' }} data-off="Inactive"  data-size="small" data-onstyle="primary">
+                                    <input data-id="userstatus" value="1" name="status" class="form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemeterys->imagestatus == 1 ? 'checked' : '' }}  data-off="Inactive"  data-size="small" data-onstyle="primary">
                                 </div>
                                 </div>
                             </div>
 
  </div>
  </div>
-                    <div class="col-lg-3 text-right">
-                    <!--<button class="btn_lg btn_none">Add 360 Image</button>-->
+                    <!-- <div class="col-lg-3 text-right">
+                    <!--<button class="btn_lg btn_none">Add 360 Image</button>
 
-                    <input type="file" name="image" class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos
+                    <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                     <button class="btn_lg btn_green">Add Videos</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="cntbox">
@@ -195,6 +209,78 @@
 
             </div>
 
+
+
+  <div class="cntbox">
+            
+                
+
+             <div class="row">
+                    <div class="col-lg-9 pr-lg-0">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Video Url</label>
+                             <div class="col-lg-7 col-sm-9 pl-3 pl-md-4">
+                          <textarea class="form-control" name="videourl">{{$cemeterys->videourl}}</textarea>
+                      
+                   
+                 </div></div>
+
+                <div class="row">
+                       <div class="col-lg-9 mb-3">
+                         <div class="form-group row">
+
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Cemetery Image</label>
+                           <div class="col-sm-7 infosec">
+                          <input type="file" class="form-control" name="cemeteryimage[]" multiple>
+                      </div>
+
+                   
+                </div>
+
+               
+
+           
+
+              <div class="cntbox">
+                   
+                   <table class="table mb-0 plot_table">
+                    <tbody>
+                      <tr class="" style="">
+
+                        <?php
+
+                         
+                         $cemeterygallery=getcemeterygallery($cemeterys->ID);
+
+                   if(!empty($cemeterygallery[0]->cemeteryimage)) {  
+
+                    foreach($cemeterygallery as $galleryimage)
+                    {
+
+                            ?>
+                                <td width="76" style="padding: 4px;">
+                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteplot" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
+   <i class="fa fa-trash-can" aria-hidden="true"></i>
+</a>
+
+                                  
+                                                                 <img src="{{asset('/uploads/cemeterygallery/' . $galleryimage->cemeteryimage)}}" class="plot_img"/>
+                                </td>
+                                 
+                              <?php }} ?>
+                              </tr>
+                                </tr>
+
+
+
+                              </tbody></table> 
+                
+                 
+                   
+               
+            </div>
+             </div>
             <div class="cntbox">
                 <button class="btn_mid btn_green">Update</button>
                   </form>
@@ -206,3 +292,74 @@
     </section>
 
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#countries_id').on('change', function () 
+            {
+
+                var countries_id = this.value;
+                $("#state_select").html('');
+
+                $.ajax({
+                    url: "{{url('fetchstates')}}",
+                    type: "POST",
+                    data: {
+                        countries_id: countries_id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) 
+                    {
+                        $('#state_select').html('<option value="">Select States</option>');
+
+                        $.each(result, function (key, value) {
+                            $("#state_select").append('<option value="' + value
+                                .id + '">' + value.state + '</option>');
+                        });
+                    }
+                });
+
+
+            });
+        });
+  </script>
+
+<script>
+
+     $(function() {
+  $(".deleteplot").click(function (e) {
+    if(!confirm("Do you really want to delete cemetery image?")) {
+       return false;
+     }
+         e.preventDefault();
+        var id = $(this).data("id");
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('cemeteries/get-destroycemeteryimage')}}",
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'venue_id': id
+            },
+            dataType: "json",
+            
+            success: function (data) {
+             //alert(data);  
+              location.reload(true);               
+
+
+
+
+              
+            }
+        });
+
+    });
+   }); 
+
+
+</script>

@@ -237,6 +237,87 @@
 																										</ul>
 																						</nav>-->
 <?php
+ //echo $row->cemetery_id;
+                         
+                         $cemeteryname=getcemeteryname($row->cemetery_id);
+                   if(!empty($cemeteryname[0]->cemetery_name)) {  echo  $cemeteryname[0]->cemetery_name; }
+                            ?>
+</div>
+                                  
+                                </td>
+                                <td width="105">
+                                    <div class="thead">Status</div>
+                                    <div class="ttxt cl_green">{{$row->plotstatus}}</div>
+                                </td>
+                                <td width="205">
+                                    <div class="thead text-center">Type</div>
+                                    <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
+                                    
+                                    </div>
+                                </td>
+                                <td style="padding: 15px;">
+                                <div class="thead">Public</div>
+                            <div class="d-flex">
+                                    <input data-id="{{$row->id}}" class="radio" type="checkbox" data-toggle="toggle" data-on="Yes" {{ $row->plot_public == 1 ? 'checked' : '' }} data-off="No"  data-size="small" data-onstyle="primary"></div></div> &nbsp;&nbsp;
+                                
+                                        
+                            </div>
+                        
+                                <!--<td width="105">
+                                    <div class="thead">Lat Long</div>
+                                    <div class="ttxt cl_green">Yes</div>
+                                </td>-->
+                                <td width="40" align="right">
+                                    <div class="moption">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                    <ul class="moptionul">
+                                        <i class="fa fa-caret-up"></i>
+                                        <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
+                                        <li>
+                                        <form action="{{ route('plots.destroy',$row->id) }}" method="POST">
+   
+                    
+
+   @csrf
+   @method('DELETE')
+
+   <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+                                                
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                        @endforeach
+
+                    </section>
+
+                  <!--  <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
+                        <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link pn_arrow" href="#" aria-label="Previous">
+                            <i class="fa fa-caret-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item "><a class="page-link " href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">12</a></li>
+                        <li class="page-item">
+                            <a class="page-link pn_arrow" href="#" aria-label="Next">
+                            <i class="fa fa-caret-right"></i>
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>-->
+                      <?php
                          if (!request('term')) {
                             ?>
 {{ $plots->links('layouts.custom') }}

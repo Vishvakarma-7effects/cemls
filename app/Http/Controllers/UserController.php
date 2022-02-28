@@ -28,14 +28,20 @@ class UserController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index(Request $request) {
        
         //$users = User::orderBy('id','DESC')->get();
         //$data['users'] = $users;
-       
+    //    dd($request->get('cemetery_id'));
         //return view('admin.users.index', compact('users'));
-        $users = User::orderBy('id', 'DESC')->paginate(10);
-        if (request('term')) {
+    if($request->get('cemetery_id')){
+        $users = User::join('cemeteries_users','users.id','=','cemeteries_users.user_id')->where(['cemeteries_users.cemetery_id'=>$request->get('cemetery_id')])->orderBy('cemeteries_users.id', 'DESC')->paginate(10);
+        // dd($users);
+
+    }else{
+    $users = User::with(['role'])->orderBy('id', 'DESC')->paginate(10);
+    }
+    if (request('term')) {
 
      $users = DB::table('users')
             ->where('name','like',"%".request('term')."%")->orWhere('email', 'like' , '%'. request('term') .'%')->get();

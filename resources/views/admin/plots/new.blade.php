@@ -311,13 +311,13 @@ datalist {
                               <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Public</label>
                               <div class="col-md-6 col-sm-9 pl-3 pl-md-4 d-flex justify-content-between">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="yes" checked>
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios1" value="1" checked>
                                   <label class="form-check-label col-form-label" for="exampleRadios1">
                                     Yes
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="no">
+                                  <input class="form-check-input" type="radio" name="plot_public" id="exampleRadios2" value="0">
                                   <label class="form-check-label col-form-label" for="exampleRadios2">
                                   No
                                   </label>

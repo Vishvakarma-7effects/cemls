@@ -46,3 +46,8 @@ function getPermission($roleid) {
 }
 
 
+
+function getcemeterygallery($cemeteryid) {
+    $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->get();
+    return $cemeterygallery;
+}

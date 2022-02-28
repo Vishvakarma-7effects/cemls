@@ -7,14 +7,18 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreMailRequest;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Gate;
 use Symfony\Component\HttpFoundation\Response;
+
+use Gate;
+
 
 use App\Models\Mail;
 use App\Models\User;
 use App\Models\CemeteryUser;
+use App\Models\Countries;
 
 class CemeteryController extends Controller
 {
@@ -49,7 +53,7 @@ class CemeteryController extends Controller
 				public function index()
 				{
 					// dd(auth()->user()->role->permissions);
-											// abort_if(Gate::denies('cemetery_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+							abort_if(Gate::denies('cemetery_main'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 								if(auth()->user()->userrole=='2'){
 											$cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
@@ -67,6 +71,16 @@ class CemeteryController extends Controller
 								return View('admin.cemetries.index')->with('cemeterys', $cemeterys);
 				}
 
+			
+
+				public function fetchstates(Request $request)
+				{
+								$states = DB::table('states')
+												->where('country_id', $request->countries_id)
+												->get();
+								return response()->json($states);
+				}
+
 				public function changeStatus(Request $request)
 				{
 								$cemeterys = Cemetery::find($request->cemetery_id);
@@ -77,12 +91,14 @@ class CemeteryController extends Controller
 
 				public function create()
 				{
-								// abort_if(Gate::denies('cemetery_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+									abort_if(Gate::denies('cemetery_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 								// $cemeterys = Cemetery::find($request->cemetery_id);
 								$cemetery = '';
+								$countries = Countries::all();
+
 								// load the create form (app/views/sharks/create.blade.php)
-								return View('admin.cemetries.new', compact('cemetery'));
+								return View('admin.cemetries.new', compact('cemetery', 'countries'));
 				}
 
 				/**
@@ -97,10 +113,6 @@ class CemeteryController extends Controller
 
 								$cemetery = new Cemetery();
 
-								if ($request->file('image')) {
-												$imageName = $request->file('image')->store('cemetery', 'uploads');
-												$cemetery->image = $imageName;
-								}
 								if ($request->status) {
 												$cemetery->imagestatus = $request->status;
 								} else {
@@ -112,7 +124,7 @@ class CemeteryController extends Controller
 								$cemetery->location = $request->location;
 								$cemetery->city = $request->city;
 								$cemetery->state = $request->state;
-								$cemetery->country = $request->country;
+								$cemetery->countries_id = $request->countries_id;
 								$cemetery->zip = $request->zip;
 								$cemetery->locationtitle1 = $request->locationtitle1;
 								$cemetery->locationtitle2 = $request->locationtitle2;
@@ -122,10 +134,23 @@ class CemeteryController extends Controller
 								$cemetery->locationtitle6 = $request->locationtitle6;
 								$cemetery->cemetery_latitude = $request->cemetery_latitude;
 								$cemetery->cemetery_longitude = $request->cemetery_longitude;
-								$cemetery->created_by = auth()->user()->id;
+								$cemetery->videourl = $request->videourl;
 
+								$cemetery->created_by = auth()->user()->id;
 								$cemetery->save();
-								// return Redirect::to('cemeteries');
+								//echo $cemetery->id; die;
+
+								if ($request->file('cemeteryimage')) {
+												foreach ($request->file('cemeteryimage') as $key => $file) {
+																$imageName = time() . rand(1, 100000) . '.' . $file->extension();
+																$file->move(public_path('uploads/cemeterygallery'), $imageName);
+
+																DB::table('cemeterygallery')->insert([
+																				'cemetery_id' => $cemetery->id,
+																				'cemeteryimage' => $imageName,
+																]);
+												}
+								}
 
 								return redirect()
 												->to('cemeteries')
@@ -165,9 +190,13 @@ class CemeteryController extends Controller
 				public function edit($id)
 				{
 								$cemeterys = Cemetery::findOrFail($id);
-								$created_at = date('d-M-Y', strtotime($cemeterys->created_at));
+								$states = DB::table('states')->get();
 
-								return view('admin.cemetries.edit', compact('cemeterys', 'created_at'));
+								$countries = DB::table('countries')->get();
+
+								// $created_at = date('d-M-Y', strtotime($cemeterys->created_at));
+
+								return view('admin.cemetries.edit', compact('cemeterys', 'countries', 'states'));
 				}
 
 				// public function update(Request $request, Cemetery $cemetery)
@@ -191,30 +220,6 @@ class CemeteryController extends Controller
 												$imagestatus = 0;
 								}
 
-								if ($request->file('image')) {
-												$imageName = $request->file('image')->store('cemetery', 'uploads');
-												$cemetery = Cemetery::where('ID', $id)->update([
-																'cemetery_name' => $request->cemetery_name,
-																'cemetery_desc' => $request->cemetery_desc,
-																'address' => $request->address,
-																'location' => $request->location,
-																'city' => $request->city,
-																'state' => $request->state,
-																'country' => $request->country,
-																'zip' => $request->zip,
-																'locationtitle1' => $request->locationtitle1,
-																'locationtitle2' => $request->locationtitle2,
-																'locationtitle3' => $request->locationtitle3,
-																'locationtitle4' => $request->locationtitle4,
-																'locationtitle5' => $request->locationtitle5,
-																'locationtitle6' => $request->locationtitle6,
-																'cemetery_latitude' => $request->cemetery_latitude,
-																'cemetery_longitude' => $request->cemetery_longitude,
-																'image' => $imageName,
-																'imagestatus' => $imagestatus,
-												]);
-								}
-
 								$cemetery = Cemetery::where('ID', $id)->update([
 												'cemetery_name' => $request->cemetery_name,
 												'cemetery_desc' => $request->cemetery_desc,
@@ -222,7 +227,7 @@ class CemeteryController extends Controller
 												'location' => $request->location,
 												'city' => $request->city,
 												'state' => $request->state,
-												'country' => $request->country,
+												'countries_id' => $request->countries_id,
 												'zip' => $request->zip,
 												'locationtitle1' => $request->locationtitle1,
 												'locationtitle2' => $request->locationtitle2,
@@ -232,8 +237,21 @@ class CemeteryController extends Controller
 												'locationtitle6' => $request->locationtitle6,
 												'cemetery_latitude' => $request->cemetery_latitude,
 												'cemetery_longitude' => $request->cemetery_longitude,
+												'videourl' => $request->videourl,
 												'imagestatus' => $imagestatus,
 								]);
+
+								if ($request->file('cemeteryimage')) {
+												foreach ($request->file('cemeteryimage') as $key => $file) {
+																$imageName = time() . rand(1, 100000) . '.' . $file->extension();
+																$file->move(public_path('uploads/cemeterygallery'), $imageName);
+
+																DB::table('cemeterygallery')->insert([
+																				'cemetery_id' => $id,
+																				'cemeteryimage' => $imageName,
+																]);
+												}
+								}
 
 								return redirect()
 												->to('cemeteries')
@@ -251,6 +269,7 @@ class CemeteryController extends Controller
 
 								return response()->json($response, 200);
 				}
+
 				public function updatePublic(Request $request)
 				{
 								$cemetery = Cemetery::where('ID', $request->event_id)->update([
@@ -262,11 +281,12 @@ class CemeteryController extends Controller
 
 								return response()->json($response, 200);
 				}
+
 				public function getAddMember()
 				{
 								return view('admin.cemetries.getAddMember');
 				}
-				public function getInvitePeople(Request $request){
+							public function getInvitePeople(Request $request){
 								$cemeteries = Cemetery::all();
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
@@ -311,7 +331,7 @@ class CemeteryController extends Controller
 								// url('cemetery/getInvitePeople') 
 								return redirect()->route('cemetery.getInvitePeople');
 				}
-				
+
 				public function manageMember()
 				{
 								return view('admin.cemetries.manageMember');
@@ -373,5 +393,17 @@ class CemeteryController extends Controller
 				public function cemeteryDetail(Request $request)
 				{
 								return view('admin.cemetries.cemeterypopup');
+				}
+
+				public function destroycemeteryimage(Request $request)
+				{
+								$a = DB::table('cemeterygallery')
+												->where('id', $request->venue_id)
+												->delete();
+
+								$response['status'] = true;
+								$response['msg'] = 'Upadted';
+
+								return response()->json($response, 200);
 				}
 }
