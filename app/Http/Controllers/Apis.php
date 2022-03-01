@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Cemetery;
@@ -118,4 +119,17 @@ $plots =  DB::table('plot')
          ->where('plot.cemetery_id', $cemeteryid) ->where('plot.id', $plotid) ->get();
         return $plots;
     }
+
+
+      public function getallusercemeteries()
+        {
+          
+        
+
+          $cemeterys =  DB::table('cemetery')
+      
+        ->select('id','cemetery_name','address','latitude','longitude')->get();
+        return $cemeterys;
+        }
+
 }

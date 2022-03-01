@@ -124,16 +124,14 @@
                     </div>
 
                     <div class="col-lg-6 mb-1 mb-md-3 loctxt d-flex justify-content-center align-items-end">
-                    <b>Latitude:</b> <span id='latbox'></span><span class="d-inline-block pl-3"><b>Longitude:</b> <span id='lngbox'></span></span>
+                    <b>Latitude: </b> <span id='latbox'>{{ $cemeterys->cemetery_latitude}}</span><span class="d-inline-block pl-3"><b>Longitude: </b> <span id='lngbox'>{{ $cemeterys->cemetery_longitude}}</span></span>
                     </div>
                 </div>
 
                   <div class="mframe mb-4 pb-1">
-                      <div id="map" style="height:400px;"></div>
-                                    <div id="infowindow-content">
-                                        <span id="place-name" class="title"></span><br />
-                                        <span id="place-address"></span>
-                                    </div>
+                      
+                                   <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+src="https://maps.google.com/maps?width=900&amp;height=400&amp;hl=en&amp;q=<?php echo $cemeterys->location; ?> &amp; t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;maptype=satellite" height="400px" width="900px"></iframe>
                     </div>
 
 

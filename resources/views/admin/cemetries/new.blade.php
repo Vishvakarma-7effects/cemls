@@ -10,7 +10,7 @@
         </nav>
         <h1 class="mheading">Add Cemetery</h1>
         <section class="bxshadow">
-            <form method="post" action="{{route('cemeteries.store')}}" accept-charset="UTF-8">
+    <form method="post" action="{{route('cemeteries.store')}}" accept-charset="UTF-8" enctype="multipart/form-data">
         @csrf
             <div class="cntbox">
                 <div class="row">
@@ -37,31 +37,48 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-7">
+
+<div class="col-md-7">
                                 <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="city" id="" placeholder="">
+                                    <!-- <input type="text" class="form-control" name="country" id="" placeholder=""> -->
+                                    <select id="countries_id" name="countries_id" required class="form-control allmyselectdropdown">
+                                            <option value="">Select Country</option>
+                                            @foreach($countries as $row)
+                                            <option value="{{$row->id}}">{{$row->countries}}</option>
+                                            @endforeach
+                                        </select>  
+
+                                        
+
+                                        
                                 </div>
                                 </div>
                             </div>
+
+
+                       
 
                             <div class="col-md-5">
                                 <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label pr-0 pl-md-0">State</label>
                                 <div class="col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="state" id="" placeholder="">
+                                <select id="state_select" class="form-control" name="state">
+                                <option value=""> -- Select State -- </option>
+                                </select>
+                                    <!-- <input type="text" class="form-control" name="state" id="" placeholder=""> -->
                                 </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-7">
+                                 <div class="col-md-7">
                                 <div class="form-group row">
-                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
+                                <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">City</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <input type="text" class="form-control" name="country" id="" placeholder="">
+                                    <input type="text" class="form-control" name="city" id="" placeholder="">
                                 </div>
                                 </div>
                             </div>
@@ -74,24 +91,25 @@
                                 </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-7">
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1"> Add 360 Image</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                     <input data-id="userstatus" value="1" data class=" form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" name="status" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
+                        <input data-id="userstatus" class=" form-control radio userstatus btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0" name="status" id="userstatus" type="checkbox" data-toggle="toggle" data-on="Active" checked data-off="Inactive"  data-size="small" data-onstyle="primary">
+
                                 </div>
                                 </div>
                             </div>
 
  </div>
  </div>
-                    <div class="col-lg-3 text-right">
-                    <!--<button class="btn_lg btn_none">Add 360 Image</button>-->
+                    <!--<div class="col-lg-3 text-right">
+                    <!--<button class="btn_lg btn_none">Add 360 Image</button>
 
                     <button class="btn_lg btn_green my-lg-3 mx-md-2 mx-lg-0">Add Photos</button>
                     <button class="btn_lg btn_green">Add Videos</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="cntbox">
@@ -189,7 +207,41 @@
 
 
             </div>
+ <div class="cntbox">
+              
 
+              
+
+             
+                <div class="row">
+                   <div class="col-lg-9 mb-3">
+                        <div class="form-group position-relative row">
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Video Url</label>
+                        <div class="col-sm-7 infosec">
+                          <textarea class="form-control" name="videourl"></textarea>
+                            <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
+                        </div>
+
+                        </div>
+                    </div>
+                  
+                </div>
+
+  <div class="row">
+                   <div class="col-lg-9 mb-3">
+                        <div class="form-group position-relative row">
+                            <label for="customRange1" class="col-lg-3 col-sm-3 col-form-label">Cemetery Image</label>
+                        <div class="col-sm-7 infosec">
+                          <input type="file" class="form-control" name="cemeteryimage[]" multiple>
+                            <div class="infobx"><i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></div>
+                        </div>
+
+                        </div>
+                    </div>
+                  
+                </div>
+
+            </div>
             <div class="cntbox">
                 <button class="btn_mid btn_green">Add</button>
                   </form>
@@ -201,3 +253,34 @@
     </section>
 
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#countries_id').on('change', function () 
+            {
+                var countries_id = this.value;
+                $("#state_select").html('');
+
+                $.ajax({
+                    url: "{{url('fetchstates')}}",
+                    type: "POST",
+                    data: {
+                        countries_id: countries_id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) 
+                    {
+                        $('#state_select').html('<option value="">Select States</option>');
+
+                        $.each(result, function (key, value) {
+                            $("#state_select").append('<option value="' + value
+                                .id + '">' + value.state + '</option>');
+                        });
+                    }
+                });
+
+
+            });
+        });
+  </script>

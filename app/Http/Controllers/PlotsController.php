@@ -20,28 +20,28 @@ class PlotsController extends Controller
 		public function index(){
 					abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-					if(auth()->user()->userrole=='2'){
-					// $cemeterys = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')->where('user_id','=',auth()->user()->id)
-					// 						->orderBy('cemetery.id', 'DESC')
-					// 						->select('cemetery.*')
-					// 						->paginate(10);
-					$plots = Plot::whereIn('cemetery_id',CemeteryUser::where('user_id','=',auth()->user()->id)->pluck('cemetery_id'))
-					->orderBy('id', 'DESC')->select('plot.*')->paginate(10);
+					 $plots = Plot::orderBy('id', 'DESC')->paginate(10);
+       $burialsplots = Plot::orderBy('id', 'DESC')->where('plottype1','Burials')->paginate(10);
+       $cremationsplots= plot::orderBy('id', 'DESC')->where('plottype1','Cremation')->paginate(10);
+       $abovegroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Above Ground')->paginate(10);
+       $belowgroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Below Ground')->paginate(10);
+       $Indoorplots= plot::orderBy('id', 'DESC')->where('plottype3','Indoor')->paginate(10);
+       $Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype3','Outdoor')->paginate(10);
+        if (request('term')) {
+
+        $plots =  DB::table('plot')
+                ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
+                ->select('plot.*', 'cemetery.cemetery_name')
+                ->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
+                ->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
 
 
-					}else{
-							$plots = Plot::orderBy('id', 'DESC')->paginate(10);
-					}
-				if (request('term')) {
-				$plots =  DB::table('plot')
-												->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
-												->select('plot.*', 'cemetery.cemetery_name')->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
-													->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
+       
 
 
 				}
 								
-								return View('admin.plots.index')->with('plots', $plots);
+            return View('admin.plots.index',compact('plots','burialsplots','cremationsplots','abovegroundplots','belowgroundplots','Indoorplots','Outdoorplots'));
 
 	}
     public function create()
