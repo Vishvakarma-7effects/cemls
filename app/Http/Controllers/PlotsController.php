@@ -21,12 +21,13 @@ class PlotsController extends Controller
 					abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 					 $plots = Plot::orderBy('id', 'DESC')->paginate(10);
-       $burialsplots = Plot::orderBy('id', 'DESC')->where('plottype1','Burials')->paginate(10);
-       $cremationsplots= plot::orderBy('id', 'DESC')->where('plottype1','Cremation')->paginate(10);
+        $Indoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Indoor')->paginate(10);
+       $Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Outdoor')->paginate(10);
        $abovegroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Above Ground')->paginate(10);
        $belowgroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Below Ground')->paginate(10);
-       $Indoorplots= plot::orderBy('id', 'DESC')->where('plottype3','Indoor')->paginate(10);
-       $Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype3','Outdoor')->paginate(10);
+      
+       $burialsplots = Plot::orderBy('id', 'DESC')->where('plottype3','Burial')->paginate(10);
+       $cremationsplots= plot::orderBy('id', 'DESC')->where('plottype3','Cremation')->paginate(10);
         if (request('term')) {
 
         $plots =  DB::table('plot')

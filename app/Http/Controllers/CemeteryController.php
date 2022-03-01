@@ -302,7 +302,6 @@ class CemeteryController extends Controller
 								$cemeteries = $request->input('cemetery_id');
 
 								$checkUser = User::where(['email' => $request->input('email')])->get();
-
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }

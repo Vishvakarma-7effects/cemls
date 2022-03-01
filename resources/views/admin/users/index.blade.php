@@ -26,7 +26,7 @@
 				<ul class="nav nav-tabs same_tabs clearfix" id="userTab" role="tablist">
 
 					<li class="nav-item">
-						<a class="nav-link" id="public-tab"  href="{{ route('users.index')}}" role="tab" aria-controls="Public"
+						<a class="nav-link" id="public-tab" data-toggle="tab" href="{{ route('users.index')}}" role="tab" aria-controls="Public"
 							aria-selected="true">All User</a>
 					</li>
 					@if(isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id']))
