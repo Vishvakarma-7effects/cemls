@@ -78,7 +78,6 @@
                 <div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
                 <section class="bxshadow mb-3 mb-md-5">
                     <div class="cntbox">
-                    <h1>All</h1>
                         <div class="">
                             <?php $i =1; ?>
                             @foreach ($cemeterys as $cemKey => $cemVal)
@@ -139,7 +138,6 @@
         <div class="tab-pane fade" id="active" role="tabpanel" aria-labelledby="active-tab">
                 <section class="bxshadow mb-3 mb-md-5">
                     <div class="cntbox">
-                    <h1> Active</h1>
                         <div class="">
                             <?php $i =1; ?>
                             @foreach ($active as $cemKey => $cemVal)
@@ -197,7 +195,6 @@
          <div class="tab-pane fade" id="inactive" role="tabpanel" aria-labelledby="inactive-tab">
                 <section class="bxshadow mb-3 mb-md-5">
                     <div class="cntbox">
-                   <h1> Inactive</h1>
                         <div class="">
                             <?php $i =1; ?>
                             @foreach ($inactive as $cemKey => $cemVal)
