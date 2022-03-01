@@ -16,7 +16,8 @@ class UserEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(){
+    public function __construct()
+    {
         //
     }
 
@@ -25,7 +26,8 @@ class UserEmail extends Mailable
      *
      * @return $this
      */
-    public function build(){
+    public function build()
+    {
         return $this->subject('Mail shalu')->view('mail.mailTemplate');
     }
 }

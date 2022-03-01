@@ -301,11 +301,16 @@ class CemeteryController extends Controller
 
 								$checkUser = User::where(['email' => $request->input('email')])->get();
 
+
+
+
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }
-								// dd($request->input('email'));
-								$a = mail::to($request->input('email'))->send(new UserEmail( $request->all() ));
+
+								mail::to($request->input('email'))->send(new UserEmail( $request->all() ));
+
+
 									if (count($checkUser) < 1) {
 												$a = User::create([
 																'email' => $request->input('email'),
