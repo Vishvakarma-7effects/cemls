@@ -109,7 +109,7 @@
 											<td width="350px" style="padding: 15px;">
 												<!--<div class="thead">Actions</div>-->
 												<div class="d-flex">
-													<a class="btn_mid btn_cms_list mr-3" href="{{ route('users.index',['cemetery_id'=>$cemVal->ID]) }}">Manage Members</a>
+													<a class="btn_mid btn_cms_list mr-3" href="{{ route('users.index',['cemetery_id'=>$cemVal->id]) }}">Manage Members</a>
 
 													<a class="btn_mid btn_cms_list" href="{{ url('cemetery/getInvitePeople') }}">Add Members</a>
 

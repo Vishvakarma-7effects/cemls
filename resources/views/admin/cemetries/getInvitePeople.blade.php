@@ -17,10 +17,12 @@
 		</div>
 
 		<section class="bxshadow">
+					@if(session()->has('message'))
 
-			@if ($message = Session::get('success'))
         <div class="alert alert-success">
-            <p>{{ $message }}</p>
+														{{ session()->get('message') }}
+
+            {{-- <p>{{ $message }}</p> --}}
         </div>
     @endif
 
@@ -37,7 +39,7 @@
 						  <select  class="form-control" name="cemetery_id[]" multiple>
 						      <option>Please Select  </option>
 						      @foreach($cemeteries as $cemKey=>$cemVal)
-															<option value="{{ $cemVal->ID }}">{{  $cemVal->cemetery_name }}</option>
+															<option value="{{ $cemVal->id }}">{{  $cemVal->cemetery_name }}</option>
 													@endforeach
 											</select>
 							</div>

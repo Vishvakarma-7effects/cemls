@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mail;
 use App\Models\Mailinbox;
+use App\Models\Cemetery;
+
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -34,21 +36,26 @@ class UserController extends Controller {
         //$data['users'] = $users;
     //    dd($request->get('cemetery_id'));
         //return view('admin.users.index', compact('users'));
+    $cemeteryDetail=[];
     if($request->get('cemetery_id')){
+
+        $cemeteryDetail = Cemetery::find($request->get('cemetery_id'));
+        // dd($cemeteryDetail);
         $users = User::join('cemeteries_users','users.id','=','cemeteries_users.user_id')->where(['cemeteries_users.cemetery_id'=>$request->get('cemetery_id')])->orderBy('cemeteries_users.id', 'DESC')->paginate(10);
         // dd($users);
 
     }else{
-    $users = User::with(['role'])->orderBy('id', 'DESC')->paginate(10);
+        $users = User::with(['role'])->orderBy('id', 'DESC')->paginate(10);
     }
-    if (request('term')) {
+        if (request('term')) {
 
-     $users = DB::table('users')
-            ->where('name','like',"%".request('term')."%")->orWhere('email', 'like' , '%'. request('term') .'%')->get();
+            $users = DB::table('users')
+            ->where('name','like',"%".request('term')."%")
+            ->orWhere('email', 'like' , '%'. request('term') .'%')->get();
 
         }
-   return View('admin.users.index')
-               ->with('users', $users);
+        // dd($cemeteryDetail);
+             return View('admin.users.index',compact('users','cemeteryDetail'));
     }
     
 

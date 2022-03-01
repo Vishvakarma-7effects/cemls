@@ -16,8 +16,11 @@ class UserEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(){
+    public $emailDataArr;
+
+    public function __construct($emailDataArr){
         //
+        $this->emailDataArr = $emailDataArr;
     }
 
     /**
@@ -26,6 +29,9 @@ class UserEmail extends Mailable
      * @return $this
      */
     public function build(){
-        return $this->subject('Mail shalu')->view('mail.mailTemplate');
+          
+
+        // $dataArra=$this
+        return $this->subject('Mail shalu')->view('mail.mailTemplate',$this->emailDataArr);
     }
 }

@@ -29,13 +29,12 @@
 						<a class="nav-link" id="public-tab"  href="{{ route('users.index')}}" role="tab" aria-controls="Public"
 							aria-selected="true">All User</a>
 					</li>
-                    
 					@if(isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id']))
 					<li class="nav-item">
 						<a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab" aria-controls="Cemetery"
-							aria-selected="true">Cemetery User</a>
+							aria-selected="true">{{ ucwords($cemeteryDetail->cemetery_name) }} User</a>
 					</li>
-                    @endif
+						@endif
 
 					<!--<li class="nav-item">-->
 					<!--    <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"-->

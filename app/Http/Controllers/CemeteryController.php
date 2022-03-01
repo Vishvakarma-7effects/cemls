@@ -296,6 +296,8 @@ class CemeteryController extends Controller
 
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
 								$request->merge(['type' => 'INVITATION']);
+								$password=$this->generatePassword();
+								$request->merge(['password'=>$password]);
 								// dd($request->all());
 								$cemeteries = $request->input('cemetery_id');
 
@@ -304,37 +306,48 @@ class CemeteryController extends Controller
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }
-								// dd($request->input('email'));
-								$a = mail::to($request->input('email'))->send(new UserEmail( $request->all() ));
-									if (count($checkUser) < 1) {
-												$a = User::create([
-																'email' => $request->input('email'),
-																'type' => 'INVITATED',
-																'status' => 'INVITATED',
-																'userrole'=>2,
-																'password'=>Hash::make('111111')
-												]);
-												$user_id=	$a->id;
-											}else{
-												// dd($checkUser);
-													$user_id=	$checkUser[0]->id;
-											}
+								// dd($request->input('email'))
+									$emailDataArr= $request->all();
+									$emailDataArr['user_created'] = 0;
 
-								// $invite = Mail::create($request->all());
+									// dd($emailDataArr);
+									if (count($checkUser) < 1) {
+											$createUser = User::create([
+														'email' => $request->input('email'),
+														'type' => 'INVITATED',
+														'status' => 'INVITATED',
+														'userrole'=>2,
+														'password'=>Hash::make($password)
+											]);
+										if($createUser){
+																$user_id=	$createUser->id;
+
+														$emailDataArr['user_created'] = 1;
+														$sendInvitationUser=mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+										}
+
+									}else{
+											$user_id=	$checkUser[0]->id;
+									}
+
+							$sendInvitationCem=	mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+							// dd($sendInvitation);
 								// if ($invite) {
 												if ($request->type == 'INVITATION') {
 														foreach ($cemeteries as $key => $value) {
-																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])
-																				->get();
+																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])->get();
 																if (count($checkCemeteryUser) < 1) {
+																	// dd($value);
 																				CemeteryUser::create(['user_id' => $user_id, 'cemetery_id' => $value,'status'=>1]);
 																}
 														}
 												}
-												session()->flash('message', 'Mail Successfully Sent');
+
+												return back()->with('message', 'Mail Successfully Sent');
+        
 								// }
-								// url('cemetery/getInvitePeople') 
-								return redirect()->route('cemetery.getInvitePeople');
+							return redirect()->route('cemetery.getInvitePeople')->with('message', 'Mail Successfully Sent');
+
 				}
 
 				public function manageMember()
@@ -411,4 +424,34 @@ class CemeteryController extends Controller
 
 								return response()->json($response, 200);
 				}
+
+
+				function generatePassword( $number = 8 ) {
+    // Generate set of alpha characters
+    $alpha = array();
+    for ($u = 65; $u <= 90; $u++) {
+        // Uppercase Char
+        array_push($alpha, chr($u));
+    }
+
+    // Just in case you need lower case
+    // for ($l = 97; $l <= 122; $l++) {
+    //    // Lowercase Char
+    //    array_push($alpha, chr($l));
+    // }
+
+    // Get random alpha character
+    $rand_alpha_key = array_rand($alpha);
+    $rand_alpha = $alpha[$rand_alpha_key];
+
+    // Add the other missing integers
+    $rand = array($rand_alpha);
+    for ($c = 0; $c < $number - 1; $c++) {
+        array_push($rand, mt_rand(0, 9));
+        shuffle($rand);
+    }
+
+    return implode('', $rand);
+}
+
 }
