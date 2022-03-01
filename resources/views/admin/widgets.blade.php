@@ -169,7 +169,7 @@
                                 <div class="d-flex justify-content-between update_text pt-3">
                                     <div class="t_update ">Last Updated 10 months ago
                                     <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
-                                        <input data-id="{{$cemVal->ID}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
+                                        <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                                     </div>
                                         <button class="btn_mid btn_green">Copy Embed link</button>
                                     </div>
@@ -226,7 +226,7 @@
                                 <div class="d-flex justify-content-between update_text pt-3">
                                     <div class="t_update ">Last Updated 10 months ago
                                     <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
-                                        <input data-id="{{$cemVal->ID}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
+                                        <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                                     </div>
                                         <button class="btn_mid btn_green">Copy Embed link</button>
                                     </div>

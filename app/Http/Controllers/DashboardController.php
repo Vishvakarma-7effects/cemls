@@ -127,7 +127,7 @@ class DashboardController extends Controller {
     {
 
 
-        $cemeterys = Cemetery::orderBy('ID','desc','feature')->paginate(10);
+        $cemeterys = Cemetery::orderBy('ID','desc','cemetery_widget')->paginate(10);
       $active = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','1')->paginate(10);
       $inactive = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','0')->paginate(10);
         if (request('term')) 
@@ -164,6 +164,20 @@ class DashboardController extends Controller {
     public function aboutUs()
     {
     return view('admin.aboutUs');
+    }
+
+      public function updateFeature(Request $request) {
+
+          $cemetery = Cemetery::where('ID',$request->cemetery_id)->update([
+                        'cemetery_widget'=>$request->value,
+                       
+                ]);
+        
+
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
     }
 
 }
