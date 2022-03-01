@@ -34,7 +34,7 @@ class UserController extends Controller {
        
         //$users = User::orderBy('id','DESC')->get();
         //$data['users'] = $users;
-    //    dd($request->get('cemetery_id'));
+        //    dd($request->get('cemetery_id'));
         //return view('admin.users.index', compact('users'));
     $cemeteryDetail=[];
     if($request->get('cemetery_id')){

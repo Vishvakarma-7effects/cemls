@@ -288,12 +288,11 @@ class CemeteryController extends Controller
 				{
 								return view('admin.cemetries.getAddMember');
 				}
-							public function getInvitePeople(Request $request){
+				public function getInvitePeople(Request $request){
 								$cemeteries = Cemetery::all();
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
 				public function storeInvitePeople(Request $request){
-
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
 								$request->merge(['type' => 'INVITATION']);
 								$password=$this->generatePassword();
@@ -425,19 +424,13 @@ class CemeteryController extends Controller
 				}
 
 
-				function generatePassword( $number = 8 ) {
+			function generatePassword( $number = 8 ) {
     // Generate set of alpha characters
     $alpha = array();
     for ($u = 65; $u <= 90; $u++) {
         // Uppercase Char
         array_push($alpha, chr($u));
     }
-
-    // Just in case you need lower case
-    // for ($l = 97; $l <= 122; $l++) {
-    //    // Lowercase Char
-    //    array_push($alpha, chr($l));
-    // }
 
     // Get random alpha character
     $rand_alpha_key = array_rand($alpha);

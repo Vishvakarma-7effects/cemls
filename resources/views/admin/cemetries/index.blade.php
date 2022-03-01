@@ -99,7 +99,7 @@
 											<td style="padding: 15px;">
 												<div class="thead">Active</div>
 												<div class="d-flex">
-													<input data-id="{{ $cemVal->ID }}" class="radio" type="checkbox" data-toggle="toggle"
+													<input data-id="{{ $cemVal->id }}" class="radio" type="checkbox" data-toggle="toggle"
 														data-on="Yes" {{ $cemVal->feature == 1 ? 'checked' : '' }} data-off="No" data-size="small"
 														data-onstyle="primary"> &nbsp;&nbsp;
 
@@ -111,7 +111,7 @@
 												<div class="d-flex">
 													<a class="btn_mid btn_cms_list mr-3" href="{{ route('users.index',['cemetery_id'=>$cemVal->id]) }}">Manage Members</a>
 
-													<a class="btn_mid btn_cms_list" href="{{ url('cemetery/getInvitePeople') }}">Add Members</a>
+													<a class="btn_mid btn_cms_list" href="{{ route('cemetery.getInvitePeople',['cemetery_id'=>$cemVal->id]) }}">Add Members</a>
 
 												</div>
 											</td>

@@ -39,7 +39,7 @@
 						  <select  class="form-control" name="cemetery_id[]" multiple>
 						      <option>Please Select  </option>
 						      @foreach($cemeteries as $cemKey=>$cemVal)
-															<option value="{{ $cemVal->id }}">{{  $cemVal->cemetery_name }}</option>
+															<option value="{{ $cemVal->id }}" {{ isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id'])?($_GET['cemetery_id'] == $cemVal->id ? 'selected': '') : ''}}>{{  $cemVal->cemetery_name }}</option>
 													@endforeach
 											</select>
 							</div>
