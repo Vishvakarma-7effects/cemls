@@ -101,6 +101,13 @@
 
 
     </section>
+
+   <style>
+body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+      </style>
 @endsection
 <script>
     function myFunction()

@@ -121,10 +121,10 @@
 													<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 													<ul class="moptionul">
 														<i class="fa fa-caret-up"></i>
-														<li><a href="{{ url('cemeteries/' . $cemVal->ID . '/edit') }}">Edit</a></li>
+														<li><a href="{{ url('cemeteries/' . $cemVal->id . '/edit') }}">Edit</a></li>
 														<!-- <li><a href="#">Delete</a></li> -->
 														<li>
-															<form action="{{ route('cemeteries.destroy', $cemVal->ID) }}" method="POST">
+															<form action="{{ route('cemeteries.destroy', $cemVal->id) }}" method="POST">
 
 																@csrf
 																@method('DELETE')

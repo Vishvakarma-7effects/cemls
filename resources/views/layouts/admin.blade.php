@@ -138,6 +138,8 @@ function initMap() {
 google.maps.event.addListener(marker1, 'dragend', function (event) {
     document.getElementById("latbox").innerHTML = this.getPosition().lat();
     document.getElementById("lngbox").innerHTML = this.getPosition().lng();
+        document.getElementById("cemetery_latitude").value  = this.getPosition().lat();
+    document.getElementById("cemetery_longitude").value  = this.getPosition().lng();
 });
 
     const card = document.getElementById("pac-card");
@@ -242,6 +244,25 @@ google.maps.event.addListener(marker1, 'dragend', function (event) {
         input.value = "";
     });
 }
+
+function codeAddress() {
+    var address = document.getElementById('pac-input').value;
+    
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+
+
         </script>
 
     

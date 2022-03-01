@@ -72,6 +72,10 @@ class DashboardController extends Controller {
             ->get();
 
             $cemeteryscount = Cemetery::all();
+
+            $recentMyListings = Cemetery::orderBy('id','DESC')
+            ->limit(5)
+            ->get();
 // ............
             $mailcount = Mailinbox::orderBy('id','DESC')
             ->get();
@@ -113,7 +117,7 @@ class DashboardController extends Controller {
 
 
             // dd($recentPlot);
-            return view('admin.dashboard',compact('recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
+            return view('admin.dashboard',compact('recentMyListings','recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
 
         }
        
@@ -121,7 +125,11 @@ class DashboardController extends Controller {
 
     public function widgets()
     {
-        $cemeterys = Cemetery::orderBy('id','desc','feature')->paginate(10);
+
+
+        $cemeterys = Cemetery::orderBy('ID','desc','feature')->paginate(10);
+      $active = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','1')->paginate(10);
+      $inactive = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','0')->paginate(10);
         if (request('term')) 
         {
             $cemeterys = DB::table('cemetery')
@@ -129,7 +137,23 @@ class DashboardController extends Controller {
             ->orWhere('email','like',"%".request('term')."%")
             ->paginate(10);
         }
-        return View('admin.widgets')->with('cemeterys', $cemeterys);
+        // dd($cemeterys);
+        // return View('admin.widgets')->with('cemeterys', $cemeterys, 'active','inactive');
+        return View('admin.widgets',compact('cemeterys', 'active','inactive'));
+
+    } 
+
+    public function updateWidgets (Request $request)
+     {
+
+          $cemetery = Cemetery::where('ID',$request->event_id)->update([
+                        'public'=>$request->value,
+                       
+                ]);
+        $response['status'] = true;
+        $response['msg'] = 'Upadted';
+
+        return response()->json($response, 200);
     }
 
     public function contactUs()
@@ -140,21 +164,6 @@ class DashboardController extends Controller {
     public function aboutUs()
     {
     return view('admin.aboutUs');
-    }
-
-
-    public function updateFeature(Request $request) {
-
-          $cemetery = Cemetery::where('ID',$request->cemetery_id)->update([
-                        'cemetery_widget'=>$request->value,
-                       
-                ]);
-        
-
-        $response['status'] = true;
-        $response['msg'] = 'Upadted';
-
-        return response()->json($response, 200);
     }
 
 }
