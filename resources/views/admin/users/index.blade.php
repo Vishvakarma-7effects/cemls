@@ -17,7 +17,8 @@
 			<div class="col-md-5 col-6">
 				<h1 class="mheading">All Users</h1>
 			</div>
-			<div class="col-md-7 col-6 text-right"><a href="{{ url('users/create') }}" class="btn_mid btn_green">Add User</a></div>
+			<div class="col-md-7 col-6 text-right"><a href="{{ url('users/create') }}" class="btn_mid btn_green">Add User</a>
+			</div>
 		</div>
 
 
@@ -26,15 +27,15 @@
 				<ul class="nav nav-tabs same_tabs clearfix" id="userTab" role="tablist">
 
 					<li class="nav-item">
-						<a class="nav-link" id="public-tab" data-toggle="tab" href="{{ route('users.index')}}" role="tab" aria-controls="Public"
-							aria-selected="true">All User</a>
+						<a class="nav-link" id="public-tab" data-toggle="tab" href="{{ route('users.index') }}" role="tab"
+							aria-controls="Public" aria-selected="true">All User</a>
 					</li>
-					@if(isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id']))
-					<li class="nav-item">
-						<a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab" aria-controls="Cemetery"
-							aria-selected="true">{{ ucwords($cemeteryDetail->cemetery_name) }} User</a>
-					</li>
-						@endif
+					@if (isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id']))
+						<li class="nav-item">
+							<a class="nav-link active" id="cemetery-tab" data-toggle="tab" href="#cemetery" role="tab"
+								aria-controls="Cemetery" aria-selected="true">{{ ucwords($cemeteryDetail->cemetery_name) }} User</a>
+						</li>
+					@endif
 
 					<!--<li class="nav-item">-->
 					<!--    <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"-->
@@ -55,7 +56,6 @@
 
 			</div>
 		</div>
-
 
 		<div id="userTabContent" class="tab-content">
 			<div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
@@ -107,11 +107,12 @@
 
 											<td> <?php
 
-$rolename = getuserrolename($user->userrole);
+												$rolename = getuserrolename($user->userrole);
 
-if (!empty($rolename[0]->name)) {
-    echo $rolename[0]->name;
-} ?></td>
+												if (!empty($rolename[0]->name)) {
+																echo $rolename[0]->name;
+												} ?>
+											</td>
 											<td>{{ $user->created_at }}</td>
 											<!--<td>Business</td>-->
 											<td width="150px">
@@ -124,6 +125,8 @@ if (!empty($rolename[0]->name)) {
 													<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 													<ul class="moptionul">
 														<i class="fa fa-caret-up"></i>
+														<li class="cemeteryListModal" userId="{{ $user->id }}"> Cemeteries </li>
+
 														<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
 														<li><a href="#">Delete</a></li>
 													</ul>
@@ -134,28 +137,33 @@ if (!empty($rolename[0]->name)) {
 
 								</tbody>
 							</table>
+							<div class="modalOuter">
+
+
+							</div>
+
 						</div>
 
 						<!--<nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
-																													<ul class="pagination justify-content-end">
-																																	<li class="page-item">
-																																					<a class="page-link pn_arrow" href="#" aria-label="Previous">
-																																									<i class="fa fa-caret-left"></i>
-																																					</a>
-																																	</li>
-																																	<li class="page-item "><a class="page-link " href="#">1</a></li>
-																																	<li class="page-item active"><a class="page-link" href="#">2</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">3</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">4</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">...</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">12</a></li>
-																																	<li class="page-item">
-																																					<a class="page-link pn_arrow" href="#" aria-label="Next">
-																																									<i class="fa fa-caret-right"></i>
-																																					</a>
-																																	</li>
-																													</ul>
-																									</nav>-->
+										<ul class="pagination justify-content-end">
+														<li class="page-item">
+																		<a class="page-link pn_arrow" href="#" aria-label="Previous">
+																						<i class="fa fa-caret-left"></i>
+																		</a>
+														</li>
+														<li class="page-item "><a class="page-link " href="#">1</a></li>
+														<li class="page-item active"><a class="page-link" href="#">2</a></li>
+														<li class="page-item"><a class="page-link" href="#">3</a></li>
+														<li class="page-item"><a class="page-link" href="#">4</a></li>
+														<li class="page-item"><a class="page-link" href="#">...</a></li>
+														<li class="page-item"><a class="page-link" href="#">12</a></li>
+														<li class="page-item">
+																		<a class="page-link pn_arrow" href="#" aria-label="Next">
+																						<i class="fa fa-caret-right"></i>
+																		</a>
+														</li>
+										</ul>
+						</nav>-->
 					</div>
 
 
@@ -198,75 +206,78 @@ if (!empty($rolename[0]->name)) {
 									</tr>
 								</thead>
 								<tbody>
-                                   @if(count($users) > 0)
-                                   {{-- {{ dd($user->role->name)}} --}}
-									@foreach ($users as $user)
-										<tr>
-											<td class="text-center">
-												<div class="mycheck d-inline-block">
-													<input type="checkbox" id="chkbx2" name="chkbx2">
-													<label for="chkbx2">&nbsp;</label>
-												</div>
-											</td>
-											<td>{{ $user->name }}</td>
+									@if (count($users) > 0)
+										{{-- {{ dd($user->role->name)}} --}}
+										@foreach ($users as $user)
+											<tr>
+												<td class="text-center">
+													<div class="mycheck d-inline-block">
+														<input type="checkbox" id="chkbx2" name="chkbx2">
+														<label for="chkbx2">&nbsp;</label>
+													</div>
+												</td>
+												<td>{{ $user->name }}</td>
 
-											<td>{{ $user->email }}</td>
-											<td>Yes</td>
-											<td> {{ $user->role->name??'-' }}</td>
-											<td>{{ $user->created_at }}</td>
+												<td>{{ $user->email }}</td>
+												<td>Yes</td>
+												<td> {{ $user->role->name ?? '-' }}</td>
+												<td>{{ $user->created_at }}</td>
 
-											<td width="150px">
-												<input data-id="{{ $user->id }}" class="radio" type="checkbox" data-toggle="toggle"
-													data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No" data-size="small"
-													data-onstyle="primary">
-											</td>
-											<td>
-												<div class="moption">
-													<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-													<ul class="moptionul">
-														<i class="fa fa-caret-up"></i>
-														<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
-														<li>
-															<form action="{{ route('users.destroy', $user->id) }}" method="POST">
-																<input type="hidden" name="_method" value="DELETE">
-																<input type="hidden" name="_token" value="{{ csrf_token() }}">
-																<button class="btn btn-outline-dark role-edit"
-																	onclick="return confirm('Are you sure you want to delete?')">Delete</button>
-															</form>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-									@endforeach
-                                    @else
-                                      Any User Not Found.
-                                    @endif
+												<td width="150px">
+													<input data-id="{{ $user->id }}" class="radio" type="checkbox" data-toggle="toggle"
+														data-on="Yes" {{ $user->feature == 1 ? 'checked' : '' }} data-off="No" data-size="small"
+														data-onstyle="primary">
+												</td>
+												<td>
+													<div class="moption">
+														<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+														<ul class="moptionul">
+
+															<i class="fa fa-caret-up"></i>
+															<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
+															<li>
+																<form action="{{ route('users.destroy', $user->id) }}" method="POST">
+																	<input type="hidden" name="_method" value="DELETE">
+																	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+																	<button class="btn btn-outline-dark role-edit"
+																		onclick="return confirm('Are you sure you want to delete?')">Delete</button>
+																</form>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+										@endforeach
+									@else
+										Any User Not Found.
+									@endif
 
 								</tbody>
 							</table>
 						</div>
 
+
+
 						<!-- <nav aria-label="Page navigation  example" class="mb-4 mb-md-5">
-																													<ul class="pagination justify-content-end">
-																																	<li class="page-item">
-																																					<a class="page-link pn_arrow" href="#" aria-label="Previous">
-																																									<i class="fa fa-caret-left"></i>
-																																					</a>
-																																	</li>
-																																	<li class="page-item "><a class="page-link " href="#">1</a></li>
-																																	<li class="page-item active"><a class="page-link" href="#">2</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">3</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">4</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">...</a></li>
-																																	<li class="page-item"><a class="page-link" href="#">12</a></li>
-																																	<li class="page-item">
-																																					<a class="page-link pn_arrow" href="#" aria-label="Next">
-																																									<i class="fa fa-caret-right"></i>
-																																					</a>
-																																	</li>
-																													</ul>
-																									</nav>-->
+																														<ul class="pagination justify-content-end">
+																																		<li class="page-item">
+																																						<a class="page-link pn_arrow" href="#" aria-label="Previous">
+																																										<i class="fa fa-caret-left"></i>
+																																						</a>
+																																		</li>
+																																		<li class="page-item "><a class="page-link " href="#">1</a></li>
+																																		<li class="page-item active"><a class="page-link" href="#">2</a></li>
+																																		<li class="page-item"><a class="page-link" href="#">3</a></li>
+																																		<li class="page-item"><a class="page-link" href="#">4</a></li>
+																																		<li class="page-item"><a class="page-link" href="#">...</a></li>
+																																		<li class="page-item"><a class="page-link" href="#">12</a></li>
+																																		<li class="page-item">
+																																						<a class="page-link pn_arrow" href="#" aria-label="Next">
+																																										<i class="fa fa-caret-right"></i>
+																																						</a>
+																																		</li>
+																														</ul>
+															</nav>-->
 					</div>
 
 				</div>
@@ -286,6 +297,33 @@ if (!empty($rolename[0]->name)) {
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 	<script>
+
+	 $('.cemeteryListModal').click(function() {
+	  // debugger
+	  var user_id = $(this).attr('userId');
+	  let url = "{!! route('user.getCemeteryList') !!}"
+	  // AJAX request
+	  $.ajax({
+	   url: url,
+	   type: 'post',
+	   data: {
+	    '_token': '{{ csrf_token() }}',
+	    user_id: user_id
+	   },
+	   success: function(response) {
+	    // debugger;
+	    if (response) {
+	     // $('.modalOuter').
+	     $('.modalOuter').empty()
+	     $('.modalOuter').html(response.view);
+	  			$('#cemeteryListModal').modal('toggle');
+	    }
+	    // Add response in Modal body
+	    // $('.cemeteryListModal').html(response);
+	   }
+	  });
+	 })
+
 	 $(document).ready(function() {
 	  $(".radio").change(function() {
 	   var event_id = $(this).data("id");

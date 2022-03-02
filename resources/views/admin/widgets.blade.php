@@ -13,6 +13,23 @@
 .update_text .btn_mid {
     margin-top: 10px;
 }
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 </style>
 <section class="panelrht">
     <nav aria-label="breadcrumb">
@@ -108,10 +125,14 @@
                                     </div>
                                 <div class="d-flex justify-content-between update_text pt-3">
                                     <div class="t_update ">Last Updated 10 months ago
-                                    <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
-                                        <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
+                                        <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
+                                            <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary">
+                                        </div>
                                     </div>
-                                        <button class="btn_mid btn_green">Copy Embed link</button>
+
+                                        {{-- <textarea class="js-copytextarea" style="">copy this link</textarea> --}}
+
+                                        <button type="button" onclick="setClipboard('link copied demo')" class="btn_mid btn_green  js-textareacopybtn"> <span class="">Copy Embed link </span></button>
                                     </div>
                                 </div>
                                 </div>
@@ -171,7 +192,7 @@
                                     <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
                                         <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                                     </div>
-                                        <button class="btn_mid btn_green">Copy Embed link</button>
+                                        <button type="button" onclick="setClipboard('link copied demo')" class="btn_mid btn_green linkCopy js-textareacopybtn">Copy Embed link</button>
                                     </div>
                                 </div>
                                 </div>
@@ -228,7 +249,7 @@
                                     <div class="toggle btn btn-primary btn-sm" data-toggle="toggle" role="button" style="width: 77.3021px; height: 31px;">
                                         <input data-id="{{$cemVal->id}}" class="radio" id="" type="checkbox" data-toggle="toggle" data-on="Active" {{ $cemVal->cemetery_widget == 1 ? 'checked' : '' }} data-off="Inactive" data-size="small" data-onstyle="primary"></div>
                                     </div>
-                                        <button class="btn_mid btn_green">Copy Embed link</button>
+                                        <button type="button" onclick="setClipboard('link copied demo')" class="btn_mid btn_green linkCopy js-textareacopybtn">Copy Embed link</button>
                                     </div>
                                 </div>
                                 </div>
@@ -243,7 +264,7 @@
                 </section>
         </div>
 
-                    <!-- {{ $cemeterys->links('layouts.custom') }} -->
+                    {{-- <!-- {{ $cemeterys->links('layouts.custom') }} --> --}}
 
 
 
@@ -255,6 +276,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <script>
+function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        alert('Copying text command was ' + msg);
+    } catch (err) {
+        alert('Oops, unable to copy');
+    }
+
+    document.body.removeChild(tempInput);
+}
+
     $(document).ready(function () {
         $(".radio").change(function () {
             var cemetery_id = $(this).data("id");

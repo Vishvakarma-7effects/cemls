@@ -500,7 +500,7 @@
  </div>
 </div>
 
-<div class="modal fade smodal" id="ttllistModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+<div class="modal fade smodal" id="ttllistModal" tabindex="-1" role="dialog"  aria-labelledby="searchModalLabel"
  aria-hidden="true">
  <div class="modal-dialog" role="document">
   <div class="modal-content">

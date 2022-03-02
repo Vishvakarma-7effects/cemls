@@ -384,6 +384,16 @@ class UserController extends Controller {
 
         return response()->json($response, 200);
     }
+    public function getCemeteryList(Request $request){
+        $user_id = $request->input('user_id');
+        if ($user_id) {
+            $cemeteryList = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')
+            ->where(['cemeteries_users.user_id'=>$user_id])->select(['cemetery.cemetery_name','cemetery.id','cemeteries_users.created_at'])->get();
+         $result['view']=view('partials.cemetryList', compact('cemeteryList'))->render();
+
+        return response()->json($result);
+        }
+    }
   
 
 }

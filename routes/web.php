@@ -139,6 +139,8 @@ Route::post('user/updateProfile', [UserController::class, 'updateProfile'])->mid
 
 Route::get('users/Edit/{id}', [UserController::class, 'getEdit'])->middleware('auth');
 Route::post('updateUser', [UserController::class, 'updateUser'])->middleware('auth');
+Route::post('user/getCemeteryList', [UserController::class, 'getCemeteryList'])->name('user.getCemeteryList')->middleware('auth');
+
 
 Route::resource('users', UserController::class)->middleware('auth');
 
