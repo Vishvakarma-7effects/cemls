@@ -21,6 +21,7 @@ use App\Http\Controllers\InboxController;
 // use App\Http\Controllers\PlotController;
 use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\MailboxController;
+use App\Http\Controllers\Apis;
 
 
 /*
@@ -190,3 +191,5 @@ Route::post('widgets/update-feature', [DashboardController::class, 'updateFeatur
 Route::delete('allmaildatadelete', [MailboxController::class, 'deleteAll']);
 Route::post('fetchstates',[CemeteryController::class, 'fetchstates']);
 Route::post('cemeteries/get-destroycemeteryimage', [CemeteryController::class, 'destroycemeteryimage'])->middleware('auth');
+Route::get('cemetery/cemeteryListViewNew', [CemeteryController::class, 'cemeteryListViewNew']);
+Route::get('/getallcemeteries', [Apis::class, 'getallusercemeteries']);
