@@ -25,10 +25,10 @@
   border-color: #555 transparent transparent transparent;
 }
 
-.tooltip:hover .tooltiptext {
+/* .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
+} */
 
 </style>
 <section class="panelrht">
@@ -89,7 +89,7 @@
 </div>
 
 
-        <div id="switchTabContent" class="tab-content">
+<div id="switchTabContent" class="tab-content">
             <div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade show active" id="burials" role="tabpanel" aria-labelledby="burials-tab">
@@ -132,7 +132,7 @@
 
                                         {{-- <textarea class="js-copytextarea" style="">copy this link</textarea> --}}
 
-                                        <button type="button" onclick="setClipboard('link copied demo')" class="btn_mid btn_green  js-textareacopybtn"> <span class="">Copy Embed link </span></button>
+                                        <button type="button" onclick="setClipboard('link copied demo',this)" class="btn_mid btn_green  js-textareacopybtn"> <span class="">Copy Embed link </span></button>
                                     </div>
                                 </div>
                                 </div>
@@ -276,18 +276,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <script>
-function setClipboard(value) {
+function setClipboard(value ,data) {
     var tempInput = document.createElement("input");
     tempInput.style = "position: absolute; left: -1000px; top: -1000px";
     tempInput.value = value;
     document.body.appendChild(tempInput);
     tempInput.select();
     try {
+
         var successful = document.execCommand('copy');
+        $('.js-textareacopybtn').text('Copy Embed link');
+        $(data).text("Copied");
         var msg = successful ? 'successful' : 'unsuccessful';
-        alert('Copying text command was ' + msg);
+        // alert('Copying text command was ' + msg);
     } catch (err) {
-        alert('Oops, unable to copy');
+        // alert('Oops, unable to copy');
     }
 
     document.body.removeChild(tempInput);

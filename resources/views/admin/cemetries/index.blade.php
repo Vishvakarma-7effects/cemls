@@ -18,6 +18,8 @@
 			<div class="col-md-5 col-6">
 				<h1 class="mheading"></h1>
 			</div>
+			@can('cart_create')
+
 			<div class="col-md-7 col-6 text-right"><a class="btn_mid btn_green" href="{{ url('cemeteries/create') }}">Add
 					Cemetry</a>
 			</div>
