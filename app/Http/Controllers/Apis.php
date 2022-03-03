@@ -1,16 +1,39 @@
 <?php
-
+namespace App\Actions\Fortify;
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Cemetery;
 use App\Models\Plot;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+
+use App\Models\User; 
+use Illuminate\Support\Facades\Auth; 
+use Validator;
+use DB;
 
 class Apis extends Controller
 {
     
+    /** 
+     * login api 
+     * 
+     * @return \Illuminate\Http\Response 
+     */ 
+    public function login(Request $request)
+    {        
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
+            $user = Auth::user(); 
+            $success['token'] =  $user->createToken('MyApp')-> accessToken; 
+            $success['name'] =  $user->name;
    
+            return response()->json(['success' => $success], 200);
+        } 
+        else{ 
+            return response()->json(['error'=>'Unauthorised'], 401);
+        } 
+    }
  
    public function cemeterycreate(Request $request)
    {
@@ -121,15 +144,28 @@ $plots =  DB::table('plot')
     }
 
 
-      public function getallusercemeteries()
+    public function getallusercemeteries()
+    {
+        if(request()->ajax())
         {
-          
-        
-
-          $cemeterys =  DB::table('cemetery')
-      
-        ->select('id','cemetery_name','address','latitude','longitude')->get();
-        return $cemeterys;
+            if(!empty($request->keyword))
+            {
+                $cemeterys =  DB::table('cemetery')
+                            ->select('id','cemetery_name','address','latitude','longitude')
+                            ->where('cemetery_name', $request->keyword)->get();
+            }
+            else
+            {
+                $cemeterys =  DB::table('cemetery')
+                ->select('id','cemetery_name','address','latitude','longitude')->get();
+            }
+            
+            return $cemeterys;
         }
-
+        else{
+            $cemeterys =  DB::table('cemetery')
+            ->select('id','cemetery_name','address','latitude','longitude')->get();
+            return $cemeterys;
+        }
+    }
 }
