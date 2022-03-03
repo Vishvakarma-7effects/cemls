@@ -20,7 +20,7 @@ class PlotsController extends Controller
 		public function index(){
 					abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-					 $plots = Plot::orderBy('id', 'DESC')->paginate(10);
+	  $plots = Plot::orderBy('id', 'DESC')->paginate(10);
         $Indoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Indoor')->paginate(10);
        $Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Outdoor')->paginate(10);
        $abovegroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Above Ground')->paginate(10);
@@ -28,21 +28,20 @@ class PlotsController extends Controller
       
        $burialsplots = Plot::orderBy('id', 'DESC')->where('plottype3','Burial')->paginate(10);
        $cremationsplots= plot::orderBy('id', 'DESC')->where('plottype3','Cremation')->paginate(10);
-        if (request('term')) {
+	   $term = '';
+
+	   if (request('term')) {
 
         $plots =  DB::table('plot')
                 ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
                 ->select('plot.*', 'cemetery.cemetery_name')
                 ->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
-                ->orWhere('plot.id', 'like' , '%'. request('term') .'%') ->get();
-
-
-       
-
-
+                ->orWhere('plot.id', 'like' , '%'. request('term') .'%') 
+				->paginate(10);
+				$term = request('term');
 				}
 								
-            return View('admin.plots.index',compact('plots','burialsplots','cremationsplots','abovegroundplots','belowgroundplots','Indoorplots','Outdoorplots'));
+            return View('admin.plots.index',compact('plots','burialsplots','cremationsplots','abovegroundplots','belowgroundplots','Indoorplots','Outdoorplots','term'));
 
 	}
     public function create()
