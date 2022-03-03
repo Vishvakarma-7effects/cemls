@@ -17,8 +17,10 @@
 			<div class="col-md-5 col-6">
 				<h1 class="mheading">All Users</h1>
 			</div>
+			@can('user_add')
 			<div class="col-md-7 col-6 text-right"><a href="{{ url('users/create') }}" class="btn_mid btn_green">Add User</a>
 			</div>
+			@endcan
 		</div>
 
 
@@ -27,7 +29,7 @@
 				<ul class="nav nav-tabs same_tabs clearfix" id="userTab" role="tablist">
 
 					<li class="nav-item">
-						<a class="nav-link" id="public-tab" data-toggle="tab" href="{{ route('users.index') }}" role="tab"
+						<a class="nav-link" onclick="window.location='{{ url('users')}}'"  id="public-tab"  data-toggle="tab" href="{{ route('users.index') }}" role="tab"
 							aria-controls="Public" aria-selected="true">All User</a>
 					</li>
 					@if (isset($_GET['cemetery_id']) && !empty($_GET['cemetery_id']))
@@ -126,10 +128,14 @@
 													<ul class="moptionul">
 														<i class="fa fa-caret-up"></i>
 														<li class="cemeteryListModal" userId="{{ $user->id }}"> Cemeteries </li>
-
-														<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
-														<li><a href="#">Delete</a></li>
-													</ul>
+										@can('user_edit')
+							    			<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
+									    @endcan
+									    
+									    @can('user_delete')
+											<li><a href="#">Delete</a></li>
+										@endcan
+											</ul>
 												</div>
 											</td>
 										</tr>
@@ -192,12 +198,14 @@
 												<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 												<ul class="moptionul">
 													<i class="fa fa-caret-up"></i>
+													@can('user_edit')
 													<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
 													<li>
+													@endcan
 														<form action="{{ route('users.destroy', $user->id) }}" method="POST">
 															<input type="hidden" name="_method" value="DELETE">
 															<input type="hidden" name="_token" value="{{ csrf_token() }}">
-															<button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete1</button>
+															<button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
 														</form>
 													</li>
 												</ul>
@@ -234,7 +242,13 @@
 														<ul class="moptionul">
 
 															<i class="fa fa-caret-up"></i>
+															<li class="cemeteryListModal" userId="{{ $user->id }}"> Cemeteries </li>
+
+															@can('user_edit')
 															<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
+															@endcan
+															
+															@can('user_delete')
 															<li>
 																<form action="{{ route('users.destroy', $user->id) }}" method="POST">
 																	<input type="hidden" name="_method" value="DELETE">
@@ -243,6 +257,7 @@
 																		onclick="return confirm('Are you sure you want to delete?')">Delete</button>
 																</form>
 															</li>
+															@endcan
 														</ul>
 													</div>
 												</td>

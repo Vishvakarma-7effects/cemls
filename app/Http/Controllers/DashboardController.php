@@ -128,18 +128,21 @@ class DashboardController extends Controller {
 
 
         $cemeterys = Cemetery::orderBy('ID','desc','cemetery_widget')->paginate(10);
+        $all = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget')->paginate(10);
       $active = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','1')->paginate(10);
       $inactive = Cemetery::orderBy('id', 'DESC')->where('cemetery_widget','0')->paginate(10);
+      $term = '';
         if (request('term')) 
         {
             $cemeterys = DB::table('cemetery')
             ->where('cemetery_name','like',"%".request('term')."%")
             ->orWhere('email','like',"%".request('term')."%")
             ->paginate(10);
+
+            $term = request('term');
         }
-        // dd($cemeterys);
-        // return View('admin.widgets')->with('cemeterys', $cemeterys, 'active','inactive');
-        return View('admin.widgets',compact('cemeterys', 'active','inactive'));
+ 
+        return View('admin.widgets',compact('cemeterys', 'active','inactive','all','term'));
 
     } 
 

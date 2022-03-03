@@ -8,13 +8,16 @@
                 <li class="breadcrumb-item active" aria-current="page">Roles</li>
             </ol>
         </nav>
- 
 
         <div class="row">
         <div class="col-md-5 col-6">
             <h1 class="mheading">Roles</h1>
         </div>
-        <div class="col-md-7 col-6 text-right"> <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add Role</button></a>
+        <div class="col-md-7 col-6 text-right">
+            @can('add_edit')
+             <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add Role</button>
+             </a>
+            @endcan
         </div>
     </div>
 
@@ -32,7 +35,7 @@
                 <div id="myTabContent" class="tab-content">
 
                     <div class="tab-pane fade show active" id="cemetery" role="tabpanel" aria-labelledby="cemetery-tab">
-                        <div class="table-responsive mb-5 bxshadow">
+                        <!-- <div class="table-responsive mb-5 bxshadow"> -->
                             <table class="table  main_table mb-0">
                                 <thead>
                                     <tr>
@@ -55,12 +58,17 @@
                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                 <ul class="moptionul">
                                                     <i class="fa fa-caret-up"></i>
+                                                    @can('role_edit')
                                                     <li><a href="{{route('roles.edit', $roleVal->id)}}"  >Edit</a></li>
+                                                    @endcan
+                                                    
+                                                    @can('role_delete')
                                                     <li><form action="{{ route('roles.destroy', $roleVal->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button class="btn btn-outline-dark role-edit" onclick="return myFunction();">Delete</button>
                                             </form></li>
+                                                 @endcan
                                                 </ul>
                                             </div>
                                         </td>
@@ -82,7 +90,7 @@
 
                                 </tbody>
                             </table>
-                        </div>
+                        <!-- </div> -->
 
                     </div>
 
