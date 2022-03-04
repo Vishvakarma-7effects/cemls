@@ -20,7 +20,7 @@ use App\Models\User;
 use App\Models\CemeteryUser;
 use App\Models\Countries;
 use Mail;
-use App\Mail\UserEmail;
+// use App\Mail\UserEmail;
 
 class CemeteryController extends Controller
 {
@@ -288,10 +288,14 @@ class CemeteryController extends Controller
 				{
 								return view('admin.cemetries.getAddMember');
 				}
-							public function getInvitePeople(Request $request){
+
+
+				public function getInvitePeople(Request $request){
 								$cemeteries = Cemetery::all();
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
+
+
 				public function storeInvitePeople(Request $request){
 
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
@@ -312,20 +316,27 @@ class CemeteryController extends Controller
 
 
 									if (count($checkUser) < 1) {
-												$a = User::create([
-																'email' => $request->input('email'),
-																'type' => 'INVITATED',
-																'status' => 'INVITATED',
-																'userrole'=>2,
-																'password'=>Hash::make('111111')
-												]);
-												$user_id=	$a->id;
-											}else{
-												// dd($checkUser);
-													$user_id=	$checkUser[0]->id;
-											}
+											$createUser = User::create([
+														'email' => $request->input('email'),
+														'type' => 'INVITATED',
+														'status' => 'INVITATED',
+														'userrole'=>2,
+														'password'=>Hash::make($password)
+											]);
+										if($createUser){
+														$user_id=	$createUser->id;
+														$emailDataArr['user_created'] = 1;
+														$this->sendMail($emailDataArr);
 
-								// $invite = Mail::create($request->all());
+														// $sendInvitationUser=mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+										}
+
+									}else{
+											$user_id=	$checkUser[0]->id;
+									}
+									$this->sendMail($emailDataArr);
+							// $sendInvitationCem=	mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+							// dd($sendInvitation);
 								// if ($invite) {
 												if ($request->type == 'INVITATION') {
 														foreach ($cemeteries as $key => $value) {
@@ -338,9 +349,37 @@ class CemeteryController extends Controller
 												}
 												session()->flash('message', 'Mail Successfully Sent');
 								// }
-								// url('cemetery/getInvitePeople') 
-								return redirect()->route('cemetery.getInvitePeople');
+							// return redirect()->route('cemetery.getInvitePeople')->with('message', 'Mail Successfully Sent');
+
 				}
+
+
+				// public function contactstore(Request $request){
+				// 				$additional['email']='Abhinav@7effects.com';
+				// 				$event_data['name'] =  $request->name;
+				// 				$event_data['email'] = $request->email;
+				// 				$event_data['message'] = $request->message;
+    //     $this->sendMail($additional['email'], $event_data);
+				// 				return redirect()->back();
+   
+    // }
+
+    private function sendMail($dataArr) {
+					// dd($dataArr);
+        $to = $dataArr['email'];
+								$emailDataArr['emailDataArr']=$dataArr;
+        $subject = "Thank You For Registering";
+        $message = view('mail.mailTemplate', $emailDataArr);
+								// Always set content-type when sending HTML email
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+								// More headers
+        $headers .= 'From: <shalu@7effects.com>' . "\r\n";
+								// $headers .= 'Cc: myboss@example.com' . "\r\n";
+        $a= mail($to, $subject, $message, $headers);
+								// dd($a);
+    }
+
 
 				public function manageMember()
 				{

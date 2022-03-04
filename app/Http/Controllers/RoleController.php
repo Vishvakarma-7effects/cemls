@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Permission;
 
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class RoleController extends Controller {
 
@@ -41,7 +43,8 @@ class RoleController extends Controller {
 
     public function index() 
     {
-        
+    	abort_if(Gate::denies('role_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $roles = Role::select('id', 'name','guard_name')
                 ->when(!$this->isAdmin, function ($query) {
                     return $query->where('created_by', $this->userId);
@@ -60,6 +63,7 @@ class RoleController extends Controller {
      */
     public function create() 
     {
+    	abort_if(Gate::denies('role_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
          $permissions = DB::table('permissions')->get();
 
                 // dd($permissions);
@@ -149,6 +153,8 @@ class RoleController extends Controller {
      */
     public function edit(Role $role)
     {
+    	abort_if(Gate::denies('role_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // $roles = Role::with(['permissions'])->find($id);
         $role->load('permissions');
 
@@ -176,6 +182,8 @@ class RoleController extends Controller {
     }
     public function destroy($id) 
     {
+    	abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $Role = Role::findOrFail($id);
 
         $Role->delete();
