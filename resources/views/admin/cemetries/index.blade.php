@@ -124,6 +124,8 @@
 													<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 													<ul class="moptionul">
 														<i class="fa fa-caret-up"></i>
+														<li><a href="{{ url('cemetery/cemeteryDetailPage') }}">Detail</a></li>
+
 														<li><a href="{{ url('cemeteries/' . $cemVal->id . '/edit') }}">Edit</a></li>
 														<!-- <li><a href="#">Delete</a></li> -->
 														<li>

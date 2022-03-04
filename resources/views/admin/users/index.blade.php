@@ -63,7 +63,7 @@
 			<div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade show active" id="cemetery" role="tabpanel" aria-labelledby="cemetery-tab">
-						<div class="table-responsive mb-5 bxshadow">
+						<div class="mb-5 bxshadow">
 							<table class="table  main_table mb-0">
 								<thead>
 									<tr>
@@ -127,7 +127,10 @@
 													<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 													<ul class="moptionul">
 														<i class="fa fa-caret-up"></i>
-														<li class="cemeteryListModal" userId="{{ $user->id }}"> Cemeteries </li>
+										@can('user_cemetery_list')			
+										<li class="cemeteryListModal" userId="{{ $user->id }}"> <a href="javascript:void(0)">Cemeteries </a></li>
+										
+										@endcan
 										@can('user_edit')
 							    			<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
 									    @endcan
@@ -242,9 +245,11 @@
 														<ul class="moptionul">
 
 															<i class="fa fa-caret-up"></i>
-															<li class="cemeteryListModal" userId="{{ $user->id }}"> Cemeteries </li>
-
-															@can('user_edit')
+										@can('user_cemetery_list')
+                                        <li class="cemeteryListModal" userId="{{ $user->id }}"> <a href="javascript:void(0)">Cemeteries </a></li>
+                                        @endcan
+                                        
+								    	@can('user_edit')
 															<li><a href="{{ url('users/Edit/' . $user->id) }}">Edit</a></li>
 															@endcan
 															
