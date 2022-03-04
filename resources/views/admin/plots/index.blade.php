@@ -113,8 +113,8 @@
 
             <div class="searchbx position-relative">
               <form action="{{ route('plots.index') }}" name="plotform" method="GET" role="search">
-
-                            <select id="cemetery_id" class="form-control " name="cemetery_id[]" multiple >
+          
+                            <select class="form-control" id="cemetery_id"  name="cemetery_id[]" multiple>
                                             <option value=""> </option>
                                             @foreach($cemetery as $key=> $row)
                                             @if(in_array($row->id,$cemetery_ids))
@@ -124,8 +124,7 @@
                                             @endif
                                             @endforeach
                                         </select>
-                                        
-
+                                  
                          
                                      
 

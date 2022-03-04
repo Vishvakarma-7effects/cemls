@@ -155,11 +155,13 @@
        </tr>
       </thead>
       <tbody>
-        @foreach($location as $key=>$row)
+
+
+@foreach($geo as $key=>$row)
        <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$row->location_name}}</td>
-        <td>{{$row->view !=null ? $row->view :0}}</td>
+        <td>{{$row->views !=null ? $row->views :0}}</td>
        </tr> 
        <tr>
          @endforeach

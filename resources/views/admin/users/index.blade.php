@@ -63,7 +63,7 @@
 			<div class="tab-pane fade show active" id="switchone" role="tabpanel" aria-labelledby="switchone-tab">
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade show active" id="cemetery" role="tabpanel" aria-labelledby="cemetery-tab">
-						<div class="table-responsive mb-5 bxshadow">
+						<div class="mb-5 bxshadow">
 							<table class="table  main_table mb-0">
 								<thead>
 									<tr>

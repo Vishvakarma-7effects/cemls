@@ -103,9 +103,7 @@ class DashboardController extends Controller {
             ->limit(5)
             ->get();
 //  ........
-            $location = Location::orderBy('id','DESC')
-            ->limit(5)
-            ->get();
+           
 
 
             //My Listings
@@ -118,10 +116,13 @@ class DashboardController extends Controller {
 
                 // $recentPlot = Plot::orderBy('id','DESC')->limit(10)->get();
 
-
+ $geo =   DB::table('geo')
+               ->select(DB::raw("sum(views) as views"),'location_name')
+               ->groupBy('location_name')
+               ->get();
 
             // dd($recentPlot);
-            return view('admin.dashboard',compact('recentMyListings','recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount','location'));
+            return view('admin.dashboard',compact('geo','recentMyListings','recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
 
         }
        
