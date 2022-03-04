@@ -155,46 +155,19 @@
        </tr>
       </thead>
       <tbody>
+
+
+@foreach($geo as $key=>$row)
        <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
+        <th scope="row">{{$key+1}}</th>
+        <td>{{$row->location_name}}</td>
+        <td>{{$row->views !=null ? $row->views :0}}</td>
+       </tr> 
        <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
-       <tr>
-        <th scope="row">1</th>
-        <td>California</td>
-        <td>1326</td>
-       </tr>
+         @endforeach
+     
+      
+       
       </tbody>
      </table>
     </div>
@@ -211,15 +184,15 @@
       <?php
 
                          
-                         $plotgallery=getplotgallery($row->id);
+    $plotgallery=getplotgallery($row->id);
 
-                   if(!empty($plotgallery[0]->plotimage)) {  ?>
+     if(!empty($plotgallery[0]->plotimage)) {  ?>
 
-                                    <img src="{{asset('/uploads/plotgallery/' . $plotgallery[0]->plotimage)}}" class="plot_img" />
-                                <?php } else { ?>
+       <img src="{{asset('/uploads/plotgallery/' . $plotgallery[0]->plotimage)}}" class="plot_img" />
+       <?php } else { ?>
 
    <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
-                                <?php } ?>
+          <?php } ?>
       </div>
       <div class="plot_cnt">
       <h3>CemLS #{{$row->id}}</h3>

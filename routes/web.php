@@ -21,7 +21,6 @@ use App\Http\Controllers\InboxController;
 // use App\Http\Controllers\PlotController;
 use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\MailboxController;
-use App\Http\Controllers\Apis;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\TagsController;
 /*
@@ -75,7 +74,7 @@ Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middlewa
 Route::get('cemetery/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
 Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
-Route::get('cemetery/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
+Route::get('cemetery/{id}', [CemeteryController::class, 'cemeteryDetailPage']);
 Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
 Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
@@ -142,6 +141,7 @@ Route::post('user/getCemeteryList', [UserController::class, 'getCemeteryList'])-
 
 
 Route::resource('users', UserController::class)->middleware('auth');
+
 
 
 

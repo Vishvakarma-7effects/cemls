@@ -51,3 +51,10 @@ function getcemeterygallery($cemeteryid) {
     $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->get();
     return $cemeterygallery;
 }
+function getcemeteryimage($cemeteryid) {
+    $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->inRandomOrder()
+    ->limit(20) ->get();
+    return $cemeterygallery;
+
+}
+ 

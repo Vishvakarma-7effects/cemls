@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plot;
+use App\Models\cemeteries;
 use App\Models\Plotgallery;
 use App\Models\CemeteryUser;
-
-
+use App\Models\Cemetery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -17,31 +17,74 @@ use Gate;
 
 class PlotsController extends Controller
 {
-		public function index(){
-					abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+		public function index(Request $request)
+		{
+			// dd($request->cemetery_id);
+			// dd(request['cemetery_id']);
+			abort_if(Gate::denies('plot_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-	  $plots = Plot::orderBy('id', 'DESC')->paginate(10);
-        $Indoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Indoor')->paginate(10);
-       $Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Outdoor')->paginate(10);
-       $abovegroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Above Ground')->paginate(10);
-       $belowgroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Below Ground')->paginate(10);
-      
-       $burialsplots = Plot::orderBy('id', 'DESC')->where('plottype3','Burial')->paginate(10);
-       $cremationsplots= plot::orderBy('id', 'DESC')->where('plottype3','Cremation')->paginate(10);
-	   $term = '';
+			$plots = Plot::orderBy('id', 'DESC')->paginate(10);
 
-	   if (request('term')) {
+			//   $cemetery = Cemetery::orderBy('id', 'DESC')->get();
 
-        $plots =  DB::table('plot')
+			$cemetery = Cemetery::orderBy('id', 'DESC')->get();
+					
+
+			$Indoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Indoor')->paginate(10);
+			$Outdoorplots= plot::orderBy('id', 'DESC')->where('plottype1','Outdoor')->paginate(10);
+			$abovegroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Above Ground')->paginate(10);
+			$belowgroundplots= plot::orderBy('id', 'DESC')->where('plottype2','Below Ground')->paginate(10);
+
+			
+			$burialsplots = Plot::orderBy('id', 'DESC')->where('plottype3','Burial')->paginate(10);
+			$cremationsplots= plot::orderBy('id', 'DESC')->where('plottype3','Cremation')->paginate(10);
+			$term = '';
+
+	   		if (request('term')) 
+			{
+
+        		$plots =  DB::table('plot')
                 ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
                 ->select('plot.*', 'cemetery.cemetery_name')
                 ->where('cemetery.cemetery_name', 'like', '%' .request('term'). '%')
                 ->orWhere('plot.id', 'like' , '%'. request('term') .'%') 
 				->paginate(10);
+				
 				$term = request('term');
-				}
-								
-            return View('admin.plots.index',compact('plots','burialsplots','cremationsplots','abovegroundplots','belowgroundplots','Indoorplots','Outdoorplots','term'));
+			}
+
+			
+			$cemetery_ids = [];
+
+			// dd($cemetery_ids);
+			
+			if ($request->cemetery_id) 
+			{
+				$cemetery_ids = $request->cemetery_id;
+
+				$plots = DB::table('plot')
+				->whereIn('plot.cemetery_id',$cemetery_ids)
+				->join('cemetery', 'cemetery.id', '=', 'plot.cemetery_id')
+                ->select('plot.*', 'cemetery.cemetery_name')
+				->paginate(10);
+
+				// $cemetery_ids = $cemetery_ids;
+
+				// dd($plots);
+				// dd(333);
+        		// $plots =  DB::table('plot')
+                // ->join('cemetery', 'cemetery.ID', '=', 'plot.cemetery_id')
+                // ->select('plot.*', 'cemetery.cemetery_name')
+                // ->where('plot.cemetery_id', 'like', '%' .request('term'). '%')
+                // ->orWhere('plot.id', 'like' , '%'. request('term') .'%') 
+				// ->paginate(10);
+				
+				// $term = request('term');
+			}
+
+			// dd($cemetery_ids);
+
+            return View('admin.plots.index',compact('cemetery_ids','cemetery','plots','burialsplots','cremationsplots','abovegroundplots','belowgroundplots','Indoorplots','Outdoorplots','term'));
 
 	}
     public function create()
@@ -49,7 +92,7 @@ class PlotsController extends Controller
 					abort_if(Gate::denies('plot_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
 					$data['cemeteries'] = DB::table('cemetery')->select('ID', 'cemetery_name')->get();
-      return view('admin.plots.new', $data);
+                     return view('admin.plots.new', $data);
 		
 	}
 

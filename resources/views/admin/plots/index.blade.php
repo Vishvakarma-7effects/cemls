@@ -1,4 +1,4 @@
-   @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
     <section class="panelrht">
@@ -25,7 +25,7 @@
         </div>
         <div class="col-lg-12 pl-lg-0 col-12 tabcnt">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                @if($term!='')    
+                <!-- @if($term!='')    
                 <li class="nav-item">
                     <a class="nav-link active" id="all-tab" href="{{url('plots')}}"
                         aria-controls="All" aria-selected="true">All</a>
@@ -35,8 +35,9 @@
                     <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" onClick="allData()" role="tab"
                         aria-controls="All" aria-selected="true">All</a>
                 </li>
-                @endif
-                <li class="nav-item">
+                @endif -->
+
+                <!-- <li class="nav-item">
                 
                     <a class="nav-link" id="indoor-tab" data-toggle="tab" href="#indoor" role="tab"
                         aria-controls="Indoor" aria-selected="true">Indoor</a>
@@ -60,14 +61,81 @@
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cremations" role="tab"
                         aria-controls="Cremations" aria-selected="false">Cremations</a>
-                </li>
-               
+                </li> -->
+
+
+
+
+
+
+                <div class="dropdown">
+                    <button class="btn_mid btn_green dropdown-toggle ml-3 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        All
+                    </button>
+                    <!-- <button type="button" class="btn_mid btn_none ml-3" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >All</button> -->
+
+
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                @if($term!='')    
+                    <a class="dropdown-item active" id="all-tab" href="{{url('plots')}}"
+                        aria-controls="All" aria-selected="true">All</a>
+                @else
+                    <a class="dropdown-item" id="all-tab" data-toggle="tab" href="#all" onClick="allData()" role="tab"
+                        aria-controls="All" aria-selected="true">All</a>
+                @endif
+                  
+                
+                
+                
+                
+                        <a class="dropdown-item" id="indoor-tab" data-toggle="tab" href="#indoor" 
+                            aria-controls="Indoor" aria-selected="false">Indoor</a>
+                    <a  class="dropdown-item" id="outdoor-tab" data-toggle="tab" href="#outdoor" 
+                        aria-controls="Outdoor" aria-selected="false">Outdoor</a>
+                    <a class="dropdown-item" id="above_ground-tab" data-toggle="tab" href="#above_ground" 
+                        aria-controls="Above Ground" aria-selected="false">Above Ground</a>
+                    <a class="dropdown-item" id="below_ground-tab" data-toggle="tab" href="#below_ground" 
+                        aria-controls="Below Ground" aria-selected="false">Below Ground</a>
+                    <a class="dropdown-item" id="burials-tab" data-toggle="tab" href="#burials" 
+                        aria-controls="Burials" aria-selected="false">Burials</a>
+                    <a class="dropdown-item" id="profile-tab" data-toggle="tab" href="#cremations" 
+                        aria-controls="Cremations" aria-selected="false">Cremations</a>
+   
+
+                 </div>
+            </div>
+
+
                 
             </ul>
 
             <div class="searchbx position-relative">
-              <form action="{{ route('plots.index') }}" method="GET" role="search">
+              <form action="{{ route('plots.index') }}" name="plotform" method="GET" role="search">
+          
+                            <select class="form-control" id="cemetery_id"  name="cemetery_id[]" multiple>
+                                            <option value=""> </option>
+                                            @foreach($cemetery as $key=> $row)
+                                            @if(in_array($row->id,$cemetery_ids))
+                                            <option value="{{$row->id}}" selected>{{$row->cemetery_name}}</option>
+                                            @else
+                                            <option value="{{$row->id}}">{{$row->cemetery_name}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                  
+                         
+                                     
 
+
+
+                <!-- <a href="#"><i class="fa fa-search"></i></a> -->
+                  </form>
+            </div>
+
+            <div class="searchbx position-relative">
+              <form action="{{ route('plots.index') }}" method="GET" role="search">
                 <input type="text" class="form-control" name="term" id="" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
                   </form>
@@ -214,7 +282,9 @@
                                             </td>
                                             <td width="205">
                                                 <div class="thead text-center">Type</div>
-                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}
+                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
                                                 </div>
                                             </td>
                                             <td style="padding: 15px;">
@@ -289,7 +359,9 @@
                                                             <td width="205">
                                                                 <div class="thead text-center">Type</div>
 
-                                                                <div class="ttxt cl_green text-center">{{$row->plottype3}}</div>                                          </div>
+                                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}</div>                                          </div>
 
                                                             </td>
                                                             <td style="padding: 15px;">
@@ -322,6 +394,7 @@
                                         </table>
                                     </div>
                                  @endforeach
+
                             </section>
                        
                     </section>
@@ -365,7 +438,9 @@
                                             <td width="205">
                                                 
                                                 <div class="thead text-center">Type</div>
-                                                <div class="ttxt cl_green text-center">{{$row->plottype3}}                                    
+                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}                           
                                                 </div>
                                             </td>
                                             <td style="padding: 15px;">
@@ -440,7 +515,9 @@
                                             </td>
                                             <td width="205">
                                                 <div class="thead text-center">Type</div>
-                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}
+                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
                                                 </div>
                                             </td>
                                             <td style="padding: 15px;">
@@ -517,7 +594,9 @@
                                             </td>
                                             <td width="205">
                                                 <div class="thead text-center">Type</div>
-                                                <div class="ttxt cl_green text-center">{{$row->plottype2}}
+                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
                                                 </div>
                                             </td>
                                             <td style="padding: 15px;">
@@ -582,7 +661,9 @@
                                             </td>
                                             <td width="205">
                                                 <div class="thead text-center">Type</div>
-                                                <div class="ttxt cl_green text-center">{{$row->plottype2}}
+                                                <div class="ttxt cl_green text-center">{{$row->plottype1}}, 
+                                    {{$row->plottype2}}, 
+                                    {{$row->plottype3}}
                                                 </div>
                                             </td>
                                             <td style="padding: 15px;">
@@ -640,22 +721,26 @@
 
     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script>
         function allData()
          {
             location.reload();
          }
- </script>
-
-
-
-
- </script>
-
-
-<script>
-    $(document).ready(function () {
-        $(".radio").change(function () {
+    </script>
+ 	<script>
+	    $(document).ready(function() {
+            $('select').select2().select2();
+        });
+	</script>
+    <script>
+        $(document).ready(function () 
+        {
+            $(".radio").change(function () {
             var event_id = $(this).data("id");
 
             var selected_value = 0;
@@ -685,9 +770,54 @@
                 }
             });
         });
+
+        $('#cemetery_id').change(function()
+        {
+            var cemetery_id = $('#cemetery_id').val();
+            this.form.submit()
+            // if(cemetery_id.length>2)
+            // {
+            //     alert('dont use');
+            //     return false;
+            // }
+            // else
+            // {
+            //     this.form.submit()
+            // }
+
+
+
+
+            
+            // document.forms['plotform'].submit();
+            // $.ajax({
+            //     type: "POST",
+            //     url: "{{url('plots/update-feature')}}",
+            //     data: {
+            //         '_token': '{{ csrf_token() }}',
+            //         'event_id': event_id,
+            //         'value': selected_value
+            //     },
+            //     dataType: "json",
+            //     beforeSend: function () {
+            //         $('#ajax_loader').show();
+            //     },
+            //     success: function (data) {
+            //         console.log(data);
+            //     },
+            //     complete: function () {
+            //         $('#ajax_loader').hide();
+            //     }
+            // });
+
+            // alert(cemetery_id);
+        });
     });
 </script>
 @endsection
+
+
+
 <script>
     function myFunction()
     {
@@ -701,4 +831,13 @@
             location.reload();
          }
  </script>
+ 
+
+
+
+
+
+
+
+
    
