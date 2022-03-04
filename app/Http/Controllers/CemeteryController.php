@@ -20,7 +20,7 @@ use App\Models\User;
 use App\Models\CemeteryUser;
 use App\Models\Countries;
 use Mail;
-use App\Mail\UserEmail;
+// use App\Mail\UserEmail;
 
 class CemeteryController extends Controller
 {
@@ -288,27 +288,33 @@ class CemeteryController extends Controller
 				{
 								return view('admin.cemetries.getAddMember');
 				}
+
+
 				public function getInvitePeople(Request $request){
 								$cemeteries = Cemetery::all();
 								return view('admin.cemetries.getInvitePeople', compact('cemeteries'));
 				}
+
+
 				public function storeInvitePeople(Request $request){
+
 								$request->merge(['created_by' => auth()->user()->id, 'status' => 'SEND']);
 								$request->merge(['type' => 'INVITATION']);
-								$password=$this->generatePassword();
-								$request->merge(['password'=>$password]);
 								// dd($request->all());
 								$cemeteries = $request->input('cemetery_id');
 
 								$checkUser = User::where(['email' => $request->input('email')])->get();
+
+
+
+
 								// if(!$checkUser){
 								//         $invite = Mail::create($request->all());
 								// }
-								// dd($request->input('email'))
-									$emailDataArr= $request->all();
-									$emailDataArr['user_created'] = 0;
 
-									// dd($emailDataArr);
+								mail::to($request->input('email'))->send(new UserEmail( $request->all() ));
+
+
 									if (count($checkUser) < 1) {
 											$createUser = User::create([
 														'email' => $request->input('email'),
@@ -318,35 +324,62 @@ class CemeteryController extends Controller
 														'password'=>Hash::make($password)
 											]);
 										if($createUser){
-																$user_id=	$createUser->id;
-
+														$user_id=	$createUser->id;
 														$emailDataArr['user_created'] = 1;
-														$sendInvitationUser=mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+														$this->sendMail($emailDataArr);
+
+														// $sendInvitationUser=mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
 										}
 
 									}else{
 											$user_id=	$checkUser[0]->id;
 									}
-
-							$sendInvitationCem=	mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
+									$this->sendMail($emailDataArr);
+							// $sendInvitationCem=	mail::to($request->input('email'))->send(new UserEmail( $emailDataArr ));
 							// dd($sendInvitation);
 								// if ($invite) {
 												if ($request->type == 'INVITATION') {
 														foreach ($cemeteries as $key => $value) {
-																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])->get();
+																$checkCemeteryUser = CemeteryUser::where(['user_id' => $user_id, 'cemetery_id' => $value])
+																				->get();
 																if (count($checkCemeteryUser) < 1) {
-																	// dd($value);
 																				CemeteryUser::create(['user_id' => $user_id, 'cemetery_id' => $value,'status'=>1]);
 																}
 														}
 												}
-
-												return back()->with('message', 'Mail Successfully Sent');
-        
+												session()->flash('message', 'Mail Successfully Sent');
 								// }
-							return redirect()->route('cemetery.getInvitePeople')->with('message', 'Mail Successfully Sent');
+							// return redirect()->route('cemetery.getInvitePeople')->with('message', 'Mail Successfully Sent');
 
 				}
+
+
+				// public function contactstore(Request $request){
+				// 				$additional['email']='Abhinav@7effects.com';
+				// 				$event_data['name'] =  $request->name;
+				// 				$event_data['email'] = $request->email;
+				// 				$event_data['message'] = $request->message;
+    //     $this->sendMail($additional['email'], $event_data);
+				// 				return redirect()->back();
+   
+    // }
+
+    private function sendMail($dataArr) {
+					// dd($dataArr);
+        $to = $dataArr['email'];
+								$emailDataArr['emailDataArr']=$dataArr;
+        $subject = "Thank You For Registering";
+        $message = view('mail.mailTemplate', $emailDataArr);
+								// Always set content-type when sending HTML email
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+								// More headers
+        $headers .= 'From: <shalu@7effects.com>' . "\r\n";
+								// $headers .= 'Cc: myboss@example.com' . "\r\n";
+        $a= mail($to, $subject, $message, $headers);
+								// dd($a);
+    }
+
 
 				public function manageMember()
 				{
@@ -368,7 +401,11 @@ class CemeteryController extends Controller
 				{
 								return view('admin.cemetries.cemeteryListView');
 				}
-
+				public function cemeteryListViewNew(Request $request)
+				{
+								return view('admin.cemetries.cemeteryListViewNew');
+				}
+				
 				public function cemeteryListDetails(Request $request)
 				{
 								return view('admin.cemetries.cemeteryListDetails');
@@ -422,28 +459,4 @@ class CemeteryController extends Controller
 
 								return response()->json($response, 200);
 				}
-
-
-			function generatePassword( $number = 8 ) {
-    // Generate set of alpha characters
-    $alpha = array();
-    for ($u = 65; $u <= 90; $u++) {
-        // Uppercase Char
-        array_push($alpha, chr($u));
-    }
-
-    // Get random alpha character
-    $rand_alpha_key = array_rand($alpha);
-    $rand_alpha = $alpha[$rand_alpha_key];
-
-    // Add the other missing integers
-    $rand = array($rand_alpha);
-    for ($c = 0; $c < $number - 1; $c++) {
-        array_push($rand, mt_rand(0, 9));
-        shuffle($rand);
-    }
-
-    return implode('', $rand);
-}
-
 }

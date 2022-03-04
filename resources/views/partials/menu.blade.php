@@ -159,6 +159,41 @@
 				</li>
 			@endcan
 		{{-- @endif --}}
+        
+		<li
+				class="dropdown">
+
+				{{-- <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <span><img src="{{ asset('newPublic/images/lfticon2.png') }}"></span>
+        <bdi>Property</bdi></a> --}}
+				<a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					{{-- <a href="{{ url('user') }}"> --}}
+					<span><img src="{{ asset('newPublic/images/lfticon11.png') }}"></span> <bdi>Setting</bdi>
+				</a>
+
+				<div class="dropdown-menu"
+					aria-labelledby="navbarDropdown">
+
+					
+						<a class="dropdown-item "
+							href="{{ url('location') }}">
+							<span><img src="{{ asset('newPublic/images/lfticon15.png') }}"></span>
+							<bdi>Location</bdi>
+						</a>
+					
+					
+						<a class="dropdown-item" href="{{ url('tag') }}"><span><img
+									src="{{ asset('newPublic/images/lfticon14.png') }}"></span>
+							<bdi>Tags</bdi>
+						</a>
+					
+
+					
+				</div>
+			</li>
+
 
 		@can('my_account')
 		<li class="{{ request()->is('user/profile') ? 'active' : '' }}">

@@ -21,6 +21,9 @@ use App\Http\Controllers\InboxController;
 // use App\Http\Controllers\PlotController;
 use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\MailboxController;
+use App\Http\Controllers\Apis;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\TagsController;
 
 
 /*
@@ -190,3 +193,13 @@ Route::post('widgets/update-feature', [DashboardController::class, 'updateFeatur
 Route::delete('allmaildatadelete', [MailboxController::class, 'deleteAll']);
 Route::post('fetchstates',[CemeteryController::class, 'fetchstates']);
 Route::post('cemeteries/get-destroycemeteryimage', [CemeteryController::class, 'destroycemeteryimage'])->middleware('auth');
+Route::get('cemetery/cemeteryListViewNew', [CemeteryController::class, 'cemeteryListViewNew']);
+Route::get('/getallcemeteries', [Apis::class, 'getallusercemeteries']);
+Route::get('location/delete/{id}', [LocationController::class, 'destroy'])->middleware('auth');
+
+Route::resource('tag', TagsController::class)->middleware('auth');
+Route::get('tag/edit/{id}', [TagsController::class, 'edit'])->middleware('auth');
+Route::post('updatetag', [TagsController::class, 'update'])->name('tag.update')->middleware('auth');
+Route::get('tag/delete/{id}', [TagsController::class, 'destroy'])->middleware('auth');
+
+Route::post('plots/get_location', [PlotsController::class, 'get_location'])->middleware('auth');

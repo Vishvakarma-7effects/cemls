@@ -7,6 +7,8 @@
 
 <body>
 
+
+	{{-- {{ dd($emailDataArr)}} --}}
 	@if (isset($emailDataArr['user_created']) && $emailDataArr['user_created'] == '1')
 		<h4>Account Created</h4>
 

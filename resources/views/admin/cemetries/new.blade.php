@@ -42,17 +42,12 @@
                                 <div class="form-group row">
                                 <label for="" class="col-md-5 col-sm-3 col-form-label pr-0 mr-md-1">Country</label>
                                 <div class="col-md-6 col-sm-9 pl-3 pl-md-4 ">
-                                    <!-- <input type="text" class="form-control" name="country" id="" placeholder=""> -->
-                                    <select id="countries_id" name="countries_id" required class="form-control allmyselectdropdown">
+                                    <select id="countries_id" name="countries_id" class="form-control allmyselectdropdown">
                                             <option value="">Select Country</option>
                                             @foreach($countries as $row)
                                             <option value="{{$row->id}}">{{$row->countries}}</option>
                                             @endforeach
                                         </select>  
-
-                                        
-
-                                        
                                 </div>
                                 </div>
                             </div>
@@ -246,8 +241,9 @@
                 <button class="btn_mid btn_green">Add</button>
                   </form>
 
-                <button class="btn_mid btn_none ml-3">Cancel</button>
+                <button type="button" class="btn_mid btn_none ml-3" onClick="myclick()">Cancel</button>
                 </div>
+                
         </section>
 
     </section>
@@ -255,6 +251,16 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+   function myclick()
+   {
+    document.location.href ="{{ url('cemeteries') }}";
+   }
+
+</script>
+
+
+<script>
+       
         $(document).ready(function () {
             $('#countries_id').on('change', function () 
             {

@@ -167,7 +167,7 @@ font-family: sans-serif;
 
     <div class="cntbox">
          <button class="btn_mid btn_green" type="submit">Add</button>
-         <button class="btn_mid btn_none ml-3">Cancel</button>
+         <button type="button" class="btn_mid btn_none ml-3" onClick="myclick()">Cancel</button>
       </div>
 
 
@@ -188,3 +188,11 @@ font-family: sans-serif;
  })
 </script>
 @endsection
+<script>
+   function myclick()
+   {
+    document.location.href ="{{ url('users') }}";
+   }
+
+</script>
+

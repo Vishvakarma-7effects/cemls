@@ -25,11 +25,19 @@
         </div>
         <div class="col-lg-12 pl-lg-0 col-12 tabcnt">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
+                @if($term!='')    
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#all" role="tab"
-                        aria-controls="Burials" aria-selected="true">All</a>
-
-                        <li class="nav-item">
+                    <a class="nav-link active" id="all-tab" href="{{url('plots')}}"
+                        aria-controls="All" aria-selected="true">All</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" onClick="allData()" role="tab"
+                        aria-controls="All" aria-selected="true">All</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                
                     <a class="nav-link" id="indoor-tab" data-toggle="tab" href="#indoor" role="tab"
                         aria-controls="Indoor" aria-selected="true">Indoor</a>
                 </li>
@@ -58,7 +66,7 @@
             </ul>
 
             <div class="searchbx position-relative">
-                                <form action="{{ route('plots.index') }}" method="GET" role="search">
+              <form action="{{ route('plots.index') }}" method="GET" role="search">
 
                 <input type="text" class="form-control" name="term" id="" placeholder="Cemetery Name or ID">
                 <a href="#"><i class="fa fa-search"></i></a>
@@ -99,7 +107,7 @@
                                     <img src="{{asset('/uploads/plotgallery/' . $plotgallery[0]->plotimage)}}" class="plot_img" />
                                 <?php } else { ?>
 
-   <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
+                    <img src="{{asset('/uploads/')}}/noimage.png" class="plot_img"/>
                                 <?php } ?>
                                 </td>
                                 <td width="450px">
@@ -632,6 +640,18 @@
 
     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+        function allData()
+         {
+            location.reload();
+         }
+ </script>
+
+
+
+
+ </script>
+
 
 <script>
     $(document).ready(function () {
@@ -675,4 +695,10 @@
         event.preventDefault();
     }
 </script>
+<script>
+        function allData()
+         {
+            location.reload();
+         }
+ </script>
    
