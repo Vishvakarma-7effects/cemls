@@ -21,7 +21,6 @@ use App\Http\Controllers\InboxController;
 // use App\Http\Controllers\PlotController;
 use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\MailboxController;
-use App\Http\Controllers\Apis;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\TagsController;
 
@@ -149,6 +148,7 @@ Route::resource('users', UserController::class)->middleware('auth');
 
 
 
+
 //password
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
@@ -193,8 +193,14 @@ Route::post('widgets/update-feature', [DashboardController::class, 'updateFeatur
 Route::delete('allmaildatadelete', [MailboxController::class, 'deleteAll']);
 Route::post('fetchstates',[CemeteryController::class, 'fetchstates']);
 Route::post('cemeteries/get-destroycemeteryimage', [CemeteryController::class, 'destroycemeteryimage'])->middleware('auth');
-Route::get('cemetery/cemeteryListViewNew', [CemeteryController::class, 'cemeteryListViewNew']);
-Route::get('/getallcemeteries', [Apis::class, 'getallusercemeteries']);
+
+
+
+
+//
+Route::resource('location', LocationController::class)->middleware('auth');
+Route::get('location/edit/{id}', [LocationController::class, 'edit'])->middleware('auth');
+Route::post('updatelocation', [LocationController::class, 'update'])->name('location.update')->middleware('auth');
 Route::get('location/delete/{id}', [LocationController::class, 'destroy'])->middleware('auth');
 
 Route::resource('tag', TagsController::class)->middleware('auth');
