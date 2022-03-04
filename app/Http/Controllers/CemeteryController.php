@@ -411,9 +411,15 @@ class CemeteryController extends Controller
 								return view('admin.cemetries.cemeteryListDetails');
 				}
 
-				public function cemeteryDetailPage(Request $request)
+				public function cemeteryDetailPage($id)
 				{
-								return view('admin.cemetries.cemeteryDetailPage');
+
+
+
+
+					$cemetery=Cemetery::find($id);
+
+								return view('admin.cemetries.cemeteryDetailPage', compact('cemetery'));
 				}
 				/**
 					* Remove the specified resource from storage.

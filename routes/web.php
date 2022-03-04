@@ -76,7 +76,7 @@ Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middlewa
 Route::get('cemetery/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
 Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
 
-Route::get('cemetery/cemeteryDetailPage', [CemeteryController::class, 'cemeteryDetailPage']);
+Route::get('cemetery/{id}', [CemeteryController::class, 'cemeteryDetailPage']);
 Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);
 Route::get('cemetery/cemls', [CemeteryController::class, 'cemeteryDetail']);
 Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');

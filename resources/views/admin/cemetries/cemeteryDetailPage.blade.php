@@ -39,11 +39,22 @@
       <div class="boxinnerdtl_inner">
         <a href="{{ url('cemetery/cemeteryListView') }}"><i class="fa fa-times" aria-hidden="true"></i></a>
         <div class="boxinnerdtl_img1">
+
+          <?php 
+if(!empty($cemetery->id))
+{
+          $cemeterygallery=getcemeteryimage($cemetery->id);
+                              if(!empty($cemeterygallery[0]->cemeteryimage)) { 
+                               ?>
+          <img src="{{ asset('/uploads/cemeterygallery/' . $cemeterygallery[0]->cemeteryimage) }}" />
+          <?php } } else { ?>
           <img src="{{ asset('newPublic/images/cemlistd-img1.jpg') }}" />
+
+            <?php } ?>
         </div>
         <div class="boxinnerdtl_cnt">
-          <h2>St Josephs Cemetery</h2>
-          <address>3155 Barberry Ln, Sacramento, CA</address>
+          <h2> {{ !empty($cemetery->cemetery_name) ? $cemetery->cemetery_name:'' }}</h2>
+          <address>{{ !empty($cemetery->address) ? $cemetery->address:'' }}</address>
         </div>
       </div>
       <div class="boxinnerdtl_body">
@@ -52,9 +63,15 @@
           <span>360<sup>0</sup><br />Virtual Tour</span>
         </div>
         <div class="bodyrht">
-          <p>Experience 360° views of New Orleans Catholic Cemeteries. St. Joseph Cemetery is one out of the six
-            cemeteries…</p>
-          <p><a href="#">Read More <i class="fa fa-chevron-down"></i></a></p>
+          <p  class="content">
+ @if(!empty($cemetery->cemetery_desc))
+              @if(strlen($cemetery->cemetery_desc) > 100)
+            {{substr($cemetery->cemetery_desc,0,100)}}
+@endif
+@endif
+          </p>
+          <p id="text">{{ !empty($cemetery->cemetery_desc) ? substr($cemetery->cemetery_desc,100):'' }}</p>
+          <p><a href="#" id="toggle">Read More </a></p>
           <ul class="ulshare">
             <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
             <!--<li><a href="#"><i class="far fa-heart"></i> Save</a></li>-->
@@ -376,4 +393,32 @@ body{
   overflow: hidden;
 }
       </style>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script> 
+
+
+<script type="text/javascript">  
+$(document).ready(function() {  
+   $('#text').hide();
+  $("#toggle").click(function() {  
+    var elem = $("#toggle").text();  
+    if (elem == "Read More") {  
+      //Stuff to do when btn is in the read more state  
+      $("#toggle").text("Read Less");  
+      $("#text").slideDown();  
+    } else {  
+      //Stuff to do when btn is in the read less state  
+      $("#toggle").text("Read More");  
+      $("#text").slideUp();  
+    }  
+  });  
+  $('a[href=#top]').click(function () {  
+    $('body,html').animate({  
+        scrollTop: 0  
+    }, 600);  
+    return false;  
+});  
+});  
+</script>  
+
 @endsection
