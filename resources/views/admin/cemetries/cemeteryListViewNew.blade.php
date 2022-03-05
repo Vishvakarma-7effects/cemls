@@ -455,7 +455,7 @@ $(document).ready(function($) {
             zoom: mapDefaultZoom,
             scrollwheel: scrollWheel,
             center: new google.maps.LatLng(centerLatitude, centerLongitude),
-            mapTypeId: "roadmap",
+            mapTypeId: "satellite",
             disableDefaultUI: controls,
             zoomControlOptions: {
                 position: eval(zoomPosition)
