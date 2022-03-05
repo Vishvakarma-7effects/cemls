@@ -23,6 +23,7 @@ use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\MailboxController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\TagsController;
+use App\Http\Controllers\Apis;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
