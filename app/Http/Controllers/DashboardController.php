@@ -12,10 +12,6 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Mail;
 use App\Models\Mailinbox;
-use App\Models\Locations;
-use App\Models\Location;
-
-
 
 
 class DashboardController extends Controller {
@@ -98,12 +94,11 @@ class DashboardController extends Controller {
             $plots = Plot::orderBy('id','DESC')
             ->limit(10)
             ->get();
-// ..............
+
             $recentPlotlists = Plot::orderBy('id','DESC')
             ->limit(5)
             ->get();
-//  ........
-           
+
 
 
             //My Listings
@@ -114,15 +109,18 @@ class DashboardController extends Controller {
                 ->limit(10)
                 ->get();
 
-                // $recentPlot = Plot::orderBy('id','DESC')->limit(10)->get();
-
- $geo =   DB::table('geo')
+           $geo =   DB::table('geo')
                ->select(DB::raw("sum(views) as views"),'location_name')
                ->groupBy('location_name')
-               ->get();
+               ->get(); 
+
+
+            // $recentPlot = Plot::orderBy('id','DESC')->limit(10)->get();
+
+
 
             // dd($recentPlot);
-            return view('admin.dashboard',compact('geo','recentMyListings','recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount'));
+            return view('admin.dashboard',compact('recentMyListings','recentPlotlists','mail','recentPlot','recentmsg', 'cemeterys','cemeteryscount','mailcount', 'plots','plotscount','geo'));
 
         }
        

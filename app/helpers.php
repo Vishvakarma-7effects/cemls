@@ -24,19 +24,24 @@ function getplotlocationtitle($plotid) {
 
     return $locationtitlename;
 }
-
 function getplotgallery($plotid) {
            $plotgallery=DB::table('plotgallery')->where('plot_id', $plotid)->get();
      
 
     return $plotgallery;
 }
-
 function getuserrolename($roleid) {
            $rolename=DB::table('roles')->where('id', $roleid)->get();
      
 
     return $rolename;
+}
+
+function getcemeterygallery($cemeteryid) {
+           $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->get();
+     
+
+    return $cemeterygallery;
 }
 function getPermission($roleid) {
     $permissions=DB::table('permissions')
@@ -45,16 +50,9 @@ function getPermission($roleid) {
     return $permissions;
 }
 
-
-
-function getcemeterygallery($cemeteryid) {
-    $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->get();
-    return $cemeterygallery;
-}
 function getcemeteryimage($cemeteryid) {
     $cemeterygallery=DB::table('cemeterygallery')->where('cemetery_id', $cemeteryid)->inRandomOrder()
     ->limit(20) ->get();
     return $cemeterygallery;
 
 }
- 

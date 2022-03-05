@@ -20,8 +20,8 @@
        <img src="{{ asset('newPublic/images/dash-icon1.png') }}" alt="" />
       </div>
       <div class="dashbx_cnt">
-       <h3>{{count($cemeteryscount)}}</h3>
-       <p>Total Listings</p>
+       <h3>74</h3>
+       <p>Total Litings</p>
       </div>
      </div>
     </div>
@@ -32,7 +32,7 @@
        <img src="{{ asset('newPublic/images/dash-icon2.png') }}" alt="" />
       </div>
       <div class="dashbx_cnt">
-       <h3>{{count($mailcount)}}</h3>
+       <h3>107</h3>
        <p>Lead Recieved</p>
       </div>
      </div>
@@ -44,7 +44,7 @@
        <img src="{{ asset('newPublic/images/dash-icon3.png') }}" alt="" />
       </div>
       <div class="dashbx_cnt">
-       <h3>{{count($plotscount)}}</h3>
+       <h3>39</h3>
        <p>Top Listings</p>
       </div>
      </div>
@@ -204,25 +204,63 @@
   <div class="row">
    <div class="col-lg-6 ">
     <div class="pad38">
-     <h2 class="sheading">My Listings </h2>
-     @foreach($recentPlotlists as $key=>$row)
+     <h2 class="sheading">My Listings</h2>
      <div class="plotbx clearfix">
       <div class="plot_img">
        <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
       </div>
       <div class="plot_cnt">
-      <h3>CemLS #{{$row->id}}</h3>
-
-       <h4>{{$row->cemetery_name}}</h4>
-       <!-- <h4>{{$row->address}}</h4> -->
-       <h4>{{$row->address}} {{$row->city}} {{$row->state}}</h4>
-       <p>{{$row->plot_number}} {{$row->section}} {{$row->row}}</p>
+       <h3>CemLS #30543</h3>
+       <h4>3155 Barberry Ln, Sacramento, CA</h4>
+       <p>Burials, Cremation, Outdoor facilities</p>
       </div>
      </div>
-     @endforeach
 
-     
-     <a href="{{url('plots')}}"><button class="btn_small btn_bgreen mt-3">View all listings</button></a>
+     <div class="plotbx clearfix">
+      <div class="plot_img">
+       <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
+      </div>
+      <div class="plot_cnt">
+       <h3>CemLS #30543</h3>
+       <h4>3155 Barberry Ln, Sacramento, CA</h4>
+       <p>Burials, Cremation, Outdoor facilities</p>
+      </div>
+     </div>
+
+     <div class="plotbx clearfix">
+      <div class="plot_img">
+       <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
+      </div>
+      <div class="plot_cnt">
+       <h3>CemLS #30543</h3>
+       <h4>3155 Barberry Ln, Sacramento, CA</h4>
+       <p>Burials, Cremation, Outdoor facilities</p>
+      </div>
+     </div>
+
+     <div class="plotbx clearfix">
+      <div class="plot_img">
+       <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
+      </div>
+      <div class="plot_cnt">
+       <h3>CemLS #30543</h3>
+       <h4>3155 Barberry Ln, Sacramento, CA</h4>
+       <p>Burials, Cremation, Outdoor facilities</p>
+      </div>
+     </div>
+
+     <div class="plotbx clearfix">
+      <div class="plot_img">
+       <img src="{{ asset('newPublic/images/list-img1.jpg') }}" alt="">
+      </div>
+      <div class="plot_cnt">
+       <h3>CemLS #30543</h3>
+       <h4>3155 Barberry Ln, Sacramento, CA</h4>
+       <p>Burials, Cremation, Outdoor facilities</p>
+      </div>
+     </div>
+
+     <button class="btn_small btn_bgreen mt-3">View all listings</button>
     </div>
    </div>
 
@@ -232,20 +270,65 @@
      <table class="table stable mb-0 mt-4">
 
       <tbody>
-        @foreach($recentmsg as $key=>$row)
        <tr>
-        <td>{{$row->inbox_title}}</td>
-        <td>CemLS #{{$row->cemetery360_inbox_plot}}</td>
-        <td>{{date('Y-m-d',strtotime($row->created_at))}}</td>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
        </tr>
-       @endforeach
-       
-       
-       
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
+       <tr>
+        <td>Lorem ipsum dolor sit amet..</td>
+        <td>CemLS #30543</td>
+        <td>12 Jan 2018</td>
+       </tr>
       </tbody>
      </table>
 
-     <a href="{{url('mailbox')}}"><button class="btn_small btn_bgreen mt-3">View all Messages</button></a>
+     <button class="btn_small btn_bgreen mt-3">View all Messages</button>
     </div>
    </div>
   </div>
@@ -436,8 +519,8 @@
     <span aria-hidden="true">&times;</span>
    </button>
    <h2 class="sheading">Top Listings</h2>
-   <p class="mb-2">Number of top listings: {{count($plotscount)}}</p>
-   <p class="mb-2 cl_grey">Here are the top 10 listings</p>
+   <p class="mb-2">Number of top listings: 39</p>
+   <p class="mb-2 cl_grey">Here are the top 5 listings</p>
    <table class="table stable ">
     <thead>
      <tr>
@@ -447,15 +530,31 @@
      </tr>
     </thead>
     <tbody>
-    @foreach($recentPlot as $key=>$row)
-
      <tr>
-      <th scope="row">{{$key+1}}</th>
-      <td>CemLS #{{$row->id}}</td>
-      <td>{{$row->view !=null ? $row->view : 0}}</td>
+      <th scope="row">1</th>
+      <td>CemLS #30543</td>
+      <td>432</td>
      </tr>
-     @endforeach
-
+     <tr>
+      <th scope="row">2</th>
+      <td>CemLS #30543</td>
+      <td>398</td>
+     </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td>CemLS #30543</td>
+      <td>337</td>
+     </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>CemLS #30543</td>
+      <td>289</td>
+     </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>CemLS #30543</td>
+      <td>263</td>
+     </tr>
     </tbody>
    </table>
    <div class="text-left">
@@ -473,7 +572,7 @@
     <span aria-hidden="true">&times;</span>
    </button>
    <h2 class="sheading">Leads Received</h2>
-   <p class="mb-2">Total number of leads: {{count($mailcount)}}</p>
+   <p class="mb-2">Total number of leads: 107</p>
    <p class="mb-2 cl_grey">Here are the latest leads</p>
    <table class="table stable ">
     <thead>
@@ -484,23 +583,41 @@
      </tr>
     </thead>
     <tbody>
-      @foreach($mail as $key=>$row)
      <tr>
-      <th scope="row">{{$key+1}}</th>
-      <td>{{$row->sender_name}}</td>
-      <td>{{$row->sender_email}}</td>
+      <th scope="row">1</th>
+      <td>Justine Henderson</td>
+      <td>justine.henderson@mail.com</td>
      </tr>
-     @endforeach
+     <tr>
+      <th scope="row">2</th>
+      <td>Marcus Cruz</td>
+      <td>marcus.cruz@mail.com</td>
+     </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td>Thalia Cobb</td>
+      <td>thalia.cobb@mail.com</td>
+     </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>Eddie Randolph</td>
+      <td>eddie.randolph@mail.com</td>
+     </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>Angela Walker</td>
+      <td>angela.walker@mail.com</td>
+     </tr>
     </tbody>
    </table>
    <div class="text-left">
-    <a href="{{url('mailbox')}}"><button class="btn_mid btn_green">View all leads</button></a>
+    <button class="btn_mid btn_green">View all leads</button>
    </div>
   </div>
  </div>
 </div>
 
-<div class="modal fade smodal" id="ttllistModal" tabindex="-1" role="dialog"  aria-labelledby="searchModalLabel"
+<div class="modal fade smodal" id="ttllistModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
  aria-hidden="true">
  <div class="modal-dialog" role="document">
   <div class="modal-content">
@@ -508,30 +625,46 @@
     <span aria-hidden="true">&times;</span>
    </button>
    <h2 class="sheading">Total Listings</h2>
-   <p class="mb-2">Total number of listings: {{count($cemeteryscount)}}</p>
+   <p class="mb-2">Total number of listings: 74</p>
    <p class="mb-2 cl_grey">Here are the latest listings</p>
    <table class="table stable ">
     <thead>
      <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
+      <th scope="col">Location ID</th>
       <th scope="col">Address</th>
      </tr>
     </thead>
     <tbody>
-      @foreach($cemeterys as $key=>$row)
      <tr>
-      <th scope="row">{{$key+1}}</th>
-      <!-- <td>{{$row->plottype}}<{{$row->plottype2}}/td> -->
-      <td>{{$row->cemetery_name}}</td>
-      <td>{{$row->address}}</td>
+      <th scope="row">1</th>
+      <td>CemLS #30543</td>
+      <td>3155 Barberry Ln, Sacramento, CA</td>
      </tr>
-     @endforeach
-     
+     <tr>
+      <th scope="row">2</th>
+      <td>CemLS #30543</td>
+      <td>3155 Barberry Ln, Sacramento, CA</td>
+     </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td>CemLS #30543</td>
+      <td>3155 Barberry Ln, Sacramento, CA</td>
+     </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>CemLS #30543</td>
+      <td>3155 Barberry Ln, Sacramento, CA</td>
+     </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>CemLS #30543</td>
+      <td>3155 Barberry Ln, Sacramento, CA</td>
+     </tr>
     </tbody>
    </table>
    <div class="text-left">
-    <a href="{{url('cemeteries')}}"><button class="btn_mid btn_green">View all listings</button></a>
+    <button class="btn_mid btn_green">View all listings</button>
    </div>
   </div>
  </div>

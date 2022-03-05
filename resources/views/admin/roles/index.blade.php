@@ -14,7 +14,7 @@
             <h1 class="mheading">Roles</h1>
         </div>
         <div class="col-md-7 col-6 text-right">
-            @can('add_edit')
+            @can('role_add')
              <a href="{{route('roles.create')}}"><button class="btn_mid btn_green">Add Role</button>
              </a>
             @endcan

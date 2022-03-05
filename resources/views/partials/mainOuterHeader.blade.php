@@ -63,7 +63,11 @@
 
   }
 </style>
-
+<?php
+ $currentURL = URL::current(); 
+if($currentURL!='https://new.cemeterylistingservice.com/cemetery/cemls' )
+{
+?>
  <header class="hm_header">
     <div class="container-lg">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -132,3 +136,4 @@
       </button>
     </div>
   </header>
+<?php } ?>

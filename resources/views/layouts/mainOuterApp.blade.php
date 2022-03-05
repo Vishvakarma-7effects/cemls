@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="{{ asset('newPublic/css/bootstrap.min.css') }}" type="text/css">
-
-
-    <link rel="stylesheet" href="{{ asset('newPublic/css/font-awesome/css/fontawesome-all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('newPublic/css/jquery.scrollbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('newPublic/css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     {{-- <link href="{{ asset('newPublic/css/owl.carousel.min.css ') }}" rel="stylesheet" type="text/css">
@@ -32,9 +27,15 @@
   @include('partials.mainOuterIndexHeader')
 
 @else
-  @include('partials.mainOuterHeader')
-@endif
+<?php
+ $currentURL = URL::current(); 
+if($currentURL!='https://new.cemeterylistingservice.com/cemetery/widget' )
+{
+?>
 
+  @include('partials.mainOuterHeader')
+<?php } ?>
+@endif
 @yield('content')
 
 @if( url()->current() != url('cemeterys/cemeteryDetailPage' || 'cemeterys/cemeteryListView')) 

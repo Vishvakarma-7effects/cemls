@@ -11,7 +11,6 @@ class Cemetery extends Model
 	use HasFactory;
 
     protected $fillable = [
-        'cemetery_name'
+        'cemetery_name','image'
     ];
-    
 }

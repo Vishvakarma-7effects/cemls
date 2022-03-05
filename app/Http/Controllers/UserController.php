@@ -8,10 +8,11 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Cemetery;
 use App\Models\Mail;
 use App\Models\Mailinbox;
-use App\Models\Cemetery;
-
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -30,12 +31,10 @@ class UserController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
+   public function index(Request $request) {
        
-        //$users = User::orderBy('id','DESC')->get();
-        //$data['users'] = $users;
-        //    dd($request->get('cemetery_id'));
-        //return view('admin.users.index', compact('users'));
+	abort_if(Gate::denies('user_list'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
     $cemeteryDetail=[];
     if($request->get('cemetery_id')){
 
@@ -66,6 +65,9 @@ class UserController extends Controller {
      */
     public function create() {
         //
+        
+	abort_if(Gate::denies('user_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $roles = DB::table('roles')->get();
 
         $data['roles'] = $roles;
@@ -118,9 +120,13 @@ class UserController extends Controller {
     }
 
     public function edit(User $user) {
+        die('aa');
         //
+       // $roles = DB::table('roles')->get();
+
         $roles = DB::table('roles')->get();
 
+        $data['roles'] = $roles;
         // dd($user);
         return view('editUser', compact('user', 'roles'));
     }
@@ -134,17 +140,6 @@ class UserController extends Controller {
      */
     public function update(Request $request, User $user) {
         //
-
-         if($request->file('profile_image'))
-        {
-            $file = $request->file('profile_image'); // input name
-            $destinationPath = 'uploads'; 
-            $file->move($destinationPath,$file->getClientOriginalName()); // get this is orignal file name
-            $image = $file->getClientOriginalName();
-
-            $user->profile_image = $image;
-        
-        }
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
@@ -175,6 +170,7 @@ class UserController extends Controller {
     //     return Redirect::to('user.index')->with('message', 'User Deleted Sucessfully');
     // }
     {
+      //  dd($user);
         $user->delete();
 
    return redirect()->route('user.index')
@@ -185,6 +181,8 @@ class UserController extends Controller {
 
     public function destroy(User $user)
     {
+	    abort_if(Gate::denies('user_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $user->delete();
 
         return redirect()->route('users.index')
@@ -231,7 +229,7 @@ class UserController extends Controller {
             $user->profile_image = $image;
         
         }
-
+        
         if($request->username)
         {
             $user->name = $request->username;
@@ -276,19 +274,20 @@ class UserController extends Controller {
     
     public function getEdit($id)
     {
-        $roles = DB::table('roles')->get();
+        
+	abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+         $roles = DB::table('roles')->get();
 
 
         $data['roles'] = $roles;
-        // return view('createUser', $data);
-       
         $users = User::where('id',$id)->first();
-        return view('admin.users.getEdit',compact('users','roles'));
+              return view('admin.users.getEdit',compact('users','roles'));
+
     }
     public function updateUser(Request $request) 
 
     {
-
         // dd($request->all());
         if(!isset($request->new_password))
         {
@@ -313,7 +312,6 @@ class UserController extends Controller {
         $users->email = $request->email;
          $users->feature = $request->feature;
         $users->userrole = $request->userrole;
-
         if(isset($request->password))
         {
             $pass = Hash::make($request->password);
@@ -338,11 +336,16 @@ class UserController extends Controller {
     }
     public function mailbox(){
 
+        $mails = Mail::with(['creator'])->get();
+        
+        // dd('echo');
+
+        return view('admin.mailbox',compact('mails'));
 
        
-           $cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
+        //   $cemetery360_inboxs = Mailinbox::orderBy('id', 'DESC')->paginate(10);
     
-        return View('admin.mailbox')->with('cemetery360_inboxs', $cemetery360_inboxs);
+        // return View('admin.mailbox')->with('cemetery360_inboxs', $cemetery360_inboxs);
 
         //return view('admin.mailbox',compact('mails'));
     }
@@ -384,7 +387,8 @@ class UserController extends Controller {
 
         return response()->json($response, 200);
     }
-    public function getCemeteryList(Request $request){
+  
+  public function getCemeteryList(Request $request){
         $user_id = $request->input('user_id');
         if ($user_id) {
             $cemeteryList = Cemetery::join('cemeteries_users','cemetery.id','=','cemeteries_users.cemetery_id')
@@ -394,6 +398,5 @@ class UserController extends Controller {
         return response()->json($result);
         }
     }
-  
 
 }

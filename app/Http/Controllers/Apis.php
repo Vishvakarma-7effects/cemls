@@ -48,7 +48,7 @@ class Apis extends Controller
        $cemetery = new Cemetery;
                $cemetery->cemetery_name = $request->cemetery_name;
 
-$cemetery->country = $request->country;
+$cemetery->countries_id = $request->countries_id;
                $cemetery->state = $request->state;
                $cemetery->city = $request->city;
                $cemetery->address = $request->address;
@@ -148,11 +148,12 @@ $plots =  DB::table('plot')
     {
         if(request()->ajax())
         {
-            if(!empty($request->keyword))
+            //dd(request()->formData[0]['value']);
+            if(!empty(request()->formData[0]))
             {
                 $cemeterys =  DB::table('cemetery')
                             ->select('id','cemetery_name','address','latitude','longitude')
-                            ->where('cemetery_name', $request->keyword)->get();
+                            ->where('cemetery_name', request()->formData[0]['value'])->get();
             }
             else
             {

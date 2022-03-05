@@ -4,7 +4,7 @@ body {font-family: 'SofiaPro', sans-serif; margin: 0;
     padding: 0; background:#fbfbfb;
     font-size: 14px;
     color: #3e454b; font-weight:normal;
-    }
+}
 
 @font-face {
   font-family: SofiaPro;
@@ -1146,6 +1146,8 @@ margin-left: 0;
     font-size: 14px;
 }
 }
+
+
 
 @media(max-width: 414px){
 .btn_lg{min-width:initial; margin-top:6px; width:100%;}

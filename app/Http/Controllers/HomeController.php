@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Package;
 use App\Models\Organizer;
 use App\Models\User;
@@ -26,7 +27,7 @@ class HomeController extends Controller {
 
     public function __construct() {
         $this->timeStamp = Carbon::now()->toDateTimeString();
-       // $this->event_model = new Event();
+        $this->event_model = new Event();
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     }
 

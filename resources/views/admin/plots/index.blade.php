@@ -15,9 +15,11 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    @can('plot_add')
     <div class="text-right mb-4 pb-1">
         <a class="btn_mid btn_green" href="{{ url('plots/create')}}">Add Plot</a>
     </div>
+    @endcan
 
     <div class="row">
         <div class="col-lg-2 col-12">
@@ -113,8 +115,8 @@
 
             <div class="searchbx position-relative">
               <form action="{{ route('plots.index') }}" name="plotform" method="GET" role="search">
-          
-                            <select class="form-control" id="cemetery_id"  name="cemetery_id[]" multiple>
+
+                            <select id="cemetery_id" class="form-control " name="cemetery_id[]" multiple >
                                             <option value=""> </option>
                                             @foreach($cemetery as $key=> $row)
                                             @if(in_array($row->id,$cemetery_ids))
@@ -124,7 +126,8 @@
                                             @endif
                                             @endforeach
                                         </select>
-                                  
+                                        
+
                          
                                      
 
@@ -216,20 +219,32 @@
                                     <div class="moption">
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                     <ul class="moptionul">
+                                        
                                         <i class="fa fa-caret-up"></i>
+                                        
+                                        @can('plot_detail')
+                                        <li><a href="javascript:void(0)">Detail</a></li>
+                                        @endcan
+                                        @can('plot_edit')
                                         <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
+                                        @endcan
+                                        @can('plot_delete')
                                         <li>
+                                        
+                                        
                                         <form action="{{ route('plots.destroy',$row->id) }}" method="POST">
    
                     
 
-   @csrf
-   @method('DELETE')
-
-   <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+                                               @csrf
+                                               @method('DELETE')
+                                            
+                                               <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                                 
                                         </li>
+                                        @endcan
+                                        
                                     </ul>
                                     </div>
                                 </td>
@@ -297,9 +312,18 @@
                                             <td width="40" align="right">
                                                 <div class="moption">
                                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                    
+                                        @can('plot_detail')
+                                        <li><a href="javascript:void(0)">Detail</a></li>
+                                        @endcan
+                                        @can('plot_edit')
+                                        
                                                     <ul class="moptionul">
                                                         <i class="fa fa-caret-up"></i>
                                                         <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
+                                        @endcan
+                                                       
+                                         @can('plot_delete')     
                                                         <li>
                                                             <form action="{{ route('plots.destroy',$row->id) }}" method="POST">
                                                                     @csrf
@@ -307,6 +331,7 @@
                                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                                             </form>
                                                         </li>
+                                                        @endcan
                                                     </ul>
                                                 </div>
                                             </td>
@@ -376,9 +401,17 @@
                                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                                 <ul class="moptionul">
                                                                     <i class="fa fa-caret-up"></i>
-                                                                    <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
-                                                                    <li>
-                                                                    <form action="{{ route('plots.destroy',$row->id) }}" method="POST">
+                                         @can('plot_detail')
+                                           <li><a href="javascript:void(0)">Detail</a></li>
+                                           @endcan
+                                           
+                                                                   
+                                           @can('plot_edit')
+                                           <li><a href="{{ url('plots/'.$row->id.'/edit')}}">Edit</a></li>
+                                           @endcan
+                                           
+                                        @can('plot_delete')
+                                            <li><form action="{{ route('plots.destroy',$row->id) }}" method="POST">
                             
                                                                         @csrf
                                                                         @method('DELETE')
@@ -387,6 +420,7 @@
                                                                     </form>
                                                                             
                                                                     </li>
+                                                                    @endcan
                                                                 </ul>
                                                                 </div>
                                                             </td>

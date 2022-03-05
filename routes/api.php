@@ -16,14 +16,19 @@ use App\Models\Plot;
 |
 */
 
+Route::post('login', [Apis::class,'login']);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/first-api', [Apis::class,'firstapi']);
-Route::post('/cemetery-create', [Apis::class,'cemeterycreate']);
-Route::post('/plot-create', [Apis::class,'plotcreate']);
 
-Route::get('cemetery/{id}/', [Apis::class, 'getallplots']);
-Route::get('cemetery/{cemeteryid}/plot/{plotid}', [Apis::class, 'getplotshow']);
-Route::get('/cemeteries', [Apis::class, 'getallcemeteries']);
-Route::get('/cemeteries/{id}', [Apis::class, 'getallcemeteryshow']);
+Route::middleware('auth:api')->group( function () {
+    Route::get('/first-api', [Apis::class,'firstapi']);
+    Route::post('/cemetery-create', [Apis::class,'cemeterycreate']);
+    Route::post('/plot-create', [Apis::class,'plotcreate']);
+
+    Route::get('cemetery/{id}/', [Apis::class, 'getallplots']);
+    Route::get('cemetery/{cemeteryid}/plot/{plotid}', [Apis::class, 'getplotshow']);
+    Route::get('/cemeteries', [Apis::class, 'getallcemeteries']);
+    Route::get('/cemeteries/{id}', [Apis::class, 'getallcemeteryshow']);
+});

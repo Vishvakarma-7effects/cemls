@@ -382,7 +382,7 @@
 
 <script src="{{ asset('newPublic/assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('newPublic/assets/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyA9ylALS3mSrUHPkBBFocquYzOjC9eirNo"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyA9ylALS3mSrUHPkBBFocquYzOjC9eirNo"></script>
 <script src="{{ asset('newPublic/assets/js/richmarker-compiled.js') }}"></script>
 <script src="{{ asset('newPublic/assets/js/markerclusterer_packed.js') }}"></script>
 <script src="{{ asset('newPublic/assets/js/infobox.js') }}"></script>
@@ -455,7 +455,7 @@ $(document).ready(function($) {
             zoom: mapDefaultZoom,
             scrollwheel: scrollWheel,
             center: new google.maps.LatLng(centerLatitude, centerLongitude),
-            mapTypeId: "roadmap",
+            mapTypeId: "satellite",
             disableDefaultUI: controls,
             zoomControlOptions: {
                 position: eval(zoomPosition)
@@ -473,7 +473,7 @@ $(document).ready(function($) {
 
     function loadData(parameters) {
         $.ajax({
-            url: "http://127.0.0.1:8000/getallcemeteries",
+            url: "https://new.cemeterylistingservice.com/getallcemeteries",
             dataType: "json",
             method: "GET",
             cache: false,

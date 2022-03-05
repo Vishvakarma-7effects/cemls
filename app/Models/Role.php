@@ -10,7 +10,6 @@ class Role extends Model {
 
     use HasFactory;
 
-
     public function checkRolePermission($role_id, $permission_id) {
 
         $count = DB::table('role_has_permissions')

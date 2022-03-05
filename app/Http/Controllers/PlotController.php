@@ -100,20 +100,4 @@ class PlotController extends Controller
 				{
 								//
 				}
-
-public function updateFeature(Request $request) {
-
-          $cemetery = Plot::where('id',$request->event_id)->update([
-                        'feature'=>$request->value,
-                       
-                ]);
-        
-
-        $response['status'] = true;
-        $response['msg'] = 'Upadted';
-
-        return response()->json($response, 200);
-    }
-
-
 }

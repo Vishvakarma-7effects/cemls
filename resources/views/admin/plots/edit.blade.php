@@ -500,7 +500,7 @@ if(!empty($gettitle[0]->locationtitle6))
 
                             ?>
                                 <td width="76" style="padding: 4px;">
-                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteplot" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
+                              <a href="#" class="btn btn-sm btn-outline-danger py-0 deleteMovie" style="font-size: 0.8em;" id="deleteMovie" data-id="{{ $galleryimage->id }}">
    <i class="fa fa-trash-can" aria-hidden="true"></i>
 </a>
 
@@ -832,7 +832,7 @@ $(function() {
 <script>
 
      $(function() {
-  $(".deleteplot").click(function (e) {
+  $(".deleteMovie").click(function (e) {
     if(!confirm("Do you really want to delete plot image?")) {
        return false;
      }

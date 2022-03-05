@@ -62,12 +62,10 @@ class MailboxController extends Controller
         $mailinbox = Mailinbox::where('id',$id)->delete();
         return Redirect::to('mailbox.index')->with('message', 'Mailinbox Deleted Sucessfully');
     }
-
-    public function deleteAll(Request $request)
+  public function deleteAll(Request $request)
     {
         $ids = $request->ids;
         Mailinbox::whereIn('ID',explode(",",$ids))->delete();
         return response()->json(['success'=>"Mailbox Data Deleted successfully."]);
     }
-
 }

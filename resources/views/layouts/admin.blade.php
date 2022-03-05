@@ -105,9 +105,7 @@
     <script src="{{ asset('newPublic/js/jquery.min.js') }}"></script>
     <script src="{{ asset('newPublic/js/script.js') }}"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
@@ -140,8 +138,6 @@ function initMap() {
 google.maps.event.addListener(marker1, 'dragend', function (event) {
     document.getElementById("latbox").innerHTML = this.getPosition().lat();
     document.getElementById("lngbox").innerHTML = this.getPosition().lng();
-        document.getElementById("cemetery_latitude").value  = this.getPosition().lat();
-    document.getElementById("cemetery_longitude").value  = this.getPosition().lng();
 });
 
     const card = document.getElementById("pac-card");
@@ -246,25 +242,6 @@ google.maps.event.addListener(marker1, 'dragend', function (event) {
         input.value = "";
     });
 }
-
-function codeAddress() {
-    var address = document.getElementById('pac-input').value;
-    
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-  }
-
-
-
         </script>
 
     

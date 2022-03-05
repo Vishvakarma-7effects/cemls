@@ -1391,7 +1391,7 @@ background-size: cover; text-align: center;
 .dtlpopup .modal-content{border:0}
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background:#bebebe !important;}
 .mCSB_scrollTools .mCSB_draggerRail{background-color: #fff !important}
-.dtlpopup .modal-dialog{width: 900px;
+.dtlpopup .modal-dialog{width: 100%;
     max-width: 96%;
     margin: 0 auto;
     /* padding: 0 !important; */

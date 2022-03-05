@@ -2,7 +2,13 @@
 
 @section('content')
 
-<section class="inner_pages clearfix" id="mflist">
+<style>
+.main-slides {
+    left: 0px!important;
+}
+</style>
+  
+<section class="inner_pages   clearfix" id="mflist">
   <div class="dtlpopup" id="mdtlModal1" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
   <div class="modal-dialog mCustomScrollbar" role="document">
     <div class="modal-content">
@@ -19,11 +25,11 @@
         </div>
       </div>
       <div id="slider1_container"
-        style="position: relative; top: 0px; left: 0px; width: 900px; height: 477px; background: #fff; overflow: hidden;">
-        <div u="slides"
-          style="cursor: move; position: absolute; left: 0px; top: 0px; width: 900px; height: 356px; overflow: hidden;">
-          <div>
-            <img u="image" src="{{ asset('newPublic/images/slide/01.jpg') }}" />
+        style="position: relative; top: 0px; left: 0px; width: 100%; height: 477px; background: #fff; overflow: hidden;">
+        <div u="slides" class="main"
+          style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 356px; overflow: hidden;">
+          <div class="asd">
+            <img u="image"  src="{{ asset('newPublic/images/slide/01.jpg') }}" />
             <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-01.jpg') }}" />
           </div>
           <div>
@@ -80,7 +86,7 @@
         <!-- thumbnail navigator container -->
         <div u="thumbnavigator" class="jssort01" style="left: 0px; bottom: 0px;">
           <!-- Thumbnail Item Skin Begin -->
-          <div u="slides" style="cursor: default;">
+          <div u="slides" class="main-slides" style="cursor: default;">
             <div u="prototype" class="p">
               <div class=w>
                 <div u="thumbnailtemplate" class="t"></div>
@@ -104,9 +110,9 @@
                 <div class="pricebx"><bdi>Price</bdi><sup>$</sup> 3,000 <span>Onwards</span></div>
               </div>
             </div>
-            <p>Cemetery360¬Æ Software provides the industry a way to promote their business and offerings remotely,
+            <p>Cemetery360è¢Ó Software provides the industry a way to promote their business and offerings remotely,
               during in-home presentations, and year-round, where weather conditions restrict in-person visits.
-              Cemetery360¬Æ Software captures ground view 360 imagery with our own capturing and recording equipment.</p>
+              Cemetery360è¢Ó Software captures ground view 360 imagery with our own capturing and recording equipment.</p>
             <p><a href="#">Read More</a></p>
             {{-- <div class="row">
               <div class="col-6 fw-414">

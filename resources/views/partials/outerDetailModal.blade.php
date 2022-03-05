@@ -1,5 +1,27 @@
 <!-- Modal -->
 
+<style>
+ a.text-end.details-page {
+    text-align: end;
+    color: #1d1d1d;
+    opacity: 1;
+    border: 1px solid #eaeaea;
+    width: 29px;
+    height: 29px;
+    text-align: center;
+    /* font-size: 38px; */
+    font-weight: 100;
+    line-height: 13px;
+    display: flex;
+    position: absolute;
+    right: 65px;
+    top: 18px;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+
 <div class="modal fade dtlpopup" id="mdtlModal" tabindex="-1" role="dialog"       aria-labelledby="searchModalLabel"
   aria-hidden="true">
   <div class="modal-dialog mCustomScrollbar" role="document">
@@ -7,6 +29,10 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
+      
+      
+        <a href="https://new.cemeterylistingservice.com/cemetery/cemls" class="text-end details-page"><i class="fas fa-info"></i></a>
+        
 
       
       <div class="clearfix pphead">
@@ -19,9 +45,9 @@
         </div>
       </div>
       <div id="slider1_container"
-        style="position: relative; top: 0px; left: 0px; width: 900px; height: 477px; background: #fff; overflow: hidden;">
+        style="position: relative; top: 0px; left: 0px; width: 100%; height: 477px; background: #fff; overflow: hidden;">
         <div u="slides"
-          style="cursor: move; position: absolute; left: 0px; top: 0px; width: 900px; height: 356px; overflow: hidden;">
+          style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 356px; overflow: hidden;">
           <div>
             <img u="image" src="{{ asset('newPublic/images/slide/01.jpg') }}" />
             <img u="thumb" src="{{ asset('newPublic/images/slide/thumb-01.jpg') }}" />
@@ -97,7 +123,8 @@
           <div class="ppinner">
             <div class="mdtlp clearfix">
               <div class="mdtlp_lft">
-                <address>CemLS #41</address>
+                                  <address>CemLS #41</address>
+
                 <h2 class="mdtlphead">St. Josephs Cemetery</h2>
                 <address>Sacramento CA</address>
               </div>
@@ -140,21 +167,23 @@
               </div>  --}}
 
               {{-- <div class="agentcnt"> --}}
+              <form method="post" action="{{url('storecontact')}}">
+                @csrf
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter Name" id="name" auotfill="false">
+                    <input type="text" name="sender_name"  class="form-control" placeholder="Enter Name" id="name" auotfill="false">
                     </div>
                   </div>
 
                   <div class="col-lg-12">
                     <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Enter email" id="email" auotfill="false">
+                    <input type="email" class="form-control" name="sender_email" placeholder="Enter email" id="email" auotfill="false">
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Enter message" id="message" auotfill="false">
+                     <input type="text" class="form-control" placeholder="Enter message" name="sender_message" id="message" auotfill="false">
                     </div>
 
                   </div>
@@ -166,7 +195,7 @@
 
                 </div>
 
-
+                </form>
                              
 
                   

@@ -2,6 +2,17 @@
 
 @section('content')
 
+<style>
+    button.btn.btn-primary.delete_all {
+    float: right;
+    margin: 10px 10px;
+}
+
+input#master {
+    margin: 20px 5px;
+}
+</style>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
@@ -47,7 +58,7 @@
             <div class="searchbx position-relative">
             <form action="{{ route('mailbox.index') }}" method="GET" role="search">
 
-                <input type="text" class="form-control" id="" name="term" placeholder="Sender Name or Email or Cemetery Title"  value="@if(null !==request('term')) {{request('term')}}   @endif">
+                <input type="text" class="form-control" id="" name="term" placeholder="Sender Name or Sender Email or Cemetery Title"  value="@if(null !==request('term')) {{request('term')}}   @endif">
                <a href="#"><i class="fa fa-search"></i></a>
             </form>
             </div>
@@ -83,7 +94,7 @@
                 <table class="table main_table mb-0">
                       <tbody>
                         
-                         &nbsp; &nbsp; <input type="checkbox" id="master"> <span style="margin-right:5px;margin-left:5px;"><b>All</b></span> <button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ url('allmaildatadelete') }}">Delete All Selected</button>
+                         &nbsp; &nbsp;<input type="checkbox" id="master"><span style="margin-right:5px;margin-left:5px;"><b>All</b></span> <button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ url('allmaildatadelete') }}">Delete All Selected</button>
                       
 <?php $i=1; ?>
                          @foreach($cemetery360_inboxs as $cemetery360_inbox)
