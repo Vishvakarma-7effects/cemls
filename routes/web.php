@@ -73,6 +73,7 @@ Route::get('cemetery/dataSync', [CemeteryController::class, 'dataSync'])->middle
 Route::get('cemetery/getEdit', [CemeteryController::class, 'getEdit'])->middleware('auth');
 Route::get('cemetery/cemeteryListDetails', [CemeteryController::class, 'cemeteryListDetails']);
 Route::get('cemetery/cemeteryListView', [CemeteryController::class, 'cemeteryListView']);
+Route::get('cemetery/cemeteryListViewNew', [CemeteryController::class, 'cemeteryListViewNew']);
 
 Route::get('cemetery/{id}', [CemeteryController::class, 'cemeteryDetailPage']);
 Route::get('cemetery/widget', [CemeteryController::class, 'cemeteryDetailPagenew']);

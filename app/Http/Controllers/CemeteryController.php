@@ -457,9 +457,13 @@ if ($response->status == 'OK') {
         }
         public function cemeteryListView(Request $request)
         {
-                return view('admin.cemetries.cemeteryListView');
+            return view('admin.cemetries.cemeteryListView');
         }
 
+        public function cemeteryListViewNew(Request $request)
+        {
+            return view('admin.cemetries.cemeteryListViewNew');
+        }
         
         public function cemeteryListDetails(Request $request)
         {
@@ -544,10 +548,7 @@ if ($response->status == 'OK') {
 
     return implode('', $rand);
 }
-        public function cemeteryListViewNew(Request $request)
-                {
-                                return view('admin.cemetries.cemeteryListViewNew');
-                }
+        
                 
                 public function storecontact(Request $request){
 //return $request;
