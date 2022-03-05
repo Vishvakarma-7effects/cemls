@@ -382,7 +382,7 @@
 
 <script src="{{ asset('newPublic/assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('newPublic/assets/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyA9ylALS3mSrUHPkBBFocquYzOjC9eirNo"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyA9ylALS3mSrUHPkBBFocquYzOjC9eirNo"></script>
 <script src="{{ asset('newPublic/assets/js/richmarker-compiled.js') }}"></script>
 <script src="{{ asset('newPublic/assets/js/markerclusterer_packed.js') }}"></script>
 <script src="{{ asset('newPublic/assets/js/infobox.js') }}"></script>
@@ -455,7 +455,7 @@ $(document).ready(function($) {
             zoom: mapDefaultZoom,
             scrollwheel: scrollWheel,
             center: new google.maps.LatLng(centerLatitude, centerLongitude),
-            mapTypeId: "satellite",
+            mapTypeId: "roadmap",
             disableDefaultUI: controls,
             zoomControlOptions: {
                 position: eval(zoomPosition)
@@ -467,13 +467,13 @@ $(document).ready(function($) {
         //==============================================================================================================
         // LOAD DATA
         // =============================================================================================================
-       // loadData();
+        loadData();
 
     }
 
     function loadData(parameters) {
         $.ajax({
-            url: "https://new.cemeterylistingservice.com/getallcemeteries",
+            url: "http://127.0.0.1:8000/getallcemeteries",
             dataType: "json",
             method: "GET",
             cache: false,
@@ -693,7 +693,7 @@ $(document).ready(function($) {
         */
         infoboxHtml.innerHTML =
         '<div class="ts-infobox" data-ts-id="'+ loadedMarkersData[i]["id"] +'">' +
-            '<img src="{{ asset("newPublic/assets/img/infobox-close.svg ") }}" class="ts-close">' +
+            '<img src="assets/img/infobox-close.svg" class="ts-close">' +
 
             ( ( loadedMarkersData[i]["ribbon"] !== undefined ) ? '<div class="ts-ribbon">'+ loadedMarkersData[i]["ribbon"] +'</div>' : "" ) +
             ( ( loadedMarkersData[i]["ribbon_corner"] !== undefined ) ? '<div class="ts-ribbon-corner"><span>'+ loadedMarkersData[i]["ribbon_corner"] +'</span></div>' : "" ) +
